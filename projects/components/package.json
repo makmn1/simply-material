@@ -1,0 +1,16 @@
+{
+  "name": "components",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0"
+  },
+  "dependencies": {
+    "motion": "^12.23.24",
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "angular-eslint": "^20.5.1"
+  }
+}
