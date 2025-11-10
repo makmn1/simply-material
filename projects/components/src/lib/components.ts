@@ -1,3 +1,3 @@
-export * from './button/button'
-export * from './button/testing';
-export * from './ripple/ripple'
+export * from './buttons/button/button'
+export * from './buttons/button/testing';
+export * from '../miscellaneous/ripple/ripple'
