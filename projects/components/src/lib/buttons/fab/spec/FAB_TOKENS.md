@@ -9,12 +9,12 @@
 | FAB container shape  | `md.sys.shape.corner.large` |
 
 ## FAB - Size - Medium
-| Name                 | Value                       |
-|----------------------|-----------------------------|
-| FAB container height | `56dp`                      |
-| FAB container width  | `56dp`                      |
-| FAB icon size        | `24dp`                      |
-| FAB container shape  | `md.sys.shape.corner.large` |
+| Name                        | Value                                 |
+|-----------------------------|---------------------------------------|
+| FAB medium container height | `80dp`                                |
+| FAB medium container width  | `80dp`                                |
+| FAB medium icon size        | `28dp`                                |
+| FAB medium container shape  | `md.sys.shape.corner.large-increased` |
 
 ## FAB - Size - Large
 | Name                       | Value                             |
@@ -50,12 +50,12 @@
 | FAB tonal primary focused icon color          | `md.sys.color.on-primary-container`      |
 
 ### Pressed
-| Name                                          | Value                                    |
-|-----------------------------------------------|------------------------------------------|
-| FAB tonal primary focused container elevation | `md.sys.elevation.level3`                |
-| FAB tonal primary focused state layer color   | `md.sys.color.on-primary-container`      |
-| FAB tonal primary focused state layer opacity | `md.sys.state.focus.state-layer-opacity` |
-| FAB tonal primary focused icon color          | `md.sys.color.on-primary-container`      |
+| Name                                          | Value                                      |
+|-----------------------------------------------|--------------------------------------------|
+| FAB tonal primary pressed container elevation | `md.sys.elevation.level3`                  |
+| FAB tonal primary pressed state layer color   | `md.sys.color.on-primary-container`        |
+| FAB tonal primary pressed state layer opacity | `md.sys.state.pressed.state-layer-opacity` |
+| FAB tonal primary pressed icon color          | `md.sys.color.on-primary-container`        |
 
 ## FAB - Color - Tonal Secondary
 ### Enabled
@@ -83,12 +83,12 @@
 | FAB tonal secondary focused icon color          | `md.sys.color.on-secondary-container`    |
 
 ### Pressed
-| Name                                            | Value                                    |
-|-------------------------------------------------|------------------------------------------|
-| FAB tonal secondary focused container elevation | `md.sys.elevation.level3`                |
-| FAB tonal secondary focused state layer color   | `md.sys.color.on-secondary-container`    |
-| FAB tonal secondary focused state layer opacity | `md.sys.state.focus.state-layer-opacity` |
-| FAB tonal secondary focused icon color          | `md.sys.color.on-secondary-container`    |
+| Name                                            | Value                                      |
+|-------------------------------------------------|--------------------------------------------|
+| FAB tonal secondary pressed container elevation | `md.sys.elevation.level3`                  |
+| FAB tonal secondary pressed state layer color   | `md.sys.color.on-secondary-container`      |
+| FAB tonal secondary pressed state layer opacity | `md.sys.state.pressed.state-layer-opacity` |
+| FAB tonal secondary pressed icon color          | `md.sys.color.on-secondary-container`      |
 
 ## FAB - Color - Tonal Tertiary
 ### Enabled
@@ -110,10 +110,10 @@
 ### Focused
 | Name                                           | Value                                    |
 |------------------------------------------------|------------------------------------------|
-| FAB tonal tertiary hovered container elevation | `md.sys.elevation.level4`                |
-| FAB tonal tertiary hovered state layer color   | `md.sys.color.on-tertiary-container`     |
-| FAB tonal tertiary hovered state layer opacity | `md.sys.state.hover.state-layer-opacity` |
-| FAB tonal tertiary hovered icon color          | `md.sys.color.on-tertiary-container`     |
+| FAB tonal tertiary focused container elevation | `md.sys.elevation.level3`                |
+| FAB tonal tertiary focused state layer color   | `md.sys.color.on-tertiary-container`     |
+| FAB tonal tertiary focused state layer opacity | `md.sys.state.focus.state-layer-opacity` |
+| FAB tonal tertiary focused icon color          | `md.sys.color.on-tertiary-container`     |
 
 ### Pressed
 | Name                                           | Value                                      |
@@ -125,12 +125,12 @@
 
 ## FAB - Primary
 ### Enabled
-| Name                                           | Value                                      |
-|------------------------------------------------|--------------------------------------------|
-| FAB tonal tertiary pressed container elevation | `md.sys.elevation.level3`                  |
-| FAB tonal tertiary pressed state layer color   | `md.sys.color.on-tertiary-container`       |
-| FAB tonal tertiary pressed state layer opacity | `md.sys.state.pressed.state-layer-opacity` |
-| FAB tonal tertiary pressed icon color          | `md.sys.color.on-tertiary-container`       |
+| Name                               | Value                     |
+|------------------------------------|---------------------------|
+| FAB primary container color        | `md.sys.color.primary`    |
+| FAB primary container shadow color | `md.sys.color.shadow`     |
+| FAB primary container elevation    | `md.sys.elevation.level3` |
+| FAB primary icon color             | `md.sys.color.on-primary` |
 
 ### Hovered
 | Name                               | Value                     |
@@ -149,14 +149,21 @@
 | FAB primary focused icon color          | `md.sys.color.on-primary`                |
 
 ### Pressed
-| Name                                    | Value                                    |
-|-----------------------------------------|------------------------------------------|
-| FAB primary focused container elevation | `md.sys.elevation.level3`                |
-| FAB primary focused state layer color   | `md.sys.color.on-primary`                |
-| FAB primary focused state layer opacity | `md.sys.state.focus.state-layer-opacity` |
-| FAB primary focused icon color          | `md.sys.color.on-primary`                |
+| Name                                    | Value                                      |
+|-----------------------------------------|--------------------------------------------|
+| FAB primary pressed container elevation | `md.sys.elevation.level3`                  |
+| FAB primary pressed state layer color   | `md.sys.color.on-primary`                  |
+| FAB primary pressed state layer opacity | `md.sys.state.pressed.state-layer-opacity` |
+| FAB primary pressed icon color          | `md.sys.color.on-primary`                  |
 
 ## FAB - Secondary
+TODO: At the time of writing (November 2025), the token names for Hovered, Focused, and Pressed
+start with "FAB tonal" instead of "FAB secondary". This seems like a mistake, and if not, definitely confusing.
+I am using discretion here and replacing the "FAB tonal" with "FAB secondary". I reported this issue to Google
+via the Feedback option on the page on November 11th, 2025. Will update this once I receive a response.
+
+-- makmn1
+
 ### Enabled
 | Name                                 | Value                       |
 |--------------------------------------|-----------------------------|
@@ -166,28 +173,28 @@
 | FAB secondary icon color             | `md.sys.color.on-secondary` |
 
 ### Hovered
-| Name                                  | Value                                    |
-|---------------------------------------|------------------------------------------|
-| FAB tonal hovered container elevation | `md.sys.elevation.level4`                |
-| FAB tonal hovered state layer color   | `md.sys.color.on-secondary`              |
-| FAB tonal hovered state layer opacity | `md.sys.state.hover.state-layer-opacity` |
-| FAB tonal hovered icon color          | `md.sys.color.on-secondary`              |
+| Name                                      | Value                                    |
+|-------------------------------------------|------------------------------------------|
+| FAB secondary hovered container elevation | `md.sys.elevation.level4`                |
+| FAB secondary hovered state layer color   | `md.sys.color.on-secondary`              |
+| FAB secondary hovered state layer opacity | `md.sys.state.hover.state-layer-opacity` |
+| FAB secondary hovered icon color          | `md.sys.color.on-secondary`              |
 
 ### Focused
-| Name                                  | Value                                    |
-|---------------------------------------|------------------------------------------|
-| FAB tonal focused container elevation | `md.sys.elevation.level3`                |
-| FAB tonal focused state layer color   | `md.sys.color.on-secondary`              |
-| FAB tonal focused state layer opacity | `md.sys.state.focus.state-layer-opacity` |
-| FAB tonal focused icon color          | `md.sys.color.on-secondary`              |
+| Name                                      | Value                                    |
+|-------------------------------------------|------------------------------------------|
+| FAB secondary focused container elevation | `md.sys.elevation.level3`                |
+| FAB secondary focused state layer color   | `md.sys.color.on-secondary`              |
+| FAB secondary focused state layer opacity | `md.sys.state.focus.state-layer-opacity` |
+| FAB secondary focused icon color          | `md.sys.color.on-secondary`              |
 
 ### Pressed
-| Name                                    | Value                                      |
-|-----------------------------------------|--------------------------------------------|
-| FAB tonal pressed container elevation   | `md.sys.elevation.level3`                  |
-| FAB secondary pressed state layer color | `md.sys.color.on-secondary`                |
-| FAB tonal pressed state layer opacity   | `md.sys.state.pressed.state-layer-opacity` |
-| FAB tonal secondary pressed icon color  | `md.sys.color.on-secondary`                |
+| Name                                      | Value                                      |
+|-------------------------------------------|--------------------------------------------|
+| FAB secondary pressed container elevation | `md.sys.elevation.level3`                  |
+| FAB secondary pressed state layer color   | `md.sys.color.on-secondary`                |
+| FAB secondary pressed state layer opacity | `md.sys.state.pressed.state-layer-opacity` |
+| FAB secondary pressed icon color          | `md.sys.color.on-secondary`                |
 
 ## FAB - Tertiary
 ### Enabled
@@ -199,12 +206,12 @@
 | FAB tertiary icon color             | `md.sys.color.on-tertiary` |
 
 ### Hovered
-| Name                                         | Value                                    |
-|----------------------------------------------|------------------------------------------|
-| FAB tertiary hovered container elevation     | `md.sys.elevation.level4`                |
-| FAB tonal tertiary hovered state layer color | `md.sys.color.on-tertiary`               |
-| FAB tertiary hovered state layer opacity     | `md.sys.state.hover.state-layer-opacity` |
-| FAB tertiary hovered icon color              | `md.sys.color.on-tertiary`               |
+| Name                                     | Value                                    |
+|------------------------------------------|------------------------------------------|
+| FAB tertiary hovered container elevation | `md.sys.elevation.level4`                |
+| FAB tertiary hovered state layer color   | `md.sys.color.on-tertiary`               |
+| FAB tertiary hovered state layer opacity | `md.sys.state.hover.state-layer-opacity` |
+| FAB tertiary hovered icon color          | `md.sys.color.on-tertiary`               |
 
 ### Focused
 | Name                                     | Value                                    |

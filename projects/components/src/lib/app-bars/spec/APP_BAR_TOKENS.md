@@ -79,17 +79,17 @@ Note: The app search bar uses the search component with the default tokens. Refe
 | App bar medium subtitle (Font tracking)                | `md.sys.typescale.body-medium.tracking`        |
 
 ## App Bar - Size - Large Flexible
-| Name                                                   | Value                                        |
-|--------------------------------------------------------|----------------------------------------------|
-| App bar medium flexible container height               | `112dp`                                      |
-| App bar medium flexible container height with subtitle | `136dp`                                      |
-| App bar large title (Font name)                        | `md.sys.typescale.display-small.font`        |
-| App bar large title (Font weight)                      | `md.sys.typescale.display-small.weight`      |
-| App bar large title (Font size)                        | `md.sys.typescale.display-small.size`        |
-| App bar large title (Line height)                      | `md.sys.typescale.display-small.line-height` |
-| App bar large title (Font tracking)                    | `md.sys.typescale.display-small.tracking`    |
-| App bar large subtitle (Font name)                     | `md.sys.typescale.body-large.font`           |
-| App bar large subtitle (Font weight)                   | `md.sys.typescale.body-large.weight`         |
-| App bar large subtitle (Font size)                     | `md.sys.typescale.body-large.size`           |
-| App bar large subtitle (Line height)                   | `md.sys.typescale.body-large.line-height`    |
-| App bar large subtitle (Font tracking)                 | `md.sys.typescale.body-large.tracking`       |
+| Name                                                  | Value                                        |
+|-------------------------------------------------------|----------------------------------------------|
+| App bar large flexible container height               | `120dp`                                      |
+| App bar large flexible container height with subtitle | `152dp`                                      |
+| App bar large title (Font name)                       | `md.sys.typescale.display-small.font`        |
+| App bar large title (Font weight)                     | `md.sys.typescale.display-small.weight`      |
+| App bar large title (Font size)                       | `md.sys.typescale.display-small.size`        |
+| App bar large title (Line height)                     | `md.sys.typescale.display-small.line-height` |
+| App bar large title (Font tracking)                   | `md.sys.typescale.display-small.tracking`    |
+| App bar large subtitle (Font name)                    | `md.sys.typescale.body-large.font`           |
+| App bar large subtitle (Font weight)                  | `md.sys.typescale.body-large.weight`         |
+| App bar large subtitle (Font size)                    | `md.sys.typescale.body-large.size`           |
+| App bar large subtitle (Line height)                  | `md.sys.typescale.body-large.line-height`    |
+| App bar large subtitle (Font tracking)                | `md.sys.typescale.body-large.tracking`       |

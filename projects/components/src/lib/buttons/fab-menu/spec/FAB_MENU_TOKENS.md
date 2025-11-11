@@ -54,10 +54,10 @@
 
 | Name                                                      | Value                                    |
 |-----------------------------------------------------------|------------------------------------------|
-| FAB menu primary close button hovered container elevation | `md.sys.elevation.level4`                |
-| FAB menu primary close button hovered state layer color   | `md.sys.color.on-primary`                |
-| FAB menu primary close button hovered state layer opacity | `md.sys.state.hover.state-layer-opacity` |
-| FAB menu primary close button hovered icon color          | `md.sys.color.on-primary`                |
+| FAB menu primary close button focused container elevation | `md.sys.elevation.level3`                |
+| FAB menu primary close button focused state layer color   | `md.sys.color.on-primary`                |
+| FAB menu primary close button focused state layer opacity | `md.sys.state.focus.state-layer-opacity` |
+| FAB menu primary close button focused icon color          | `md.sys.color.on-primary`                |
 
 ### Pressed
 

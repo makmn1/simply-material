@@ -179,14 +179,14 @@
 
 ## Icon button - Color - Outlined
 ### Enabled
-| Name                                                  | Value                             |
-|-------------------------------------------------------|-----------------------------------|
-| Icon button outlined color                            | `md.sys.color.outline-variant`    |
-| Icon button outlined color - toggle (unselected)      | `md.sys.color.outline-variant`    |
-| Icon button container color - toggle (selected)       | `md.sys.color.inverse-surface`    |
-| Icon button outlined icon color                       | `md.sys.color.on-surface-variant` |
-| Icon button outlined icon color - toggle (unselected) | `md.sys.color.on-surface-variant` |
-| Icon button outlined icon color - toggle (selected)   | `md.sys.color.inverse-on-surface` |
+| Name                                                     | Value                             |
+|----------------------------------------------------------|-----------------------------------|
+| Icon button outlined color                               | `md.sys.color.outline-variant`    |
+| Icon button outlined color - toggle (unselected)         | `md.sys.color.outline-variant`    |
+| Icon button outlined container color - toggle (selected) | `md.sys.color.inverse-surface`    |
+| Icon button outlined icon color                          | `md.sys.color.on-surface-variant` |
+| Icon button outlined icon color - toggle (unselected)    | `md.sys.color.on-surface-variant` |
+| Icon button outlined icon color - toggle (selected)      | `md.sys.color.inverse-on-surface` |
 
 ### Disabled
 | Name                                                       | Value                          |

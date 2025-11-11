@@ -78,14 +78,14 @@
 | Checkbox focus indicator offset    | `md.sys.state.focus-indicator.outer-offset` |
 
 ### Container
-| Name                                           | Value                     |
-|------------------------------------------------|---------------------------|
-| Checkbox unselected focus outline color        | `md.sys.color.on-surface` |
-| Checkbox unselected focus outline width        | `2dp`                     |
-| Checkbox selected focus container color        | `md.sys.color.primary`    |
-| Checkbox selected focus outline width          | `0`                       |
-| Checkbox unselected error focusd outline color | `md.sys.color.error`      |
-| Checkbox selected error focus container color  | `md.sys.color.error`      |
+| Name                                          | Value                     |
+|-----------------------------------------------|---------------------------|
+| Checkbox unselected focus outline color       | `md.sys.color.on-surface` |
+| Checkbox unselected focus outline width       | `2dp`                     |
+| Checkbox selected focus container color       | `md.sys.color.primary`    |
+| Checkbox selected focus outline width         | `0`                       |
+| Checkbox unselected error focus outline color | `md.sys.color.error`      |
+| Checkbox selected error focus container color | `md.sys.color.error`      |
 
 ### State layer
 | Name                                          | Value                                    |

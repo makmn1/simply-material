@@ -93,16 +93,10 @@
 
 ### Hovered
 #### Label text
-| Name                                     | Value                                    |
-|------------------------------------------|------------------------------------------|
-| Date unselected hover state layer color  | `md.sys.color.on-surface-variant`        |
-| Date selected hover state layer color    | `md.sys.color.on-primary`                |
-| Date today hover state layer color       | `md.sys.color.primary`                   |
-| Date hover state layer opacity           | `md.sys.state.hover.state-layer-opacity` |
-| Menu button hover state layer color      | `md.sys.color.on-surface-variant`        |
-| Menu button hover state layer opacity    | `md.sys.state.hover.state-layer-opacity` |
-| Menu list item hover state layer color   | `md.sys.color.on-surface`                |
-| Menu list item hover state layer opacity | `md.sys.state.hover.state-layer-opacity` |
+| Name                                   | Value                             |
+|----------------------------------------|-----------------------------------|
+| Menu button hover label text color	    | `md.sys.color.on-surface-variant` |
+| Menu list item hover label text color	 | `md.sys.color.on-surface`         |
 
 #### State layer
 | Name                                     | Value                                    |

@@ -13,3 +13,4 @@
 @import url("./state.css") layer(tokens);
 @import url("./ripples.css") layer(tokens);
 @import url("./components/button.css") layer(tokens);
+@import url("./components/app-bar.css") layer(tokens);

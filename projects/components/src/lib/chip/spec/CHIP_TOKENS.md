@@ -60,9 +60,9 @@
 | Assist chip elevated hover container elevation | `md.sys.elevation.level2` |
 
 ### Label text
-| Name                                           | Value                     |
-|------------------------------------------------|---------------------------|
-| Assist chip elevated hover container elevation | `md.sys.elevation.level2` |
+| Name                               | Value                     |
+|------------------------------------|---------------------------|
+| Assist chip hover label text color | `md.sys.color.on-surface` |
 
 ### State layer
 | Name                                  | Value                                    |
@@ -107,9 +107,9 @@
 
 ## Pressed (ripple)
 ### Container
-| Name                                   | Value                  |
-|----------------------------------------|------------------------|
-| Assist chip with icon focus icon color | `md.sys.color.primary` |
+| Name                                             | Value                     |
+|--------------------------------------------------|---------------------------|
+| Assist chip elevated pressed container elevation | `md.sys.elevation.level1` |
 
 ### Label text
 | Name                                 | Value                     |
@@ -376,11 +376,11 @@
 | Input chip with leading icon unselected leading icon color | `md.sys.color.on-surface-variant` |
 
 ### Trailing icon
-| Name                                                       | Value                             |
-|------------------------------------------------------------|-----------------------------------|
-| Input chip leading icon size                               | `18dp`                            |
-| Input chip with leading icon selected leading icon color   | `md.sys.color.primary`            |
-| Input chip with leading icon unselected leading icon color | `md.sys.color.on-surface-variant` |
+| Name                                                         | Value                                 |
+|--------------------------------------------------------------|---------------------------------------|
+| Input chip trailing icon size                                | `18dp`                                |
+| Input chip with trailing icon selected trailing icon color   | `md.sys.color.on-secondary-container` |
+| Input chip with trailing icon unselected trailing icon color | `md.sys.color.on-surface-variant`     |
 
 ## Disabled
 ### Container
@@ -436,10 +436,10 @@
 | Input chip with leading icon selected hover leading icon color   | `md.sys.color.primary` |
 
 ### Trailing icon
-| Name                                                             | Value                  |
-|------------------------------------------------------------------|------------------------|
-| Input chip with leading icon unselected hover leading icon color | `md.sys.color.primary` |
-| Input chip with leading icon selected hover leading icon color   | `md.sys.color.primary` |
+| Name                                                               | Value                                 |
+|--------------------------------------------------------------------|---------------------------------------|
+| Input chip with trailing icon unselected hover trailing icon color | `md.sys.color.on-surface-variant`     |
+| Input chip with trailing icon selected hover trailing icon color   | `md.sys.color.on-secondary-container` |
 
 ## Focused
 ### Focus indicator
@@ -598,9 +598,9 @@
 | Suggestion chip elevated hover container elevation | `md.sys.elevation.level2` |
 
 ### Icon
-| Name                                               | Value                     |
-|----------------------------------------------------|---------------------------|
-| Suggestion chip elevated hover container elevation | `md.sys.elevation.level2` |
+| Name                                     | Value                  |
+|------------------------------------------|------------------------|
+| Suggestion chip hover leading icon color | `md.sys.color.primary` |
 
 ### Label text
 | Name                                   | Value                             |

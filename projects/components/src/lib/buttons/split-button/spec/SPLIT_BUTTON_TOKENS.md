@@ -34,20 +34,20 @@
 | Split button small trailing button inner corner selected size | `50%`                                   |
 
 # Split button - Size - Medium
-| Name                                                          | Value                                   |
-|---------------------------------------------------------------|-----------------------------------------|
-| Split button small container height                           | `40dp`                                  |
-| Split button small between space                              | `2dp`                                   |
-| Split button small container shape                            | `md.sys.shape.corner.full`              |
-| Split button small inner corner size                          | `md.sys.shape.corner-value.extra-small` |
-| Split button small leading button leading space               | `16dp`                                  |
-| Split button small leading button trailing space              | `12dp`                                  |
-| Split button small trailing button icon size                  | `22dp`                                  |
-| Split button small trailing button leading space              | `13dp`                                  |
-| Split button small trailing button trailing space             | `13dp`                                  |
-| Split button small inner corner hovered size                  | `md.sys.shape.corner-value.medium`      |
-| Split button small inner corner pressed size                  | `md.sys.shape.corner-value.medium`      |
-| Split button small trailing button inner corner selected size | `50%`                                   |
+| Name                                                           | Value                                   |
+|----------------------------------------------------------------|-----------------------------------------|
+| Split button medium container height                           | `56dp`                                  |
+| Split button medium between space                              | `2dp`                                   |
+| Split button medium container shape                            | `md.sys.shape.corner.full`              |
+| Split button medium inner corner size                          | `md.sys.shape.corner-value.extra-small` |
+| Split button medium leading button leading space               | `24dp`                                  |
+| Split button medium leading button trailing space              | `24dp`                                  |
+| Split button medium trailing button icon size                  | `26dp`                                  |
+| Split button medium trailing button leading space              | `15dp`                                  |
+| Split button medium trailing button trailing space             | `15dp`                                  |
+| Split button medium inner corner hovered size                  | `md.sys.shape.corner-value.medium`      |
+| Split button medium inner corner pressed size                  | `md.sys.shape.corner-value.medium`      |
+| Split button medium trailing button inner corner selected size | `50%`                                   |
 
 # Split button - Size - Large
 | Name                                                          | Value                                       |

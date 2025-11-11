@@ -33,17 +33,18 @@
 ## Extended FAB - Size - Large
 | Name                                          | Value                                         |
 |-----------------------------------------------|-----------------------------------------------|
-| Extended FAB medium container height          | `80dp`                                        |
+| Extended FAB large container height           | `96dp`                                        |
 | Extended FAB large label text (Font name)     | `md.sys.typescale.headline-small.font`        |
 | Extended FAB large label text (Font weight)   | `md.sys.typescale.headline-small.weight`      |
 | Extended FAB large label text (Font size)     | `md.sys.typescale.headline-small.size`        |
 | Extended FAB large label text (Line height)   | `md.sys.typescale.headline-small.line-height` |
 | Extended FAB large label text (Font tracking) | `md.sys.typescale.headline-small.tracking`    |
-| Extended FAB medium icon size                 | `28dp`                                        |
-| Extended FAB medium container shape           | `md.sys.shape.corner.large-increased`         |
-| Extended FAB medium leading space             | `26dp`                                        |
-| Extended FAB medium icon label space          | `12dp`                                        |
-| Extended FAB medium trailing space            | `26dp`                                        |
+| Extended FAB large icon size                  | `36dp`                                        |
+| Extended FAB large container shape            | `md.sys.shape.corner.extra-large`             |
+| Extended FAB large leading space              | `28dp`                                        |
+| Extended FAB large icon label space           | `16dp`                                        |
+| Extended FAB large trailing space             | `28dp`                                        |
+
 
 ## Extended FAB - Color - Tonal Primary
 ### Enabled
@@ -148,13 +149,13 @@
 | Extended FAB tonal tertiary focused icon color          | `md.sys.color.on-tertiary-container`     |
 
 ### Pressed
-| Name                                                    | Value                                    |
-|---------------------------------------------------------|------------------------------------------|
-| Extended FAB tonal tertiary focused container elevation | `md.sys.elevation.level3`                |
-| Extended FAB tonal tertiary focused state layer color   | `md.sys.color.on-tertiary-container`     |
-| Extended FAB tonal tertiary focused state layer opacity | `md.sys.state.focus.state-layer-opacity` |
-| Extended FAB tonal tertiary focused label text color    | `md.sys.color.on-tertiary-container`     |
-| Extended FAB tonal tertiary focused icon color          | `md.sys.color.on-tertiary-container`     |
+| Name                                                    | Value                                      |
+|---------------------------------------------------------|--------------------------------------------|
+| Extended FAB tonal tertiary pressed container elevation | `md.sys.elevation.level3`                  |
+| Extended FAB tonal tertiary pressed state layer color   | `md.sys.color.on-tertiary-container`       |
+| Extended FAB tonal tertiary pressed state layer opacity | `md.sys.state.pressed.state-layer-opacity` |
+| Extended FAB tonal tertiary pressed label text color    | `md.sys.color.on-tertiary-container`       |
+| Extended FAB tonal tertiary pressed icon color          | `md.sys.color.on-tertiary-container`       |
 
 ## Extended FAB - Primary
 ### Enabled

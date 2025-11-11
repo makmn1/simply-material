@@ -207,10 +207,10 @@
 
 ## Pressed (ripple)
 ### Label text
-| Name                                              | Value                             |
-|---------------------------------------------------|-----------------------------------|
-| List list item focus trailing icon color          | `md.sys.color.on-surface-variant` |
-| List list item selected focus trailing icon color | `md.sys.color.on-surface`         |
+| Name                                             | Value                                 |
+|--------------------------------------------------|---------------------------------------|
+| List list item pressed label text color          | `md.sys.color.on-surface`             |
+| List list item selected pressed label text color | `md.sys.color.on-secondary-container` |
 
 ### State layer
 | Name                                                | Value                                      |
