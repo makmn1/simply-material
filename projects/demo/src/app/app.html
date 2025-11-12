@@ -1,1 +1,20 @@
-<app-button-demo></app-button-demo>
+<div class="app-container">
+  <div class="demo-selector">
+    <label for="demo-select" class="demo-label">Select Demo:</label>
+    <select 
+      id="demo-select" 
+      class="demo-select" 
+      [value]="selectedDemo()" 
+      (change)="selectedDemo.set($any($event.target).value)">
+      @for (demo of demos; track demo.value) {
+        <option [value]="demo.value">{{ demo.label }}</option>
+      }
+    </select>
+  </div>
+
+  @if (selectedDemo() === 'button') {
+    <app-button-demo></app-button-demo>
+  } @else if (selectedDemo() === 'icon-button') {
+    <app-icon-button-demo></app-icon-button-demo>
+  }
+</div>

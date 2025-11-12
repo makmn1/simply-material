@@ -1,19 +1,76 @@
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+:host, .demo-root {
+  display: block;
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  padding: 24px;
+  box-sizing: border-box;
 }
 
-.demo-selector {
+.demo-title {
+  margin: 0 0 16px 0;
+  font: inherit;
+}
+
+.section-card {
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px 0;
+  box-sizing: border-box;
+}
+
+.section-title {
+  margin: 0 0 12px 0;
+  font: inherit;
+  opacity: 0.9;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.size-variant-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.size-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.size-label {
+  opacity: 0.8;
+}
+
+.note {
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+button.plain {
+  border: none;
+  background: transparent;
+  color: inherit;
+  padding: 0.5rem 0.75rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.shape-control {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 24px;
-  background: var(--md-sys-color-surface-container);
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
-.demo-label {
+.shape-label {
   font-family: var(--md-sys-typescale-label-large-font);
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
@@ -23,35 +80,35 @@
   opacity: 0.9;
 }
 
-.demo-select {
+.shape-select {
   font-family: var(--md-sys-typescale-body-medium-font);
   font-size: var(--md-sys-typescale-body-medium-size);
   font-weight: var(--md-sys-typescale-body-medium-weight);
   line-height: var(--md-sys-typescale-body-medium-line-height);
   letter-spacing: var(--md-sys-typescale-body-medium-tracking);
   color: var(--md-sys-color-on-surface);
-  background-color: var(--md-sys-color-surface);
+  background-color: var(--md-sys-color-surface-container);
   border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: var(--md-sys-shape-corner-small);
   padding: 8px 12px;
-  min-width: 200px;
+  min-width: 150px;
   cursor: pointer;
   outline: none;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.demo-select:hover {
+.shape-select:hover {
   background-color: var(--md-sys-color-surface-container-high);
   border-color: var(--md-sys-color-outline);
 }
 
-.demo-select:focus {
+.shape-select:focus {
   border-color: var(--md-sys-color-primary);
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
 }
 
-.demo-select option {
+.shape-select option {
   background-color: var(--md-sys-color-surface-container);
   color: var(--md-sys-color-on-surface);
 }

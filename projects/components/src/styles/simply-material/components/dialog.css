@@ -1,0 +1,184 @@
+/* ⚠️ AUTO-GENERATED FILE
+ * DO NOT EDIT — this stylesheet is managed by the CLI.
+ * Put overrides in your own custom stylesheet and import it after these files.
+ */
+@layer tokens {
+  :root {
+    --md-comp-dialog-basic-container-color: var(
+      --md-sys-color-surface-container-high
+    );
+    --md-comp-dialog-basic-container-elevation: var(--md-sys-elevation-level3);
+    --md-comp-dialog-basic-container-shape: var(
+      --md-sys-shape-corner-extra-large
+    );
+    --md-comp-dialog-basic-action-label-text-font: var(
+      --md-sys-typescale-label-large-font
+    );
+    --md-comp-dialog-basic-action-label-text-line-height: var(
+      --md-sys-typescale-label-large-line-height
+    );
+    --md-comp-dialog-basic-action-label-text-size: var(
+      --md-sys-typescale-label-large-size
+    );
+    --md-comp-dialog-basic-action-label-text-weight: var(
+      --md-sys-typescale-label-large-weight
+    );
+    --md-comp-dialog-basic-action-label-text-tracking: var(
+      --md-sys-typescale-label-large-tracking
+    );
+    --md-comp-dialog-basic-action-label-text-color: var(--md-sys-color-primary);
+    --md-comp-dialog-basic-icon-size: 1.7143rem;
+    --md-comp-dialog-basic-icon-color: var(--md-sys-color-secondary);
+    --md-comp-dialog-basic-headline-font: var(
+      --md-sys-typescale-headline-small-font
+    );
+    --md-comp-dialog-basic-headline-line-height: var(
+      --md-sys-typescale-headline-small-line-height
+    );
+    --md-comp-dialog-basic-headline-size: var(
+      --md-sys-typescale-headline-small-size
+    );
+    --md-comp-dialog-basic-headline-weight: var(
+      --md-sys-typescale-headline-small-weight
+    );
+    --md-comp-dialog-basic-headline-tracking: var(
+      --md-sys-typescale-headline-small-tracking
+    );
+    --md-comp-dialog-basic-headline-color: var(--md-sys-color-on-surface);
+    --md-comp-dialog-basic-supporting-text-font: var(
+      --md-sys-typescale-body-medium-font
+    );
+    --md-comp-dialog-basic-supporting-text-line-height: var(
+      --md-sys-typescale-body-medium-line-height
+    );
+    --md-comp-dialog-basic-supporting-text-size: var(
+      --md-sys-typescale-body-medium-size
+    );
+    --md-comp-dialog-basic-supporting-text-weight: var(
+      --md-sys-typescale-body-medium-weight
+    );
+    --md-comp-dialog-basic-supporting-text-tracking: var(
+      --md-sys-typescale-body-medium-tracking
+    );
+    --md-comp-dialog-basic-supporting-text-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-dialog-basic-action-hover-label-text-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-basic-action-hover-state-layer-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-basic-action-hover-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-dialog-basic-action-focus-label-text-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-basic-action-focus-state-layer-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-basic-action-focus-state-layer-opacity: var(
+      --md-sys-state-focus-state-layer-opacity
+    );
+    --md-comp-dialog-basic-action-pressed-label-text-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-basic-action-pressed-state-layer-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-basic-action-pressed-state-layer-opacity: var(
+      --md-sys-state-pressed-state-layer-opacity
+    );
+    --md-comp-dialog-full-screen-on-scroll-container-color: var(
+      --md-sys-color-surface-container
+    );
+    --md-comp-dialog-full-screen-container-color: var(--md-sys-color-surface);
+    --md-comp-dialog-full-screen-container-elevation: var(
+      --md-sys-elevation-level0
+    );
+    --md-comp-dialog-full-screen-container-shape: var(
+      --md-sys-shape-corner-none
+    );
+    --md-comp-dialog-full-screen-header-container-height: 4rem;
+    --md-comp-dialog-full-screen-header-container-color: var(
+      --md-sys-color-surface
+    );
+    --md-comp-dialog-full-screen-header-container-elevation: var(
+      --md-sys-elevation-level0
+    );
+    --md-comp-dialog-full-screen-header-container-surface-tint-layer-color: var(
+      --md-sys-color-surface-tint
+    );
+    --md-comp-dialog-full-screen-header-on-scroll-container-elevation: var(
+      --md-sys-elevation-level2
+    );
+    --md-comp-dialog-full-screen-header-action-label-text-font: var(
+      --md-sys-typescale-label-large-font
+    );
+    --md-comp-dialog-full-screen-header-action-label-text-line-height: var(
+      --md-sys-typescale-label-large-line-height
+    );
+    --md-comp-dialog-full-screen-header-action-label-text-size: var(
+      --md-sys-typescale-label-large-size
+    );
+    --md-comp-dialog-full-screen-header-action-label-text-weight: var(
+      --md-sys-typescale-label-large-weight
+    );
+    --md-comp-dialog-full-screen-header-action-label-text-tracking: var(
+      --md-sys-typescale-label-large-tracking
+    );
+    --md-comp-dialog-full-screen-header-action-label-text-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-full-screen-header-icon-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-dialog-full-screen-header-icon-size: 1.7143rem;
+    --md-comp-dialog-full-screen-header-headline-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-dialog-full-screen-header-headline-font: var(
+      --md-sys-typescale-title-large-font
+    );
+    --md-comp-dialog-full-screen-header-headline-line-height: var(
+      --md-sys-typescale-title-large-line-height
+    );
+    --md-comp-dialog-full-screen-header-headline-size: var(
+      --md-sys-typescale-title-large-size
+    );
+    --md-comp-dialog-full-screen-header-headline-weight: var(
+      --md-sys-typescale-title-large-weight
+    );
+    --md-comp-dialog-full-screen-header-headline-tracking: var(
+      --md-sys-typescale-title-large-tracking
+    );
+    --md-comp-dialog-full-screen-header-action-hover-label-text-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-full-screen-header-action-hover-state-layer-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-full-screen-header-action-hover-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-dialog-full-screen-header-action-focus-label-text-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-full-screen-header-action-focus-state-layer-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-full-screen-header-action-focus-state-layer-opacity: var(
+      --md-sys-state-focus-state-layer-opacity
+    );
+    --md-comp-dialog-full-screen-header-action-pressed-label-text-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-full-screen-header-action-pressed-state-layer-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-dialog-full-screen-header-action-pressed-state-layer-opacity: var(
+      --md-sys-state-pressed-state-layer-opacity
+    );
+  }
+}

@@ -1,0 +1,194 @@
+/* ⚠️ AUTO-GENERATED FILE
+ * DO NOT EDIT — this stylesheet is managed by the CLI.
+ * Put overrides in your own custom stylesheet and import it after these files.
+ */
+@layer tokens {
+  :root {
+    --md-comp-card-elevated-container-color: var(
+      --md-sys-color-surface-container-low
+    );
+    --md-comp-card-elevated-container-elevation: var(--md-sys-elevation-level1);
+    --md-comp-card-elevated-container-shape: var(--md-sys-shape-corner-medium);
+    --md-comp-card-elevated-container-shadow-color: var(--md-sys-color-shadow);
+    --md-comp-card-elevated-icon-color: var(--md-sys-color-primary);
+    --md-comp-card-elevated-icon-size: 1.7143rem;
+    --md-comp-card-elevated-disabled-container-elevation: var(
+      --md-sys-elevation-level1
+    );
+    --md-comp-card-elevated-disabled-container-opacity: 0.38;
+    --md-comp-card-elevated-disabled-container-color: var(
+      --md-sys-color-surface
+    );
+    --md-comp-card-elevated-hover-container-elevation: var(
+      --md-sys-elevation-level2
+    );
+    --md-comp-card-elevated-hover-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-elevated-hover-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-card-elevated-focus-indicator-color: var(
+      --md-sys-color-secondary
+    );
+    --md-comp-card-elevated-focus-indicator-thickness: var(
+      --md-sys-state-focus-indicator-thickness
+    );
+    --md-comp-card-elevated-focus-indicator-offset: var(
+      --md-sys-state-focus-indicator-outer-offset
+    );
+    --md-comp-card-elevated-focus-container-elevation: var(
+      --md-sys-elevation-level1
+    );
+    --md-comp-card-elevated-focus-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-elevated-focus-state-layer-opacity: var(
+      --md-sys-state-focus-state-layer-opacity
+    );
+    --md-comp-card-elevated-pressed-container-elevation: var(
+      --md-sys-elevation-level1
+    );
+    --md-comp-card-elevated-pressed-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-elevated-pressed-state-layer-opacity: var(
+      --md-sys-state-pressed-state-layer-opacity
+    );
+    --md-comp-card-elevated-dragged-container-elevation: var(
+      --md-sys-elevation-level4
+    );
+    --md-comp-card-elevated-dragged-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-elevated-dragged-state-layer-opacity: var(
+      --md-sys-state-dragged-state-layer-opacity
+    );
+    --md-comp-card-filled-container-color: var(
+      --md-sys-color-surface-container-highest
+    );
+    --md-comp-card-filled-container-elevation: var(--md-sys-elevation-level0);
+    --md-comp-card-filled-container-shape: var(--md-sys-shape-corner-medium);
+    --md-comp-card-filled-container-shadow-color: var(--md-sys-color-shadow);
+    --md-comp-card-filled-icon-color: var(--md-sys-color-primary);
+    --md-comp-card-filled-icon-size: 1.7143rem;
+    --md-comp-card-filled-disabled-container-elevation: var(
+      --md-sys-elevation-level0
+    );
+    --md-comp-card-filled-disabled-container-opacity: 0.38;
+    --md-comp-card-filled-disabled-container-color: var(
+      --md-sys-color-surface-variant
+    );
+    --md-comp-card-filled-hover-container-elevation: var(
+      --md-sys-elevation-level1
+    );
+    --md-comp-card-filled-hover-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-filled-hover-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-card-filled-focus-indicator-color: var(--md-sys-color-secondary);
+    --md-comp-card-filled-focus-indicator-thickness: var(
+      --md-sys-state-focus-indicator-thickness
+    );
+    --md-comp-card-filled-focus-indicator-offset: var(
+      --md-sys-state-focus-indicator-outer-offset
+    );
+    --md-comp-card-filled-focus-container-elevation: var(
+      --md-sys-elevation-level0
+    );
+    --md-comp-card-filled-focus-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-filled-focus-state-layer-opacity: var(
+      --md-sys-state-focus-state-layer-opacity
+    );
+    --md-comp-card-filled-pressed-container-elevation: var(
+      --md-sys-elevation-level0
+    );
+    --md-comp-card-filled-pressed-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-filled-pressed-state-layer-opacity: var(
+      --md-sys-state-pressed-state-layer-opacity
+    );
+    --md-comp-card-filled-dragged-container-elevation: var(
+      --md-sys-elevation-level3
+    );
+    --md-comp-card-filled-dragged-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-filled-dragged-state-layer-opacity: var(
+      --md-sys-state-dragged-state-layer-opacity
+    );
+    --md-comp-card-outlined-container-color: var(--md-sys-color-surface);
+    --md-comp-card-outlined-container-elevation: var(--md-sys-elevation-level0);
+    --md-comp-card-outlined-container-shape: var(--md-sys-shape-corner-medium);
+    --md-comp-card-outlined-container-shadow-color: var(--md-sys-color-shadow);
+    --md-comp-card-outlined-outline-width: 0.0714rem;
+    --md-comp-card-outlined-outline-color: var(--md-sys-color-outline-variant);
+    --md-comp-card-outlined-icon-color: var(--md-sys-color-primary);
+    --md-comp-card-outlined-icon-size: 1.7143rem;
+    --md-comp-card-outlined-disabled-container-elevation: var(
+      --md-sys-elevation-level0
+    );
+    --md-comp-card-outlined-disabled-outline-color: var(--md-sys-color-outline);
+    --md-comp-card-outlined-disabled-outline-opacity: 0.12;
+    --md-comp-card-outlined-hover-container-elevation: var(
+      --md-sys-elevation-level1
+    );
+    --md-comp-card-outlined-hover-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-outlined-hover-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-card-outlined-hover-outline-color: var(
+      --md-sys-color-outline-variant
+    );
+    --md-comp-card-outlined-focus-indicator-thickness: var(
+      --md-sys-state-focus-indicator-thickness
+    );
+    --md-comp-card-outlined-focus-indicator-offset: var(
+      --md-sys-state-focus-indicator-outer-offset
+    );
+    --md-comp-card-outlined-focus-indicator-color: var(
+      --md-sys-color-secondary
+    );
+    --md-comp-card-outlined-focus-container-elevation: var(
+      --md-sys-elevation-level0
+    );
+    --md-comp-card-outlined-focus-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-outlined-focus-state-layer-opacity: var(
+      --md-sys-state-focus-state-layer-opacity
+    );
+    --md-comp-card-outlined-focus-outline-color: var(--md-sys-color-on-surface);
+    --md-comp-card-outlined-pressed-container-elevation: var(
+      --md-sys-elevation-level0
+    );
+    --md-comp-card-outlined-pressed-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-outlined-pressed-state-layer-opacity: var(
+      --md-sys-state-pressed-state-layer-opacity
+    );
+    --md-comp-card-outlined-pressed-outline-color: var(
+      --md-sys-color-outline-variant
+    );
+    --md-comp-card-outlined-dragged-container-elevation: var(
+      --md-sys-elevation-level3
+    );
+    --md-comp-card-outlined-dragged-state-layer-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-card-outlined-dragged-state-layer-opacity: var(
+      --md-sys-state-dragged-state-layer-opacity
+    );
+    --md-comp-card-outlined-dragged-outline-color: var(
+      --md-sys-color-outline-variant
+    );
+  }
+}

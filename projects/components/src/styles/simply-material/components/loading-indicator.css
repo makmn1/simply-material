@@ -1,0 +1,23 @@
+/* ⚠️ AUTO-GENERATED FILE
+ * DO NOT EDIT — this stylesheet is managed by the CLI.
+ * Put overrides in your own custom stylesheet and import it after these files.
+ */
+@layer tokens {
+  :root {
+    --md-comp-loading-indicator-active-indicator-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-loading-indicator-contained-container-color: var(
+      --md-sys-color-primary-container
+    );
+    --md-comp-loading-indicator-contained-active-indicator-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-loading-indicator-container-width: 2.7143rem;
+    --md-comp-loading-indicator-container-height: 3.4286rem;
+    --md-comp-loading-indicator-active-indicator-size: 3.4286rem;
+    --md-comp-loading-indicator-container-shape: var(
+      --md-sys-shape-corner-full
+    );
+  }
+}

@@ -1,0 +1,41 @@
+/* ⚠️ AUTO-GENERATED FILE
+ * DO NOT EDIT — this stylesheet is managed by the CLI.
+ * Put overrides in your own custom stylesheet and import it after these files.
+ */
+@layer tokens {
+  :root {
+    --md-comp-progress-indicator-active-indicator-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-progress-indicator-track-color: var(
+      --md-sys-color-secondary-container
+    );
+    --md-comp-progress-indicator-stop-indicator-color: var(
+      --md-sys-color-primary
+    );
+    --md-comp-progress-indicator-active-indicator-shape: var(
+      --md-sys-shape-corner-full
+    );
+    --md-comp-progress-indicator-track-shape: var(--md-sys-shape-corner-full);
+    --md-comp-progress-indicator-stop-indicator-shape: var(
+      --md-sys-shape-corner-full
+    );
+    --md-comp-progress-indicator-linear-height: 0.2857rem;
+    --md-comp-progress-indicator-linear-with-wave-height: 0.7143rem;
+    --md-comp-progress-indicator-linear-active-indicator-thickness: 0.2857rem;
+    --md-comp-progress-indicator-linear-track-thickness: 0.2857rem;
+    --md-comp-progress-indicator-linear-stop-indicator-size: 0.2857rem;
+    --md-comp-progress-indicator-linear-track-active-indicator-space: 0.2857rem;
+    --md-comp-progress-indicator-linear-stop-indicator-trailing-space: 0;
+    --md-comp-progress-indicator-linear-wave-amplitude: 0.2143rem;
+    --md-comp-progress-indicator-linear-wave-wavelength: 2.8571rem;
+    --md-comp-progress-indicator-linear-indeterminate-wave-wavelength: 1.4286rem;
+    --md-comp-progress-indicator-circular-size: 2.8571rem;
+    --md-comp-progress-indicator-circular-size-with-wave: 3.4286rem;
+    --md-comp-progress-indicator-circular-active-indicator-thickness: 0.2857rem;
+    --md-comp-progress-indicator-circular-track-thickness: 0.2857rem;
+    --md-comp-progress-indicator-circular-track-active-indicator-space: 0.2857rem;
+    --md-comp-progress-indicator-circular-active-indicator-wave-amplitude: 0.1143rem;
+    --md-comp-progress-indicator-circular-active-indicator-wave-wavelength: 1.0714rem;
+  }
+}

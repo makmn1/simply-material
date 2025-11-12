@@ -135,14 +135,12 @@
 | Icon button tonal icon color - toggle (selected)        | `md.sys.color.on-secondary`           |
 
 ### Disabled
-| Name                                                    | Value                                 |
-|---------------------------------------------------------|---------------------------------------|
-| Icon button tonal container color                       | `md.sys.color.secondary-container`    |
-| Icon button tonal container color - toggle (unselected) | `md.sys.color.secondary-container`    |
-| Icon button tonal container color - toggle (selected)   | `md.sys.color.secondary`              |
-| Icon button tonal icon color                            | `md.sys.color.on-secondary-container` |
-| Icon button tonal icon color - toggle (unselected)      | `md.sys.color.on-secondary-container` |
-| Icon button tonal icon color - toggle (selected)        | `md.sys.color.on-secondary`           |
+| Name                                         | Value                     |
+|----------------------------------------------|---------------------------|
+| Icon button tonal disabled container color   | `md.sys.color.on-surface` |
+| Icon button tonal disabled container opacity | `0.1`                     |
+| Icon button tonal disabled icon color        | `md.sys.color.on-surface` |
+| Icon button tonal disabled icon opacity      | `0.38`                    |
 
 ### Hovered
 | Name                                                              | Value                                    |

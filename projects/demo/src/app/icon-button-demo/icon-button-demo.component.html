@@ -1,0 +1,174 @@
+<div class="demo-root">
+  <h1 class="demo-title">Material Design Icon Buttons — Component Demo</h1>
+
+  <section class="section-card">
+    <h2 class="section-title">Shape Control</h2>
+    <div class="shape-control">
+      <label for="shape-select" class="shape-label">Button Shape:</label>
+      <select id="shape-select" class="shape-select" [value]="selectedShape()" (change)="selectedShape.set($any($event.target).value)">
+        <option value="round">Round</option>
+        <option value="square">Square</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Sizes</h2>
+    <div class="button-group">
+      @for (size of sizes; track size) {
+        <button sm-icon-button [size]="size" [shape]="selectedShape()">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Variants</h2>
+    <div class="button-group">
+      @for (variant of variants; track variant) {
+        <button sm-icon-button [variant]="variant" [shape]="selectedShape()">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Disabled Variants</h2>
+    <div class="button-group">
+      @for (variant of variants; track variant) {
+        <button sm-icon-button [disabled]="true" [variant]="variant" [shape]="selectedShape()">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Width Variations</h2>
+    <div class="button-group">
+      @for (width of widths; track width) {
+        <button sm-icon-button [width]="width" [shape]="selectedShape()">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Toggle</h2>
+    <div class="button-group">
+      <button sm-icon-button variant="filled" [toggle]="true"
+              [selected]="filledSelected()"
+              (selectedChange)="filledSelected.set($event)"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button variant="tonal" [toggle]="true"
+              [selected]="tonalSelected()"
+              (selectedChange)="tonalSelected.set($event)"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button variant="outlined" [toggle]="true"
+              [selected]="outlinedSelected()"
+              (selectedChange)="outlinedSelected.set($event)"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button variant="standard" [toggle]="true"
+              [selected]="standardSelected()"
+              (selectedChange)="standardSelected.set($event)"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Toggle Disabled (Unselected)</h2>
+    <div class="button-group">
+      <button sm-icon-button [disabled]="true" variant="filled" [toggle]="true"
+              [selected]="false"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button [disabled]="true" variant="tonal" [toggle]="true"
+              [selected]="false"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button [disabled]="true" variant="outlined" [toggle]="true"
+              [selected]="false"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button [disabled]="true" variant="standard" [toggle]="true"
+              [selected]="false"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Toggle Disabled (Selected)</h2>
+    <div class="button-group">
+      <button sm-icon-button [disabled]="true" variant="filled" [toggle]="true"
+              [selected]="true"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button [disabled]="true" variant="tonal" [toggle]="true"
+              [selected]="true"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button [disabled]="true" variant="outlined" [toggle]="true"
+              [selected]="true"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+      <button sm-icon-button [disabled]="true" variant="standard" [toggle]="true"
+              [selected]="true"
+              [shape]="selectedShape()">
+        <span outlined class="material-symbols-outlined">favorite</span>
+        <span filled class="material-symbols-rounded">favorite</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Different Icons</h2>
+    <div class="button-group">
+      <button sm-icon-button [shape]="selectedShape()">
+        <span class="material-symbols-rounded">home</span>
+      </button>
+      <button sm-icon-button [shape]="selectedShape()">
+        <span class="material-symbols-rounded">settings</span>
+      </button>
+      <button sm-icon-button [shape]="selectedShape()">
+        <span class="material-symbols-rounded">search</span>
+      </button>
+      <button sm-icon-button [shape]="selectedShape()">
+        <span class="material-symbols-rounded">share</span>
+      </button>
+      <button sm-icon-button [shape]="selectedShape()">
+        <span class="material-symbols-rounded">more_vert</span>
+      </button>
+    </div>
+  </section>
+</div>
+

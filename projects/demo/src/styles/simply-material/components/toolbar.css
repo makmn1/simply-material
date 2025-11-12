@@ -1,0 +1,248 @@
+/* ⚠️ AUTO-GENERATED FILE
+ * DO NOT EDIT — this stylesheet is managed by the CLI.
+ * Put overrides in your own custom stylesheet and import it after these files.
+ */
+@layer tokens {
+  :root {
+    --md-comp-toolbar-standard-container-color: var(
+      --md-sys-color-surface-container
+    );
+    --md-comp-toolbar-standard-button-container-color: var(
+      --md-sys-color-surface-container
+    );
+    --md-comp-toolbar-standard-button-container-color-selected: var(
+      --md-sys-color-secondary-container
+    );
+    --md-comp-toolbar-standard-icon-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-icon-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-label-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-label-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-container-shape: var(--md-sys-shape-corner-full);
+    --md-comp-toolbar-standard-disabled-icon-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-standard-disabled-icon-opacity: 0.38;
+    --md-comp-toolbar-standard-disabled-label-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-standard-disabled-label-opacity: 0.38;
+    --md-comp-toolbar-standard-hover-state-layer-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-hover-state-layer-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-hover-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-toolbar-standard-hover-icon-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-hover-icon-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-hover-label-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-hover-label-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-focus-state-layer-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-focus-state-layer-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-focus-state-layer-opacity: var(
+      --md-sys-state-focus-state-layer-opacity
+    );
+    --md-comp-toolbar-standard-focus-icon-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-focus-icon-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-focus-label-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-focus-label-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-pressed-state-layer-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-pressed-state-layer-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-pressed-state-layer-opacity: var(
+      --md-sys-state-pressed-state-layer-opacity
+    );
+    --md-comp-toolbar-standard-pressed-icon-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-pressed-icon-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-standard-pressed-label-color: var(
+      --md-sys-color-on-surface-variant
+    );
+    --md-comp-toolbar-standard-pressed-label-color-selected: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-vibrant-container-color: var(
+      --md-sys-color-primary-container
+    );
+    --md-comp-toolbar-vibrant-button-container-color: var(
+      --md-sys-color-primary-container
+    );
+    --md-comp-toolbar-vibrant-button-container-color-selected: var(
+      --md-sys-color-surface-container
+    );
+    --md-comp-toolbar-vibrant-icon-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-icon-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-label-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-label-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-container-shape: var(--md-sys-shape-corner-full);
+    --md-comp-toolbar-vibrant-disabled-icon-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-disabled-icon-opacity: 0.38;
+    --md-comp-toolbar-vibrant-disabled-label-color: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-disabled-label-opacity: 0.38;
+    --md-comp-toolbar-vibrant-hover-state-layer-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-hover-state-layer-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-hover-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-toolbar-vibrant-hover-icon-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-hover-icon-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-hover-label-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-hover-label-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-focus-state-layer-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-focus-state-layer-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-focus-state-layer-opacity: var(
+      --md-sys-state-focus-state-layer-opacity
+    );
+    --md-comp-toolbar-vibrant-focus-icon-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-focus-icon-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-focus-label-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-focus-label-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-pressed-state-layer-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-pressed-state-layer-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-pressed-state-layer-opacity: var(
+      --md-sys-state-pressed-state-layer-opacity
+    );
+    --md-comp-toolbar-vibrant-pressed-icon-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-pressed-icon-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-vibrant-pressed-label-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-vibrant-pressed-label-color-selected: var(
+      --md-sys-color-on-surface
+    );
+    --md-comp-toolbar-docked-container-height: 4.5714rem;
+    --md-comp-toolbar-docked-leading-padding: 1.1429rem;
+    --md-comp-toolbar-docked-trailing-padding: 1.1429rem;
+    --md-comp-toolbar-docked-max-space-between-actions: 2.2857rem;
+    --md-comp-toolbar-docked-min-space-between-actions: 0.2857rem;
+    --md-comp-toolbar-docked-container-shape: var(--md-sys-shape-corner-none);
+    --md-comp-toolbar-floating-vibrant-unselected-button-icon-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-floating-vibrant-unselected-button-text-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-toolbar-floating-container-height-horizontal: 4.5714rem;
+    --md-comp-toolbar-floating-container-height-vertical: 4.5714rem;
+    --md-comp-toolbar-floating-leading-space: 0.5714rem;
+    --md-comp-toolbar-floating-trailing-space: 0.5714rem;
+    --md-comp-toolbar-floating-margin-from-screen-edge-horizontal: 1.1429rem;
+    --md-comp-toolbar-floating-margin-from-screen-edge-vertical: 1.7143rem;
+    --md-comp-toolbar-floating-space-between-actions: 0.2857rem;
+    --md-comp-toolbar-floating-container-shape: var(--md-sys-shape-corner-full);
+    --md-comp-toolbar-floating-container-elevation: var(
+      --md-sys-elevation-level3
+    );
+    --md-comp-toolbar-floating-fab-space-between-toolbar-fab: 0.5714rem;
+    --md-comp-toolbar-floating-fab-standard-container-color: var(
+      --md-sys-color-secondary-container
+    );
+    --md-comp-toolbar-floating-fab-standard-icon-color: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-toolbar-floating-fab-vibrant-container-color: var(
+      --md-sys-color-tertiary-container
+    );
+    --md-comp-toolbar-floating-fab-vibrant-icon-color: var(
+      --md-sys-color-on-tertiary-container
+    );
+    --md-comp-toolbar-floating-fab-expanded-container-height: 4rem;
+    --md-comp-toolbar-floating-fab-expanded-container-width: 4rem;
+    --md-comp-toolbar-floating-fab-expanded-icon-size: 1.7143rem;
+    --md-comp-toolbar-floating-fab-expanded-container-shape: var(
+      --md-sys-shape-corner-large
+    );
+    --md-comp-toolbar-floating-fab-expanded-container-elevation: var(
+      --md-sys-elevation-level1
+    );
+    --md-comp-toolbar-floating-fab-collapsed-container-height: 5.7143rem;
+    --md-comp-toolbar-floating-fab-collapsed-container-width: 5.7143rem;
+    --md-comp-toolbar-floating-fab-collapsed-icon-size: 2rem;
+    --md-comp-toolbar-floating-fab-collapsed-container-shape: var(
+      --md-sys-shape-corner-large-increased
+    );
+    --md-comp-toolbar-floating-fab-collapsed-container-elevation: var(
+      --md-sys-elevation-level2
+    );
+  }
+}
