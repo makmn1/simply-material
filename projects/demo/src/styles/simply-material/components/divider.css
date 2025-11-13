@@ -4,7 +4,7 @@
  */
 @layer tokens {
   :root {
-    --md-comp-divider-container-thickness: 0.0714rem;
+    --md-comp-divider-container-thickness: 0.0625rem;
     --md-comp-divider-container-color: var(--md-sys-color-outline-variant);
   }
 }

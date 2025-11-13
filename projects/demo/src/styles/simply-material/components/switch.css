@@ -7,32 +7,32 @@
     --md-comp-switch-selected-icon-color: var(
       --md-sys-color-on-primary-container
     );
-    --md-comp-switch-selected-icon-size: 1.1429rem;
+    --md-comp-switch-selected-icon-size: 1rem;
     --md-comp-switch-unselected-icon-color: var(
       --md-sys-color-surface-container-highest
     );
-    --md-comp-switch-unselected-icon-size: 1.1429rem;
-    --md-comp-switch-track-height: 2.2857rem;
-    --md-comp-switch-track-width: 3.7143rem;
+    --md-comp-switch-unselected-icon-size: 1rem;
+    --md-comp-switch-track-height: 2rem;
+    --md-comp-switch-track-width: 3.25rem;
     --md-comp-switch-track-outline-color: var(--md-sys-color-outline);
-    --md-comp-switch-track-outline-width: 0.1429rem;
+    --md-comp-switch-track-outline-width: 0.125rem;
     --md-comp-switch-track-shape: var(--md-sys-shape-corner-full);
     --md-comp-switch-selected-track-color: var(--md-sys-color-primary);
     --md-comp-switch-unselected-track-color: var(
       --md-sys-color-surface-container-highest
     );
-    --md-comp-switch-unselected-handle-height: 1.1429rem;
-    --md-comp-switch-with-icon-handle-height: 1.7143rem;
-    --md-comp-switch-selected-handle-height: 1.7143rem;
-    --md-comp-switch-pressed-handle-height: 2rem;
-    --md-comp-switch-unselected-handle-width: 1.1429rem;
-    --md-comp-switch-with-icon-handle-width: 1.7143rem;
-    --md-comp-switch-selected-handle-width: 1.7143rem;
-    --md-comp-switch-pressed-handle-width: 2rem;
+    --md-comp-switch-unselected-handle-height: 1rem;
+    --md-comp-switch-with-icon-handle-height: 1.5rem;
+    --md-comp-switch-selected-handle-height: 1.5rem;
+    --md-comp-switch-pressed-handle-height: 1.75rem;
+    --md-comp-switch-unselected-handle-width: 1rem;
+    --md-comp-switch-with-icon-handle-width: 1.5rem;
+    --md-comp-switch-selected-handle-width: 1.5rem;
+    --md-comp-switch-pressed-handle-width: 1.75rem;
     --md-comp-switch-handle-shape: var(--md-sys-shape-corner-full);
     --md-comp-switch-selected-handle-color: var(--md-sys-color-on-primary);
     --md-comp-switch-unselected-handle-color: var(--md-sys-color-outline);
-    --md-comp-switch-state-layer-size: 2.8571rem;
+    --md-comp-switch-state-layer-size: 2.5rem;
     --md-comp-switch-state-layer-shape: var(--md-sys-shape-corner-full);
     --md-comp-switch-disabled-selected-icon-color: var(
       --md-sys-color-on-surface

@@ -37,7 +37,7 @@
     --md-comp-time-picker-dial-period-selector-outline-color: var(
       --md-sys-color-outline
     );
-    --md-comp-time-picker-dial-period-selector-outline-width: 0.0714rem;
+    --md-comp-time-picker-dial-period-selector-outline-width: 0.0625rem;
     --md-comp-time-picker-dial-clock-dial-selector-handle-container-color: var(
       --md-sys-color-primary
     );
@@ -53,17 +53,17 @@
     --md-comp-time-picker-dial-clock-dial-selector-track-container-color: var(
       --md-sys-color-primary
     );
-    --md-comp-time-picker-dial-time-selector-container-width: 6.8571rem;
-    --md-comp-time-picker-dial-time-selector-24h-vertical-container-width: 8.1429rem;
-    --md-comp-time-picker-dial-time-selector-container-height: 5.7143rem;
-    --md-comp-time-picker-dial-period-selector-vertical-container-width: 3.7143rem;
-    --md-comp-time-picker-dial-period-selector-vertical-container-height: 5.7143rem;
-    --md-comp-time-picker-dial-period-selector-horizontal-container-width: 15.4286rem;
-    --md-comp-time-picker-dial-period-selector-horizontal-container-height: 2.7143rem;
-    --md-comp-time-picker-dial-clock-dial-container-size: 18.2857rem;
-    --md-comp-time-picker-dial-clock-dial-selector-handle-container-size: 3.4286rem;
-    --md-comp-time-picker-dial-clock-dial-selector-center-container-size: 0.5714rem;
-    --md-comp-time-picker-dial-clock-dial-selector-track-container-width: 0.1429rem;
+    --md-comp-time-picker-dial-time-selector-container-width: 6rem;
+    --md-comp-time-picker-dial-time-selector-24h-vertical-container-width: 7.125rem;
+    --md-comp-time-picker-dial-time-selector-container-height: 5rem;
+    --md-comp-time-picker-dial-period-selector-vertical-container-width: 3.25rem;
+    --md-comp-time-picker-dial-period-selector-vertical-container-height: 5rem;
+    --md-comp-time-picker-dial-period-selector-horizontal-container-width: 13.5rem;
+    --md-comp-time-picker-dial-period-selector-horizontal-container-height: 2.375rem;
+    --md-comp-time-picker-dial-clock-dial-container-size: 16rem;
+    --md-comp-time-picker-dial-clock-dial-selector-handle-container-size: 3rem;
+    --md-comp-time-picker-dial-clock-dial-selector-center-container-size: 0.5rem;
+    --md-comp-time-picker-dial-clock-dial-selector-track-container-width: 0.125rem;
     --md-comp-time-picker-dial-time-selector-selected-label-text-color: var(
       --md-sys-color-on-primary-container
     );
@@ -277,11 +277,11 @@
     --md-comp-time-picker-input-period-selector-outline-color: var(
       --md-sys-color-outline
     );
-    --md-comp-time-picker-input-period-selector-outline-width: 0.0714rem;
-    --md-comp-time-picker-input-time-input-field-container-width: 6.8571rem;
-    --md-comp-time-picker-input-time-input-field-container-height: 5.1429rem;
-    --md-comp-time-picker-input-period-selector-container-width: 3.7143rem;
-    --md-comp-time-picker-input-period-selector-container-height: 5.1429rem;
+    --md-comp-time-picker-input-period-selector-outline-width: 0.0625rem;
+    --md-comp-time-picker-input-time-input-field-container-width: 6rem;
+    --md-comp-time-picker-input-time-input-field-container-height: 4.5rem;
+    --md-comp-time-picker-input-period-selector-container-width: 3.25rem;
+    --md-comp-time-picker-input-period-selector-container-height: 4.5rem;
     --md-comp-time-picker-input-time-input-field-label-text-color: var(
       --md-sys-color-on-surface
     );
@@ -414,7 +414,7 @@
     --md-comp-time-picker-input-time-input-field-focus-outline-color: var(
       --md-sys-color-primary
     );
-    --md-comp-time-picker-input-time-input-field-focus-outline-width: 0.1429rem;
+    --md-comp-time-picker-input-time-input-field-focus-outline-width: 0.125rem;
     --md-comp-time-picker-input-time-input-field-focus-label-text-color: var(
       --md-sys-color-on-primary-container
     );

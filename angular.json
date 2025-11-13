@@ -51,6 +51,7 @@
             ],
             "styles": [
               "projects/demo/src/styles.css",
+              "projects/demo/src/styles/angular-cdk/cdk.css",
               "projects/demo/src/styles/simply-material/tokens.css"
             ]
           },

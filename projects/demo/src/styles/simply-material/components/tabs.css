@@ -10,8 +10,8 @@
     --md-comp-tabs-primary-navigation-container-shape: var(
       --md-sys-shape-corner-none
     );
-    --md-comp-tabs-primary-navigation-container-height: 3.4286rem;
-    --md-comp-tabs-primary-navigation-container-with-icon-label-text-height: 4.5714rem;
+    --md-comp-tabs-primary-navigation-container-height: 3rem;
+    --md-comp-tabs-primary-navigation-container-with-icon-label-text-height: 4rem;
     --md-comp-tabs-primary-navigation-container-elevation: var(
       --md-sys-elevation-level0
     );
@@ -36,7 +36,7 @@
     --md-comp-tabs-primary-navigation-label-text-inactive-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-tabs-primary-navigation-icon-size: 1.7143rem;
+    --md-comp-tabs-primary-navigation-icon-size: 1.5rem;
     --md-comp-tabs-primary-navigation-icon-active-color: var(
       --md-sys-color-primary
     );
@@ -46,8 +46,8 @@
     --md-comp-tabs-primary-navigation-active-indicator-color: var(
       --md-sys-color-primary
     );
-    --md-comp-tabs-primary-navigation-active-indicator-height: 0.2143rem;
-    --md-comp-tabs-primary-navigation-active-indicator-shape: "0.2143rem 0.2143rem 0 0";
+    --md-comp-tabs-primary-navigation-active-indicator-height: 0.1875rem;
+    --md-comp-tabs-primary-navigation-active-indicator-shape: "0.1875rem 0.1875rem 0 0";
     --md-comp-tabs-primary-navigation-hover-label-text-active-color: var(
       --md-sys-color-primary
     );
@@ -135,7 +135,7 @@
     --md-comp-tabs-secondary-navigation-container-shape: var(
       --md-sys-shape-corner-none
     );
-    --md-comp-tabs-secondary-navigation-container-height: 3.4286rem;
+    --md-comp-tabs-secondary-navigation-container-height: 3rem;
     --md-comp-tabs-secondary-navigation-container-elevation: var(
       --md-sys-elevation-level0
     );
@@ -163,7 +163,7 @@
     --md-comp-tabs-secondary-navigation-label-text-inactive-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-tabs-secondary-navigation-icon-size: 1.7143rem;
+    --md-comp-tabs-secondary-navigation-icon-size: 1.5rem;
     --md-comp-tabs-secondary-navigation-icon-active-color: var(
       --md-sys-color-on-surface
     );
@@ -173,7 +173,7 @@
     --md-comp-tabs-secondary-navigation-active-indicator-color: var(
       --md-sys-color-primary
     );
-    --md-comp-tabs-secondary-navigation-active-indicator-height: 0.1429rem;
+    --md-comp-tabs-secondary-navigation-active-indicator-height: 0.125rem;
     --md-comp-tabs-secondary-navigation-hover-label-text-color: var(
       --md-sys-color-on-surface
     );

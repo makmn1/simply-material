@@ -25,7 +25,7 @@
       --md-sys-color-on-surface-variant
     );
     --md-comp-button-icon-color-toggle-selected: var(--md-sys-color-on-primary);
-    --md-comp-button-container-height: 2.8571rem;
+    --md-comp-button-container-height: 2.5rem;
     --md-comp-button-label-size: var(--md-sys-typescale-label-large);
     --md-comp-button-label-size-font-name: var(
       --md-sys-typescale-label-large-font
@@ -42,12 +42,12 @@
     --md-comp-button-label-size-font-tracking: var(
       --md-sys-typescale-label-large-tracking
     );
-    --md-comp-button-icon-size: 1.4286rem;
+    --md-comp-button-icon-size: 1.25rem;
     --md-comp-button-shape-round: var(--md-sys-shape-corner-full);
     --md-comp-button-shape-square: var(--md-sys-shape-corner-medium);
-    --md-comp-button-leading-space: 1.7143rem;
-    --md-comp-button-between-icon-label-space: 0.5714rem;
-    --md-comp-button-trailing-space: 1.7143rem;
+    --md-comp-button-leading-space: 1.5rem;
+    --md-comp-button-between-icon-label-space: 0.5rem;
+    --md-comp-button-trailing-space: 1.5rem;
     --md-comp-button-shape-pressed-morph: var(--md-sys-shape-corner-small);
     --md-comp-button-shape-spring-animation-damping: var(
       --md-sys-motion-spring-fast-spatial-damping
@@ -725,8 +725,8 @@
     );
     --md-comp-button-text-pressed-label-color: var(--md-sys-color-primary);
     --md-comp-button-text-pressed-icon-color: var(--md-sys-color-primary);
-    --md-comp-button-xsmall-container-height: 2.2857rem;
-    --md-comp-button-xsmall-outline-width: 0.0714rem;
+    --md-comp-button-xsmall-container-height: 2rem;
+    --md-comp-button-xsmall-outline-width: 0.0625rem;
     --md-comp-button-xsmall-label-size: var(--md-sys-typescale-label-large);
     --md-comp-button-xsmall-label-size-font-name: var(
       --md-sys-typescale-label-large-font
@@ -743,12 +743,12 @@
     --md-comp-button-xsmall-label-size-font-tracking: var(
       --md-sys-typescale-label-large-tracking
     );
-    --md-comp-button-xsmall-icon-size: 1.4286rem;
+    --md-comp-button-xsmall-icon-size: 1.25rem;
     --md-comp-button-xsmall-shape-round: var(--md-sys-shape-corner-full);
     --md-comp-button-xsmall-shape-square: var(--md-sys-shape-corner-medium);
-    --md-comp-button-xsmall-leading-space: 0.8571rem;
-    --md-comp-button-xsmall-between-icon-label-space: 0.5714rem;
-    --md-comp-button-xsmall-trailing-space: 0.8571rem;
+    --md-comp-button-xsmall-leading-space: 0.75rem;
+    --md-comp-button-xsmall-between-icon-label-space: 0.5rem;
+    --md-comp-button-xsmall-trailing-space: 0.75rem;
     --md-comp-button-xsmall-shape-pressed-morph: var(
       --md-sys-shape-corner-small
     );
@@ -764,8 +764,8 @@
     --md-comp-button-xsmall-selected-container-shape-square: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-button-small-container-height: 2.8571rem;
-    --md-comp-button-small-outline-width: 0.0714rem;
+    --md-comp-button-small-container-height: 2.5rem;
+    --md-comp-button-small-outline-width: 0.0625rem;
     --md-comp-button-small-label-size-font-name: var(
       --md-sys-typescale-label-large-font
     );
@@ -781,12 +781,12 @@
     --md-comp-button-small-label-size-font-tracking: var(
       --md-sys-typescale-label-large-tracking
     );
-    --md-comp-button-small-icon-size: 1.4286rem;
+    --md-comp-button-small-icon-size: 1.25rem;
     --md-comp-button-small-shape-round: var(--md-sys-shape-corner-full);
     --md-comp-button-small-shape-square: var(--md-sys-shape-corner-medium);
-    --md-comp-button-small-leading-space: 1.1429rem;
-    --md-comp-button-small-between-icon-label-space: 0.5714rem;
-    --md-comp-button-small-trailing-space: 1.1429rem;
+    --md-comp-button-small-leading-space: 1rem;
+    --md-comp-button-small-between-icon-label-space: 0.5rem;
+    --md-comp-button-small-trailing-space: 1rem;
     --md-comp-button-small-shape-pressed-morph: var(
       --md-sys-shape-corner-small
     );
@@ -802,8 +802,8 @@
     --md-comp-button-small-selected-container-shape-square: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-button-medium-container-height: 4rem;
-    --md-comp-button-medium-outline-width: 0.0714rem;
+    --md-comp-button-medium-container-height: 3.5rem;
+    --md-comp-button-medium-outline-width: 0.0625rem;
     --md-comp-button-medium-label-size: var(--md-sys-typescale-title-medium);
     --md-comp-button-medium-label-size-font-name: var(
       --md-sys-typescale-title-medium-font
@@ -820,12 +820,12 @@
     --md-comp-button-medium-label-size-font-tracking: var(
       --md-sys-typescale-title-medium-tracking
     );
-    --md-comp-button-medium-icon-size: 1.7143rem;
+    --md-comp-button-medium-icon-size: 1.5rem;
     --md-comp-button-medium-shape-round: var(--md-sys-shape-corner-full);
     --md-comp-button-medium-shape-square: var(--md-sys-shape-corner-large);
-    --md-comp-button-medium-leading-space: 1.7143rem;
-    --md-comp-button-medium-between-icon-label-space: 0.5714rem;
-    --md-comp-button-medium-trailing-space: 1.7143rem;
+    --md-comp-button-medium-leading-space: 1.5rem;
+    --md-comp-button-medium-between-icon-label-space: 0.5rem;
+    --md-comp-button-medium-trailing-space: 1.5rem;
     --md-comp-button-medium-shape-pressed-morph: var(
       --md-sys-shape-corner-medium
     );
@@ -841,8 +841,8 @@
     --md-comp-button-medium-selected-container-shape-square: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-button-large-container-height: 6.8571rem;
-    --md-comp-button-large-outline-width: 0.1429rem;
+    --md-comp-button-large-container-height: 6rem;
+    --md-comp-button-large-outline-width: 0.125rem;
     --md-comp-button-large-label-size: var(--md-sys-typescale-headline-small);
     --md-comp-button-large-label-size-font-name: var(
       --md-sys-typescale-headline-small-font
@@ -859,12 +859,12 @@
     --md-comp-button-large-label-size-font-tracking: var(
       --md-sys-typescale-headline-small-tracking
     );
-    --md-comp-button-large-icon-size: 2.2857rem;
+    --md-comp-button-large-icon-size: 2rem;
     --md-comp-button-large-shape-round: var(--md-sys-shape-corner-full);
     --md-comp-button-large-shape-square: var(--md-sys-shape-corner-extra-large);
-    --md-comp-button-large-leading-space: 3.4286rem;
-    --md-comp-button-large-between-icon-label-space: 0.8571rem;
-    --md-comp-button-large-trailing-space: 3.4286rem;
+    --md-comp-button-large-leading-space: 3rem;
+    --md-comp-button-large-between-icon-label-space: 0.75rem;
+    --md-comp-button-large-trailing-space: 3rem;
     --md-comp-button-large-shape-pressed-morph: var(
       --md-sys-shape-corner-large
     );
@@ -880,8 +880,8 @@
     --md-comp-button-large-selected-container-shape-square: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-button-xlarge-container-height: 9.7143rem;
-    --md-comp-button-xlarge-outline-width: 0.2143rem;
+    --md-comp-button-xlarge-container-height: 8.5rem;
+    --md-comp-button-xlarge-outline-width: 0.1875rem;
     --md-comp-button-xlarge-label-size: var(--md-sys-typescale-headline-large);
     --md-comp-button-xlarge-label-size-font-name: var(
       --md-sys-typescale-headline-large-font
@@ -898,14 +898,14 @@
     --md-comp-button-xlarge-label-size-font-tracking: var(
       --md-sys-typescale-headline-large-tracking
     );
-    --md-comp-button-xlarge-icon-size: 2.8571rem;
+    --md-comp-button-xlarge-icon-size: 2.5rem;
     --md-comp-button-xlarge-shape-round: var(--md-sys-shape-corner-full);
     --md-comp-button-xlarge-shape-square: var(
       --md-sys-shape-corner-extra-large
     );
-    --md-comp-button-xlarge-leading-space: 4.5714rem;
-    --md-comp-button-xlarge-between-icon-label-space: 1.1429rem;
-    --md-comp-button-xlarge-trailing-space: 4.5714rem;
+    --md-comp-button-xlarge-leading-space: 4rem;
+    --md-comp-button-xlarge-between-icon-label-space: 1rem;
+    --md-comp-button-xlarge-trailing-space: 4rem;
     --md-comp-button-xlarge-shape-pressed-morph: var(
       --md-sys-shape-corner-large
     );

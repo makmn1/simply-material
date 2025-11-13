@@ -4,19 +4,19 @@
  */
 @layer tokens {
   :root {
-    --md-comp-fab-container-height: 4rem;
-    --md-comp-fab-container-width: 4rem;
-    --md-comp-fab-icon-size: 1.7143rem;
+    --md-comp-fab-container-height: 3.5rem;
+    --md-comp-fab-container-width: 3.5rem;
+    --md-comp-fab-icon-size: 1.5rem;
     --md-comp-fab-container-shape: var(--md-sys-shape-corner-large);
-    --md-comp-fab-medium-container-height: 5.7143rem;
-    --md-comp-fab-medium-container-width: 5.7143rem;
-    --md-comp-fab-medium-icon-size: 2rem;
+    --md-comp-fab-medium-container-height: 5rem;
+    --md-comp-fab-medium-container-width: 5rem;
+    --md-comp-fab-medium-icon-size: 1.75rem;
     --md-comp-fab-medium-container-shape: var(
       --md-sys-shape-corner-large-increased
     );
-    --md-comp-fab-large-container-height: 6.8571rem;
-    --md-comp-fab-large-container-width: 6.8571rem;
-    --md-comp-fab-large-icon-size: 2.5714rem;
+    --md-comp-fab-large-container-height: 6rem;
+    --md-comp-fab-large-container-width: 6rem;
+    --md-comp-fab-large-icon-size: 2.25rem;
     --md-comp-fab-large-container-shape: var(--md-sys-shape-corner-extra-large);
     --md-comp-fab-tonal-primary-container-color: var(
       --md-sys-color-primary-container

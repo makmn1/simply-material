@@ -5,12 +5,12 @@
 @layer tokens {
   :root {
     --md-comp-chip-assist-container-shape: var(--md-sys-shape-corner-small);
-    --md-comp-chip-assist-container-height: 2.2857rem;
+    --md-comp-chip-assist-container-height: 2rem;
     --md-comp-chip-assist-container-elevation: var(--md-sys-elevation-level0);
     --md-comp-chip-assist-container-outline-color: var(
       --md-sys-color-outline-variant
     );
-    --md-comp-chip-assist-container-outline-width: 0.0714rem;
+    --md-comp-chip-assist-container-outline-width: 0.0625rem;
     --md-comp-chip-assist-elevated-container-elevation: var(
       --md-sys-elevation-level1
     );
@@ -36,7 +36,7 @@
       --md-sys-typescale-label-large-tracking
     );
     --md-comp-chip-assist-label-text-color: var(--md-sys-color-on-surface);
-    --md-comp-chip-assist-icon-size: 1.2857rem;
+    --md-comp-chip-assist-icon-size: 1.125rem;
     --md-comp-chip-assist-icon-color: var(--md-sys-color-primary);
     --md-comp-chip-assist-disabled-outline-color: var(
       --md-sys-color-on-surface
@@ -126,12 +126,12 @@
       --md-sys-color-primary
     );
     --md-comp-chip-filter-container-shape: var(--md-sys-shape-corner-small);
-    --md-comp-chip-filter-container-height: 2.2857rem;
+    --md-comp-chip-filter-container-height: 2rem;
     --md-comp-chip-filter-container-elevation: var(--md-sys-elevation-level0);
     --md-comp-chip-filter-unselected-outline-color: var(
       --md-sys-color-outline-variant
     );
-    --md-comp-chip-filter-unselected-outline-width: 0.0714rem;
+    --md-comp-chip-filter-unselected-outline-width: 0.0625rem;
     --md-comp-chip-filter-selected-outline-color: var(
       --md-sys-color-secondary-container
     );
@@ -169,7 +169,7 @@
     --md-comp-chip-filter-selected-label-text-color: var(
       --md-sys-color-on-secondary-container
     );
-    --md-comp-chip-filter-with-icon-icon-size: 1.2857rem;
+    --md-comp-chip-filter-with-icon-icon-size: 1.125rem;
     --md-comp-chip-filter-with-leading-icon-selected-leading-icon-color: var(
       --md-sys-color-on-secondary-container
     );
@@ -369,17 +369,17 @@
     --md-comp-chip-filter-with-trailing-icon-unselected-dragged-icon-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-chip-input-with-avatar-avatar-size: 1.7143rem;
+    --md-comp-chip-input-with-avatar-avatar-size: 1.5rem;
     --md-comp-chip-input-with-avatar-avatar-shape: var(
       --md-sys-shape-corner-full
     );
     --md-comp-chip-input-container-shape: var(--md-sys-shape-corner-small);
-    --md-comp-chip-input-container-height: 2.2857rem;
+    --md-comp-chip-input-container-height: 2rem;
     --md-comp-chip-input-container-elevation: var(--md-sys-elevation-level0);
     --md-comp-chip-input-unselected-outline-color: var(
       --md-sys-color-outline-variant
     );
-    --md-comp-chip-input-unselected-outline-width: 0.0714rem;
+    --md-comp-chip-input-unselected-outline-width: 0.0625rem;
     --md-comp-chip-input-selected-container-color: var(
       --md-sys-color-secondary-container
     );
@@ -405,14 +405,14 @@
     --md-comp-chip-input-unselected-label-text-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-chip-input-leading-icon-size: 1.2857rem;
+    --md-comp-chip-input-leading-icon-size: 1.125rem;
     --md-comp-chip-input-with-leading-icon-selected-leading-icon-color: var(
       --md-sys-color-primary
     );
     --md-comp-chip-input-with-leading-icon-unselected-leading-icon-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-chip-input-trailing-icon-size: 1.2857rem;
+    --md-comp-chip-input-trailing-icon-size: 1.125rem;
     --md-comp-chip-input-with-trailing-icon-selected-trailing-icon-color: var(
       --md-sys-color-on-secondary-container
     );
@@ -574,14 +574,14 @@
       --md-sys-color-primary
     );
     --md-comp-chip-suggestion-container-shape: var(--md-sys-shape-corner-small);
-    --md-comp-chip-suggestion-container-height: 2.2857rem;
+    --md-comp-chip-suggestion-container-height: 2rem;
     --md-comp-chip-suggestion-container-elevation: var(
       --md-sys-elevation-level0
     );
     --md-comp-chip-suggestion-container-outline-color: var(
       --md-sys-color-outline-variant
     );
-    --md-comp-chip-suggestion-container-outline-width: 0.0714rem;
+    --md-comp-chip-suggestion-container-outline-width: 0.0625rem;
     --md-comp-chip-suggestion-elevated-container-elevation: var(
       --md-sys-elevation-level1
     );
@@ -592,7 +592,7 @@
       --md-sys-color-shadow
     );
     --md-comp-chip-suggestion-leading-icon-color: var(--md-sys-color-primary);
-    --md-comp-chip-suggestion-leading-icon-size: 1.2857rem;
+    --md-comp-chip-suggestion-leading-icon-size: 1.125rem;
     --md-comp-chip-suggestion-label-text-font: var(
       --md-sys-typescale-label-large-font
     );

@@ -19,7 +19,7 @@
     --md-comp-date-picker-docker-date-today-container-outline-color: var(
       --md-sys-color-primary
     );
-    --md-comp-date-picker-docker-date-today-container-outline-width: 0.0714rem;
+    --md-comp-date-picker-docker-date-today-container-outline-width: 0.0625rem;
     --md-comp-date-picker-docker-date-selected-container-color: var(
       --md-sys-color-primary
     );
@@ -29,12 +29,12 @@
     --md-comp-date-picker-docker-menu-list-item-selected-container-color: var(
       --md-sys-color-surface-variant
     );
-    --md-comp-date-picker-docker-container-width: 25.7143rem;
-    --md-comp-date-picker-docker-container-height: 32.5714rem;
-    --md-comp-date-picker-docker-date-container-width: 3.4286rem;
-    --md-comp-date-picker-docker-date-container-height: 3.4286rem;
-    --md-comp-date-picker-docker-menu-button-container-height: 2.8571rem;
-    --md-comp-date-picker-docker-menu-list-item-container-height: 3.4286rem;
+    --md-comp-date-picker-docker-container-width: 22.5rem;
+    --md-comp-date-picker-docker-container-height: 28.5rem;
+    --md-comp-date-picker-docker-date-container-width: 3rem;
+    --md-comp-date-picker-docker-date-container-height: 3rem;
+    --md-comp-date-picker-docker-menu-button-container-height: 2.5rem;
+    --md-comp-date-picker-docker-menu-list-item-container-height: 3rem;
     --md-comp-date-picker-docker-weekdays-label-text-color: var(
       --md-sys-color-on-surface
     );
@@ -120,17 +120,17 @@
     --md-comp-date-picker-docker-menu-button-icon-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-date-picker-docker-menu-button-icon-size: 1.2857rem;
+    --md-comp-date-picker-docker-menu-button-icon-size: 1.125rem;
     --md-comp-date-picker-docker-menu-list-item-selected-leading-icon-color: var(
       --md-sys-color-on-surface
     );
-    --md-comp-date-picker-docker-menu-list-item-selected-leading-icon-size: 1.7143rem;
+    --md-comp-date-picker-docker-menu-list-item-selected-leading-icon-size: 1.5rem;
     --md-comp-date-picker-docker-date-state-layer-shape: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-date-picker-docker-date-state-layer-width: 2.8571rem;
-    --md-comp-date-picker-docker-date-state-layer-height: 2.8571rem;
-    --md-comp-date-picker-docker-header-height: 4.5714rem;
+    --md-comp-date-picker-docker-date-state-layer-width: 2.5rem;
+    --md-comp-date-picker-docker-date-state-layer-height: 2.5rem;
+    --md-comp-date-picker-docker-header-height: 4rem;
     --md-comp-date-picker-docker-menu-button-disabled-label-text-color: var(
       --md-sys-color-on-surface
     );
@@ -268,7 +268,7 @@
     --md-comp-date-picker-modal-date-today-container-outline-color: var(
       --md-sys-color-primary
     );
-    --md-comp-date-picker-modal-date-today-container-outline-width: 0.0714rem;
+    --md-comp-date-picker-modal-date-today-container-outline-width: 0.0625rem;
     --md-comp-date-picker-modal-date-selected-container-color: var(
       --md-sys-color-primary
     );
@@ -281,16 +281,16 @@
     --md-comp-date-picker-modal-year-selection-year-selected-container-color: var(
       --md-sys-color-primary
     );
-    --md-comp-date-picker-modal-container-width: 25.7143rem;
-    --md-comp-date-picker-modal-container-height: 37.4286rem;
-    --md-comp-date-picker-modal-header-container-width: 25.7143rem;
-    --md-comp-date-picker-modal-header-container-height: 8.5714rem;
-    --md-comp-date-picker-modal-range-selection-header-container-height: 9.1429rem;
-    --md-comp-date-picker-modal-date-container-width: 2.8571rem;
-    --md-comp-date-picker-modal-date-container-height: 2.8571rem;
-    --md-comp-date-picker-modal-year-selection-year-container-width: 5.1429rem;
-    --md-comp-date-picker-modal-year-selection-year-container-height: 2.5714rem;
-    --md-comp-date-picker-modal-range-selection-active-indicator-container-height: 2.8571rem;
+    --md-comp-date-picker-modal-container-width: 22.5rem;
+    --md-comp-date-picker-modal-container-height: 32.75rem;
+    --md-comp-date-picker-modal-header-container-width: 22.5rem;
+    --md-comp-date-picker-modal-header-container-height: 7.5rem;
+    --md-comp-date-picker-modal-range-selection-header-container-height: 8rem;
+    --md-comp-date-picker-modal-date-container-width: 2.5rem;
+    --md-comp-date-picker-modal-date-container-height: 2.5rem;
+    --md-comp-date-picker-modal-year-selection-year-container-width: 4.5rem;
+    --md-comp-date-picker-modal-year-selection-year-container-height: 2.25rem;
+    --md-comp-date-picker-modal-range-selection-active-indicator-container-height: 2.5rem;
     --md-comp-date-picker-modal-weekdays-label-text-color: var(
       --md-sys-color-on-surface
     );
@@ -429,10 +429,10 @@
     --md-comp-date-picker-modal-year-selection-year-state-layer-shape: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-date-picker-modal-date-state-layer-width: 2.8571rem;
-    --md-comp-date-picker-modal-date-state-layer-height: 2.8571rem;
-    --md-comp-date-picker-modal-year-selection-year-state-layer-width: 5.1429rem;
-    --md-comp-date-picker-modal-year-selection-year-state-layer-height: 2.5714rem;
+    --md-comp-date-picker-modal-date-state-layer-width: 2.5rem;
+    --md-comp-date-picker-modal-date-state-layer-height: 2.5rem;
+    --md-comp-date-picker-modal-year-selection-year-state-layer-width: 4.5rem;
+    --md-comp-date-picker-modal-year-selection-year-state-layer-height: 2.25rem;
     --md-comp-date-picker-modal-header-supporting-text-color: var(
       --md-sys-color-on-surface-variant
     );
@@ -526,10 +526,10 @@
     --md-comp-date-picker-modal-input-container-shape: var(
       --md-sys-shape-corner-extra-large
     );
-    --md-comp-date-picker-modal-input-container-width: 23.4286rem;
-    --md-comp-date-picker-modal-input-container-height: 36.5714rem;
-    --md-comp-date-picker-modal-input-header-container-width: 23.4286rem;
-    --md-comp-date-picker-modal-input-header-container-height: 8.5714rem;
+    --md-comp-date-picker-modal-input-container-width: 20.5rem;
+    --md-comp-date-picker-modal-input-container-height: 32rem;
+    --md-comp-date-picker-modal-input-header-container-width: 20.5rem;
+    --md-comp-date-picker-modal-input-header-container-height: 7.5rem;
     --md-comp-date-picker-modal-input-header-headline-color: var(
       --md-sys-color-on-surface-variant
     );

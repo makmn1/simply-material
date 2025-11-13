@@ -8,8 +8,8 @@
     --md-comp-radio-button-icon-unselected-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-radio-button-icon-size: 1.4286rem;
-    --md-comp-radio-button-state-layer-size: 2.8571rem;
+    --md-comp-radio-button-icon-size: 1.25rem;
+    --md-comp-radio-button-state-layer-size: 2.5rem;
     --md-comp-radio-button-disabled-selected-icon-color: var(
       --md-sys-color-on-surface
     );

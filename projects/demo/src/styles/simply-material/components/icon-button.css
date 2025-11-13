@@ -18,14 +18,14 @@
     --md-comp-icon-button-icon-color-toggle-selected: var(
       --md-sys-color-primary
     );
-    --md-comp-icon-button-container-height: 2.8571rem;
-    --md-comp-icon-button-icon-size: 1.7143rem;
-    --md-comp-icon-button-narrow-leading-space: 0.2857rem;
-    --md-comp-icon-button-narrow-trailing-space: 0.2857rem;
-    --md-comp-icon-button-default-leading-space: 0.5714rem;
-    --md-comp-icon-button-default-trailing-space: 0.5714rem;
-    --md-comp-icon-button-wide-leading-space: 1rem;
-    --md-comp-icon-button-wide-trailing-space: 1rem;
+    --md-comp-icon-button-container-height: 2.5rem;
+    --md-comp-icon-button-icon-size: 1.5rem;
+    --md-comp-icon-button-narrow-leading-space: 0.25rem;
+    --md-comp-icon-button-narrow-trailing-space: 0.25rem;
+    --md-comp-icon-button-default-leading-space: 0.5rem;
+    --md-comp-icon-button-default-trailing-space: 0.5rem;
+    --md-comp-icon-button-wide-leading-space: 0.875rem;
+    --md-comp-icon-button-wide-trailing-space: 0.875rem;
     --md-comp-icon-button-container-shape-round: var(
       --md-sys-shape-corner-full
     );
@@ -389,21 +389,21 @@
       --md-sys-color-inverse-on-surface
     );
     --md-comp-icon-button-disabled-opacity: 0.38;
-    --md-comp-icon-button-xsmall-container-height: 2.2857rem;
-    --md-comp-icon-button-xsmall-icon-size: 1.4286rem;
-    --md-comp-icon-button-xsmall-narrow-leading-space: 0.2857rem;
-    --md-comp-icon-button-xsmall-narrow-trailing-space: 0.2857rem;
-    --md-comp-icon-button-xsmall-default-leading-space: 0.4286rem;
-    --md-comp-icon-button-xsmall-default-trailing-space: 0.4286rem;
-    --md-comp-icon-button-xsmall-wide-leading-space: 0.7143rem;
-    --md-comp-icon-button-xsmall-wide-trailing-space: 0.7143rem;
+    --md-comp-icon-button-xsmall-container-height: 2rem;
+    --md-comp-icon-button-xsmall-icon-size: 1.25rem;
+    --md-comp-icon-button-xsmall-narrow-leading-space: 0.25rem;
+    --md-comp-icon-button-xsmall-narrow-trailing-space: 0.25rem;
+    --md-comp-icon-button-xsmall-default-leading-space: 0.375rem;
+    --md-comp-icon-button-xsmall-default-trailing-space: 0.375rem;
+    --md-comp-icon-button-xsmall-wide-leading-space: 0.625rem;
+    --md-comp-icon-button-xsmall-wide-trailing-space: 0.625rem;
     --md-comp-icon-button-xsmall-container-shape-round: var(
       --md-sys-shape-corner-full
     );
     --md-comp-icon-button-xsmall-container-shape-square: var(
       --md-sys-shape-corner-medium
     );
-    --md-comp-icon-button-xsmall-outline-width: 0.0714rem;
+    --md-comp-icon-button-xsmall-outline-width: 0.0625rem;
     --md-comp-icon-button-xsmall-shape-pressed-morph: var(
       --md-sys-shape-corner-small
     );
@@ -419,21 +419,21 @@
     --md-comp-icon-button-xsmall-selected-container-shape-square: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-icon-button-small-container-height: 2.8571rem;
-    --md-comp-icon-button-small-icon-size: 1.7143rem;
-    --md-comp-icon-button-small-narrow-leading-space: 0.2857rem;
-    --md-comp-icon-button-small-narrow-trailing-space: 0.2857rem;
-    --md-comp-icon-button-small-default-leading-space: 0.5714rem;
-    --md-comp-icon-button-small-default-trailing-space: 0.5714rem;
-    --md-comp-icon-button-small-wide-leading-space: 1rem;
-    --md-comp-icon-button-small-wide-trailing-space: 1rem;
+    --md-comp-icon-button-small-container-height: 2.5rem;
+    --md-comp-icon-button-small-icon-size: 1.5rem;
+    --md-comp-icon-button-small-narrow-leading-space: 0.25rem;
+    --md-comp-icon-button-small-narrow-trailing-space: 0.25rem;
+    --md-comp-icon-button-small-default-leading-space: 0.5rem;
+    --md-comp-icon-button-small-default-trailing-space: 0.5rem;
+    --md-comp-icon-button-small-wide-leading-space: 0.875rem;
+    --md-comp-icon-button-small-wide-trailing-space: 0.875rem;
     --md-comp-icon-button-small-container-shape-round: var(
       --md-sys-shape-corner-full
     );
     --md-comp-icon-button-small-container-shape-square: var(
       --md-sys-shape-corner-medium
     );
-    --md-comp-icon-button-small-outline-width: 0.0714rem;
+    --md-comp-icon-button-small-outline-width: 0.0625rem;
     --md-comp-icon-button-small-shape-pressed-morph: var(
       --md-sys-shape-corner-small
     );
@@ -449,21 +449,21 @@
     --md-comp-icon-button-small-selected-container-shape-square: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-icon-button-medium-container-height: 4rem;
-    --md-comp-icon-button-medium-icon-size: 1.7143rem;
-    --md-comp-icon-button-medium-narrow-leading-space: 0.8571rem;
-    --md-comp-icon-button-medium-narrow-trailing-space: 0.8571rem;
-    --md-comp-icon-button-medium-default-leading-space: 1.1429rem;
-    --md-comp-icon-button-medium-default-trailing-space: 1.1429rem;
-    --md-comp-icon-button-medium-wide-leading-space: 1.7143rem;
-    --md-comp-icon-button-medium-wide-trailing-space: 1.7143rem;
+    --md-comp-icon-button-medium-container-height: 3.5rem;
+    --md-comp-icon-button-medium-icon-size: 1.5rem;
+    --md-comp-icon-button-medium-narrow-leading-space: 0.75rem;
+    --md-comp-icon-button-medium-narrow-trailing-space: 0.75rem;
+    --md-comp-icon-button-medium-default-leading-space: 1rem;
+    --md-comp-icon-button-medium-default-trailing-space: 1rem;
+    --md-comp-icon-button-medium-wide-leading-space: 1.5rem;
+    --md-comp-icon-button-medium-wide-trailing-space: 1.5rem;
     --md-comp-icon-button-medium-container-shape-round: var(
       --md-sys-shape-corner-full
     );
     --md-comp-icon-button-medium-container-shape-square: var(
       --md-sys-shape-corner-large
     );
-    --md-comp-icon-button-medium-outline-width: 0.0714rem;
+    --md-comp-icon-button-medium-outline-width: 0.0625rem;
     --md-comp-icon-button-medium-shape-pressed-morph: var(
       --md-sys-shape-corner-medium
     );
@@ -479,21 +479,21 @@
     --md-comp-icon-button-medium-selected-container-shape-square: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-icon-button-large-container-height: 6.8571rem;
-    --md-comp-icon-button-large-icon-size: 2.2857rem;
-    --md-comp-icon-button-large-narrow-leading-space: 1.1429rem;
-    --md-comp-icon-button-large-narrow-trailing-space: 1.1429rem;
-    --md-comp-icon-button-large-default-leading-space: 2.2857rem;
-    --md-comp-icon-button-large-default-trailing-space: 2.2857rem;
-    --md-comp-icon-button-large-wide-leading-space: 3.4286rem;
-    --md-comp-icon-button-large-wide-trailing-space: 3.4286rem;
+    --md-comp-icon-button-large-container-height: 6rem;
+    --md-comp-icon-button-large-icon-size: 2rem;
+    --md-comp-icon-button-large-narrow-leading-space: 1rem;
+    --md-comp-icon-button-large-narrow-trailing-space: 1rem;
+    --md-comp-icon-button-large-default-leading-space: 2rem;
+    --md-comp-icon-button-large-default-trailing-space: 2rem;
+    --md-comp-icon-button-large-wide-leading-space: 3rem;
+    --md-comp-icon-button-large-wide-trailing-space: 3rem;
     --md-comp-icon-button-large-container-shape-round: var(
       --md-sys-shape-corner-full
     );
     --md-comp-icon-button-large-container-shape-square: var(
       --md-sys-shape-corner-extra-large
     );
-    --md-comp-icon-button-large-outline-width: 0.1429rem;
+    --md-comp-icon-button-large-outline-width: 0.125rem;
     --md-comp-icon-button-large-shape-pressed-morph: var(
       --md-sys-shape-corner-large
     );
@@ -509,21 +509,21 @@
     --md-comp-icon-button-large-selected-container-shape-square: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-icon-button-xlarge-container-height: 9.7143rem;
-    --md-comp-icon-button-xlarge-icon-size: 2.8571rem;
-    --md-comp-icon-button-xlarge-narrow-leading-space: 2.2857rem;
-    --md-comp-icon-button-xlarge-narrow-trailing-space: 2.2857rem;
-    --md-comp-icon-button-xlarge-default-leading-space: 3.4286rem;
-    --md-comp-icon-button-xlarge-default-trailing-space: 3.4286rem;
-    --md-comp-icon-button-xlarge-wide-leading-space: 5.1429rem;
-    --md-comp-icon-button-xlarge-wide-trailing-space: 5.1429rem;
+    --md-comp-icon-button-xlarge-container-height: 8.5rem;
+    --md-comp-icon-button-xlarge-icon-size: 2.5rem;
+    --md-comp-icon-button-xlarge-narrow-leading-space: 2rem;
+    --md-comp-icon-button-xlarge-narrow-trailing-space: 2rem;
+    --md-comp-icon-button-xlarge-default-leading-space: 3rem;
+    --md-comp-icon-button-xlarge-default-trailing-space: 3rem;
+    --md-comp-icon-button-xlarge-wide-leading-space: 4.5rem;
+    --md-comp-icon-button-xlarge-wide-trailing-space: 4.5rem;
     --md-comp-icon-button-xlarge-container-shape-round: var(
       --md-sys-shape-corner-full
     );
     --md-comp-icon-button-xlarge-container-shape-square: var(
       --md-sys-shape-corner-extra-large
     );
-    --md-comp-icon-button-xlarge-outline-width: 0.2143rem;
+    --md-comp-icon-button-xlarge-outline-width: 0.1875rem;
     --md-comp-icon-button-xlarge-shape-pressed-morph: var(
       --md-sys-shape-corner-large
     );

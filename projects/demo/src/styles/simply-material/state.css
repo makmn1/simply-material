@@ -8,7 +8,7 @@
     --md-sys-state-pressed-state-layer-opacity: 0.1;
     --md-sys-state-focus-state-layer-opacity: 0.1;
     --md-sys-state-hover-state-layer-opacity: 0.08;
-    --md-sys-state-focus-indicator-thickness: 0.2143rem;
-    --md-sys-state-focus-indicator-outer-offset: 0.1429rem;
+    --md-sys-state-focus-indicator-thickness: 0.1875rem;
+    --md-sys-state-focus-indicator-outer-offset: 0.125rem;
   }
 }

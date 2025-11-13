@@ -12,11 +12,11 @@
     --md-comp-list-list-item-container-elevation: var(
       --md-sys-elevation-level0
     );
-    --md-comp-list-three-lines-list-item-container-height: 6.2857rem;
-    --md-comp-list-two-lines-list-item-container-height: 5.1429rem;
-    --md-comp-list-one-line-list-item-container-height: 4rem;
-    --md-comp-list-list-item-leading-space: 1.1429rem;
-    --md-comp-list-list-item-trailing-space: 1.1429rem;
+    --md-comp-list-three-lines-list-item-container-height: 5.5rem;
+    --md-comp-list-two-lines-list-item-container-height: 4.5rem;
+    --md-comp-list-one-line-list-item-container-height: 3.5rem;
+    --md-comp-list-list-item-leading-space: 1rem;
+    --md-comp-list-list-item-trailing-space: 1rem;
     --md-comp-list-list-item-label-text-color: var(--md-sys-color-on-surface);
     --md-comp-list-list-item-selected-label-text-color: var(
       --md-sys-color-on-secondary-container
@@ -42,25 +42,25 @@
     --md-comp-list-list-item-selected-leading-icon-color: var(
       --md-sys-color-on-surface
     );
-    --md-comp-list-list-item-leading-icon-size: 1.7143rem;
-    --md-comp-list-list-item-leading-icon-width: 7.1429rem;
-    --md-comp-list-list-item-small-leading-icon-height: 4rem;
-    --md-comp-list-list-item-large-leading-icon-color: 4.9286rem;
+    --md-comp-list-list-item-leading-icon-size: 1.5rem;
+    --md-comp-list-list-item-leading-icon-width: 6.25rem;
+    --md-comp-list-list-item-small-leading-icon-height: 3.5rem;
+    --md-comp-list-list-item-large-leading-icon-color: 4.3125rem;
     --md-comp-list-list-item-leading-icon-shape: var(
       --md-sys-shape-corner-none
     );
     --md-comp-list-list-item-trailing-icon-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-list-list-item-trailing-icon-size: 1.7143rem;
+    --md-comp-list-list-item-trailing-icon-size: 1.5rem;
     --md-comp-list-list-item-selected-trailing-icon-color: var(
       --md-sys-color-primary
     );
     --md-comp-list-list-item-unselected-trailing-icon-color: var(
       --md-sys-color-on-surface
     );
-    --md-comp-list-list-item-divider-leading-space: 1.1429rem;
-    --md-comp-list-list-item-divider-trailing-space: 1.1429rem;
+    --md-comp-list-list-item-divider-leading-space: 1rem;
+    --md-comp-list-list-item-divider-trailing-space: 1rem;
     --md-comp-list-list-item-supporting-text-color: var(
       --md-sys-color-on-surface-variant
     );
@@ -109,7 +109,7 @@
     --md-comp-list-list-item-leading-avatar-shape: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-list-list-item-leading-avatar-size: 2.8571rem;
+    --md-comp-list-list-item-leading-avatar-size: 2.5rem;
     --md-comp-list-list-item-leading-avatar-label-color: var(
       --md-sys-color-on-primary-container
     );
@@ -128,8 +128,8 @@
     --md-comp-list-list-item-leading-avatar-label-weight: var(
       --md-sys-typescale-title-medium-weight
     );
-    --md-comp-list-list-item-leading-image-width: 4rem;
-    --md-comp-list-list-item-leading-image-height: 4rem;
+    --md-comp-list-list-item-leading-image-width: 3.5rem;
+    --md-comp-list-list-item-leading-image-height: 3.5rem;
     --md-comp-list-list-item-leading-image-shape: var(
       --md-sys-shape-corner-none
     );

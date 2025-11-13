@@ -1,12 +1,15 @@
 # Tooltip Tokens
+Note: The width container tokens are not officially documented. The names for these tokens are not official. The values, however, were taken
+from Jetpack Compose, an official implementation. See the [TooltipDefaults](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/Tooltip.kt;drc=943107d5ed0b9734680029f4765ca1c4299a895e;l=489) in the official source code.
 
 ## Tooltip - Plain
 ### Enabled
 #### Container
-| Name                          | Value                             |
-|-------------------------------|-----------------------------------|
-| Plain tooltip container color | `md.sys.color.inverse-surface`    |
-| Plain tooltip container shape | `md.sys.shape.corner.extra-small` |
+| Name                           | Value                             |
+|--------------------------------|-----------------------------------|
+| Plain tooltip container color  | `md.sys.color.inverse-surface`    |
+| Plain tooltip container shape  | `md.sys.shape.corner.extra-small` |
+| Plain tooltip container width  | `200dp`                           |
 
 #### Supporting text
 | Name                                      | Value                                     |
@@ -27,6 +30,7 @@
 | Rich tooltip container elevation    | `md.sys.elevation.level2`        |
 | Rich tooltip container shadow color | `md.sys.color.shadow`            |
 | Rich tooltip container shape        | `md.sys.shape.corner.medium`     |
+| Rich tooltip container width        | `320dp`                          |
 
 #### Label text
 | Name                                       | Value                                      |

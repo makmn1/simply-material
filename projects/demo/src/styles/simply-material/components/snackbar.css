@@ -8,8 +8,8 @@
     --md-comp-snackbar-container-shadow-color: var(--md-sys-color-shadow);
     --md-comp-snackbar-container-elevation: var(--md-sys-elevation-level3);
     --md-comp-snackbar-container-shape: var(--md-sys-shape-corner-extra-small);
-    --md-comp-snackbar-container-single-line-height: 3.4286rem;
-    --md-comp-snackbar-container-two-lines-height: 4.8571rem;
+    --md-comp-snackbar-container-single-line-height: 3rem;
+    --md-comp-snackbar-container-two-lines-height: 4.25rem;
     --md-comp-snackbar-label-text-color: var(--md-sys-color-inverse-primary);
     --md-comp-snackbar-label-text-font: var(
       --md-sys-typescale-label-large-font
@@ -27,7 +27,7 @@
       --md-sys-typescale-label-large-weight
     );
     --md-comp-snackbar-icon-color: var(--md-sys-color-inverse-on-surface);
-    --md-comp-snackbar-icon-size: 1.7143rem;
+    --md-comp-snackbar-icon-size: 1.5rem;
     --md-comp-snackbar-supporting-text-color: var(
       --md-sys-color-inverse-on-surface
     );

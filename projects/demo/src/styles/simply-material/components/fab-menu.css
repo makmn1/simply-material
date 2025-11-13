@@ -4,17 +4,17 @@
  */
 @layer tokens {
   :root {
-    --md-comp-fab-menu-close-button-container-height: 4rem;
-    --md-comp-fab-menu-close-width: 4rem;
-    --md-comp-fab-menu-close-button-icon-size: 1.4286rem;
+    --md-comp-fab-menu-close-button-container-height: 3.5rem;
+    --md-comp-fab-menu-close-width: 3.5rem;
+    --md-comp-fab-menu-close-button-icon-size: 1.25rem;
     --md-comp-fab-menu-close-button-container-elevation: var(
       --md-sys-elevation-level3
     );
     --md-comp-fab-menu-close-button-container-shape: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-fab-menu-close-button-between-space: 0.5714rem;
-    --md-comp-fab-menu-menu-item-container-height: 4rem;
+    --md-comp-fab-menu-close-button-between-space: 0.5rem;
+    --md-comp-fab-menu-menu-item-container-height: 3.5rem;
     --md-comp-fab-menu-menu-item-label-text-font-name: var(
       --md-sys-typescale-body-large-font
     );
@@ -30,17 +30,17 @@
     --md-comp-fab-menu-menu-item-label-text-font-tracking: var(
       --md-sys-typescale-body-large-tracking
     );
-    --md-comp-fab-menu-menu-item-icon-size: 1.7143rem;
+    --md-comp-fab-menu-menu-item-icon-size: 1.5rem;
     --md-comp-fab-menu-menu-item-container-elevation: var(
       --md-sys-elevation-level0
     );
     --md-comp-fab-menu-menu-item-container-shape: var(
       --md-sys-shape-corner-full
     );
-    --md-comp-fab-menu-menu-item-leading-space: 1.7143rem;
-    --md-comp-fab-menu-menu-item-icon-label-space: 0.5714rem;
-    --md-comp-fab-menu-menu-item-trailing-space: 1.7143rem;
-    --md-comp-fab-menu-menu-item-between-space: 0.2857rem;
+    --md-comp-fab-menu-menu-item-leading-space: 1.5rem;
+    --md-comp-fab-menu-menu-item-icon-label-space: 0.5rem;
+    --md-comp-fab-menu-menu-item-trailing-space: 1.5rem;
+    --md-comp-fab-menu-menu-item-between-space: 0.25rem;
     --md-comp-fab-menu-primary-close-button-container-color: var(
       --md-sys-color-primary
     );

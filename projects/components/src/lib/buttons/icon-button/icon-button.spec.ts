@@ -61,7 +61,7 @@ describe('IconButton', () => {
     });
 
     it('should have default values', () => {
-      expect(component.variant()).toBe('standard');
+      expect(component.variant()).toBe('filled');
       expect(component.size()).toBe('small');
       expect(component.shape()).toBe('round');
       expect(component.width()).toBe('default');

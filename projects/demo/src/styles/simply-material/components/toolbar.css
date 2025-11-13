@@ -190,11 +190,11 @@
     --md-comp-toolbar-vibrant-pressed-label-color-selected: var(
       --md-sys-color-on-surface
     );
-    --md-comp-toolbar-docked-container-height: 4.5714rem;
-    --md-comp-toolbar-docked-leading-padding: 1.1429rem;
-    --md-comp-toolbar-docked-trailing-padding: 1.1429rem;
-    --md-comp-toolbar-docked-max-space-between-actions: 2.2857rem;
-    --md-comp-toolbar-docked-min-space-between-actions: 0.2857rem;
+    --md-comp-toolbar-docked-container-height: 4rem;
+    --md-comp-toolbar-docked-leading-padding: 1rem;
+    --md-comp-toolbar-docked-trailing-padding: 1rem;
+    --md-comp-toolbar-docked-max-space-between-actions: 2rem;
+    --md-comp-toolbar-docked-min-space-between-actions: 0.25rem;
     --md-comp-toolbar-docked-container-shape: var(--md-sys-shape-corner-none);
     --md-comp-toolbar-floating-vibrant-unselected-button-icon-color: var(
       --md-sys-color-on-primary-container
@@ -202,18 +202,18 @@
     --md-comp-toolbar-floating-vibrant-unselected-button-text-color: var(
       --md-sys-color-on-primary-container
     );
-    --md-comp-toolbar-floating-container-height-horizontal: 4.5714rem;
-    --md-comp-toolbar-floating-container-height-vertical: 4.5714rem;
-    --md-comp-toolbar-floating-leading-space: 0.5714rem;
-    --md-comp-toolbar-floating-trailing-space: 0.5714rem;
-    --md-comp-toolbar-floating-margin-from-screen-edge-horizontal: 1.1429rem;
-    --md-comp-toolbar-floating-margin-from-screen-edge-vertical: 1.7143rem;
-    --md-comp-toolbar-floating-space-between-actions: 0.2857rem;
+    --md-comp-toolbar-floating-container-height-horizontal: 4rem;
+    --md-comp-toolbar-floating-container-height-vertical: 4rem;
+    --md-comp-toolbar-floating-leading-space: 0.5rem;
+    --md-comp-toolbar-floating-trailing-space: 0.5rem;
+    --md-comp-toolbar-floating-margin-from-screen-edge-horizontal: 1rem;
+    --md-comp-toolbar-floating-margin-from-screen-edge-vertical: 1.5rem;
+    --md-comp-toolbar-floating-space-between-actions: 0.25rem;
     --md-comp-toolbar-floating-container-shape: var(--md-sys-shape-corner-full);
     --md-comp-toolbar-floating-container-elevation: var(
       --md-sys-elevation-level3
     );
-    --md-comp-toolbar-floating-fab-space-between-toolbar-fab: 0.5714rem;
+    --md-comp-toolbar-floating-fab-space-between-toolbar-fab: 0.5rem;
     --md-comp-toolbar-floating-fab-standard-container-color: var(
       --md-sys-color-secondary-container
     );
@@ -226,18 +226,18 @@
     --md-comp-toolbar-floating-fab-vibrant-icon-color: var(
       --md-sys-color-on-tertiary-container
     );
-    --md-comp-toolbar-floating-fab-expanded-container-height: 4rem;
-    --md-comp-toolbar-floating-fab-expanded-container-width: 4rem;
-    --md-comp-toolbar-floating-fab-expanded-icon-size: 1.7143rem;
+    --md-comp-toolbar-floating-fab-expanded-container-height: 3.5rem;
+    --md-comp-toolbar-floating-fab-expanded-container-width: 3.5rem;
+    --md-comp-toolbar-floating-fab-expanded-icon-size: 1.5rem;
     --md-comp-toolbar-floating-fab-expanded-container-shape: var(
       --md-sys-shape-corner-large
     );
     --md-comp-toolbar-floating-fab-expanded-container-elevation: var(
       --md-sys-elevation-level1
     );
-    --md-comp-toolbar-floating-fab-collapsed-container-height: 5.7143rem;
-    --md-comp-toolbar-floating-fab-collapsed-container-width: 5.7143rem;
-    --md-comp-toolbar-floating-fab-collapsed-icon-size: 2rem;
+    --md-comp-toolbar-floating-fab-collapsed-container-height: 5rem;
+    --md-comp-toolbar-floating-fab-collapsed-container-width: 5rem;
+    --md-comp-toolbar-floating-fab-collapsed-icon-size: 1.75rem;
     --md-comp-toolbar-floating-fab-collapsed-container-shape: var(
       --md-sys-shape-corner-large-increased
     );

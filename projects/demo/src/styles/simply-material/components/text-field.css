@@ -37,12 +37,12 @@
     --md-comp-text-field-filled-leading-icon-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-text-field-filled-leading-icon-size: 1.7143rem;
+    --md-comp-text-field-filled-leading-icon-size: 1.5rem;
     --md-comp-text-field-filled-trailing-icon-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-text-field-filled-trailing-icon-size: 1.7143rem;
-    --md-comp-text-field-filled-active-indicator-height: 0.0714rem;
+    --md-comp-text-field-filled-trailing-icon-size: 1.5rem;
+    --md-comp-text-field-filled-active-indicator-height: 0.0625rem;
     --md-comp-text-field-filled-active-indicator-color: var(
       --md-sys-color-on-surface-variant
     );
@@ -116,7 +116,7 @@
       --md-sys-color-on-surface
     );
     --md-comp-text-field-filled-disabled-input-text-opacity: 0.38;
-    --md-comp-text-field-filled-disabled-active-indicator-height: 0.0714rem;
+    --md-comp-text-field-filled-disabled-active-indicator-height: 0.0625rem;
     --md-comp-text-field-filled-disabled-active-indicator-color: var(
       --md-sys-color-on-surface
     );
@@ -142,7 +142,7 @@
     --md-comp-text-field-filled-hover-supporting-text-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-text-field-filled-hover-active-indicator-height: 0.0714rem;
+    --md-comp-text-field-filled-hover-active-indicator-height: 0.0625rem;
     --md-comp-text-field-filled-hover-active-indicator-color: var(
       --md-sys-color-on-surface
     );
@@ -161,7 +161,7 @@
     --md-comp-text-field-filled-focus-supporting-text-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-text-field-filled-focus-active-indicator-height: 0.1429rem;
+    --md-comp-text-field-filled-focus-active-indicator-height: 0.125rem;
     --md-comp-text-field-filled-focus-active-indicator-color: var(
       --md-sys-color-primary
     );

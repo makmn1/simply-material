@@ -23,7 +23,7 @@
     --md-comp-side-sheet-detached-container-shape: var(
       --md-sys-shape-corner-large
     );
-    --md-comp-side-sheet-docked-container-width: 18.2857rem;
+    --md-comp-side-sheet-docked-container-width: 16rem;
     --md-comp-side-sheet-docked-modal-container-shape: var(
       --md-sys-shape-corner-large-start
     );

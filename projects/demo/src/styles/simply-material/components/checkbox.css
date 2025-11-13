@@ -4,12 +4,12 @@
  */
 @layer tokens {
   :root {
-    --md-comp-checkbox-container-size: 1.2857rem;
-    --md-comp-checkbox-container-shape: 0.1429rem;
+    --md-comp-checkbox-container-size: 1.125rem;
+    --md-comp-checkbox-container-shape: 0.125rem;
     --md-comp-checkbox-unselected-outline-color: var(
       --md-sys-color-on-surface-variant
     );
-    --md-comp-checkbox-unselected-outline-width: 0.1429rem;
+    --md-comp-checkbox-unselected-outline-width: 0.125rem;
     --md-comp-checkbox-selected-container-color: var(--md-sys-color-primary);
     --md-comp-checkbox-selected-outline-width: 0;
     --md-comp-checkbox-unselected-error-outline-color: var(
@@ -18,15 +18,15 @@
     --md-comp-checkbox-selected-error-container-color: var(
       --md-sys-color-error
     );
-    --md-comp-checkbox-icon-size: 1.2857rem;
+    --md-comp-checkbox-icon-size: 1.125rem;
     --md-comp-checkbox-selected-icon-color: var(--md-sys-color-on-primary);
     --md-comp-checkbox-selected-error-icon-color: var(--md-sys-color-on-error);
-    --md-comp-checkbox-state-layer-size: 2.8571rem;
+    --md-comp-checkbox-state-layer-size: 2.5rem;
     --md-comp-checkbox-state-layer-shape: var(--md-sys-shape-corner-full);
     --md-comp-checkbox-unselected-disabled-outline-color: var(
       --md-sys-color-on-surface
     );
-    --md-comp-checkbox-unselected-disabled-outline-width: 0.1429rem;
+    --md-comp-checkbox-unselected-disabled-outline-width: 0.125rem;
     --md-comp-checkbox-unselected-disabled-container-opacity: 0.38;
     --md-comp-checkbox-selected-disabled-container-color: var(
       --md-sys-color-on-surface
@@ -39,7 +39,7 @@
     --md-comp-checkbox-unselected-hover-outline-color: var(
       --md-sys-color-on-surface
     );
-    --md-comp-checkbox-unselected-hover-outline-width: 0.1429rem;
+    --md-comp-checkbox-unselected-hover-outline-width: 0.125rem;
     --md-comp-checkbox-selected-hover-container-color: var(
       --md-sys-color-primary
     );
@@ -82,7 +82,7 @@
     --md-comp-checkbox-unselected-focus-outline-color: var(
       --md-sys-color-on-surface
     );
-    --md-comp-checkbox-unselected-focus-outline-width: 0.1429rem;
+    --md-comp-checkbox-unselected-focus-outline-width: 0.125rem;
     --md-comp-checkbox-selected-focus-container-color: var(
       --md-sys-color-primary
     );
@@ -118,7 +118,7 @@
     --md-comp-checkbox-unselected-pressed-outline-color: var(
       --md-sys-color-on-surface
     );
-    --md-comp-checkbox-unselected-pressed-outline-width: 0.1429rem;
+    --md-comp-checkbox-unselected-pressed-outline-width: 0.125rem;
     --md-comp-checkbox-selected-pressed-container-color: var(
       --md-sys-color-primary
     );

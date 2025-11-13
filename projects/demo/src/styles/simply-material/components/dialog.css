@@ -27,7 +27,7 @@
       --md-sys-typescale-label-large-tracking
     );
     --md-comp-dialog-basic-action-label-text-color: var(--md-sys-color-primary);
-    --md-comp-dialog-basic-icon-size: 1.7143rem;
+    --md-comp-dialog-basic-icon-size: 1.5rem;
     --md-comp-dialog-basic-icon-color: var(--md-sys-color-secondary);
     --md-comp-dialog-basic-headline-font: var(
       --md-sys-typescale-headline-small-font
@@ -100,7 +100,7 @@
     --md-comp-dialog-full-screen-container-shape: var(
       --md-sys-shape-corner-none
     );
-    --md-comp-dialog-full-screen-header-container-height: 4rem;
+    --md-comp-dialog-full-screen-header-container-height: 3.5rem;
     --md-comp-dialog-full-screen-header-container-color: var(
       --md-sys-color-surface
     );
@@ -134,7 +134,7 @@
     --md-comp-dialog-full-screen-header-icon-color: var(
       --md-sys-color-on-surface
     );
-    --md-comp-dialog-full-screen-header-icon-size: 1.7143rem;
+    --md-comp-dialog-full-screen-header-icon-size: 1.5rem;
     --md-comp-dialog-full-screen-header-headline-color: var(
       --md-sys-color-on-surface
     );

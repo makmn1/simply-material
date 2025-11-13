@@ -5,28 +5,28 @@
 @layer tokens {
   :root {
     --md-sys-shape-corner-full: 9999rem;
-    --md-sys-shape-corner-extra-large-top: "2rem 2rem 0 0";
-    --md-sys-shape-corner-extra-large: 2rem;
-    --md-sys-shape-corner-large-top: "1.1429rem 1.1429rem 0 0";
-    --md-sys-shape-corner-large-end: "0 1.1429rem 1.1429rem 0";
-    --md-sys-shape-corner-large-start: 1.1429rem 0 0 1.1429rem;
-    --md-sys-shape-corner-large: 1.1429rem;
-    --md-sys-shape-corner-medium: 0.8571rem;
-    --md-sys-shape-corner-small: 0.5714rem;
-    --md-sys-shape-corner-extra-small-top: "0.2857rem 0.2857rem 0 0";
-    --md-sys-shape-corner-extra-small: 0.2857rem;
+    --md-sys-shape-corner-extra-large-top: "1.75rem 1.75rem 0 0";
+    --md-sys-shape-corner-extra-large: 1.75rem;
+    --md-sys-shape-corner-large-top: "1rem 1rem 0 0";
+    --md-sys-shape-corner-large-end: "0 1rem 1rem 0";
+    --md-sys-shape-corner-large-start: 1rem 0 0 1rem;
+    --md-sys-shape-corner-large: 1rem;
+    --md-sys-shape-corner-medium: 0.75rem;
+    --md-sys-shape-corner-small: 0.5rem;
+    --md-sys-shape-corner-extra-small-top: "0.25rem 0.25rem 0 0";
+    --md-sys-shape-corner-extra-small: 0.25rem;
     --md-sys-shape-corner-none: 0;
-    --md-sys-shape-corner-large-increased: 1.4286rem;
-    --md-sys-shape-corner-extra-large-increased: 2.2857rem;
-    --md-sys-shape-corner-extra-extra-large: 3.4286rem;
+    --md-sys-shape-corner-large-increased: 1.25rem;
+    --md-sys-shape-corner-extra-large-increased: 2rem;
+    --md-sys-shape-corner-extra-extra-large: 3rem;
     --md-sys-shape-corner-value-none: 0;
-    --md-sys-shape-corner-value-extra-small: 0.2857rem;
-    --md-sys-shape-corner-value-small: 0.5714rem;
-    --md-sys-shape-corner-value-medium: 0.8571rem;
-    --md-sys-shape-corner-value-large: 1.1429rem;
-    --md-sys-shape-corner-value-large-increased: 1.4286rem;
-    --md-sys-shape-corner-value-extra-large: 2rem;
-    --md-sys-shape-corner-value-extra-large-increased: 2.2857rem;
-    --md-sys-shape-corner-value-extra-extra-large: 3.4286rem;
+    --md-sys-shape-corner-value-extra-small: 0.25rem;
+    --md-sys-shape-corner-value-small: 0.5rem;
+    --md-sys-shape-corner-value-medium: 0.75rem;
+    --md-sys-shape-corner-value-large: 1rem;
+    --md-sys-shape-corner-value-large-increased: 1.25rem;
+    --md-sys-shape-corner-value-extra-large: 1.75rem;
+    --md-sys-shape-corner-value-extra-large-increased: 2rem;
+    --md-sys-shape-corner-value-extra-extra-large: 3rem;
   }
 }

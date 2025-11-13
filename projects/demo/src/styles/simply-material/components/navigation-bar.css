@@ -51,9 +51,9 @@
     );
     --md-comp-nav-bar-space-between-items: 0;
     --md-comp-nav-bar-item-shape: var(--md-sys-shape-corner-full);
-    --md-comp-nav-bar-item-space-between-icon-label-space: 0.2857rem;
-    --md-comp-nav-bar-item-icon-size: 1.7143rem;
-    --md-comp-nav-bar-height: 4.5714rem;
+    --md-comp-nav-bar-item-space-between-icon-label-space: 0.25rem;
+    --md-comp-nav-bar-item-icon-size: 1.5rem;
+    --md-comp-nav-bar-height: 4rem;
     --md-comp-nav-bar-shape: var(--md-sys-shape-corner-none);
     --md-comp-nav-bar-item-vertical-label-text-font: var(
       --md-sys-typescale-label-medium-font
@@ -70,10 +70,10 @@
     --md-comp-nav-bar-item-vertical-label-text-weight: var(
       --md-sys-typescale-label-medium-weight
     );
-    --md-comp-nav-bar-item-vertical-active-indicator-height: 2.2857rem;
-    --md-comp-nav-bar-item-vertical-active-indicator-width: 4rem;
-    --md-comp-nav-bar-item-vertical-container-between-space: 0.4286rem;
-    --md-comp-nav-bar-item-vertical-active-indicator-icon-label-space: 0.2857rem;
+    --md-comp-nav-bar-item-vertical-active-indicator-height: 2rem;
+    --md-comp-nav-bar-item-vertical-active-indicator-width: 3.5rem;
+    --md-comp-nav-bar-item-vertical-container-between-space: 0.375rem;
+    --md-comp-nav-bar-item-vertical-active-indicator-icon-label-space: 0.25rem;
     --md-comp-nav-bar-item-horizontal-label-text-font: var(
       --md-sys-typescale-label-medium-font
     );
@@ -89,9 +89,9 @@
     --md-comp-nav-bar-item-horizontal-label-text-weight: var(
       --md-sys-typescale-label-medium-weight
     );
-    --md-comp-nav-bar-item-horizontal-active-indicator-height: 2.8571rem;
-    --md-comp-nav-bar-item-horizontal-active-indicator-leading-space: 1.1429rem;
-    --md-comp-nav-bar-item-horizontal-active-indicator-trailing-space: 1.1429rem;
-    --md-comp-nav-bar-item-horizontal-active-indicator-icon-label-space: 0.2857rem;
+    --md-comp-nav-bar-item-horizontal-active-indicator-height: 2.5rem;
+    --md-comp-nav-bar-item-horizontal-active-indicator-leading-space: 1rem;
+    --md-comp-nav-bar-item-horizontal-active-indicator-trailing-space: 1rem;
+    --md-comp-nav-bar-item-horizontal-active-indicator-icon-label-space: 0.25rem;
   }
 }

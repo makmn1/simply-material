@@ -4,8 +4,8 @@
  */
 @layer tokens {
   :root {
-    --md-comp-split-button-xsmall-container-height: 2.2857rem;
-    --md-comp-split-button-xsmall-between-space: 0.1429rem;
+    --md-comp-split-button-xsmall-container-height: 2rem;
+    --md-comp-split-button-xsmall-between-space: 0.125rem;
     --md-comp-split-button-xsmall-container-shape: var(
       --md-sys-shape-corner-full
     );
@@ -13,11 +13,11 @@
       --md-sys-shape-corner-value-extra-small
     );
     --md-comp-split-button-xsmall-outer-corner-size: 50%;
-    --md-comp-split-button-xsmall-leading-button-leading-space: 0.8571rem;
-    --md-comp-split-button-xsmall-leading-button-trailing-space: 0.7143rem;
-    --md-comp-split-button-xsmall-trailing-button-icon-size: 1.5714rem;
-    --md-comp-split-button-xsmall-trailing-button-leading-space: 0.9286rem;
-    --md-comp-split-button-xsmall-trailing-button-trailing-space: 0.9286rem;
+    --md-comp-split-button-xsmall-leading-button-leading-space: 0.75rem;
+    --md-comp-split-button-xsmall-leading-button-trailing-space: 0.625rem;
+    --md-comp-split-button-xsmall-trailing-button-icon-size: 1.375rem;
+    --md-comp-split-button-xsmall-trailing-button-leading-space: 0.8125rem;
+    --md-comp-split-button-xsmall-trailing-button-trailing-space: 0.8125rem;
     --md-comp-split-button-xsmall-inner-corner-hovered-size: var(
       --md-sys-shape-corner-value-small
     );
@@ -25,19 +25,19 @@
       --md-sys-shape-corner-value-small
     );
     --md-comp-split-button-xsmall-trailing-button-inner-corner-selected-size: 50%;
-    --md-comp-split-button-small-container-height: 2.8571rem;
-    --md-comp-split-button-small-between-space: 0.1429rem;
+    --md-comp-split-button-small-container-height: 2.5rem;
+    --md-comp-split-button-small-between-space: 0.125rem;
     --md-comp-split-button-small-container-shape: var(
       --md-sys-shape-corner-full
     );
     --md-comp-split-button-small-inner-corner-size: var(
       --md-sys-shape-corner-value-extra-small
     );
-    --md-comp-split-button-small-leading-button-leading-space: 1.1429rem;
-    --md-comp-split-button-small-leading-button-trailing-space: 0.8571rem;
-    --md-comp-split-button-small-trailing-button-icon-size: 1.5714rem;
-    --md-comp-split-button-small-trailing-button-leading-space: 0.9286rem;
-    --md-comp-split-button-small-trailing-button-trailing-space: 0.9286rem;
+    --md-comp-split-button-small-leading-button-leading-space: 1rem;
+    --md-comp-split-button-small-leading-button-trailing-space: 0.75rem;
+    --md-comp-split-button-small-trailing-button-icon-size: 1.375rem;
+    --md-comp-split-button-small-trailing-button-leading-space: 0.8125rem;
+    --md-comp-split-button-small-trailing-button-trailing-space: 0.8125rem;
     --md-comp-split-button-small-inner-corner-hovered-size: var(
       --md-sys-shape-corner-value-medium
     );
@@ -45,19 +45,19 @@
       --md-sys-shape-corner-value-medium
     );
     --md-comp-split-button-small-trailing-button-inner-corner-selected-size: 50%;
-    --md-comp-split-button-medium-container-height: 4rem;
-    --md-comp-split-button-medium-between-space: 0.1429rem;
+    --md-comp-split-button-medium-container-height: 3.5rem;
+    --md-comp-split-button-medium-between-space: 0.125rem;
     --md-comp-split-button-medium-container-shape: var(
       --md-sys-shape-corner-full
     );
     --md-comp-split-button-medium-inner-corner-size: var(
       --md-sys-shape-corner-value-extra-small
     );
-    --md-comp-split-button-medium-leading-button-leading-space: 1.7143rem;
-    --md-comp-split-button-medium-leading-button-trailing-space: 1.7143rem;
-    --md-comp-split-button-medium-trailing-button-icon-size: 1.8571rem;
-    --md-comp-split-button-medium-trailing-button-leading-space: 1.0714rem;
-    --md-comp-split-button-medium-trailing-button-trailing-space: 1.0714rem;
+    --md-comp-split-button-medium-leading-button-leading-space: 1.5rem;
+    --md-comp-split-button-medium-leading-button-trailing-space: 1.5rem;
+    --md-comp-split-button-medium-trailing-button-icon-size: 1.625rem;
+    --md-comp-split-button-medium-trailing-button-leading-space: 0.9375rem;
+    --md-comp-split-button-medium-trailing-button-trailing-space: 0.9375rem;
     --md-comp-split-button-medium-inner-corner-hovered-size: var(
       --md-sys-shape-corner-value-medium
     );
@@ -65,19 +65,19 @@
       --md-sys-shape-corner-value-medium
     );
     --md-comp-split-button-medium-trailing-button-inner-corner-selected-size: 50%;
-    --md-comp-split-button-large-container-height: 6.8571rem;
-    --md-comp-split-button-large-between-space: 0.1429rem;
+    --md-comp-split-button-large-container-height: 6rem;
+    --md-comp-split-button-large-between-space: 0.125rem;
     --md-comp-split-button-large-container-shape: var(
       --md-sys-shape-corner-full
     );
     --md-comp-split-button-large-inner-corner-size: var(
       --md-sys-shape-corner-value-small
     );
-    --md-comp-split-button-large-leading-button-leading-space: 3.4286rem;
-    --md-comp-split-button-large-leading-button-trailing-space: 3.4286rem;
-    --md-comp-split-button-large-trailing-button-icon-size: 2.7143rem;
-    --md-comp-split-button-large-trailing-button-leading-space: 2.0714rem;
-    --md-comp-split-button-large-trailing-button-trailing-space: 2.0714rem;
+    --md-comp-split-button-large-leading-button-leading-space: 3rem;
+    --md-comp-split-button-large-leading-button-trailing-space: 3rem;
+    --md-comp-split-button-large-trailing-button-icon-size: 2.375rem;
+    --md-comp-split-button-large-trailing-button-leading-space: 1.8125rem;
+    --md-comp-split-button-large-trailing-button-trailing-space: 1.8125rem;
     --md-comp-split-button-large-inner-corner-hovered-size: var(
       --md-sys-shape-corner-value-large-increased
     );
@@ -85,19 +85,19 @@
       --md-sys-shape-corner-value-large-increased
     );
     --md-comp-split-button-large-trailing-button-inner-corner-selected-size: 50%;
-    --md-comp-split-button-xlarge-container-height: 9.7143rem;
-    --md-comp-split-button-xlarge-between-space: 0.1429rem;
+    --md-comp-split-button-xlarge-container-height: 8.5rem;
+    --md-comp-split-button-xlarge-between-space: 0.125rem;
     --md-comp-split-button-xlarge-container-shape: var(
       --md-sys-shape-corner-full
     );
     --md-comp-split-button-xlarge-inner-corner-size: var(
       --md-sys-shape-corner-value-medium
     );
-    --md-comp-split-button-xlarge-leading-button-leading-space: 4.5714rem;
-    --md-comp-split-button-xlarge-leading-button-trailing-space: 4.5714rem;
-    --md-comp-split-button-xlarge-trailing-button-icon-size: 3.5714rem;
-    --md-comp-split-button-xlarge-trailing-button-leading-space: 3.0714rem;
-    --md-comp-split-button-xlarge-trailing-button-trailing-space: 3.0714rem;
+    --md-comp-split-button-xlarge-leading-button-leading-space: 4rem;
+    --md-comp-split-button-xlarge-leading-button-trailing-space: 4rem;
+    --md-comp-split-button-xlarge-trailing-button-icon-size: 3.125rem;
+    --md-comp-split-button-xlarge-trailing-button-leading-space: 2.6875rem;
+    --md-comp-split-button-xlarge-trailing-button-trailing-space: 2.6875rem;
     --md-comp-split-button-xlarge-inner-corner-hovered-size: var(
       --md-sys-shape-corner-value-large-increased
     );

@@ -16,7 +16,9 @@
     <h2 class="section-title">Sizes</h2>
     <div class="button-group">
       @for (size of sizes; track size) {
-        <button sm-icon-button [size]="size" [shape]="selectedShape()">
+        <button
+          sm-icon-button [size]="size" [shape]="selectedShape()"
+        >
           <span class="material-symbols-rounded">favorite</span>
         </button>
       }

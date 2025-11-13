@@ -1,0 +1,225 @@
+<div class="demo-root">
+  <h1 class="demo-title">Material Design Tooltips — Component Demo</h1>
+
+  <section class="section-card">
+    <h2 class="section-title">Tooltip Position Control</h2>
+    <div class="position-control">
+      <label for="position-select" class="position-label">Tooltip Position:</label>
+      <select
+        id="position-select"
+        class="position-select"
+        [value]="selectedPosition()"
+        (change)="selectedPosition.set($any($event.target).value)">
+        @for (position of tooltipPositions; track position) {
+          <option [value]="position">{{ position.charAt(0).toUpperCase() + position.slice(1) }}</option>
+        }
+      </select>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Default Positions</h2>
+    <p class="section-description">These tooltips use default settings (no optional properties specified) and are not affected by the position selector above.</p>
+    
+    <div class="position-demo">
+      <div class="position-demo-item">
+        <span class="position-label-text">Plain Tooltip (Default)</span>
+        <button
+          sm-icon-button
+          sm-tooltip
+          [tooltip]="'Plain tooltip with default settings'"
+          [config]="baseTooltipConfig">
+          <span class="material-symbols-rounded">info</span>
+        </button>
+      </div>
+      <div class="position-demo-item">
+        <span class="position-label-text">Rich Tooltip (Default)</span>
+        <button
+          sm-icon-button
+          sm-tooltip
+          [tooltip]="richTooltipExample"
+          [config]="baseTooltipConfig">
+          <span class="material-symbols-rounded">info</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Plain Tooltips</h2>
+    <p class="section-description">Plain tooltips provide simple text descriptions for icon buttons.</p>
+    <div class="button-group">
+      @for (tooltip of plainTooltips; track tooltip) {
+        <button
+          sm-icon-button
+          sm-tooltip
+          [tooltip]="tooltip"
+          [config]="getTooltipConfig()">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Rich Tooltips</h2>
+    <p class="section-description">Rich tooltips can include a subhead, supporting text, and up to two action buttons.</p>
+    <div class="button-group">
+      @for (tooltip of richTooltips; track tooltip.supportingText) {
+        <button
+          sm-icon-button
+          sm-tooltip
+          [tooltip]="tooltip"
+          [config]="getTooltipConfig()">
+          <span class="material-symbols-rounded">info</span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Programmatic Tooltip Control</h2>
+    <p class="section-description">Tooltips can be controlled programmatically using the open() and close() methods. When programmatically opened, the tooltip ignores hover and focus events until explicitly closed.</p>
+    
+    <div class="programmatic-examples">
+      <div class="programmatic-example">
+        <h3 class="example-title">Manual Trigger Mode</h3>
+        <p class="example-description">This tooltip can only be opened programmatically. Hovering over the button will not trigger the tooltip.</p>
+        <div class="programmatic-control">
+          <div class="programmatic-buttons">
+            <button
+              sm-button
+              variant="filled"
+              (click)="onOpenTooltipManual()">
+              Open Tooltip
+            </button>
+            <button
+              sm-button
+              variant="outlined"
+              (click)="onCloseTooltipManual()">
+              Close Tooltip
+            </button>
+          </div>
+          <div class="programmatic-target">
+            <button
+              #programmaticTooltipManual="smTooltip"
+              sm-icon-button
+              sm-tooltip
+              [tooltip]="'This tooltip uses manual trigger mode. Hovering will not open it.'"
+              [config]="getManualTriggerConfig()">
+              <span class="material-symbols-rounded">help</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="programmatic-example">
+        <h3 class="example-title">Default Trigger Mode</h3>
+        <p class="example-description">This tooltip can be opened both on hover and programmatically. When opened programmatically, hover events are ignored until closed.</p>
+        <div class="programmatic-control">
+          <div class="programmatic-buttons">
+            <button
+              sm-button
+              variant="filled"
+              (click)="onOpenTooltipDefault()">
+              Open Tooltip
+            </button>
+            <button
+              sm-button
+              variant="outlined"
+              (click)="onCloseTooltipDefault()">
+              Close Tooltip
+            </button>
+          </div>
+          <div class="programmatic-target">
+            <button
+              #programmaticTooltipDefault="smTooltip"
+              sm-icon-button
+              sm-tooltip
+              [tooltip]="'This tooltip uses default trigger mode. You can hover or use the buttons.'"
+              [config]="getDefaultTriggerConfig()">
+              <span class="material-symbols-rounded">info</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Disabled Tooltips</h2>
+    <p class="section-description">Tooltips on disabled elements do not show on hover, focus, or click. However, they can still be opened programmatically using the open() method.</p>
+    <div class="button-group">
+      <button
+        sm-icon-button
+        sm-tooltip
+        [tooltip]="'This button is disabled'"
+        [config]="getTooltipConfig()"
+        [disabled]="true">
+        <span class="material-symbols-rounded">block</span>
+      </button>
+      <button
+        #disabledProgrammaticTooltip="smTooltip"
+        sm-icon-button
+        sm-tooltip
+        [tooltip]="'This disabled tooltip can be opened programmatically'"
+        [config]="getTooltipConfig()"
+        [disabled]="true">
+        <span class="material-symbols-rounded">info</span>
+      </button>
+    </div>
+    <div class="programmatic-control" style="margin-top: 1rem;">
+      <div class="programmatic-buttons">
+        <button
+          sm-button
+          variant="filled"
+          (click)="onOpenDisabledTooltip()">
+          Open Disabled Tooltip
+        </button>
+        <button
+          sm-button
+          variant="outlined"
+          (click)="onCloseDisabledTooltip()">
+          Close Disabled Tooltip
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Edge positioning buttons (kept outside sections) -->
+<div class="edge-container">
+  <!-- Left edge -->
+  <div class="edge-left">
+    <button
+      sm-icon-button
+      sm-tooltip
+      [tooltip]="'Left edge tooltip'"
+      [config]="getTooltipConfig()">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
+  </div>
+
+  <!-- Right edge -->
+  <div class="edge-right">
+    <button
+      sm-icon-button
+      sm-tooltip
+      [tooltip]="'Right edge tooltip'"
+      [config]="getTooltipConfig()">
+      <span class="material-symbols-rounded">arrow_forward</span>
+    </button>
+  </div>
+
+  <!-- Bottom edge -->
+  <div class="edge-bottom">
+    <button
+      sm-icon-button
+      sm-tooltip
+      [tooltip]="'Bottom edge tooltip'"
+      [config]="getTooltipConfig()">
+      <span class="material-symbols-rounded">arrow_downward</span>
+    </button>
+  </div>
+</div>
+

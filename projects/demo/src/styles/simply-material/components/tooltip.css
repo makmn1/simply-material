@@ -10,6 +10,7 @@
     --md-comp-tooltip-plain-container-shape: var(
       --md-sys-shape-corner-extra-small
     );
+    --md-comp-tooltip-plain-container-width: 12.5rem;
     --md-comp-tooltip-plain-supporting-text-font: var(
       --md-sys-typescale-body-small-font
     );
@@ -34,6 +35,7 @@
     --md-comp-tooltip-rich-container-elevation: var(--md-sys-elevation-level2);
     --md-comp-tooltip-rich-container-shadow-color: var(--md-sys-color-shadow);
     --md-comp-tooltip-rich-container-shape: var(--md-sys-shape-corner-medium);
+    --md-comp-tooltip-rich-container-width: 20rem;
     --md-comp-tooltip-rich-action-label-text-font: var(
       --md-sys-typescale-label-large-font
     );

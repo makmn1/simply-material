@@ -5,7 +5,7 @@
 @layer tokens {
   :root {
     --md-comp-carousel-item-outline-color: var(--md-sys-color-outline);
-    --md-comp-carousel-item-outline-width: 0.0714rem;
+    --md-comp-carousel-item-outline-width: 0.0625rem;
     --md-comp-carousel-item-container-color: var(--md-sys-color-surface);
     --md-comp-carousel-item-container-elevation: var(--md-sys-elevation-level0);
     --md-comp-carousel-item-container-shadow-color: var(--md-sys-color-shadow);

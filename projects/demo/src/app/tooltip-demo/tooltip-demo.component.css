@@ -1,0 +1,207 @@
+:host, .demo-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100vh;
+}
+
+.demo-title {
+  margin: 0 0 16px 0;
+  font: inherit;
+}
+
+.section-card {
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  margin: 0 0 12px 0;
+  font: inherit;
+  opacity: 0.9;
+}
+
+.section-description {
+  margin: 0 0 16px 0;
+  opacity: 0.8;
+  font-size: 0.875rem;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.position-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.position-label {
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  color: var(--md-sys-color-on-surface);
+  opacity: 0.9;
+}
+
+.position-select {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface-container-high);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-small);
+  padding: 8px 12px;
+  min-width: 150px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.position-select:hover {
+  background-color: var(--md-sys-color-surface-container-highest);
+  border-color: var(--md-sys-color-outline);
+}
+
+.position-select:focus {
+  border-color: var(--md-sys-color-primary);
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+.position-select option {
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+}
+
+.programmatic-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.programmatic-example {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.example-title {
+  margin: 0;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.example-description {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 0.875rem;
+}
+
+.programmatic-control {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.programmatic-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.programmatic-target {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: 12px;
+}
+
+.edge-container {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.edge-container > * {
+  pointer-events: auto;
+}
+
+.edge-left {
+  position: fixed;
+  left: 0;
+  top: 50vh;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.edge-right {
+  position: fixed;
+  right: 0;
+  top: 50vh;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.edge-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 50vw;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.position-demo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 48px;
+}
+
+.position-demo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.position-label-text {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-transform: capitalize;
+}
+

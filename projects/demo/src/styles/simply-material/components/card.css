@@ -11,7 +11,7 @@
     --md-comp-card-elevated-container-shape: var(--md-sys-shape-corner-medium);
     --md-comp-card-elevated-container-shadow-color: var(--md-sys-color-shadow);
     --md-comp-card-elevated-icon-color: var(--md-sys-color-primary);
-    --md-comp-card-elevated-icon-size: 1.7143rem;
+    --md-comp-card-elevated-icon-size: 1.5rem;
     --md-comp-card-elevated-disabled-container-elevation: var(
       --md-sys-elevation-level1
     );
@@ -71,7 +71,7 @@
     --md-comp-card-filled-container-shape: var(--md-sys-shape-corner-medium);
     --md-comp-card-filled-container-shadow-color: var(--md-sys-color-shadow);
     --md-comp-card-filled-icon-color: var(--md-sys-color-primary);
-    --md-comp-card-filled-icon-size: 1.7143rem;
+    --md-comp-card-filled-icon-size: 1.5rem;
     --md-comp-card-filled-disabled-container-elevation: var(
       --md-sys-elevation-level0
     );
@@ -126,10 +126,10 @@
     --md-comp-card-outlined-container-elevation: var(--md-sys-elevation-level0);
     --md-comp-card-outlined-container-shape: var(--md-sys-shape-corner-medium);
     --md-comp-card-outlined-container-shadow-color: var(--md-sys-color-shadow);
-    --md-comp-card-outlined-outline-width: 0.0714rem;
+    --md-comp-card-outlined-outline-width: 0.0625rem;
     --md-comp-card-outlined-outline-color: var(--md-sys-color-outline-variant);
     --md-comp-card-outlined-icon-color: var(--md-sys-color-primary);
-    --md-comp-card-outlined-icon-size: 1.7143rem;
+    --md-comp-card-outlined-icon-size: 1.5rem;
     --md-comp-card-outlined-disabled-container-elevation: var(
       --md-sys-elevation-level0
     );

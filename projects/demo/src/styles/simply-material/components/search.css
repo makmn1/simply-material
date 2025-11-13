@@ -5,13 +5,13 @@
 @layer tokens {
   :root {
     --md-comp-search-avatar-shape: var(--md-sys-shape-corner-full);
-    --md-comp-search-avatar-size: 2.1429rem;
+    --md-comp-search-avatar-size: 1.875rem;
     --md-comp-search-container-color: var(
       --md-sys-color-surface-container-high
     );
     --md-comp-search-container-elevation: var(--md-sys-elevation-level3);
     --md-comp-search-container-shape: var(--md-sys-shape-corner-full);
-    --md-comp-search-container-height: 4rem;
+    --md-comp-search-container-height: 3.5rem;
     --md-comp-search-leading-icon-color: var(--md-sys-color-on-surface);
     --md-comp-search-trailing-icon-color: var(
       --md-sys-color-on-surface-variant
