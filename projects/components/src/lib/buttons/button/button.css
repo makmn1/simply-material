@@ -25,7 +25,7 @@
   padding-inline-end: var(--md-comp-button-small-trailing-space);
   gap: var(--md-comp-button-small-between-icon-label-space);
 
-  font-family: var(--md-comp-button-label-size-font-name);
+  font-family: var(--md-comp-button-label-size-font-name), sans-serif;
   font-weight: var(--md-comp-button-label-size-font-weight);
   font-size: var(--md-comp-button-label-size-font-size);
   line-height: var(--md-comp-button-label-size-line-height);

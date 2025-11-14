@@ -1,4 +1,4 @@
 :root {
-  font-family: "Roboto";
+  font-family: var(--md-ref-typeface-plain), sans-serif;
   background: var(--md-sys-color-background);
 }

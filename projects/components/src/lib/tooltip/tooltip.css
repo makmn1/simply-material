@@ -9,7 +9,7 @@
 }
 
 .sm-tooltip-content__plain-text {
-  font-family: var(--md-comp-tooltip-plain-supporting-text-font);
+  font-family: var(--md-comp-tooltip-plain-supporting-text-font), sans-serif;
   font-size: var(--md-comp-tooltip-plain-supporting-text-size);
   font-weight: var(--md-comp-tooltip-plain-supporting-text-weight);
   line-height: var(--md-comp-tooltip-plain-supporting-text-line-height);
@@ -31,7 +31,7 @@
 }
 
 .sm-tooltip-content__rich-subhead {
-  font-family: var(--md-comp-tooltip-rich-subhead-font);
+  font-family: var(--md-comp-tooltip-rich-subhead-font), sans-serif;
   font-size: var(--md-comp-tooltip-rich-subhead-size);
   font-weight: var(--md-comp-tooltip-rich-subhead-weight);
   line-height: var(--md-comp-tooltip-rich-subhead-line-height);
@@ -41,7 +41,7 @@
 }
 
 .sm-tooltip-content__rich-supporting-text {
-  font-family: var(--md-comp-tooltip-rich-supporting-text-font);
+  font-family: var(--md-comp-tooltip-rich-supporting-text-font), sans-serif;
   font-size: var(--md-comp-tooltip-rich-supporting-text-size);
   font-weight: var(--md-comp-tooltip-rich-supporting-text-weight);
   line-height: var(--md-comp-tooltip-rich-supporting-text-line-height);
@@ -59,7 +59,7 @@
 
 .sm-tooltip-content__rich-action-button {
   position: relative;
-  font-family: var(--md-comp-tooltip-rich-action-label-text-font);
+  font-family: var(--md-comp-tooltip-rich-action-label-text-font), sans-serif;
   font-size: var(--md-comp-tooltip-rich-action-label-text-size);
   font-weight: var(--md-comp-tooltip-rich-action-label-text-weight);
   line-height: var(--md-comp-tooltip-rich-action-label-text-line-height);

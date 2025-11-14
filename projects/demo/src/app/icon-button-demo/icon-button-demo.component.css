@@ -71,7 +71,7 @@ button.plain {
 }
 
 .shape-label {
-  font-family: var(--md-sys-typescale-label-large-font);
+  font-family: var(--md-sys-typescale-label-large-font), sans-serif;
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
   line-height: var(--md-sys-typescale-label-large-line-height);
@@ -81,7 +81,7 @@ button.plain {
 }
 
 .shape-select {
-  font-family: var(--md-sys-typescale-body-medium-font);
+  font-family: var(--md-sys-typescale-body-medium-font), sans-serif;
   font-size: var(--md-sys-typescale-body-medium-size);
   font-weight: var(--md-sys-typescale-body-medium-weight);
   line-height: var(--md-sys-typescale-body-medium-line-height);
