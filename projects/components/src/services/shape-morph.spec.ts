@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { AnimationPlaybackControlsWithThen } from 'motion';
 
 import { ShapeMorph } from './shape-morph';
 import { MinimalCircularBorderRadius } from './minimal-circular-border-radius';
@@ -14,7 +15,7 @@ type SpringFn = (
   from: string,
   to: string,
   opts: SpringOptions,
-) => Promise<void>;
+) => AnimationPlaybackControlsWithThen;
 
 describe('ShapeMorph', () => {
   let service: ShapeMorph;
@@ -33,7 +34,15 @@ describe('ShapeMorph', () => {
       getMinimalCircularBorderRadius: (el: HTMLElement) => getMinimalSpy(el),
     };
 
-    animateSpy = vi.fn<SpringFn>().mockResolvedValue();
+    const mockAnimation = {
+      then: vi.fn((callback: () => void) => {
+        callback();
+        return mockAnimation;
+      }),
+      cancel: vi.fn(),
+    } as unknown as AnimationPlaybackControlsWithThen;
+
+    animateSpy = vi.fn<SpringFn>().mockReturnValue(mockAnimation);
 
     TestBed.configureTestingModule({
       providers: [
@@ -65,11 +74,11 @@ describe('ShapeMorph', () => {
   });
 
   describe('animateBorderRadius()', () => {
-    it('animates when both endpoints are concrete values', async () => {
+    it('animates when both endpoints are concrete values', () => {
       const el = document.createElement('button');
       mockVarsFor(el, { '--damping': '20', '--stiffness': '150' });
 
-      await service.animateBorderRadius(el, '8px', '16px', '--damping', '--stiffness');
+      const result = service.animateBorderRadius(el, '8px', '16px', '--damping', '--stiffness');
 
       expect(getMinimalSpy).not.toHaveBeenCalled();
       expect(animateSpy).toHaveBeenCalledTimes(1);
@@ -80,14 +89,17 @@ describe('ShapeMorph', () => {
         '16px',
         { damping: 20, stiffness: 150 },
       );
+      expect(result).toBeDefined();
+      expect(result).toHaveProperty('then');
+      expect(result).toHaveProperty('cancel');
     });
 
-    it('replaces `from` when it equals the circular constant', async () => {
+    it('replaces `from` when it equals the circular constant', () => {
       const el = document.createElement('div');
       mockVarsFor(el, { '--d': '12', '--k': '200' });
       getMinimalSpy.mockReturnValueOnce('2rem');
 
-      await service.animateBorderRadius(el, CIRC, '24px', '--d', '--k');
+      const result = service.animateBorderRadius(el, CIRC, '24px', '--d', '--k');
 
       expect(getMinimalSpy).toHaveBeenCalledTimes(1);
       expect(getMinimalSpy).toHaveBeenCalledWith(el);
@@ -98,14 +110,15 @@ describe('ShapeMorph', () => {
         '24px',
         { damping: 12, stiffness: 200 },
       );
+      expect(result).toBeDefined();
     });
 
-    it('replaces `to` when it equals the circular constant', async () => {
+    it('replaces `to` when it equals the circular constant', () => {
       const el = document.createElement('div');
       mockVarsFor(el, { '--d': '30', '--k': '300' });
       getMinimalSpy.mockReturnValueOnce('0.75rem');
 
-      await service.animateBorderRadius(el, '4px', CIRC, '--d', '--k');
+      const result = service.animateBorderRadius(el, '4px', CIRC, '--d', '--k');
 
       expect(getMinimalSpy).toHaveBeenCalledTimes(1);
       expect(getMinimalSpy).toHaveBeenCalledWith(el);
@@ -116,14 +129,15 @@ describe('ShapeMorph', () => {
         '0.75rem',
         { damping: 30, stiffness: 300 },
       );
+      expect(result).toBeDefined();
     });
 
-    it('replaces both when both equal the circular constant', async () => {
+    it('replaces both when both equal the circular constant', () => {
       const el = document.createElement('div');
       mockVarsFor(el, { '--d': '18', '--k': '120' });
       getMinimalSpy.mockImplementationOnce(() => '1rem').mockImplementationOnce(() => '2rem');
 
-      await service.animateBorderRadius(el, CIRC, CIRC, '--d', '--k');
+      const result = service.animateBorderRadius(el, CIRC, CIRC, '--d', '--k');
 
       expect(getMinimalSpy).toHaveBeenCalledTimes(2);
       expect(animateSpy).toHaveBeenCalledWith(
@@ -133,13 +147,14 @@ describe('ShapeMorph', () => {
         '2rem',
         { damping: 18, stiffness: 120 },
       );
+      expect(result).toBeDefined();
     });
 
-    it('coerces CSS var values with Number() (NaN/0 pass through)', async () => {
+    it('coerces CSS var values with Number() (NaN/0 pass through)', () => {
       const el = document.createElement('div');
       mockVarsFor(el, { '--d': 'abc', '--k': ' ' }); // NaN and 0
 
-      await service.animateBorderRadius(el, '6px', '12px', '--d', '--k');
+      const result = service.animateBorderRadius(el, '6px', '12px', '--d', '--k');
 
       const call = animateSpy.mock.calls.at(-1) as Parameters<SpringFn> | undefined;
       expect(call).toBeTruthy();
@@ -149,6 +164,7 @@ describe('ShapeMorph', () => {
       const opts = call![4] as SpringOptions;
       expect(Number.isNaN(opts.damping)).toBe(true);
       expect(opts.stiffness).toBe(0);
+      expect(result).toBeDefined();
     });
   });
 });

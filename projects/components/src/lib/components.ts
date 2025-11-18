@@ -2,5 +2,5 @@ export * from './buttons/button/button'
 export * from './buttons/button/testing';
 export * from './buttons/icon-button/icon-button';
 export * from '../miscellaneous/ripple/ripple'
-export * from './tooltip/tooltip';
-export * from './tooltip/tooltip-content.component';
+export * from './components/tooltip/tooltip';
+export * from './components/tooltip/tooltip-content.component';

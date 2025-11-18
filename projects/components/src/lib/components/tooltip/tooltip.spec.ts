@@ -6,7 +6,7 @@ import {OverlayContainer, OverlayConfig, Overlay} from '@angular/cdk/overlay';
 import {describe, it, expect, beforeEach, afterEach, vi} from 'vitest';
 import {SmTooltipDirective, TooltipConfig} from './tooltip';
 import {TooltipContentComponent, RichTooltipConfig} from './tooltip-content.component';
-import {SmButtonComponent} from '../buttons/button/button';
+import {SmButtonComponent} from '../../buttons/button/button';
 import {
   getTooltipElements,
   getTooltipFromOverlay,

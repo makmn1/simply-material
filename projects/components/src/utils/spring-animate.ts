@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { animate } from 'motion';
+import {animate, AnimationPlaybackControlsWithThen} from 'motion';
 
 export interface SpringAnimateOptions {
   /** Required spring damping (dimensionless ζ). */
@@ -24,25 +24,23 @@ function assertFiniteNumber(name: string, value: unknown): asserts value is numb
  */
 @Injectable({ providedIn: 'root' })
 export class SpringAnimate {
-  async animate(
+  animate(
     element: HTMLElement,
     property: string,
     from: string,
     to: string,
     opts: SpringAnimateOptions,
-  ): Promise<void> {
+  ): AnimationPlaybackControlsWithThen {
     assertFiniteNumber('stiffness', opts.stiffness);
     assertFiniteNumber('damping', opts.damping);
 
     const mass = 1;
     const damping = 2 * opts.damping * Math.sqrt(opts.stiffness * mass);
 
-    const a1 = animate(
+    return animate(
       element,
       { [property]: [from, to] },
       { type: 'spring', stiffness: opts.stiffness, damping, mass },
     );
-
-    await a1.finished.catch(() => { /* cancelled or interrupted */ });
   }
 }

@@ -60,7 +60,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave');
       expect(wave).toBeTruthy();
@@ -72,7 +77,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave');
       expect(wave).toBeTruthy();
@@ -84,7 +94,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave).toBeTruthy();
@@ -100,7 +115,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave).toBeTruthy();
@@ -119,7 +139,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave.style.opacity).toBe('0.5');
@@ -130,7 +155,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave.style.opacity).toBe('0.25');
@@ -141,7 +171,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave.style.animationDuration).toBe('300ms');
@@ -152,7 +187,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave.style.animationDuration).toBe('1s');
@@ -163,7 +203,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave.style.animationDuration).toBe('550ms');
@@ -174,7 +219,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave.style.animationTimingFunction).toBe('ease-in-out');
@@ -185,7 +235,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave.style.animationTimingFunction).toBe('cubic-bezier(0,0,0.2,1)');
@@ -196,7 +251,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       // Browser may normalize rgba values with spaces, so check that it contains the color
@@ -210,7 +270,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       // When rippleColor is null, background should not be set (uses CSS default: currentColor)
@@ -224,13 +289,13 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      // Click at center (50, 25) with detail > 0 (mouse click)
-      const clickEvent = new MouseEvent('click', {
+      // Pointer down at center (50, 25)
+      const pointerEvent = new PointerEvent('pointerdown', {
         clientX: 50,
         clientY: 25,
-        detail: 1, // Mouse click has detail > 0
+        button: 0,
       });
-      hostEl.dispatchEvent(clickEvent);
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       // From center: dx = max(50, 50) = 50, dy = max(25, 25) = 25
@@ -245,13 +310,13 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      // Click at (30, 20) with detail > 0 (mouse click)
-      const clickEvent = new MouseEvent('click', {
+      // Pointer down at (30, 20)
+      const pointerEvent = new PointerEvent('pointerdown', {
         clientX: 30,
         clientY: 20,
-        detail: 1, // Mouse click
+        button: 0,
       });
-      hostEl.dispatchEvent(clickEvent);
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       const size = parseFloat(wave.style.width);
@@ -267,13 +332,13 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      // Click at top-left corner (0, 0) with detail > 0 (mouse click)
-      const clickEvent = new MouseEvent('click', {
+      // Pointer down at top-left corner (0, 0)
+      const pointerEvent = new PointerEvent('pointerdown', {
         clientX: 0,
         clientY: 0,
-        detail: 1, // Mouse click
+        button: 0,
       });
-      hostEl.dispatchEvent(clickEvent);
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       // From top-left: dx = max(0, 100) = 100, dy = max(0, 50) = 50
@@ -287,12 +352,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 200, 100);
-      const clickEvent = new MouseEvent('click', {
+      const pointerEvent = new PointerEvent('pointerdown', {
         clientX: 100,
         clientY: 50,
-        detail: 1, // Mouse click
+        button: 0,
       });
-      hostEl.dispatchEvent(clickEvent);
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       const expectedSize = Math.hypot(100, 50) * 2;
@@ -304,13 +369,9 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      // Keyboard-initiated click has detail === 0
-      const clickEvent = new MouseEvent('click', {
-        clientX: 30, // These coordinates should be ignored
-        clientY: 20, // These coordinates should be ignored
-        detail: 0, // Keyboard click
-      });
-      hostEl.dispatchEvent(clickEvent);
+      // Keyboard-initiated interaction uses keydown event
+      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       // Origin should be at center: x = 100/2 = 50, y = 50/2 = 25
@@ -330,11 +391,9 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 120, 80);
-      // Programmatic click via element.click() has detail === 0
-      const clickEvent = new MouseEvent('click', {
-        detail: 0, // Programmatic click
-      });
-      hostEl.dispatchEvent(clickEvent);
+      // Programmatic interaction uses keydown event (simulating keyboard activation)
+      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       // Origin should be at center: x = 120/2 = 60, y = 80/2 = 40
@@ -354,16 +413,16 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      // Mouse click at (30, 20) with detail > 0
-      const clickEvent = new MouseEvent('click', {
+      // Mouse pointer down at (30, 20)
+      const pointerEvent = new PointerEvent('pointerdown', {
         clientX: 30,
         clientY: 20,
-        detail: 1, // Mouse click
+        button: 0,
       });
-      hostEl.dispatchEvent(clickEvent);
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      // Should use actual click coordinates, not center
+      // Should use actual pointer coordinates, not center
       const size = parseFloat(wave.style.width);
       const expectedLeft = 30 - size / 2;
       const expectedTop = 20 - size / 2;
@@ -389,7 +448,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLButtonElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave');
       expect(wave).toBeNull();
@@ -400,7 +464,12 @@ describe('SmRippleDirective', () => {
       const hostEl = div.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave');
       expect(wave).toBeNull();
@@ -411,7 +480,12 @@ describe('SmRippleDirective', () => {
       const hostEl = div.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave');
       expect(wave).toBeNull();
@@ -422,7 +496,12 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave');
       expect(wave).toBeTruthy();
@@ -435,13 +514,14 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      const clickEvent = new MouseEvent('click', {
+      const pointerEvent = new PointerEvent('pointerdown', {
         clientX: 50,
         clientY: 25,
+        button: 0,
         cancelable: true,
       });
-      clickEvent.preventDefault();
-      hostEl.dispatchEvent(clickEvent);
+      pointerEvent.preventDefault();
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave');
       expect(wave).toBeNull();
@@ -452,10 +532,149 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
+      const pointerEvent = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave');
       expect(wave).toBeTruthy();
+    });
+  });
+
+  describe('Keyboard Events', () => {
+    it('should create ripple on Enter key', () => {
+      const button = fixture.debugElement.query(By.css('#basic'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave');
+      expect(wave).toBeTruthy();
+    });
+
+    it('should center ripple for Enter key events', () => {
+      const button = fixture.debugElement.query(By.css('#basic'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
+      expect(wave).toBeTruthy();
+      // Ripple should be centered: x = 100/2 = 50, y = 50/2 = 25
+      const size = parseFloat(wave.style.width);
+      const expectedLeft = 50 - size / 2;
+      const expectedTop = 25 - size / 2;
+      expect(parseFloat(wave.style.left)).toBeCloseTo(expectedLeft, 1);
+      expect(parseFloat(wave.style.top)).toBeCloseTo(expectedTop, 1);
+    });
+
+    it('should create ripple on Space key (first press)', () => {
+      const button = fixture.debugElement.query(By.css('#basic'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: false, bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave');
+      expect(wave).toBeTruthy();
+    });
+
+    it('should center ripple for Space key events', () => {
+      const button = fixture.debugElement.query(By.css('#basic'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: false, bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
+      expect(wave).toBeTruthy();
+      // Ripple should be centered: x = 100/2 = 50, y = 50/2 = 25
+      const size = parseFloat(wave.style.width);
+      const expectedLeft = 50 - size / 2;
+      const expectedTop = 25 - size / 2;
+      expect(parseFloat(wave.style.left)).toBeCloseTo(expectedLeft, 1);
+      expect(parseFloat(wave.style.top)).toBeCloseTo(expectedTop, 1);
+    });
+
+    it('should not create ripple on Space key repeat', () => {
+      const button = fixture.debugElement.query(By.css('#basic'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: true, bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave');
+      expect(wave).toBeNull();
+    });
+
+    it('should not create ripple on Enter key when disabled', () => {
+      const button = fixture.debugElement.query(By.css('#disabled-native'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave');
+      expect(wave).toBeNull();
+    });
+
+    it('should not create ripple on Space key when disabled', () => {
+      const button = fixture.debugElement.query(By.css('#disabled-native'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: false, bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave');
+      expect(wave).toBeNull();
+    });
+
+    it('should not create ripple on Enter key when rippleDisabled is true', () => {
+      const button = fixture.debugElement.query(By.css('#ripple-disabled'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave');
+      expect(wave).toBeNull();
+    });
+
+    it('should not create ripple on Space key when rippleDisabled is true', () => {
+      const button = fixture.debugElement.query(By.css('#ripple-disabled'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: false, bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave');
+      expect(wave).toBeNull();
+    });
+
+    it('should not create ripple on other keys', () => {
+      const button = fixture.debugElement.query(By.css('#basic'));
+      const hostEl = button.nativeElement as HTMLElement;
+
+      stubRect(hostEl, 100, 50);
+      const keydownEvent = new KeyboardEvent('keydown', { key: 'Tab', bubbles: true });
+      hostEl.dispatchEvent(keydownEvent);
+
+      const wave = hostEl.querySelector('.sm-ripple__wave');
+      expect(wave).toBeNull();
     });
   });
 
@@ -465,9 +684,24 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
-      hostEl.click();
-      hostEl.click();
+      const pointerEvent1 = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      const pointerEvent2 = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      const pointerEvent3 = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent1);
+      hostEl.dispatchEvent(pointerEvent2);
+      hostEl.dispatchEvent(pointerEvent3);
 
       const waves = hostEl.querySelectorAll('.sm-ripple__wave');
       expect(waves.length).toBe(3);
@@ -478,8 +712,18 @@ describe('SmRippleDirective', () => {
       const hostEl = button.nativeElement as HTMLElement;
 
       stubRect(hostEl, 100, 50);
-      hostEl.click();
-      hostEl.click();
+      const pointerEvent1 = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      const pointerEvent2 = new PointerEvent('pointerdown', {
+        clientX: 50,
+        clientY: 25,
+        button: 0,
+      });
+      hostEl.dispatchEvent(pointerEvent1);
+      hostEl.dispatchEvent(pointerEvent2);
 
       const waves = hostEl.querySelectorAll('.sm-ripple__wave');
       expect(waves.length).toBe(2);

@@ -9,7 +9,7 @@ export class ShapeMorph {
   private springAnimateService: SpringAnimate = inject(SpringAnimate)
   private minimalService: MinimalCircularBorderRadius = inject(MinimalCircularBorderRadius);
 
-  public async animateBorderRadius(element: HTMLElement, from: string, to: string, dampingStyleVar: string, stiffnessStyleVar: string) {
+  public animateBorderRadius(element: HTMLElement, from: string, to: string, dampingStyleVar: string, stiffnessStyleVar: string) {
     const damping = Number(this.readVar(element, dampingStyleVar));
     const stiffness = Number(this.readVar(element, stiffnessStyleVar));
 
@@ -18,7 +18,7 @@ export class ShapeMorph {
     if (to == this.minimalService.CIRCULAR_BORDER_RADIUS_VALUE)
       to = this.minimalService.getMinimalCircularBorderRadius(element)
 
-    await this.springAnimateService.animate(element, 'borderRadius', from, to, { damping, stiffness });
+    return this.springAnimateService.animate(element, 'borderRadius', from, to, { damping, stiffness });
   }
 
   public readVar(element: HTMLElement, name: string): string {

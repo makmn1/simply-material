@@ -3,7 +3,7 @@ import {
   Component,
   input, model, output,
 } from '@angular/core';
-import {SmButtonComponent} from '../buttons/button/button';
+import {SmButtonComponent} from '../../buttons/button/button';
 
 export interface TooltipButtonConfig {
   label: string;

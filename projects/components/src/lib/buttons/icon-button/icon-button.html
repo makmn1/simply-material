@@ -1,8 +1,8 @@
-@if (toggle()) {
-  @if (!isSelected()) {
+@if (buttonShapeMorph.toggle()) {
+  @if (!buttonShapeMorph.isSelected()) {
     <ng-content select="[outlined]" />
   }
-  @if (isSelected()) {
+  @if (buttonShapeMorph.isSelected()) {
     <ng-content select="[filled]" />
   }
 } @else {

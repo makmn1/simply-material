@@ -1,6 +1,7 @@
 import {vi} from 'vitest';
 import {ShapeMorph} from '../services/shape-morph';
 import {MinimalCircularBorderRadius} from '../services/minimal-circular-border-radius';
+import {AnimationPlaybackControlsWithThen} from 'motion';
 
 /**
  * Mocks CSS custom properties for a specific element.
@@ -62,9 +63,17 @@ export function stubRootFontSize(px: number | string): void {
 export function createMockShapeMorph(
   animateBorderRadiusSpy?: ReturnType<typeof vi.fn>,
 ): ShapeMorph {
+  const defaultMockAnimation = {
+    then: vi.fn((callback: () => void) => {
+      callback();
+      return defaultMockAnimation;
+    }),
+    cancel: vi.fn(),
+  } as unknown as AnimationPlaybackControlsWithThen;
+
   return {
     animateBorderRadius:
-      animateBorderRadiusSpy ?? vi.fn().mockResolvedValue(undefined),
+      animateBorderRadiusSpy ?? vi.fn().mockReturnValue(defaultMockAnimation),
     readVar: (el: HTMLElement, name: string) =>
       getComputedStyle(el).getPropertyValue(name).trim(),
   } as unknown as ShapeMorph;

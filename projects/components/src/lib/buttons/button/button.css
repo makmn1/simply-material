@@ -273,6 +273,20 @@
   --_icon-color: var(--md-comp-button-text-icon-color);
 }
 
+/* TEXT - Disabled */
+:host[data-variant="text"][disabled],
+:host[data-variant="text"][aria-disabled="true"] {
+  --_label-color: color-mix(in oklab, var(--md-comp-button-text-disabled-label-color) calc(var(--md-comp-button-text-disabled-label-opacity) * 100%), transparent);
+  --_icon-color: var(--md-comp-button-text-disabled-icon-color);
+}
+
+:host[data-variant="text"][disabled] .sm-button__icon,
+:host[data-variant="text"][aria-disabled="true"] .sm-button__icon,
+:host[data-variant="text"][disabled] [smButtonIcon],
+:host[data-variant="text"][aria-disabled="true"] [smButtonIcon] {
+  opacity: var(--md-comp-button-text-disabled-icon-opacity);
+}
+
 /* Outlined border width uses per-size tokens */
 :host[data-variant="outlined"][data-size="xsmall"] {
   border: var(--md-comp-button-xsmall-outline-width) solid var(--_outline-color);
