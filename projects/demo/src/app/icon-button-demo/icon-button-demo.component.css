@@ -11,21 +11,6 @@
   font: inherit;
 }
 
-.section-card {
-  background: var(--md-sys-color-surface-container);
-  color: var(--md-sys-color-on-surface);
-  border-radius: 16px;
-  padding: 16px;
-  margin: 12px 0;
-  box-sizing: border-box;
-}
-
-.section-title {
-  margin: 0 0 12px 0;
-  font: inherit;
-  opacity: 0.9;
-}
-
 .button-group {
   display: flex;
   flex-wrap: wrap;

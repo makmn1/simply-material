@@ -211,7 +211,7 @@ describe('SmRippleDirective', () => {
       hostEl.dispatchEvent(pointerEvent);
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave.style.animationDuration).toBe('550ms');
+      expect(wave.style.animationDuration).toBe('1000ms');
     });
 
     it('should apply custom rippleEasing', () => {
@@ -318,13 +318,13 @@ describe('SmRippleDirective', () => {
       });
       hostEl.dispatchEvent(pointerEvent);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      const size = parseFloat(wave.style.width);
-      const expectedLeft = 30 - size / 2;
-      const expectedTop = 20 - size / 2;
-
-      expect(parseFloat(wave.style.left)).toBeCloseTo(expectedLeft, 1);
-      expect(parseFloat(wave.style.top)).toBeCloseTo(expectedTop, 1);
+      // Check CSS custom properties for fractional origin
+      // x = 30 - 0 = 30, fx = 30 / 100 = 0.3
+      // y = 20 - 0 = 20, fy = 20 / 50 = 0.4
+      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
+      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
+      expect(parseFloat(originX)).toBeCloseTo(0.3, 5);
+      expect(parseFloat(originY)).toBeCloseTo(0.4, 5);
     });
 
     it('should cover entire element from click point to farthest corner', () => {
@@ -379,11 +379,11 @@ describe('SmRippleDirective', () => {
       const expectedSize = Math.hypot(50, 25) * 2;
       expect(parseFloat(wave.style.width)).toBeCloseTo(expectedSize, 1);
 
-      // Position should be centered
-      const expectedLeft = 50 - expectedSize / 2;
-      const expectedTop = 25 - expectedSize / 2;
-      expect(parseFloat(wave.style.left)).toBeCloseTo(expectedLeft, 1);
-      expect(parseFloat(wave.style.top)).toBeCloseTo(expectedTop, 1);
+      // Position should be centered (fx = 0.5, fy = 0.5)
+      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
+      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
+      expect(parseFloat(originX)).toBe(0.5);
+      expect(parseFloat(originY)).toBe(0.5);
     });
 
     it('should center ripple origin for programmatic clicks (detail === 0)', () => {
@@ -401,11 +401,11 @@ describe('SmRippleDirective', () => {
       const expectedSize = Math.hypot(60, 40) * 2;
       expect(parseFloat(wave.style.width)).toBeCloseTo(expectedSize, 1);
 
-      // Position should be centered
-      const expectedLeft = 60 - expectedSize / 2;
-      const expectedTop = 40 - expectedSize / 2;
-      expect(parseFloat(wave.style.left)).toBeCloseTo(expectedLeft, 1);
-      expect(parseFloat(wave.style.top)).toBeCloseTo(expectedTop, 1);
+      // Position should be centered (fx = 0.5, fy = 0.5)
+      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
+      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
+      expect(parseFloat(originX)).toBe(0.5);
+      expect(parseFloat(originY)).toBe(0.5);
     });
 
     it('should use click coordinates for mouse clicks (detail > 0)', () => {
@@ -421,13 +421,13 @@ describe('SmRippleDirective', () => {
       });
       hostEl.dispatchEvent(pointerEvent);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       // Should use actual pointer coordinates, not center
-      const size = parseFloat(wave.style.width);
-      const expectedLeft = 30 - size / 2;
-      const expectedTop = 20 - size / 2;
-      expect(parseFloat(wave.style.left)).toBeCloseTo(expectedLeft, 1);
-      expect(parseFloat(wave.style.top)).toBeCloseTo(expectedTop, 1);
+      // x = 30 - 0 = 30, fx = 30 / 100 = 0.3
+      // y = 20 - 0 = 20, fy = 20 / 50 = 0.4
+      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
+      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
+      expect(parseFloat(originX)).toBeCloseTo(0.3, 5);
+      expect(parseFloat(originY)).toBeCloseTo(0.4, 5);
     });
   });
 
@@ -567,12 +567,11 @@ describe('SmRippleDirective', () => {
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave).toBeTruthy();
-      // Ripple should be centered: x = 100/2 = 50, y = 50/2 = 25
-      const size = parseFloat(wave.style.width);
-      const expectedLeft = 50 - size / 2;
-      const expectedTop = 25 - size / 2;
-      expect(parseFloat(wave.style.left)).toBeCloseTo(expectedLeft, 1);
-      expect(parseFloat(wave.style.top)).toBeCloseTo(expectedTop, 1);
+      // Ripple should be centered (fx = 0.5, fy = 0.5)
+      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
+      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
+      expect(parseFloat(originX)).toBe(0.5);
+      expect(parseFloat(originY)).toBe(0.5);
     });
 
     it('should create ripple on Space key (first press)', () => {
@@ -597,12 +596,11 @@ describe('SmRippleDirective', () => {
 
       const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
       expect(wave).toBeTruthy();
-      // Ripple should be centered: x = 100/2 = 50, y = 50/2 = 25
-      const size = parseFloat(wave.style.width);
-      const expectedLeft = 50 - size / 2;
-      const expectedTop = 25 - size / 2;
-      expect(parseFloat(wave.style.left)).toBeCloseTo(expectedLeft, 1);
-      expect(parseFloat(wave.style.top)).toBeCloseTo(expectedTop, 1);
+      // Ripple should be centered (fx = 0.5, fy = 0.5)
+      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
+      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
+      expect(parseFloat(originX)).toBe(0.5);
+      expect(parseFloat(originY)).toBe(0.5);
     });
 
     it('should not create ripple on Space key repeat', () => {
@@ -762,7 +760,7 @@ describe('SmRippleDirective', () => {
       const button = fixture.debugElement.query(By.css('#basic'));
       const directive = button.injector.get(SmRippleDirective);
       expect(directive.rippleOpacity()).toBe(0.25);
-      expect(directive.rippleDuration()).toBe(550);
+      expect(directive.rippleDuration()).toBe(1000);
       expect(directive.rippleEasing()).toBe('cubic-bezier(0,0,0.2,1)');
       expect(directive.rippleDisabled()).toBe(false);
     });

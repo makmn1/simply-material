@@ -4,7 +4,7 @@ import {HarnessLoader, parallel} from '@angular/cdk/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 import {provideZonelessChangeDetection} from '@angular/core';
 import {describe, it, expect, beforeEach, vi} from 'vitest';
-import {SmButtonComponent, ButtonVariant} from '../button';
+import {Button, ButtonVariant} from '../button';
 import {SmButtonHarness} from './button-harness';
 import {ShapeMorph} from '../../../../services/shape-morph';
 import {MinimalCircularBorderRadius} from '../../../../services/minimal-circular-border-radius';
@@ -346,7 +346,7 @@ describe('SmButtonHarness', () => {
       Dynamic variant
     </button>
   `,
-  imports: [SmButtonComponent],
+  imports: [Button],
   standalone: true,
 })
 class ButtonHarnessTest {

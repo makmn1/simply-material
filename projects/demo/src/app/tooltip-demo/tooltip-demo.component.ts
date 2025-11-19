@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { IconButton, SmTooltipDirective, TooltipPosition, TooltipConfig, RichTooltipConfig, SmButtonComponent } from '@simply-material/components';
+import { IconButton, SmTooltipDirective, TooltipPosition, TooltipConfig, RichTooltipConfig, Button } from '@simply-material/components';
 
 @Component({
   selector: 'app-tooltip-demo',
-  imports: [IconButton, SmTooltipDirective, SmButtonComponent],
+  imports: [IconButton, SmTooltipDirective, Button],
   templateUrl: './tooltip-demo.component.html',
   styleUrls: ['./tooltip-demo.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,7 +11,7 @@ import { IconButton, SmTooltipDirective, TooltipPosition, TooltipConfig, RichToo
 export class TooltipDemoComponent {
   readonly tooltipPositions: TooltipPosition[] = ['above', 'below', 'left', 'right'];
   selectedPosition = signal<TooltipPosition>('above');
-  
+
   // Base tooltip configuration
   readonly baseTooltipConfig: TooltipConfig = {
     position: null,
@@ -48,7 +48,7 @@ export class TooltipDemoComponent {
       position: this.selectedPosition(),
     };
   }
-  
+
   // Template references for programmatic tooltips
   programmaticTooltipManual = viewChild<SmTooltipDirective>('programmaticTooltipManual');
   programmaticTooltipDefault = viewChild<SmTooltipDirective>('programmaticTooltipDefault');

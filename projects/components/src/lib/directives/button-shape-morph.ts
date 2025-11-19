@@ -44,6 +44,9 @@ export type ButtonShapeMorphCssVars<Shape, Size> = {
     // pointer press
     '(pointerdown)': 'void onPointerDown($event)',
 
+    '(window:pointerup)': 'void onWindowPointerUp($event)',
+    '(window:pointercancel)': 'void onWindowPointerCancel($event)',
+
     // keyboard press
     '(keydown.enter)': 'void onKeyDownEnter($event)',
     '(keydown.space)': 'void onKeyDownSpace($event)',
@@ -76,6 +79,8 @@ export class ButtonShapeMorph<Variant, Shape, Size> implements AfterViewInit {
   public selected = input<boolean>(false);
   public isSelected: WritableSignal<boolean> = linkedSignal(() => this.selected())
   private animationControls: AnimationPlaybackControlsWithThen | undefined = undefined;
+  private _baseWidthPx: number | null = null;
+  private _activePointerId: number | null = null;
 
   public readonly selectedChange = output<boolean>();
 
@@ -159,6 +164,11 @@ export class ButtonShapeMorph<Variant, Shape, Size> implements AfterViewInit {
 
     this.minimalService.setIfCircularBorderRadius(element); // when circular shape
     this._previousShape = this.shape(); // initialize previousShape here
+
+    // For standard button groups, lock a base width so we can animate width on press.
+    if (this.hasWidthMorphingGroup(element)) {
+      this.getBaseWidthPx(element);
+    }
   }
 
   public isNativeButton(): boolean {
@@ -173,11 +183,137 @@ export class ButtonShapeMorph<Variant, Shape, Size> implements AfterViewInit {
     return this.el.nativeElement;
   }
 
+  /**
+   * Reads the effective pressed width multiplier from CSS.
+   * Supports values like '0.15' or '15%'.
+   */
+  private getPressedWidthMultiplier(element: HTMLElement): number {
+    const raw = this.shapeMorph.readVar(element, '--sm-button-group-pressed-width-multiplier');
+    if (!raw) return 0;
+
+    const trimmed = raw.trim();
+    if (!trimmed) return 0;
+
+    const numeric = Number.parseFloat(trimmed);
+    if (!Number.isFinite(numeric)) return 0;
+
+    if (trimmed.endsWith('%')) {
+      return numeric / 100;
+    }
+
+    return numeric;
+  }
+
+  private hasWidthMorphingGroup(element: HTMLElement): boolean {
+    return this.getPressedWidthMultiplier(element) > 0;
+  }
+
+  /**
+   * Gets or computes the base width for an element, storing it in data attributes
+   * for cross-instance access. For standard button groups, also sets a fixed width.
+   */
+  private getBaseWidthPx(element: HTMLElement): number {
+    // If this is our own host, and we've already cached the base width, use it.
+    if (element === this.root() && this._baseWidthPx !== null) {
+      return this._baseWidthPx;
+    }
+
+    // Try a data attribute first so all instances can read it.
+    const data = element.dataset["smBaseWidth"];
+    if (data) {
+      const parsed = Number.parseFloat(data);
+      if (Number.isFinite(parsed)) {
+        if (element === this.root()) {
+          this._baseWidthPx = parsed;
+        }
+        return parsed;
+      }
+    }
+
+    // Fallback: compute it now and persist it.
+    const rect = element.getBoundingClientRect();
+    const width = rect.width;
+    element.dataset["smBaseWidth"] = String(width);
+
+    // Only force a fixed width for standard button groups.
+    if (this.hasWidthMorphingGroup(element)) {
+      if (!element.style.width) {
+        element.style.width = `${width}px`;
+      }
+    }
+
+    if (element === this.root()) {
+      this._baseWidthPx = width;
+    }
+
+    return width;
+  }
+
+  private isGroupItemElement(el: Element | null): el is HTMLElement {
+    if (!el) return false;
+    const element = el as HTMLElement;
+    // Host classes from button.css / icon-button.css
+    return element.classList.contains('sm-button') || element.classList.contains('sm-icon-button');
+  }
+
+  private getAdjacentGroupItems(element: HTMLElement): { prev: HTMLElement | null; next: HTMLElement | null } {
+    let prev = element.previousElementSibling;
+    while (prev && !this.isGroupItemElement(prev)) {
+      prev = prev.previousElementSibling;
+    }
+
+    let next = element.nextElementSibling;
+    while (next && !this.isGroupItemElement(next)) {
+      next = next.nextElementSibling;
+    }
+
+    return {
+      prev: this.isGroupItemElement(prev) ? (prev as HTMLElement) : null,
+      next: this.isGroupItemElement(next) ? (next as HTMLElement) : null,
+    };
+  }
+
   async onPointerDown(e: Event) {
     const event = e as PointerEvent;
     if (this.disabled()) return;
     if (event.button !== 0) return; // only primary button
+
+    this._activePointerId = event.pointerId;
     await this.animatePressIn();
+  }
+
+  async onWindowPointerUp(e: Event) {
+    const event = e as PointerEvent;
+
+    if (this._activePointerId === null || event.pointerId !== this._activePointerId) {
+      return; // not our press
+    }
+    this._activePointerId = null;
+
+    const element = this.root();
+    const target = event.target as Node | null;
+    const releasedInside =
+      !!target && (target === element || element.contains(target));
+
+    if (!releasedInside) {
+      // Release happened OUTSIDE the button:
+      // no click will fire, so we must finish the animation here.
+      await this.animateToRest();
+    }
+    // If released inside, normal click will fire onClick() which
+    // will call animateToRest(), so do nothing here to avoid double-animating.
+  }
+
+  async onWindowPointerCancel(e: Event) {
+    const event = e as PointerEvent;
+
+    if (this._activePointerId === null || event.pointerId !== this._activePointerId) {
+      return;
+    }
+    this._activePointerId = null;
+
+    // Treat cancel like a canceled press: just go back to rest.
+    await this.animateToRest();
   }
 
   async onKeyDownEnter(_e: Event) {
@@ -198,16 +334,72 @@ export class ButtonShapeMorph<Variant, Shape, Size> implements AfterViewInit {
     if (this.animationControls) this.animationControls.cancel();
 
     const element = this.root();
-    const from = this.getCurrentBorderRadius(this.isSelected());
-    const to = this.shapeMorph.readVar(element, this.pressedMorphCssVar());
+    const fromRadius = this.getCurrentBorderRadius(this.isSelected());
+    const toRadius = this.shapeMorph.readVar(element, this.pressedMorphCssVar());
 
+    // Border radius animation
     this.animationControls = this.shapeMorph.animateBorderRadius(
       element,
-      from,
-      to,
+      fromRadius,
+      toRadius,
       this.springDampingCssVar(),
       this.springStiffnessCssVar(),
     );
+
+    // Width animation only if in a STANDARD button group
+    if (!this.hasWidthMorphingGroup(element)) return;
+
+    const dampingVar = this.springDampingCssVar();
+    const stiffnessVar = this.springStiffnessCssVar();
+    const basePressed = this.getBaseWidthPx(element);
+    const multiplier = this.getPressedWidthMultiplier(element);
+
+    if (multiplier === 0) return;
+
+    const targetPressed = basePressed * (1 + multiplier);
+    const delta = targetPressed - basePressed;
+
+    const { prev, next } = this.getAdjacentGroupItems(element);
+    const neighbors: HTMLElement[] = [];
+    if (prev) neighbors.push(prev);
+    if (next) neighbors.push(next);
+
+    if (neighbors.length === 0) {
+      // No neighbors: just grow this button; group width will change.
+      this.shapeMorph.animateWidth(
+        element,
+        `${basePressed}px`,
+        `${targetPressed}px`,
+        dampingVar,
+        stiffnessVar,
+      );
+      return;
+    }
+
+    const share = delta / neighbors.length;
+
+    // Pressed button: base -> larger
+    this.shapeMorph.animateWidth(
+      element,
+      `${basePressed}px`,
+      `${targetPressed}px`,
+      dampingVar,
+      stiffnessVar,
+    );
+
+    // Neighbors: base -> smaller, sharing the "borrowed" width between them
+    for (const neighbor of neighbors) {
+      const baseNeighbor = this.getBaseWidthPx(neighbor);
+      const targetNeighbor = baseNeighbor - share;
+
+      this.shapeMorph.animateWidth(
+        neighbor,
+        `${baseNeighbor}px`,
+        `${targetNeighbor}px`,
+        dampingVar,
+        stiffnessVar,
+      );
+    }
   }
 
   async onKeyUpSpace(_e: Event) {
@@ -223,18 +415,57 @@ export class ButtonShapeMorph<Variant, Shape, Size> implements AfterViewInit {
     if (!this._viewInitialized) return;
 
     const element = this.root();
-    const from = this.shapeMorph.readVar(element, this.pressedMorphCssVar());
-    const to = this.toggle() && this.isSelected() ?
-      this.shapeMorph.readVar(element, this.selectedShapeCssVar(this.shape()))
-      : this.shapeMorph.readVar(element, this.restingShapeCssVar(this.shape()))
+    const fromRadius = this.shapeMorph.readVar(element, this.pressedMorphCssVar());
+    const toRadius = this.toggle() && this.isSelected()
+      ? this.shapeMorph.readVar(element, this.selectedShapeCssVar(this.shape()))
+      : this.shapeMorph.readVar(element, this.restingShapeCssVar(this.shape()));
 
+    // Border radius back to the rest / selected shape
     this.animationControls = this.shapeMorph.animateBorderRadius(
       element,
-      from,
-      to,
+      fromRadius,
+      toRadius,
       this.springDampingCssVar(),
       this.springStiffnessCssVar(),
     );
+
+    // Width back to base for STANDARD button groups
+    if (!this.hasWidthMorphingGroup(element)) return;
+
+    const dampingVar = this.springDampingCssVar();
+    const stiffnessVar = this.springStiffnessCssVar();
+    const basePressed = this.getBaseWidthPx(element);
+    const currentPressedRect = element.getBoundingClientRect();
+    const fromWidthPressed = `${currentPressedRect.width}px`;
+    const toWidthPressed = `${basePressed}px`;
+
+    this.shapeMorph.animateWidth(
+      element,
+      fromWidthPressed,
+      toWidthPressed,
+      dampingVar,
+      stiffnessVar,
+    );
+
+    const { prev, next } = this.getAdjacentGroupItems(element);
+    const neighbors: HTMLElement[] = [];
+    if (prev) neighbors.push(prev);
+    if (next) neighbors.push(next);
+
+    for (const neighbor of neighbors) {
+      const baseNeighbor = this.getBaseWidthPx(neighbor);
+      const currentRect = neighbor.getBoundingClientRect();
+      const fromWidth = `${currentRect.width}px`;
+      const toWidth = `${baseNeighbor}px`;
+
+      this.shapeMorph.animateWidth(
+        neighbor,
+        fromWidth,
+        toWidth,
+        dampingVar,
+        stiffnessVar,
+      );
+    }
   }
 
   async onClick(event: Event) {

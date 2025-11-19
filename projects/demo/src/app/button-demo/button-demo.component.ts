@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {SmButtonComponent} from '@simply-material/components';
+import {Button} from '@simply-material/components';
 
 @Component({
   selector: 'app-button-demo',
-  imports: [SmButtonComponent],
+  imports: [Button],
   templateUrl: './button-demo.component.html',
   styleUrls: ['./button-demo.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -14,7 +14,7 @@ export class SmRippleDirective {
   rippleDisabled = input(false, { transform: booleanAttribute });
 
   rippleOpacity  = input<number>(0.25);
-  rippleDuration = input<number | string>(550);
+  rippleDuration = input<number | string>(1000);
   rippleEasing   = input<string>('cubic-bezier(0,0,0.2,1)');
   rippleColor    = input<string | null>(null);
 
@@ -55,10 +55,35 @@ export class SmRippleDirective {
 
     const useCenter = clientX == null || clientY == null;
 
-    const x = useCenter ? rect.width  / 2 : (clientX - rect.left);
-    const y = useCenter ? rect.height / 2 : (clientY - rect.top);
+    let fx: number;
+    let fy: number;
+    let x: number;
+    let y: number;
 
-    // Circle large enough to cover host from origin to farthest corner
+    if (useCenter) {
+      // Keyboard / forced center
+      fx = 0.5;
+      fy = 0.5;
+      x = rect.width / 2;
+      y = rect.height / 2;
+    } else {
+      // Pointer-based origin, in local coordinates
+      x = clientX - rect.left;
+      y = clientY - rect.top;
+
+      // Guard against zero width/height
+      const w = rect.width || 1;
+      const h = rect.height || 1;
+
+      fx = x / w;
+      fy = y / h;
+
+      // Clamp to [0, 1] just in case
+      fx = Math.min(Math.max(fx, 0), 1);
+      fy = Math.min(Math.max(fy, 0), 1);
+    }
+
+    // Circle large enough to cover the host from origin to the farthest corner
     const dx = Math.max(x, rect.width  - x);
     const dy = Math.max(y, rect.height - y);
     const radius = Math.hypot(dx, dy);
@@ -67,11 +92,14 @@ export class SmRippleDirective {
     const wave = document.createElement('span');
     wave.className = 'sm-ripple__wave';
 
-    // Position & size
+    // Size of the wave
     wave.style.width = `${size}px`;
     wave.style.height = `${size}px`;
-    wave.style.left = `${x - size / 2}px`;
-    wave.style.top  = `${y - size / 2}px`;
+
+    // Store origin as fractions so CSS can place via percentages.
+    // This keeps the visual origin correct even if the host width animates like a button in a standard button group
+    host.style.setProperty('--sm-ripple-origin-x', fx.toString());
+    host.style.setProperty('--sm-ripple-origin-y', fy.toString());
 
     // Visuals
     wave.style.opacity = String(this.rippleOpacity());

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SmButtonComponent } from './button';
+import { Button } from './button';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ShapeMorph } from '../../../services/shape-morph';
@@ -11,15 +11,15 @@ import {
 } from '../../../testing/test-helpers';
 
 describe('SmButton', () => {
-  let component: SmButtonComponent;
-  let fixture: ComponentFixture<SmButtonComponent>;
+  let component: Button;
+  let fixture: ComponentFixture<Button>;
   let minimalServiceMocks: ReturnType<typeof createMockMinimalCircularBorderRadius>;
 
   beforeEach(async () => {
     minimalServiceMocks = createMockMinimalCircularBorderRadius();
 
     await TestBed.configureTestingModule({
-      imports: [SmButtonComponent],
+      imports: [Button],
       providers: [
         provideZonelessChangeDetection(),
         {
@@ -33,7 +33,7 @@ describe('SmButton', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SmButtonComponent);
+    fixture = TestBed.createComponent(Button);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

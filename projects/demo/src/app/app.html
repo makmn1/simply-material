@@ -1,10 +1,10 @@
 <div class="app-container">
   <div class="demo-selector">
     <label for="demo-select" class="demo-label">Select Demo:</label>
-    <select 
-      id="demo-select" 
-      class="demo-select" 
-      [value]="selectedDemo()" 
+    <select
+      id="demo-select"
+      class="demo-select"
+      [value]="selectedDemo()"
       (change)="selectedDemo.set($any($event.target).value)">
       @for (demo of demos; track demo.value) {
         <option [value]="demo.value">{{ demo.label }}</option>
@@ -18,5 +18,7 @@
     <app-icon-button-demo></app-icon-button-demo>
   } @else if (selectedDemo() === 'tooltip') {
     <app-tooltip-demo></app-tooltip-demo>
+  } @else if (selectedDemo() === 'button-group') {
+    <app-button-group-demo></app-button-group-demo>
   }
 </div>

@@ -3,7 +3,7 @@ import {
   Component,
   input, model, output,
 } from '@angular/core';
-import {SmButtonComponent} from '../../buttons/button/button';
+import {Button} from '../../buttons/button/button';
 
 export interface TooltipButtonConfig {
   label: string;
@@ -21,7 +21,7 @@ export interface RichTooltipConfig {
   templateUrl: './tooltip-content.html',
   styleUrls: ['./tooltip.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [SmButtonComponent],
+  imports: [Button],
   host: {
     'role': 'tooltip',
     '[attr.data-type]': 'type()'

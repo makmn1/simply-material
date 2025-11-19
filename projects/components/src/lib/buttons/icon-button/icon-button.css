@@ -576,3 +576,40 @@
   --_icon-color: var(--md-comp-icon-button-outlined-pressed-icon-color-toggle-selected);
 }
 
+/* --- STANDARD BUTTON GROUP: motion + width for icon buttons ------------- */
+
+/* XSmall */
+:host-context(sm-button-group[data-type="standard"][data-size="xsmall"]).sm-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-xsmall-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-xsmall-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-xsmall-pressed-motion-spring-stiffness);
+}
+
+/* Small */
+:host-context(sm-button-group[data-type="standard"][data-size="small"]).sm-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-small-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-small-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-small-pressed-motion-spring-stiffness);
+}
+
+/* Medium */
+:host-context(sm-button-group[data-type="standard"][data-size="medium"]).sm-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-medium-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-medium-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-medium-pressed-motion-spring-stiffness);
+}
+
+/* Large */
+:host-context(sm-button-group[data-type="standard"][data-size="large"]).sm-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-large-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-large-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-large-pressed-motion-spring-stiffness);
+}
+
+/* XLarge */
+:host-context(sm-button-group[data-type="standard"][data-size="xlarge"]).sm-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-xlarge-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-xlarge-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-xlarge-pressed-motion-spring-stiffness);
+}
+

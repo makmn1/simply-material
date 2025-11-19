@@ -43,7 +43,7 @@ export type ButtonShape = 'round' | 'square';
     'class': 'sm-button',
   },
 })
-export class SmButtonComponent {
+export class Button {
   public readonly buttonShapeMorph =
     inject(ButtonShapeMorph<ButtonVariant, ButtonShape, ButtonSize>)
 
