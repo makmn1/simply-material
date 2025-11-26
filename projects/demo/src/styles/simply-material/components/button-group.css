@@ -60,7 +60,7 @@
     --md-comp-button-group-connected-xsmall-pressed-inner-corner-size: var(
       --md-sys-shape-corner-value-extra-small
     );
-    --md-comp-button-group-connected-xsmall-selected-inner-corner-size: 50%;
+    --md-comp-button-group-connected-xsmall-selected-inner-corner-size: 9999rem;
     --md-comp-button-group-connected-small-container-height: 2.5rem;
     --md-comp-button-group-connected-small-space-between-buttons: 0.125rem;
     --md-comp-button-group-connected-small-container-shape: var(
@@ -72,7 +72,7 @@
     --md-comp-button-group-connected-small-pressed-inner-corner-size: var(
       --md-sys-shape-corner-value-extra-small
     );
-    --md-comp-button-group-connected-small-selected-inner-corner-size: 50%;
+    --md-comp-button-group-connected-small-selected-inner-corner-size: 9999rem;
     --md-comp-button-group-connected-medium-container-height: 3.5rem;
     --md-comp-button-group-connected-medium-space-between-buttons: 0.125rem;
     --md-comp-button-group-connected-medium-container-shape: var(
@@ -84,7 +84,7 @@
     --md-comp-button-group-connected-medium-pressed-inner-corner-size: var(
       --md-sys-shape-corner-value-extra-small
     );
-    --md-comp-button-group-connected-medium-selected-inner-corner-size: 50%;
+    --md-comp-button-group-connected-medium-selected-inner-corner-size: 9999rem;
     --md-comp-button-group-connected-large-container-height: 6rem;
     --md-comp-button-group-connected-large-space-between-buttons: 0.125rem;
     --md-comp-button-group-connected-large-container-shape: var(
@@ -96,7 +96,7 @@
     --md-comp-button-group-connected-large-pressed-inner-corner-size: var(
       --md-sys-shape-corner-value-medium
     );
-    --md-comp-button-group-connected-large-selected-inner-corner-size: 50%;
+    --md-comp-button-group-connected-large-selected-inner-corner-size: 9999rem;
     --md-comp-button-group-connected-xlarge-container-height: 8.5rem;
     --md-comp-button-group-connected-xlarge-space-between-buttons: 0.125rem;
     --md-comp-button-group-connected-xlarge-container-shape: var(
@@ -108,6 +108,6 @@
     --md-comp-button-group-connected-xlarge-pressed-inner-corner-size: var(
       --md-sys-shape-corner-value-large
     );
-    --md-comp-button-group-connected-xlarge-selected-inner-corner-size: 50%;
+    --md-comp-button-group-connected-xlarge-selected-inner-corner-size: 9999rem;
   }
 }

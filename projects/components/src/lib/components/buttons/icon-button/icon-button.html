@@ -1,0 +1,11 @@
+@if (togglable()) {
+  @if (!isSelected()) {
+    <ng-content select="[outlined]" />
+  } @else if (isSelected()) {
+    <ng-content select="[filled]" />
+  } @else {
+    <ng-content />
+  }
+} @else {
+  <ng-content />
+}

@@ -4,7 +4,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
-    "types": ["vitest/globals", "vitest"]
+    "types": [
+      "vitest/globals",
+      "vitest",
+      "@vitest/browser-playwright" // See https://cookbook.marmicode.io/angular/testing/how-to-migrate-to-vitest-browser-mode#4-extending-the-locator-api-with-provider-specific-features
+    ],
   },
   "include": [
     "src/**/*.ts"

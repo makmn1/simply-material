@@ -1,786 +1,594 @@
-import {Component} from '@angular/core';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
-import {provideZonelessChangeDetection} from '@angular/core';
-import {describe, it, expect, beforeEach, afterEach, vi} from 'vitest';
-import {SmRippleDirective} from './ripple';
-import {stubRect} from '../../testing/test-helpers';
+import { Component, signal } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { describe, test, expect, beforeEach } from 'vitest';
+import { page } from 'vitest/browser';
+import { SimplyMatRippleDirective } from './ripple';
 
-@Component({
-  template: `
-    <button id="basic" sm-ripple>Basic button</button>
-    <button
-      id="custom-props"
-      sm-ripple
-      [rippleOpacity]="0.5"
-      [rippleDuration]="300"
-      rippleEasing="ease-in-out"
-      rippleColor="rgba(255,0,0,0.5)"
-    >
-      Custom properties
-    </button>
-    <button id="disabled-native" sm-ripple [disabled]="true">Disabled button</button>
-    <div id="aria-disabled" sm-ripple aria-disabled="true">Aria disabled</div>
-    <div id="disabled-attr" sm-ripple disabled>Disabled attribute</div>
-    <button id="ripple-disabled" sm-ripple [rippleDisabled]="true">Ripple disabled</button>
-    <a id="anchor" sm-ripple href="#">Anchor link</a>
-    <div id="no-directive">No directive</div>
-    <button id="string-duration" sm-ripple rippleDuration="1s">String duration</button>
-  `,
-  imports: [SmRippleDirective],
-  standalone: true,
-})
-class RippleTestComponent {}
-
-describe('SmRippleDirective', () => {
+describe('SimplyMatRippleDirective', () => {
   let fixture: ComponentFixture<RippleTestComponent>;
+  let testPage: RipplePage;
+  let testComponent: RippleTestComponent;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [RippleTestComponent],
-      providers: [provideZonelessChangeDetection()],
-    }).compileComponents();
-
     fixture = TestBed.createComponent(RippleTestComponent);
+    testPage = new RipplePage(fixture);
+    testComponent = fixture.componentInstance;
     fixture.detectChanges();
+    await fixture.whenStable();
   });
 
-  afterEach(() => {
-    vi.restoreAllMocks();
-  });
+  describe('Pointer-Based Ripples', () => {
+    test('should create ripple on primary button click', async () => {
+      expect(testPage.hasWave('default-btn')).toBe(false);
 
-  describe('Basic Directive Functionality', () => {
-    it('should apply sm-ripple class to host element', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      expect(button.nativeElement.classList.contains('sm-ripple')).toBe(true);
+      await testPage.click('default-btn', 50, 50);
+
+      expect(testPage.hasWave('default-btn')).toBe(true);
     });
 
-    it('should create ripple wave element on click', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should ignore non-primary button clicks', async () => {
+      expect(testPage.hasWave('default-btn')).toBe(false);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
+      await testPage.click('default-btn', 50, 50, 1);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeTruthy();
-      expect(wave?.className).toBe('sm-ripple__wave');
+      expect(testPage.hasWave('default-btn')).toBe(false);
+
+      await testPage.click('default-btn', 50, 50, 2);
+
+      expect(testPage.hasWave('default-btn')).toBe(false);
     });
 
-    it('should append wave element to host', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should calculate correct position from clientX/clientY', async () => {
+      const element = testPage.getElement('default-btn')!;
+      const rect = element.getBoundingClientRect();
+      const clientX = rect.left + 30;
+      const clientY = rect.top + 20;
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
+      await testPage.click('default-btn', clientX, clientY);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeTruthy();
-      expect(hostEl.contains(wave)).toBe(true);
+      const origin = testPage.getComputedOrigin('default-btn');
+      expect(origin.x).toBeCloseTo(30 / rect.width, 2);
+      expect(origin.y).toBeCloseTo(20 / rect.height, 2);
     });
 
-    it('should set correct initial styles on wave', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should set CSS custom properties for origin', async () => {
+      await testPage.click('default-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
+      const element = testPage.getElement('default-btn')!;
+      const originX = element.style.getPropertyValue('--sm-ripple-origin-x');
+      const originY = element.style.getPropertyValue('--sm-ripple-origin-y');
 
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave).toBeTruthy();
-      // Position is set by CSS, not directive - check directive-set styles
-      expect(wave.style.animationName).toBe('sm-ripple-wave');
-      expect(wave.style.animationFillMode).toBe('forwards');
-      expect(wave.style.width).toBeTruthy();
-      expect(wave.style.height).toBeTruthy();
+      expect(originX).not.toBe('');
+      expect(originY).not.toBe('');
+      expect(parseFloat(originX)).toBeGreaterThanOrEqual(0);
+      expect(parseFloat(originX)).toBeLessThanOrEqual(1);
+      expect(parseFloat(originY)).toBeGreaterThanOrEqual(0);
+      expect(parseFloat(originY)).toBeLessThanOrEqual(1);
     });
 
-    it('should remove wave after animationend event', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should create wave element with correct size based on farthest corner', async () => {
+      const element = testPage.getElement('default-btn')!;
+      const rect = element.getBoundingClientRect();
+      const clientX = rect.left + 10;
+      const clientY = rect.top + 10;
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
+      await testPage.click('default-btn', clientX, clientY);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave).toBeTruthy();
+      const wave = testPage.getWaves('default-btn')[0];
+      const waveSize = parseFloat(wave.style.width);
 
-      // Simulate animationend event (using Event since AnimationEvent may not be available in test env)
-      const animationEndEvent = new Event('animationend', {bubbles: true});
-      wave.dispatchEvent(animationEndEvent);
+      const dx = Math.max(10, rect.width - 10);
+      const dy = Math.max(10, rect.height - 10);
+      const expectedRadius = Math.hypot(dx, dy);
+      const expectedSize = expectedRadius * 2;
 
-      expect(hostEl.querySelector('.sm-ripple__wave')).toBeNull();
+      expect(waveSize).toBeCloseTo(expectedSize, 1);
+      expect(wave.style.width).toBe(wave.style.height);
+    });
+
+    test('should respect event.preventDefault() and not create ripple', async () => {
+      const element = testPage.getElement('prevent-default-btn')!;
+
+      element.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+      }, { capture: true });
+
+      await testPage.click('prevent-default-btn', 50, 50);
+
+      expect(testPage.hasWave('prevent-default-btn')).toBe(false);
     });
   });
 
-  describe('Input Properties', () => {
-    it('should apply custom rippleOpacity', () => {
-      const button = fixture.debugElement.query(By.css('#custom-props'));
-      const hostEl = button.nativeElement as HTMLElement;
+  describe('Keyboard-Based Ripples', () => {
+    test('should create centered ripple on Enter key', async () => {
+      expect(testPage.hasWave('default-btn')).toBe(false);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
+      await testPage.keydown('default-btn', 'Enter', false);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
+      expect(testPage.hasWave('default-btn')).toBe(true);
+      const origin = testPage.getComputedOrigin('default-btn');
+      expect(origin.x).toBe(0.5);
+      expect(origin.y).toBe(0.5);
+    });
+
+    test('should create centered ripple on Space key', async () => {
+      expect(testPage.hasWave('default-btn')).toBe(false);
+
+      await testPage.keydown('default-btn', ' ', false);
+
+      expect(testPage.hasWave('default-btn')).toBe(true);
+      const origin = testPage.getComputedOrigin('default-btn');
+      expect(origin.x).toBe(0.5);
+      expect(origin.y).toBe(0.5);
+    });
+
+    test('should create centered ripple on Spacebar key (legacy)', async () => {
+      expect(testPage.hasWave('default-btn')).toBe(false);
+
+      await testPage.keydown('default-btn', 'Spacebar', false);
+
+      expect(testPage.hasWave('default-btn')).toBe(true);
+    });
+
+    test('should ignore Space key repeats', async () => {
+      await testPage.keydown('default-btn', ' ', false);
+      expect(testPage.getWaves('default-btn').length).toBe(1);
+
+      await testPage.keydown('default-btn', ' ', true);
+      expect(testPage.getWaves('default-btn').length).toBe(1);
+
+      await testPage.keydown('default-btn', ' ', true);
+      expect(testPage.getWaves('default-btn').length).toBe(1);
+    });
+
+    test('should ignore other keys', async () => {
+      await testPage.keydown('default-btn', 'a', false);
+      expect(testPage.hasWave('default-btn')).toBe(false);
+
+      await testPage.keydown('default-btn', 'Tab', false);
+      expect(testPage.hasWave('default-btn')).toBe(false);
+
+      await testPage.keydown('default-btn', 'Escape', false);
+      expect(testPage.hasWave('default-btn')).toBe(false);
+    });
+
+    test('should respect event.preventDefault() on keyboard events', async () => {
+      const element = testPage.getElement('prevent-default-btn')!;
+
+      element.addEventListener('keydown', (e) => {
+        e.preventDefault();
+      }, { capture: true });
+
+      await testPage.keydown('prevent-default-btn', 'Enter', false);
+
+      expect(testPage.hasWave('prevent-default-btn')).toBe(false);
+    });
+  });
+
+  describe('Disabled States', () => {
+    test('should not create ripple when rippleDisabled input is true', async () => {
+      await testPage.click('ripple-disabled-btn', 50, 50);
+      expect(testPage.hasWave('ripple-disabled-btn')).toBe(false);
+
+      await testPage.keydown('ripple-disabled-btn', 'Enter', false);
+      expect(testPage.hasWave('ripple-disabled-btn')).toBe(false);
+    });
+
+    test('should not create ripple when host has disabled attribute', async () => {
+      await testPage.click('disabled-attr-btn', 50, 50);
+      expect(testPage.hasWave('disabled-attr-btn')).toBe(false);
+
+      await testPage.keydown('disabled-attr-btn', 'Enter', false);
+      expect(testPage.hasWave('disabled-attr-btn')).toBe(false);
+    });
+
+    test('should not create ripple when host has disabled property', async () => {
+      await testPage.click('disabled-prop-btn', 50, 50);
+      expect(testPage.hasWave('disabled-prop-btn')).toBe(false);
+
+      await testPage.keydown('disabled-prop-btn', 'Enter', false);
+      expect(testPage.hasWave('disabled-prop-btn')).toBe(false);
+    });
+
+    test('should not create ripple when host has aria-disabled="true"', async () => {
+      await testPage.click('aria-disabled-btn', 50, 50);
+      expect(testPage.hasWave('aria-disabled-btn')).toBe(false);
+
+      await testPage.keydown('aria-disabled-btn', 'Enter', false);
+      expect(testPage.hasWave('aria-disabled-btn')).toBe(false);
+    });
+
+    test('should react to dynamic rippleDisabled changes', async () => {
+      await testPage.click('dynamic-disabled-btn', 50, 50);
+      expect(testPage.hasWave('dynamic-disabled-btn')).toBe(true);
+
+      testPage.clearWaves('dynamic-disabled-btn');
+
+      testComponent.dynamicRippleDisabled.set(true);
+      await fixture.whenStable();
+
+      await testPage.click('dynamic-disabled-btn', 50, 50);
+      expect(testPage.hasWave('dynamic-disabled-btn')).toBe(false);
+    });
+  });
+
+  describe('Configuration Inputs', () => {
+    test('should apply custom rippleOpacity value to wave', async () => {
+      await testPage.click('custom-opacity-btn', 50, 50);
+
+      const wave = testPage.getWaves('custom-opacity-btn')[0];
       expect(wave.style.opacity).toBe('0.5');
     });
 
-    it('should use default opacity when not provided', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should apply custom rippleDuration as number (ms)', async () => {
+      await testPage.click('custom-duration-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave.style.opacity).toBe('0.25');
+      const wave = testPage.getWaves('custom-duration-btn')[0];
+      expect(wave.style.animationDuration).toBe('500ms');
     });
 
-    it('should convert numeric rippleDuration to ms', () => {
-      const button = fixture.debugElement.query(By.css('#custom-props'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should apply custom rippleDuration as string', async () => {
+      await testPage.click('custom-duration-string-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave.style.animationDuration).toBe('300ms');
+      const wave = testPage.getWaves('custom-duration-string-btn')[0];
+      expect(wave.style.animationDuration).toBe('2s');
     });
 
-    it('should use string rippleDuration as-is', () => {
-      const button = fixture.debugElement.query(By.css('#string-duration'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should apply custom rippleEasing function', async () => {
+      await testPage.click('custom-easing-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave.style.animationDuration).toBe('1s');
-    });
-
-    it('should use default duration when not provided', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave.style.animationDuration).toBe('1000ms');
-    });
-
-    it('should apply custom rippleEasing', () => {
-      const button = fixture.debugElement.query(By.css('#custom-props'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
+      const wave = testPage.getWaves('custom-easing-btn')[0];
       expect(wave.style.animationTimingFunction).toBe('ease-in-out');
     });
 
-    it('should use default easing when not provided', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should apply custom rippleColor', async () => {
+      await testPage.click('custom-color-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave.style.animationTimingFunction).toBe('cubic-bezier(0,0,0.2,1)');
+      const wave = testPage.getWaves('custom-color-btn')[0];
+      expect(wave.style.background).toBe('red');
     });
 
-    it('should apply custom rippleColor when provided', () => {
-      const button = fixture.debugElement.query(By.css('#custom-props'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should not set background when rippleColor is null', async () => {
+      await testPage.click('default-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      // Browser may normalize rgba values with spaces, so check that it contains the color
-      expect(wave.style.background).toContain('255');
-      expect(wave.style.background).toContain('0');
-      expect(wave.style.background).toContain('0.5');
-    });
-
-    it('should not set background when rippleColor is null', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      // When rippleColor is null, background should not be set (uses CSS default: currentColor)
+      const wave = testPage.getWaves('default-btn')[0];
       expect(wave.style.background).toBe('');
     });
-  });
 
-  describe('Ripple Calculation', () => {
-    it('should calculate ripple size correctly from click position', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should react to dynamic configuration changes', async () => {
+      testComponent.dynamicOpacity.set(0.8);
+      testComponent.dynamicColor.set('blue');
+      await fixture.whenStable();
 
-      stubRect(hostEl, 100, 50);
-      // Pointer down at center (50, 25)
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
+      await testPage.click('dynamic-config-btn', 50, 50);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      // From center: dx = max(50, 50) = 50, dy = max(25, 25) = 25
-      // radius = hypot(50, 25) ≈ 55.9, size = 111.8
-      const expectedSize = Math.hypot(50, 25) * 2;
-      expect(parseFloat(wave.style.width)).toBeCloseTo(expectedSize, 1);
-      expect(parseFloat(wave.style.height)).toBeCloseTo(expectedSize, 1);
-    });
-
-    it('should position ripple correctly relative to click coordinates', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      // Pointer down at (30, 20)
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 30,
-        clientY: 20,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      // Check CSS custom properties for fractional origin
-      // x = 30 - 0 = 30, fx = 30 / 100 = 0.3
-      // y = 20 - 0 = 20, fy = 20 / 50 = 0.4
-      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
-      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
-      expect(parseFloat(originX)).toBeCloseTo(0.3, 5);
-      expect(parseFloat(originY)).toBeCloseTo(0.4, 5);
-    });
-
-    it('should cover entire element from click point to farthest corner', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      // Pointer down at top-left corner (0, 0)
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 0,
-        clientY: 0,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      // From top-left: dx = max(0, 100) = 100, dy = max(0, 50) = 50
-      // radius = hypot(100, 50) ≈ 111.8, size ≈ 223.6
-      const expectedSize = Math.hypot(100, 50) * 2;
-      expect(parseFloat(wave.style.width)).toBeCloseTo(expectedSize, 1);
-    });
-
-    it('should work with different element sizes', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 200, 100);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 100,
-        clientY: 50,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      const expectedSize = Math.hypot(100, 50) * 2;
-      expect(parseFloat(wave.style.width)).toBeCloseTo(expectedSize, 1);
-    });
-
-    it('should center ripple origin for keyboard-initiated clicks (detail === 0)', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      // Keyboard-initiated interaction uses keydown event
-      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      // Origin should be at center: x = 100/2 = 50, y = 50/2 = 25
-      // From center: dx = max(50, 50) = 50, dy = max(25, 25) = 25
-      const expectedSize = Math.hypot(50, 25) * 2;
-      expect(parseFloat(wave.style.width)).toBeCloseTo(expectedSize, 1);
-
-      // Position should be centered (fx = 0.5, fy = 0.5)
-      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
-      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
-      expect(parseFloat(originX)).toBe(0.5);
-      expect(parseFloat(originY)).toBe(0.5);
-    });
-
-    it('should center ripple origin for programmatic clicks (detail === 0)', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 120, 80);
-      // Programmatic interaction uses keydown event (simulating keyboard activation)
-      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      // Origin should be at center: x = 120/2 = 60, y = 80/2 = 40
-      // From center: dx = max(60, 60) = 60, dy = max(40, 40) = 40
-      const expectedSize = Math.hypot(60, 40) * 2;
-      expect(parseFloat(wave.style.width)).toBeCloseTo(expectedSize, 1);
-
-      // Position should be centered (fx = 0.5, fy = 0.5)
-      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
-      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
-      expect(parseFloat(originX)).toBe(0.5);
-      expect(parseFloat(originY)).toBe(0.5);
-    });
-
-    it('should use click coordinates for mouse clicks (detail > 0)', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      // Mouse pointer down at (30, 20)
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 30,
-        clientY: 20,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      // Should use actual pointer coordinates, not center
-      // x = 30 - 0 = 30, fx = 30 / 100 = 0.3
-      // y = 20 - 0 = 20, fy = 20 / 50 = 0.4
-      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
-      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
-      expect(parseFloat(originX)).toBeCloseTo(0.3, 5);
-      expect(parseFloat(originY)).toBeCloseTo(0.4, 5);
+      const wave = testPage.getWaves('dynamic-config-btn')[0];
+      expect(wave.style.opacity).toBe('0.8');
+      expect(wave.style.background).toBe('blue');
     });
   });
 
-  describe('Disabled State Handling', () => {
-    it('should not create ripple when rippleDisabled is true', () => {
-      const button = fixture.debugElement.query(By.css('#ripple-disabled'));
-      const hostEl = button.nativeElement as HTMLElement;
+  describe('Wave Element Properties', () => {
+    test('should create wave with sm-ripple__wave class', async () => {
+      await testPage.click('default-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      hostEl.click();
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
+      const wave = testPage.getWaves('default-btn')[0];
+      expect(wave.classList.contains('sm-ripple__wave')).toBe(true);
     });
 
-    it('should not create ripple when host has native disabled property', () => {
-      const button = fixture.debugElement.query(By.css('#disabled-native'));
-      const hostEl = button.nativeElement as HTMLButtonElement;
+    test('should set wave width and height to same value', async () => {
+      await testPage.click('default-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
+      const wave = testPage.getWaves('default-btn')[0];
+      expect(wave.style.width).toBe(wave.style.height);
+      expect(wave.style.width).not.toBe('');
     });
 
-    it('should not create ripple when host has aria-disabled="true"', () => {
-      const div = fixture.debugElement.query(By.css('#aria-disabled'));
-      const hostEl = div.nativeElement as HTMLElement;
+    test('should set animation properties correctly', async () => {
+      await testPage.click('default-btn', 50, 50);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
+      const wave = testPage.getWaves('default-btn')[0];
+      expect(wave.style.animationDuration).toBe('1000ms');
+      expect(wave.style.animationTimingFunction).toBe('cubic-bezier(0, 0, 0.2, 1)');
+      expect(wave.style.animationFillMode).toBe('forwards');
+      expect(wave.style.animationName).toBe('sm-ripple-wave');
     });
 
-    it('should not create ripple when host has disabled attribute', () => {
-      const div = fixture.debugElement.query(By.css('#disabled-attr'));
-      const hostEl = div.nativeElement as HTMLElement;
+    test('should append wave element to host', async () => {
+      const element = testPage.getElement('default-btn')!;
+      const childrenBefore = element.children.length;
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
+      await testPage.click('default-btn', 50, 50);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
+      expect(element.children.length).toBe(childrenBefore + 1);
+      expect(testPage.getWaves('default-btn').length).toBe(1);
     });
 
-    it('should create ripple when disabled states are false/absent', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should support multiple waves in same host', async () => {
+      await testPage.click('default-btn', 30, 30);
+      expect(testPage.getWaves('default-btn').length).toBe(1);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeTruthy();
+      await testPage.click('default-btn', 70, 70);
+      expect(testPage.getWaves('default-btn').length).toBe(2);
     });
   });
 
-  describe('Event Handling', () => {
-    it('should not create ripple when event.defaultPrevented is true', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+  describe('Animation Lifecycle', () => {
+    test('should remove wave element after animation completes', async () => {
+      await testPage.click('default-btn', 50, 50);
+      expect(testPage.hasWave('default-btn')).toBe(true);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-        cancelable: true,
-      });
-      pointerEvent.preventDefault();
-      hostEl.dispatchEvent(pointerEvent);
+      const wave = testPage.getWaves('default-btn')[0];
+      wave.dispatchEvent(new Event('animationend'));
 
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
+      expect(testPage.hasWave('default-btn')).toBe(false);
     });
 
-    it('should handle click event properly', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should clean up multiple waves independently', async () => {
+      await testPage.click('default-btn', 30, 30);
+      await testPage.click('default-btn', 70, 70);
+      expect(testPage.getWaves('default-btn').length).toBe(2);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent);
+      const waves = testPage.getWaves('default-btn');
+      waves[0].dispatchEvent(new Event('animationend'));
+      expect(testPage.getWaves('default-btn').length).toBe(1);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeTruthy();
-    });
-  });
-
-  describe('Keyboard Events', () => {
-    it('should create ripple on Enter key', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeTruthy();
+      testPage.getWaves('default-btn')[0].dispatchEvent(new Event('animationend'));
+      expect(testPage.getWaves('default-btn').length).toBe(0);
     });
 
-    it('should center ripple for Enter key events', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should only remove wave once when animationend fires', async () => {
+      await testPage.click('default-btn', 50, 50);
+      const wave = testPage.getWaves('default-btn')[0];
 
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
+      wave.dispatchEvent(new Event('animationend'));
+      expect(testPage.hasWave('default-btn')).toBe(false);
 
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave).toBeTruthy();
-      // Ripple should be centered (fx = 0.5, fy = 0.5)
-      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
-      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
-      expect(parseFloat(originX)).toBe(0.5);
-      expect(parseFloat(originY)).toBe(0.5);
-    });
-
-    it('should create ripple on Space key (first press)', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: false, bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeTruthy();
-    });
-
-    it('should center ripple for Space key events', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: false, bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave') as HTMLElement;
-      expect(wave).toBeTruthy();
-      // Ripple should be centered (fx = 0.5, fy = 0.5)
-      const originX = hostEl.style.getPropertyValue('--sm-ripple-origin-x');
-      const originY = hostEl.style.getPropertyValue('--sm-ripple-origin-y');
-      expect(parseFloat(originX)).toBe(0.5);
-      expect(parseFloat(originY)).toBe(0.5);
-    });
-
-    it('should not create ripple on Space key repeat', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: true, bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
-    });
-
-    it('should not create ripple on Enter key when disabled', () => {
-      const button = fixture.debugElement.query(By.css('#disabled-native'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
-    });
-
-    it('should not create ripple on Space key when disabled', () => {
-      const button = fixture.debugElement.query(By.css('#disabled-native'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: false, bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
-    });
-
-    it('should not create ripple on Enter key when rippleDisabled is true', () => {
-      const button = fixture.debugElement.query(By.css('#ripple-disabled'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
-    });
-
-    it('should not create ripple on Space key when rippleDisabled is true', () => {
-      const button = fixture.debugElement.query(By.css('#ripple-disabled'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: ' ', repeat: false, bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
-    });
-
-    it('should not create ripple on other keys', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
-
-      stubRect(hostEl, 100, 50);
-      const keydownEvent = new KeyboardEvent('keydown', { key: 'Tab', bubbles: true });
-      hostEl.dispatchEvent(keydownEvent);
-
-      const wave = hostEl.querySelector('.sm-ripple__wave');
-      expect(wave).toBeNull();
+      expect(() => {
+        wave.dispatchEvent(new Event('animationend'));
+      }).not.toThrow();
     });
   });
 
-  describe('Multiple Ripples', () => {
-    it('should create multiple wave elements on multiple clicks', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+  describe('Edge Cases', () => {
+    test('should handle zero width/height elements gracefully', async () => {
+      await testPage.click('zero-size-btn', 0, 0);
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent1 = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      const pointerEvent2 = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      const pointerEvent3 = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent1);
-      hostEl.dispatchEvent(pointerEvent2);
-      hostEl.dispatchEvent(pointerEvent3);
-
-      const waves = hostEl.querySelectorAll('.sm-ripple__wave');
-      expect(waves.length).toBe(3);
+      const origin = testPage.getComputedOrigin('zero-size-btn');
+      expect(origin.x).toBeGreaterThanOrEqual(0);
+      expect(origin.x).toBeLessThanOrEqual(1);
+      expect(origin.y).toBeGreaterThanOrEqual(0);
+      expect(origin.y).toBeLessThanOrEqual(1);
     });
 
-    it('should remove each wave independently after animationend', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const hostEl = button.nativeElement as HTMLElement;
+    test('should clamp pointer coordinates outside bounds to [0, 1]', async () => {
+      const element = testPage.getElement('default-btn')!;
+      const rect = element.getBoundingClientRect();
 
-      stubRect(hostEl, 100, 50);
-      const pointerEvent1 = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      const pointerEvent2 = new PointerEvent('pointerdown', {
-        clientX: 50,
-        clientY: 25,
-        button: 0,
-      });
-      hostEl.dispatchEvent(pointerEvent1);
-      hostEl.dispatchEvent(pointerEvent2);
+      const clientX = rect.left - 50;
+      const clientY = rect.top - 50;
 
-      const waves = hostEl.querySelectorAll('.sm-ripple__wave');
-      expect(waves.length).toBe(2);
+      await testPage.click('default-btn', clientX, clientY);
 
-      // Remove first wave (using Event since AnimationEvent may not be available in test env)
-      const animationEndEvent1 = new Event('animationend', {bubbles: true});
-      waves[0].dispatchEvent(animationEndEvent1);
-
-      expect(hostEl.querySelectorAll('.sm-ripple__wave').length).toBe(1);
-
-      // Remove second wave
-      const remainingWave = hostEl.querySelector('.sm-ripple__wave');
-      const animationEndEvent2 = new Event('animationend', {bubbles: true});
-      remainingWave?.dispatchEvent(animationEndEvent2);
-
-      expect(hostEl.querySelectorAll('.sm-ripple__wave').length).toBe(0);
-    });
-  });
-
-  describe('Directive Querying', () => {
-    it('should find all elements with directive using By.directive', () => {
-      const elements = fixture.debugElement.queryAll(By.directive(SmRippleDirective));
-      // Should find: basic, custom-props, disabled-native, aria-disabled, disabled-attr,
-      // ripple-disabled, anchor, string-duration = 8 elements
-      expect(elements.length).toBe(8);
+      const origin = testPage.getComputedOrigin('default-btn');
+      expect(origin.x).toBeGreaterThanOrEqual(0);
+      expect(origin.x).toBeLessThanOrEqual(1);
+      expect(origin.y).toBeGreaterThanOrEqual(0);
+      expect(origin.y).toBeLessThanOrEqual(1);
     });
 
-    it('should access directive instance via element injector', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const directive = button.injector.get(SmRippleDirective);
-      expect(directive).toBeTruthy();
-      expect(directive).toBeInstanceOf(SmRippleDirective);
+    test('should clamp pointer coordinates beyond bounds to [0, 1]', async () => {
+      const element = testPage.getElement('default-btn')!;
+      const rect = element.getBoundingClientRect();
+
+      const clientX = rect.right + 50;
+      const clientY = rect.bottom + 50;
+
+      await testPage.click('default-btn', clientX, clientY);
+
+      const origin = testPage.getComputedOrigin('default-btn');
+      expect(origin.x).toBeGreaterThanOrEqual(0);
+      expect(origin.x).toBeLessThanOrEqual(1);
+      expect(origin.y).toBeGreaterThanOrEqual(0);
+      expect(origin.y).toBeLessThanOrEqual(1);
     });
 
-    it('should access directive input properties via instance', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const directive = button.injector.get(SmRippleDirective);
-      expect(directive.rippleOpacity()).toBe(0.25);
-      expect(directive.rippleDuration()).toBe(1000);
-      expect(directive.rippleEasing()).toBe('cubic-bezier(0,0,0.2,1)');
-      expect(directive.rippleDisabled()).toBe(false);
-    });
+    test('should create centered ripple when clientX/clientY are undefined', async () => {
+      await testPage.keydown('default-btn', 'Enter', false);
 
-    it('should find elements without directive using :not([sm-ripple])', () => {
-      const elements = fixture.debugElement.queryAll(By.css('*:not([sm-ripple])'));
-      // Should find elements that don't have the directive
-      const noDirectiveEl = fixture.debugElement.query(By.css('#no-directive'));
-      expect(elements.some(el => el.nativeElement === noDirectiveEl.nativeElement)).toBe(true);
-    });
-
-    it('should work with different host element types', () => {
-      const button = fixture.debugElement.query(By.css('#basic'));
-      const anchor = fixture.debugElement.query(By.css('#anchor'));
-      const div = fixture.debugElement.query(By.css('#aria-disabled'));
-
-      expect(button.nativeElement.classList.contains('sm-ripple')).toBe(true);
-      expect(anchor.nativeElement.classList.contains('sm-ripple')).toBe(true);
-      expect(div.nativeElement.classList.contains('sm-ripple')).toBe(true);
+      const origin = testPage.getComputedOrigin('default-btn');
+      expect(origin.x).toBe(0.5);
+      expect(origin.y).toBe(0.5);
     });
   });
 });
+
+@Component({
+  selector: 'ripple-test-component',
+  imports: [SimplyMatRippleDirective],
+  template: `
+    <!-- Default ripple button -->
+    <button
+      data-testid="default-btn"
+      simply-mat-ripple>
+      Default
+    </button>
+
+    <!-- Ripple disabled via input -->
+    <button
+      data-testid="ripple-disabled-btn"
+      simply-mat-ripple
+      [rippleDisabled]="true">
+      Ripple Disabled
+    </button>
+
+    <!-- Disabled via attribute -->
+    <button
+      data-testid="disabled-attr-btn"
+      simply-mat-ripple
+      disabled>
+      Disabled Attr
+    </button>
+
+    <!-- Disabled via property -->
+    <button
+      data-testid="disabled-prop-btn"
+      simply-mat-ripple
+      [disabled]="true">
+      Disabled Prop
+    </button>
+
+    <!-- Disabled via aria-disabled -->
+    <button
+      data-testid="aria-disabled-btn"
+      simply-mat-ripple
+      aria-disabled="true">
+      Aria Disabled
+    </button>
+
+    <!-- Custom opacity -->
+    <button
+      data-testid="custom-opacity-btn"
+      simply-mat-ripple
+      [rippleOpacity]="0.5">
+      Custom Opacity
+    </button>
+
+    <!-- Custom duration (number) -->
+    <button
+      data-testid="custom-duration-btn"
+      simply-mat-ripple
+      [rippleDuration]="500">
+      Custom Duration
+    </button>
+
+    <!-- Custom duration (string) -->
+    <button
+      data-testid="custom-duration-string-btn"
+      simply-mat-ripple
+      [rippleDuration]="'2s'">
+      Custom Duration String
+    </button>
+
+    <!-- Custom easing -->
+    <button
+      data-testid="custom-easing-btn"
+      simply-mat-ripple
+      [rippleEasing]="'ease-in-out'">
+      Custom Easing
+    </button>
+
+    <!-- Custom color -->
+    <button
+      data-testid="custom-color-btn"
+      simply-mat-ripple
+      [rippleColor]="'red'">
+      Custom Color
+    </button>
+
+    <!-- Dynamic rippleDisabled -->
+    <button
+      data-testid="dynamic-disabled-btn"
+      simply-mat-ripple
+      [rippleDisabled]="dynamicRippleDisabled()">
+      Dynamic Disabled
+    </button>
+
+    <!-- Dynamic configuration -->
+    <button
+      data-testid="dynamic-config-btn"
+      simply-mat-ripple
+      [rippleOpacity]="dynamicOpacity()"
+      [rippleColor]="dynamicColor()">
+      Dynamic Config
+    </button>
+
+    <!-- Zero size button (for edge case testing) -->
+    <button
+      data-testid="zero-size-btn"
+      simply-mat-ripple
+      style="width: 1px; height: 1px; padding: 0; min-width: 0;">
+      Zero
+    </button>
+
+    <!-- Button for preventDefault testing -->
+    <button
+      data-testid="prevent-default-btn"
+      simply-mat-ripple>
+      Prevent Default
+    </button>
+  `,
+})
+export class RippleTestComponent {
+  dynamicRippleDisabled = signal(false);
+  dynamicOpacity = signal(0.25);
+  dynamicColor = signal<string | null>(null);
+}
+
+export class RipplePage {
+  constructor(protected fixture: ComponentFixture<any>) {}
+
+  getElement(testId: string): HTMLElement | null {
+    return page.getByTestId(testId).query() as HTMLElement | null;
+  }
+
+  async click(testId: string, clientX: number, clientY: number, button: number = 0): Promise<void> {
+    const element = this.getElement(testId);
+    if (!element) throw new Error(`Element with testId ${testId} not found`);
+
+    const event = new PointerEvent('pointerdown', {
+      clientX,
+      clientY,
+      button,
+      bubbles: true,
+      cancelable: true,
+    });
+
+    element.dispatchEvent(event);
+    await this.fixture.whenStable();
+  }
+
+  async keydown(testId: string, key: string, repeat: boolean): Promise<void> {
+    const element = this.getElement(testId);
+    if (!element) throw new Error(`Element with testId ${testId} not found`);
+
+    const event = new KeyboardEvent('keydown', {
+      key,
+      repeat,
+      bubbles: true,
+      cancelable: true,
+    });
+
+    element.dispatchEvent(event);
+    await this.fixture.whenStable();
+  }
+
+  getWaves(testId: string): HTMLElement[] {
+    const element = this.getElement(testId);
+    if (!element) return [];
+    return Array.from(element.querySelectorAll('.sm-ripple__wave')) as HTMLElement[];
+  }
+
+  hasWave(testId: string): boolean {
+    return this.getWaves(testId).length > 0;
+  }
+
+  getComputedOrigin(testId: string): { x: number; y: number } {
+    const element = this.getElement(testId);
+    if (!element) return { x: 0, y: 0 };
+
+    const originX = element.style.getPropertyValue('--sm-ripple-origin-x');
+    const originY = element.style.getPropertyValue('--sm-ripple-origin-y');
+
+    return {
+      x: parseFloat(originX) || 0,
+      y: parseFloat(originY) || 0,
+    };
+  }
+
+  clearWaves(testId: string): void {
+    const waves = this.getWaves(testId);
+    waves.forEach(wave => wave.remove());
+  }
+}
 

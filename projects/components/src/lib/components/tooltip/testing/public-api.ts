@@ -1,0 +1,3 @@
+export * from './tooltip-harness';
+export * from './tooltip-harness-filters';
+

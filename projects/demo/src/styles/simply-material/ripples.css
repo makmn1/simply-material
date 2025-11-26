@@ -2,7 +2,7 @@
  * DO NOT EDIT — this stylesheet is managed by the CLI.
  * Put overrides in your own custom stylesheet and import it after these files.
  */
-.sm-ripple {
+.simply-mat-ripple {
   position: relative;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
@@ -20,6 +20,12 @@
   left: calc(var(--sm-ripple-origin-x) * 100%);
   top: calc(var(--sm-ripple-origin-y) * 100%);
   transform: translate(-50%, -50%) scale(0);
+
+  opacity: 0.25;
+  animation-name: sm-ripple-wave;
+  animation-duration: 1000ms;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  animation-fill-mode: forwards;
 }
 
 @keyframes sm-ripple-wave {

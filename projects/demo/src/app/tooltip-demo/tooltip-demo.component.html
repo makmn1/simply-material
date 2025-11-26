@@ -20,12 +20,12 @@
   <section class="section-card">
     <h2 class="section-title">Default Positions</h2>
     <p class="section-description">These tooltips use default settings (no optional properties specified) and are not affected by the position selector above.</p>
-    
+
     <div class="position-demo">
       <div class="position-demo-item">
         <span class="position-label-text">Plain Tooltip (Default)</span>
         <button
-          sm-icon-button
+          simplyMatIconButton
           sm-tooltip
           [tooltip]="'Plain tooltip with default settings'"
           [config]="baseTooltipConfig">
@@ -35,7 +35,7 @@
       <div class="position-demo-item">
         <span class="position-label-text">Rich Tooltip (Default)</span>
         <button
-          sm-icon-button
+          simplyMatIconButton
           sm-tooltip
           [tooltip]="richTooltipExample"
           [config]="baseTooltipConfig">
@@ -51,7 +51,7 @@
     <div class="button-group">
       @for (tooltip of plainTooltips; track tooltip) {
         <button
-          sm-icon-button
+          simplyMatIconButton
           sm-tooltip
           [tooltip]="tooltip"
           [config]="getTooltipConfig()">
@@ -67,7 +67,7 @@
     <div class="button-group">
       @for (tooltip of richTooltips; track tooltip.supportingText) {
         <button
-          sm-icon-button
+          simplyMatIconButton
           sm-tooltip
           [tooltip]="tooltip"
           [config]="getTooltipConfig()">
@@ -80,7 +80,7 @@
   <section class="section-card">
     <h2 class="section-title">Programmatic Tooltip Control</h2>
     <p class="section-description">Tooltips can be controlled programmatically using the open() and close() methods. When programmatically opened, the tooltip ignores hover and focus events until explicitly closed.</p>
-    
+
     <div class="programmatic-examples">
       <div class="programmatic-example">
         <h3 class="example-title">Manual Trigger Mode</h3>
@@ -88,13 +88,13 @@
         <div class="programmatic-control">
           <div class="programmatic-buttons">
             <button
-              sm-button
+              simplyMatButton
               variant="filled"
               (click)="onOpenTooltipManual()">
               Open Tooltip
             </button>
             <button
-              sm-button
+              simplyMatButton
               variant="outlined"
               (click)="onCloseTooltipManual()">
               Close Tooltip
@@ -103,7 +103,7 @@
           <div class="programmatic-target">
             <button
               #programmaticTooltipManual="smTooltip"
-              sm-icon-button
+              simplyMatIconButton
               sm-tooltip
               [tooltip]="'This tooltip uses manual trigger mode. Hovering will not open it.'"
               [config]="getManualTriggerConfig()">
@@ -119,13 +119,13 @@
         <div class="programmatic-control">
           <div class="programmatic-buttons">
             <button
-              sm-button
+              simplyMatButton
               variant="filled"
               (click)="onOpenTooltipDefault()">
               Open Tooltip
             </button>
             <button
-              sm-button
+              simplyMatButton
               variant="outlined"
               (click)="onCloseTooltipDefault()">
               Close Tooltip
@@ -134,7 +134,7 @@
           <div class="programmatic-target">
             <button
               #programmaticTooltipDefault="smTooltip"
-              sm-icon-button
+              simplyMatIconButton
               sm-tooltip
               [tooltip]="'This tooltip uses default trigger mode. You can hover or use the buttons.'"
               [config]="getDefaultTriggerConfig()">
@@ -151,7 +151,7 @@
     <p class="section-description">Tooltips on disabled elements do not show on hover, focus, or click. However, they can still be opened programmatically using the open() method.</p>
     <div class="button-group">
       <button
-        sm-icon-button
+        simplyMatIconButton
         sm-tooltip
         [tooltip]="'This button is disabled'"
         [config]="getTooltipConfig()"
@@ -160,7 +160,7 @@
       </button>
       <button
         #disabledProgrammaticTooltip="smTooltip"
-        sm-icon-button
+        simplyMatIconButton
         sm-tooltip
         [tooltip]="'This disabled tooltip can be opened programmatically'"
         [config]="getTooltipConfig()"
@@ -171,13 +171,13 @@
     <div class="programmatic-control" style="margin-top: 1rem;">
       <div class="programmatic-buttons">
         <button
-          sm-button
+          simplyMatButton
           variant="filled"
           (click)="onOpenDisabledTooltip()">
           Open Disabled Tooltip
         </button>
         <button
-          sm-button
+          simplyMatButton
           variant="outlined"
           (click)="onCloseDisabledTooltip()">
           Close Disabled Tooltip
@@ -192,7 +192,7 @@
   <!-- Left edge -->
   <div class="edge-left">
     <button
-      sm-icon-button
+      simplyMatIconButton
       sm-tooltip
       [tooltip]="'Left edge tooltip'"
       [config]="getTooltipConfig()">
@@ -203,7 +203,7 @@
   <!-- Right edge -->
   <div class="edge-right">
     <button
-      sm-icon-button
+      simplyMatIconButton
       sm-tooltip
       [tooltip]="'Right edge tooltip'"
       [config]="getTooltipConfig()">
@@ -214,7 +214,7 @@
   <!-- Bottom edge -->
   <div class="edge-bottom">
     <button
-      sm-icon-button
+      simplyMatIconButton
       sm-tooltip
       [tooltip]="'Bottom edge tooltip'"
       [config]="getTooltipConfig()">

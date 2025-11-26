@@ -1,0 +1,62 @@
+---
+alwaysApply: true
+context: true
+priority: high
+---
+
+# Angular Testing Guidelines
+
+This document contains modern testing guidelines for AI tools to follow.
+Angular testing, and testing in general, has changed a lot over the years.
+It's important to follow the practices outlined in these documents to ensure adherence
+to modern testing practices.
+
+This project's testing strategy uses Vitest with Playwright in a full browser mode.
+
+- **Avoid** the use of any zone-specific APIs. This is a zoneless Angular project.
+This includes avoiding the use of fakeAsync and waitForAsync, as those only work with ZoneJS.
+- Do not use provideZonelessChangeDetection(). That is already provided by default.
+- Components are standalone by default. Don't mark them as standalone.
+- **Avoid** the use of Karma and Jasmine. This project uses Vitest for testing.
+- For using fake timers, rely on the Vitest's utilities
+- This project uses **Full browser mode** via Vitest with Playwright. You can expect that the DOM API is fully available during tests
+- Replace any DOM queries with the page API. You can switch to the page API by replacing DOM queries with the `page` API and assertions with the `expect.element` API
+- The page API can be imported as follows `import { page } from 'vitest/browser';`
+- Import other testing utilities from vitest as needed, for example: `import { expect, test } from 'vitest';`
+- Do not use Jasmine related utilities such as `beforeEach` and `afterEach`, `it`, `describe`, etc. Always import the corresponding utilities from vitest.
+- Vitest uses `test`, not `it`, for defining tests
+- Do not use the `detectChanges()` function of the `ComponentFixture` class to trigger change detection.
+Change detection is triggered automatically with signals, rely on that. If you need to wait for change detection to complete, use `whenStable()` or `whenRenderingDone()`
+- Change detection may not happen immediately. Use `whenStable()` or `whenRenderingDone()` to wait for any pending change detections to complete
+- Do not call `compileComponents()` on the TestBed. Angular compiles the application before running tests when using `ng test`
+- Do not mock or spy on any dependencies for satisfying test cases unless specifically told to do so
+
+## More Information
+- For assertions, locators (to find DOM elements), and interactivity (e.g., clicks, hover, etc.), refer to the Vitest documentation in the `vitest` folder in the project's `llm/testing` directory
+- For Angular-specific needs, such as TestBed configuration and test component fixtures / debug elements, refer to the `angular-basics` folder in the project's `llm/testing` directory
+- If you've been instructed to work on a component harness, refer to the section below on the harness structure
+
+## Testing Structure
+When creating tests, always structure the test file in the following order:
+- Tests
+- Any test-specific components / directives
+- A class that acts as a page object model for the component under test
+
+The page object model should define all the actions that can be performed on the component under test.
+All tests should use it for any shared actions / querying.
+
+## Component Harness Structure
+When creating a component harness, follow how Angular Material does it:
+- Create a `testing` folder in the component's folder
+- Create three files `X-harness-filters.ts`, `X-harness.ts`, and `X-harness.spec.ts` where `X` is the name of the component (e.g. `button`)
+- Create two files for exporting: `index.ts` and `public-api.ts`. The former exports all the exports of the latter.`
+
+For an example of Angular Material's Component harness structure, including file structure, see the `angular-component-harness-example` in the project's `llm/testing` directory.
+For more information on creating component harnesses, refer to the guides in the `angular-component-harnesses` folder in the project's `llm/testing` directory.
+
+## Verify Tests
+Run a test file on its own by running the following command:
+`ng test --project=components --no-watch --include="**/button-shape-morph.spec.ts"`
+
+## Creating a Plan?
+Creating a plan? Always ask the user for any clarifying questions before implementing a plan

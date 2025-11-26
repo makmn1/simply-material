@@ -1,0 +1,61 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+
+  /* Wrap buttons to the next line if needed. Center horizontally and adjust height to fit */
+  flex-wrap: wrap;
+  justify-content: center;
+  height: auto;
+}
+
+/* Standard button group styles */
+:host[data-sm-type="standard"][data-sm-size="xsmall"] {
+  min-height: var(--md-comp-button-group-xsmall-container-height);
+  gap: var(--md-comp-button-group-xsmall-between-space);
+}
+
+:host[data-sm-type="standard"][data-sm-size="small"] {
+  min-height: var(--md-comp-button-group-small-container-height);
+  gap: var(--md-comp-button-group-small-between-space);
+}
+
+:host[data-sm-type="standard"][data-sm-size="medium"] {
+  min-height: var(--md-comp-button-group-medium-container-height);
+  gap: var(--md-comp-button-group-medium-between-space);
+}
+
+:host[data-sm-type="standard"][data-sm-size="large"] {
+  min-height: var(--md-comp-button-group-large-container-height);
+  gap: var(--md-comp-button-group-large-between-space);
+}
+
+:host[data-sm-type="standard"][data-sm-size="xlarge"] {
+  min-height: var(--md-comp-button-group-xlarge-container-height);
+  gap: var(--md-comp-button-group-xlarge-between-space);
+}
+
+/* Connected button group styles */
+:host[data-sm-type="connected"][data-sm-size="xsmall"] {
+  min-height: var(--md-comp-button-group-connected-xsmall-container-height);
+  gap: var(--md-comp-button-group-connected-xsmall-space-between-buttons);
+}
+
+:host[data-sm-type="connected"][data-sm-size="small"] {
+  min-height: var(--md-comp-button-group-connected-small-container-height);
+  gap: var(--md-comp-button-group-connected-small-space-between-buttons);
+}
+
+:host[data-sm-type="connected"][data-sm-size="medium"] {
+  min-height: var(--md-comp-button-group-connected-medium-container-height);
+  gap: var(--md-comp-button-group-connected-medium-space-between-buttons);
+}
+
+:host[data-sm-type="connected"][data-sm-size="large"] {
+  min-height: var(--md-comp-button-group-connected-large-container-height);
+  gap: var(--md-comp-button-group-connected-large-space-between-buttons);
+}
+
+:host[data-sm-type="connected"][data-sm-size="xlarge"] {
+  min-height: var(--md-comp-button-group-connected-xlarge-container-height);
+  gap: var(--md-comp-button-group-connected-xlarge-space-between-buttons);
+}

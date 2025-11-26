@@ -1,14 +1,14 @@
 import { Directive, ElementRef, inject, input, booleanAttribute } from '@angular/core';
 
 @Directive({
-  selector: '[sm-ripple]',
+  selector: '[simply-mat-ripple]',
   host: {
-    'class': 'sm-ripple',
+    'class': 'simply-mat-ripple',
     '(pointerdown)': 'onPointerDown($event)',
     '(keydown)': 'onKeyDown($event)',
   }
 })
-export class SmRippleDirective {
+export class SimplyMatRippleDirective {
   #hostEl = inject(ElementRef<HTMLElement>).nativeElement;
 
   rippleDisabled = input(false, { transform: booleanAttribute });

@@ -1,16 +1,24 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {ButtonGroup, IconButton, Button} from '@simply-material/components';
+import {ChangeDetectionStrategy, Component, signal, WritableSignal} from '@angular/core';
+import {
+  ButtonGroupType, ButtonShape,
+  ButtonSize,
+  ButtonVariant,
+  SimplyMatButton,
+  SimplyMatButtonGroup
+} from '@simply-material/components';
 
 @Component({
   selector: 'app-button-group-demo',
-  imports: [ButtonGroup, IconButton, Button],
+  imports: [SimplyMatButton, SimplyMatButtonGroup],
   templateUrl: './button-group-demo.html',
   styleUrl: './button-group-demo.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonGroupDemo {
-  readonly sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const;
-  readonly variants = ['filled', 'elevated', 'tonal', 'outlined', 'text'] as const;
+  readonly sizes: ButtonSize[] = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const;
+  readonly variants: ButtonVariant[] = ['filled', 'elevated', 'tonal', 'outlined', 'text'] as const;
+
+  buttonGroupType: WritableSignal<ButtonGroupType> = signal<'standard' | 'connected'>('standard');
+  selectedShape: WritableSignal<ButtonShape> = signal<'round' | 'square'>('round');
 
   // Toggle button states
   // For standard button groups with different sizes

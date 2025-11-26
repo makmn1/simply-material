@@ -4,10 +4,10 @@
  */
 @layer tokens {
   :root {
-    --md-sys-state-dragged-state-layer-opacity: 0.16;
-    --md-sys-state-pressed-state-layer-opacity: 0.1;
-    --md-sys-state-focus-state-layer-opacity: 0.1;
-    --md-sys-state-hover-state-layer-opacity: 0.08;
+    --md-sys-state-dragged-state-layer-opacity: 16%;
+    --md-sys-state-pressed-state-layer-opacity: 10%;
+    --md-sys-state-focus-state-layer-opacity: 10%;
+    --md-sys-state-hover-state-layer-opacity: 8%;
     --md-sys-state-focus-indicator-thickness: 0.1875rem;
     --md-sys-state-focus-indicator-outer-offset: 0.125rem;
   }

@@ -1,7 +1,7 @@
 @if (open()) {
   <div
     role="tooltip"
-    [attr.data-type]="type()"
+    [attr.data-sm-type]="type()"
     animate.enter="enter-animation"
     animate.leave="leave-animation"
     (animationend)="onAnimationEnd()"
@@ -22,7 +22,7 @@
         <div class="sm-tooltip-content__rich-actions">
           @for (button of buttons; track button.label) {
             <button
-              sm-button
+              simplyMatButton
               variant="text"
               class="sm-tooltip-content__rich-action-button"
               (click)="onButtonClick(button)"

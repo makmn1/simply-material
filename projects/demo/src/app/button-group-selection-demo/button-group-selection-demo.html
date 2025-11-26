@@ -1,0 +1,82 @@
+<section class="section-card">
+  <h2 class="section-title">Controls</h2>
+  <div class="controls">
+    <div class="type-control">
+      <label for="type-select" class="type-label">Button Group Type:</label>
+      <select id="type-select" class="type-select" [value]="buttonGroupType()"
+              (change)="buttonGroupType.set($any($event.target).value)">
+        <option value="standard">Standard</option>
+        <option value="connected">Connected</option>
+      </select>
+    </div>
+    <div class="type-control">
+      <label for="shape-select" class="type-label">Button Shape:</label>
+      <select id="shape-select" class="type-select" [value]="selectedShape()"
+              (change)="selectedShape.set($any($event.target).value)">
+        <option value="round">Round</option>
+        <option value="square">Square</option>
+      </select>
+    </div>
+    <div class="type-control">
+      <label for="selection-type-select" class="type-label">Selection Type:</label>
+      <select id="selection-type-select" class="type-select" [value]="multi()"
+              (change)="multi.set($any($event.target).value)">
+        <option value="false">Single</option>
+        <option value="true">Multi</option>
+      </select>
+    </div>
+    <div class="type-control">
+      <label for="disabled-select" class="type-label">Disabled:</label>
+      <input id="disabled-select" type="checkbox" [checked]="disabled()" (change)="disabled.set($any($event.target).checked)">
+    </div>
+    <div class="type-control">
+      <label for="soft-disabled-select" class="type-label">Soft Disabled:</label>
+      <input id="soft-disabled-select" type="checkbox" [checked]="softDisabled()" (change)="softDisabled.set($any($event.target).checked)">
+    </div>
+    <div class="type-control">
+      <label for="readonly-disabled-select" class="type-label">Readonly:</label>
+      <input id="readonly-disabled-select" type="checkbox" [checked]="readonly()" (change)="readonly.set($any($event.target).checked)">
+    </div>
+  </div>
+  <p class="type-label">Note: changing selection type won't set / unset any values. We leave that to the user.</p>
+</section>
+
+<section class="section-card">
+  <h2 class="section-title">Button Group Selection (Signal Form)</h2>
+  <simply-mat-button-group-selection
+    [field]="form.selected"
+    orientation="horizontal" selectionMode="explicit"
+    [multi]="multi()" [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()"
+    [softDisabled]="softDisabled()"
+  >
+    <button simplyMatButton ngOption variant="outlined" value="Alpha">Alpha</button>
+    <button simplyMatButton ngOption variant="outlined" value="Beta">Beta</button>
+    <button simplyMatButton ngOption variant="outlined" value="Charlie">Charlie</button>
+  </simply-mat-button-group-selection>
+  @if (form.selected().value().length > 0) {
+    <p>Selected: {{ form.selected().value() }}</p>
+  } @else {
+    <p>Select an item</p>
+  }
+
+  <p>Form touched: {{ form.selected().touched() }}</p>
+  <p>Form dirty: {{ form.selected().dirty() }}</p>
+  <simply-mat-button-group>
+    <button simplyMatButton (click)="form.selected().value.set(['Alpha', 'Beta', 'Charlie'])">Select all</button>
+    <button simplyMatButton (click)="form.selected().value.set([])">Reset</button>
+  </simply-mat-button-group>
+</section>
+
+<section class="section-card">
+  <h2 class="section-title">Button Groups - Different Sizes</h2>
+  @for (size of sizes; track size) {
+    <div class="demo-item">
+      <h3 class="demo-subtitle">{{ size }}</h3>
+      <simply-mat-button-group-selection orientation="horizontal" selectionMode="explicit" [multi]="multi()" [type]="buttonGroupType()" [size]="size" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton ngOption variant="outlined" value="Alpha">Alpha</button>
+        <button simplyMatButton ngOption variant="outlined" value="Beta">Beta</button>
+        <button simplyMatButton ngOption variant="outlined" value="Charlie">Charlie</button>
+      </simply-mat-button-group-selection>
+    </div>
+  }
+</section>

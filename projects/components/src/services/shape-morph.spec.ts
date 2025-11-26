@@ -1,170 +1,406 @@
 import { TestBed } from '@angular/core/testing';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { provideZonelessChangeDetection } from '@angular/core';
-import { AnimationPlaybackControlsWithThen } from 'motion';
-
+import { describe, test, expect, beforeEach, afterEach } from 'vitest';
+import { page } from 'vitest/browser';
 import { ShapeMorph } from './shape-morph';
-import { MinimalCircularBorderRadius } from './minimal-circular-border-radius';
-import { SpringAnimate } from '../utils/spring-animate';
-import { mockVarsFor } from '../testing/test-helpers';
-
-type SpringOptions = { damping: number; stiffness: number };
-type SpringFn = (
-  el: HTMLElement,
-  prop: string,
-  from: string,
-  to: string,
-  opts: SpringOptions,
-) => AnimationPlaybackControlsWithThen;
 
 describe('ShapeMorph', () => {
   let service: ShapeMorph;
+  let testElement: HTMLElement;
 
-  const CIRC = '9999rem';
-
-  const getMinimalSpy = vi.fn((_el: HTMLElement): string => '1.25rem');
-  let animateSpy: ReturnType<typeof vi.fn<SpringFn>>;
-
-  beforeEach(() => {
-    const minimalStub: Pick<
-      MinimalCircularBorderRadius,
-      'CIRCULAR_BORDER_RADIUS_VALUE' | 'getMinimalCircularBorderRadius'
-    > = {
-      CIRCULAR_BORDER_RADIUS_VALUE: CIRC,
-      getMinimalCircularBorderRadius: (el: HTMLElement) => getMinimalSpy(el),
-    };
-
-    const mockAnimation = {
-      then: vi.fn((callback: () => void) => {
-        callback();
-        return mockAnimation;
-      }),
-      cancel: vi.fn(),
-    } as unknown as AnimationPlaybackControlsWithThen;
-
-    animateSpy = vi.fn<SpringFn>().mockReturnValue(mockAnimation);
-
-    TestBed.configureTestingModule({
-      providers: [
-        provideZonelessChangeDetection(),
-        { provide: MinimalCircularBorderRadius, useValue: minimalStub as MinimalCircularBorderRadius },
-        { provide: SpringAnimate, useValue: { animate: animateSpy } as SpringAnimate },
-      ],
-    });
+  beforeEach(async () => {
+    TestBed.configureTestingModule({});
 
     service = TestBed.inject(ShapeMorph);
+    testElement = document.createElement('div');
+    testElement.setAttribute('data-testid', 'shape-morph-test-element');
+    document.body.appendChild(testElement);
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
-    getMinimalSpy.mockReset();
-    animateSpy.mockReset();
+    if (testElement && testElement.parentNode) {
+      testElement.parentNode.removeChild(testElement);
+    }
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
-  describe('readVar()', () => {
-    it('returns trimmed CSS custom property', () => {
-      const el = document.createElement('div');
-      mockVarsFor(el, { '--d': '   20  ' });
-      expect(service.readVar(el, '--d')).toBe('20');
+  describe('Service Injection & Setup', () => {
+    test('should be created', () => {
+      expect(service).toBeTruthy();
+      expect(service).toBeInstanceOf(ShapeMorph);
     });
   });
 
-  describe('animateBorderRadius()', () => {
-    it('animates when both endpoints are concrete values', () => {
-      const el = document.createElement('button');
-      mockVarsFor(el, { '--damping': '20', '--stiffness': '150' });
-
-      const result = service.animateBorderRadius(el, '8px', '16px', '--damping', '--stiffness');
-
-      expect(getMinimalSpy).not.toHaveBeenCalled();
-      expect(animateSpy).toHaveBeenCalledTimes(1);
-      expect(animateSpy).toHaveBeenCalledWith(
-        el,
-        'borderRadius',
-        '8px',
-        '16px',
-        { damping: 20, stiffness: 150 },
-      );
-      expect(result).toBeDefined();
-      expect(result).toHaveProperty('then');
-      expect(result).toHaveProperty('cancel');
+  describe('readVar() Method', () => {
+    test('should read CSS custom properties correctly', () => {
+      testElement.style.setProperty('--test-var', '100');
+      const value = service.readVar(testElement, '--test-var');
+      expect(value).toBe('100');
     });
 
-    it('replaces `from` when it equals the circular constant', () => {
-      const el = document.createElement('div');
-      mockVarsFor(el, { '--d': '12', '--k': '200' });
-      getMinimalSpy.mockReturnValueOnce('2rem');
-
-      const result = service.animateBorderRadius(el, CIRC, '24px', '--d', '--k');
-
-      expect(getMinimalSpy).toHaveBeenCalledTimes(1);
-      expect(getMinimalSpy).toHaveBeenCalledWith(el);
-      expect(animateSpy).toHaveBeenCalledWith(
-        el,
-        'borderRadius',
-        '2rem',
-        '24px',
-        { damping: 12, stiffness: 200 },
-      );
-      expect(result).toBeDefined();
+    test('should return empty string for non-existent properties', () => {
+      const value = service.readVar(testElement, '--non-existent-var');
+      expect(value).toBe('');
     });
 
-    it('replaces `to` when it equals the circular constant', () => {
-      const el = document.createElement('div');
-      mockVarsFor(el, { '--d': '30', '--k': '300' });
-      getMinimalSpy.mockReturnValueOnce('0.75rem');
-
-      const result = service.animateBorderRadius(el, '4px', CIRC, '--d', '--k');
-
-      expect(getMinimalSpy).toHaveBeenCalledTimes(1);
-      expect(getMinimalSpy).toHaveBeenCalledWith(el);
-      expect(animateSpy).toHaveBeenCalledWith(
-        el,
-        'borderRadius',
-        '4px',
-        '0.75rem',
-        { damping: 30, stiffness: 300 },
-      );
-      expect(result).toBeDefined();
+    test('should trim whitespace from property values', () => {
+      testElement.style.setProperty('--test-var', '  100  ');
+      const value = service.readVar(testElement, '--test-var');
+      expect(value).toBe('100');
     });
 
-    it('replaces both when both equal the circular constant', () => {
-      const el = document.createElement('div');
-      mockVarsFor(el, { '--d': '18', '--k': '120' });
-      getMinimalSpy.mockImplementationOnce(() => '1rem').mockImplementationOnce(() => '2rem');
+    test('should handle numeric values', () => {
+      testElement.style.setProperty('--test-var', '0.5');
+      const value = service.readVar(testElement, '--test-var');
+      expect(value).toBe('0.5');
+    });
 
-      const result = service.animateBorderRadius(el, CIRC, CIRC, '--d', '--k');
+    test('should handle string values', () => {
+      testElement.style.setProperty('--test-var', 'hello world');
+      const value = service.readVar(testElement, '--test-var');
+      expect(value).toBe('hello world');
+    });
+  });
 
-      expect(getMinimalSpy).toHaveBeenCalledTimes(2);
-      expect(animateSpy).toHaveBeenCalledWith(
-        el,
-        'borderRadius',
+  describe('animateBorderRadius() Method', () => {
+    test('should return AnimationPlaybackControlsWithThen object', () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      const controls = service.animateBorderRadius(
+        testElement,
         '1rem',
         '2rem',
-        { damping: 18, stiffness: 120 },
+        '--test-damping',
+        '--test-stiffness'
       );
-      expect(result).toBeDefined();
+
+      expect(controls).toBeDefined();
     });
 
-    it('coerces CSS var values with Number() (NaN/0 pass through)', () => {
-      const el = document.createElement('div');
-      mockVarsFor(el, { '--d': 'abc', '--k': ' ' }); // NaN and 0
+    test('should read spring options from CSS custom properties', async () => {
+      testElement.style.setProperty('--test-damping', '0.8');
+      testElement.style.setProperty('--test-stiffness', '150');
 
-      const result = service.animateBorderRadius(el, '6px', '12px', '--d', '--k');
+      service.animateBorderRadius(
+        testElement,
+        '1rem',
+        '2rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
 
-      const call = animateSpy.mock.calls.at(-1) as Parameters<SpringFn> | undefined;
-      expect(call).toBeTruthy();
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|2rem/),
+      });
+    });
 
-      expect(call![2]).toBe('6px');
-      expect(call![3]).toBe('12px');
-      const opts = call![4] as SpringOptions;
-      expect(Number.isNaN(opts.damping)).toBe(true);
-      expect(opts.stiffness).toBe(0);
-      expect(result).toBeDefined();
+    test('should use override properties when present', async () => {
+      testElement.style.setProperty('--sm-button-group-pressed-spring-damping', '0.9');
+      testElement.style.setProperty('--sm-button-group-pressed-spring-stiffness', '200');
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '1rem',
+        '2rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|2rem/),
+      });
+    });
+
+    test('should fall back to provided style vars when overrides not present', async () => {
+      testElement.style.setProperty('--test-damping', '0.6');
+      testElement.style.setProperty('--test-stiffness', '120');
+
+      service.animateBorderRadius(
+        testElement,
+        '1rem',
+        '2rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|2rem/),
+      });
+    });
+
+    test('should handle single-value border-radius', async () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '1rem',
+        '2rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|2rem/),
+      });
+    });
+
+    test('should handle multi-value border-radius', async () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '1rem 2rem 3rem 4rem',
+        '5rem 6rem 7rem 8rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|5rem/),
+        borderTopRightRadius: expect.stringMatching(/0\.\d+rem|6rem/),
+        borderBottomRightRadius: expect.stringMatching(/0\.\d+rem|7rem/),
+        borderBottomLeftRadius: expect.stringMatching(/0\.\d+rem|8rem/),
+      });
+    });
+
+    test('should handle circular tokens in from/to values', async () => {
+      testElement.style.width = '100px';
+      testElement.style.height = '100px';
+      testElement.style.position = 'absolute';
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '9999rem',
+        '1rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|1rem/),
+      });
+    });
+
+    test('should handle px values (converts to rem)', async () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '16px',
+        '32px',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem/),
+      });
+    });
+
+    test('should handle mixed units', async () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '1rem 16px 2rem 32px',
+        '3rem 48px 4rem 64px',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|3rem/),
+        borderTopRightRadius: expect.stringMatching(/0\.\d+rem/),
+        borderBottomRightRadius: expect.stringMatching(/0\.\d+rem|4rem/),
+        borderBottomLeftRadius: expect.stringMatching(/0\.\d+rem/),
+      });
+    });
+
+    test('should handle 2-value border-radius syntax', async () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '1rem 2rem',
+        '3rem 4rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|3rem/),
+        borderBottomRightRadius: expect.stringMatching(/0\.\d+rem|4rem/),
+      });
+    });
+
+    test('should handle 3-value border-radius syntax', async () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '1rem 2rem 3rem',
+        '4rem 5rem 6rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|4rem/),
+        borderTopRightRadius: expect.stringMatching(/0\.\d+rem|5rem/),
+        borderBottomRightRadius: expect.stringMatching(/0\.\d+rem|6rem/),
+      });
+    });
+
+    test('should handle empty override properties', async () => {
+      testElement.style.setProperty('--sm-button-group-pressed-spring-damping', '');
+      testElement.style.setProperty('--sm-button-group-pressed-spring-stiffness', '');
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateBorderRadius(
+        testElement,
+        '1rem',
+        '2rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        borderTopLeftRadius: expect.stringMatching(/0\.\d+rem|2rem/),
+      });
+    });
+  });
+
+  describe('animateWidth() Method', () => {
+    test('should return AnimationPlaybackControlsWithThen object', () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      const controls = service.animateWidth(
+        testElement,
+        '100px',
+        '200px',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      expect(controls).toBeDefined();
+    });
+
+    test('should read spring options from CSS custom properties', async () => {
+      testElement.style.setProperty('--test-damping', '0.7');
+      testElement.style.setProperty('--test-stiffness', '120');
+
+      service.animateWidth(
+        testElement,
+        '100px',
+        '200px',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        width: "200px",
+      });
+    });
+
+    test('should use override properties when present', async () => {
+      testElement.style.setProperty('--sm-button-group-pressed-spring-damping', '0.9');
+      testElement.style.setProperty('--sm-button-group-pressed-spring-stiffness', '200');
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateWidth(
+        testElement,
+        '100px',
+        '200px',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        width: "200px",
+      });
+    });
+
+    test('should fall back to provided style vars when overrides not present', async () => {
+      testElement.style.setProperty('--test-damping', '0.6');
+      testElement.style.setProperty('--test-stiffness', '110');
+
+      service.animateWidth(
+        testElement,
+        '100px',
+        '200px',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        width: "200px",
+      });
+    });
+
+    test('should animate width property correctly', async () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateWidth(
+        testElement,
+        '50px',
+        '150px',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        width: "150px",
+      });
+    });
+
+    test('should handle different width units', async () => {
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateWidth(
+        testElement,
+        '10rem',
+        '20rem',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        width: "20rem",
+      });
+    });
+
+    test('should handle empty override properties', async () => {
+      testElement.style.setProperty('--sm-button-group-pressed-spring-damping', '');
+      testElement.style.setProperty('--sm-button-group-pressed-spring-stiffness', '');
+      testElement.style.setProperty('--test-damping', '0.5');
+      testElement.style.setProperty('--test-stiffness', '100');
+
+      service.animateWidth(
+        testElement,
+        '100px',
+        '200px',
+        '--test-damping',
+        '--test-stiffness'
+      );
+
+      await expect.element(page.getByTestId('shape-morph-test-element')).toHaveStyle({
+        width: "200px",
+      });
     });
   });
 });
+

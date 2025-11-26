@@ -1,407 +1,433 @@
 <section class="section-card">
-  <h2 class="section-title">Standard Button Group</h2>
-  <sm-button-group>
-    <button sm-button>Button</button>
-    <button sm-button>Button</button>
-    <button sm-button>Button</button>
-  </sm-button-group>
-</section>
-
-<section class="section-card">
-  <h2 class="section-title">Connected Button Group</h2>
-  <sm-button-group type="connected">
-    <button sm-icon-button>
-      <span class="material-symbols-rounded">favorite</span>
-    </button>
-    <button sm-icon-button>
-      <span class="material-symbols-rounded">settings</span>
-    </button>
-    <button sm-icon-button>
-      <span class="material-symbols-rounded">share</span>
-    </button>
-  </sm-button-group>
-</section>
-
-<section class="section-card">
-  <h2 class="section-title">Standard Button Groups - Different Sizes</h2>
-  @for (size of sizes; track size) {
-    <div class="demo-item">
-      <h3 class="demo-subtitle">{{ size }}</h3>
-      <sm-button-group [size]="size">
-        <button sm-button [size]="size">Button 1</button>
-        <button sm-button [size]="size">Button 2</button>
-        <button sm-button [size]="size">Button 3</button>
-      </sm-button-group>
+  <h2 class="section-title">Controls</h2>
+  <div class="controls">
+    <div class="type-control">
+      <label for="type-select" class="type-label">Button Group Type:</label>
+      <select id="type-select" class="type-select" [value]="buttonGroupType()"
+              (change)="buttonGroupType.set($any($event.target).value)">
+        <option value="standard">Standard</option>
+        <option value="connected">Connected</option>
+      </select>
     </div>
-  }
-</section>
-
-<section class="section-card">
-  <h2 class="section-title">Standard Button Groups - Mixed Button Sizes</h2>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: xlarge, Buttons: xsmall, xlarge, medium</h3>
-    <sm-button-group size="xlarge">
-      <button sm-button size="xsmall">XSmall</button>
-      <button sm-button size="xlarge">XLarge</button>
-      <button sm-button size="medium">Medium</button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: large, Buttons: xsmall, large, small</h3>
-    <sm-button-group size="large">
-      <button sm-button size="xsmall">XSmall</button>
-      <button sm-button size="large">Large</button>
-      <button sm-button size="small">Small</button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: xlarge, Buttons: small, xlarge, large</h3>
-    <sm-button-group size="xlarge">
-      <button sm-button size="small">Small</button>
-      <button sm-button size="xlarge">XLarge</button>
-      <button sm-button size="large">Large</button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: xlarge, Buttons: xsmall, xlarge, medium</h3>
-    <sm-button-group size="xlarge">
-      <button sm-button size="xsmall">XSmall</button>
-      <button sm-button size="xlarge">XLarge</button>
-      <button sm-button size="medium">Medium</button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: large, Buttons: xsmall, large, medium</h3>
-    <sm-button-group size="large">
-      <button sm-button size="xsmall">XSmall</button>
-      <button sm-button size="large">Large</button>
-      <button sm-button size="medium">Medium</button>
-    </sm-button-group>
-  </div>
-</section>
-
-<section class="section-card">
-  <h2 class="section-title">Standard Button Groups - Different Variants</h2>
-  @for (variant of variants; track variant) {
-    <div class="demo-item">
-      <h3 class="demo-subtitle">{{ variant }}</h3>
-      <sm-button-group>
-        <button sm-button [variant]="variant">Button 1</button>
-        <button sm-button [variant]="variant">Button 2</button>
-        <button sm-button [variant]="variant">Button 3</button>
-      </sm-button-group>
+    <div class="type-control">
+      <label for="shape-select" class="type-label">Button Shape:</label>
+      <select id="shape-select" class="type-select" [value]="selectedShape()"
+              (change)="selectedShape.set($any($event.target).value)">
+        <option value="round">Round</option>
+        <option value="square">Square</option>
+      </select>
     </div>
-  }
+  </div>
 </section>
+
+@if (buttonGroupType() === 'standard') {
+  <section class="section-card">
+    <h2 class="section-title">Button Group</h2>
+    <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton>Button</button>
+        <button simplyMatButton>Button</button>
+        <button simplyMatButton>Button</button>
+      </simply-mat-button-group>
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title">Button Groups - Different Sizes</h2>
+    @for (size of sizes; track size) {
+      <div class="demo-item">
+        <h3 class="demo-subtitle">{{ size }}</h3>
+        <simply-mat-button-group [type]="buttonGroupType()" [size]="size" [defaultButtonShape]="selectedShape()">
+          <button simplyMatButton [size]="size">Button 1</button>
+          <button simplyMatButton [size]="size">Button 2</button>
+          <button simplyMatButton [size]="size">Button 3</button>
+        </simply-mat-button-group>
+      </div>
+    }
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title">Button Groups - Multi-line</h2>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">xlarge</h3>
+      <div style="width: 650px;">
+        <simply-mat-button-group [type]="buttonGroupType()" size="xlarge" [defaultButtonShape]="selectedShape()">
+          <button simplyMatButton size="xlarge">Button 1</button>
+          <button simplyMatButton size="xlarge">Button 2</button>
+          <button simplyMatButton size="xlarge">Button 3</button>
+          <button simplyMatButton size="xlarge">Button 4</button>
+          <button simplyMatButton size="xlarge">Button 5</button>
+        </simply-mat-button-group>
+      </div>
+    </div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title">Button Groups - Mixed Button Sizes</h2>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: xlarge, Buttons: xsmall, xlarge, medium</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="xlarge" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton size="xlarge">XLarge</button>
+        <button simplyMatButton size="medium">Medium</button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: large, Buttons: xsmall, large, small</h3>
+        <simply-mat-button-group [type]="buttonGroupType()" size="large" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton size="xsmall">XSmall</button>
+        <button simplyMatButton size="large">Large</button>
+        <button simplyMatButton size="small">Small</button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: xlarge, Buttons: small, xlarge, large</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="xlarge" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton size="large">Large</button>
+        <button simplyMatButton size="xsmall">XSmall</button>
+        <button simplyMatButton size="xlarge">XLarge</button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: xlarge, Buttons: xsmall, xlarge, medium</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="xlarge" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton size="xsmall">XSmall</button>
+        <button simplyMatButton size="xlarge">XLarge</button>
+        <button simplyMatButton size="medium">Medium</button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: large, Buttons: xsmall, large, medium</h3>
+        <simply-mat-button-group [type]="buttonGroupType()" size="large" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton size="xsmall">XSmall</button>
+        <button simplyMatButton size="large">Large</button>
+        <button simplyMatButton size="medium">Medium</button>
+      </simply-mat-button-group>
+    </div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title">Button Groups - Different Variants</h2>
+    @for (variant of variants; track variant) {
+      <div class="demo-item">
+        <h3 class="demo-subtitle">{{ variant }}</h3>
+        <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+          <button simplyMatButton [variant]="variant">Button 1</button>
+          <button simplyMatButton [variant]="variant">Button 2</button>
+          <button simplyMatButton [variant]="variant">Button 3</button>
+        </simply-mat-button-group>
+      </div>
+    }
+    </section>
+}
 
 <section class="section-card">
   <h2 class="section-title">Toggle Button Groups - Different Sizes</h2>
   <div class="demo-item">
     <h3 class="demo-subtitle">xsmall</h3>
-    <sm-button-group size="xsmall">
-      <button sm-button variant="tonal" size="xsmall" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" size="xsmall" [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="tonal" size="xsmall" [togglable]="true"
               [selected]="toggleSizeXSmall()[0]"
               (selectedChange)="toggleSizeXSmall.set([$event, toggleSizeXSmall()[1], toggleSizeXSmall()[2]])">
         Option 1
       </button>
-      <button sm-button variant="tonal" size="xsmall" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="xsmall" [togglable]="true"
               [selected]="toggleSizeXSmall()[1]"
               (selectedChange)="toggleSizeXSmall.set([toggleSizeXSmall()[0], $event, toggleSizeXSmall()[2]])">
         Option 2
       </button>
-      <button sm-button variant="tonal" size="xsmall" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="xsmall" [togglable]="true"
               [selected]="toggleSizeXSmall()[2]"
               (selectedChange)="toggleSizeXSmall.set([toggleSizeXSmall()[0], toggleSizeXSmall()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
+    </simply-mat-button-group>
   </div>
   <div class="demo-item">
     <h3 class="demo-subtitle">small</h3>
-    <sm-button-group size="small">
-      <button sm-button variant="tonal" size="small" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" size="small" [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="tonal" size="small" [togglable]="true"
               [selected]="toggleSizeSmall()[0]"
               (selectedChange)="toggleSizeSmall.set([$event, toggleSizeSmall()[1], toggleSizeSmall()[2]])">
         Option 1
       </button>
-      <button sm-button variant="tonal" size="small" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="small" [togglable]="true"
               [selected]="toggleSizeSmall()[1]"
               (selectedChange)="toggleSizeSmall.set([toggleSizeSmall()[0], $event, toggleSizeSmall()[2]])">
         Option 2
       </button>
-      <button sm-button variant="tonal" size="small" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="small" [togglable]="true"
               [selected]="toggleSizeSmall()[2]"
               (selectedChange)="toggleSizeSmall.set([toggleSizeSmall()[0], toggleSizeSmall()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
+    </simply-mat-button-group>
   </div>
   <div class="demo-item">
     <h3 class="demo-subtitle">medium</h3>
-    <sm-button-group size="medium">
-      <button sm-button variant="tonal" size="medium" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" size="medium" [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="tonal" size="medium" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeMedium()[0]"
               (selectedChange)="toggleSizeMedium.set([$event, toggleSizeMedium()[1], toggleSizeMedium()[2]])">
         Option 1
       </button>
-      <button sm-button variant="tonal" size="medium" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="medium" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeMedium()[1]"
               (selectedChange)="toggleSizeMedium.set([toggleSizeMedium()[0], $event, toggleSizeMedium()[2]])">
         Option 2
       </button>
-      <button sm-button variant="tonal" size="medium" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="medium" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeMedium()[2]"
               (selectedChange)="toggleSizeMedium.set([toggleSizeMedium()[0], toggleSizeMedium()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
+    </simply-mat-button-group>
   </div>
   <div class="demo-item">
     <h3 class="demo-subtitle">large</h3>
-    <sm-button-group size="large">
-      <button sm-button variant="tonal" size="large" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" size="large" [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="tonal" size="large" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeLarge()[0]"
               (selectedChange)="toggleSizeLarge.set([$event, toggleSizeLarge()[1], toggleSizeLarge()[2]])">
         Option 1
       </button>
-      <button sm-button variant="tonal" size="large" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="large" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeLarge()[1]"
               (selectedChange)="toggleSizeLarge.set([toggleSizeLarge()[0], $event, toggleSizeLarge()[2]])">
         Option 2
       </button>
-      <button sm-button variant="tonal" size="large" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="large" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeLarge()[2]"
               (selectedChange)="toggleSizeLarge.set([toggleSizeLarge()[0], toggleSizeLarge()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
+    </simply-mat-button-group>
   </div>
   <div class="demo-item">
     <h3 class="demo-subtitle">xlarge</h3>
-    <sm-button-group size="xlarge">
-      <button sm-button variant="tonal" size="xlarge" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" size="xlarge"
+                     [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeXLarge()[0]"
               (selectedChange)="toggleSizeXLarge.set([$event, toggleSizeXLarge()[1], toggleSizeXLarge()[2]])">
         Option 1
       </button>
-      <button sm-button variant="tonal" size="xlarge" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeXLarge()[1]"
               (selectedChange)="toggleSizeXLarge.set([toggleSizeXLarge()[0], $event, toggleSizeXLarge()[2]])">
         Option 2
       </button>
-      <button sm-button variant="tonal" size="xlarge" [toggle]="true"
+      <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleSizeXLarge()[2]"
               (selectedChange)="toggleSizeXLarge.set([toggleSizeXLarge()[0], toggleSizeXLarge()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
+    </simply-mat-button-group>
+  </div>
+
+  <div class="demo-item">
+    <h3 class="demo-subtitle">xlarge Multi-line (square shape recommended)</h3>
+    <div style="width: 600px">
+      <simply-mat-button-group [type]="buttonGroupType()" size="xlarge" [disableWidthAnimations]="true"
+                       [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true">
+          Option 1
+        </button>
+        <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true">
+          Option 2
+        </button>
+        <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true">
+          Option 3
+        </button>
+        <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true">
+          Option 4
+        </button>
+      </simply-mat-button-group>
+    </div>
   </div>
 </section>
 
 <section class="section-card">
   <h2 class="section-title">Toggle Button Groups - Mixed Button Sizes</h2>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: xlarge, Buttons: xsmall, xlarge, medium</h3>
-    <sm-button-group size="xlarge">
-      <button sm-button variant="tonal" size="xsmall" [toggle]="true"
-              [selected]="toggleMixed1()[0]"
-              (selectedChange)="toggleMixed1.set([$event, toggleMixed1()[1], toggleMixed1()[2]])">
-        XSmall
-      </button>
-      <button sm-button variant="tonal" size="xlarge" [toggle]="true"
-              [selected]="toggleMixed1()[1]"
-              (selectedChange)="toggleMixed1.set([toggleMixed1()[0], $event, toggleMixed1()[2]])">
-        XLarge
-      </button>
-      <button sm-button variant="tonal" size="medium" [toggle]="true"
-              [selected]="toggleMixed1()[2]"
-              (selectedChange)="toggleMixed1.set([toggleMixed1()[0], toggleMixed1()[1], $event])">
-        Medium
-      </button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: large, Buttons: xsmall, large, small</h3>
-    <sm-button-group size="large">
-      <button sm-button variant="tonal" size="xsmall" [toggle]="true"
-              [selected]="toggleMixed2()[0]"
-              (selectedChange)="toggleMixed2.set([$event, toggleMixed2()[1], toggleMixed2()[2]])">
-        XSmall
-      </button>
-      <button sm-button variant="tonal" size="large" [toggle]="true"
-              [selected]="toggleMixed2()[1]"
-              (selectedChange)="toggleMixed2.set([toggleMixed2()[0], $event, toggleMixed2()[2]])">
-        Large
-      </button>
-      <button sm-button variant="tonal" size="small" [toggle]="true"
-              [selected]="toggleMixed2()[2]"
-              (selectedChange)="toggleMixed2.set([toggleMixed2()[0], toggleMixed2()[1], $event])">
-        Small
-      </button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: xlarge, Buttons: small, xlarge, large</h3>
-    <sm-button-group size="xlarge">
-      <button sm-button variant="tonal" size="small" [toggle]="true"
-              [selected]="toggleMixed3()[0]"
-              (selectedChange)="toggleMixed3.set([$event, toggleMixed3()[1], toggleMixed3()[2]])">
-        Small
-      </button>
-      <button sm-button variant="tonal" size="xlarge" [toggle]="true"
-              [selected]="toggleMixed3()[1]"
-              (selectedChange)="toggleMixed3.set([toggleMixed3()[0], $event, toggleMixed3()[2]])">
-        XLarge
-      </button>
-      <button sm-button variant="tonal" size="large" [toggle]="true"
-              [selected]="toggleMixed3()[2]"
-              (selectedChange)="toggleMixed3.set([toggleMixed3()[0], toggleMixed3()[1], $event])">
-        Large
-      </button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: xlarge, Buttons: xsmall, xlarge, medium</h3>
-    <sm-button-group size="xlarge">
-      <button sm-button variant="tonal" size="xsmall" [toggle]="true"
-              [selected]="toggleMixed4()[0]"
-              (selectedChange)="toggleMixed4.set([$event, toggleMixed4()[1], toggleMixed4()[2]])">
-        XSmall
-      </button>
-      <button sm-button variant="tonal" size="xlarge" [toggle]="true"
-              [selected]="toggleMixed4()[1]"
-              (selectedChange)="toggleMixed4.set([toggleMixed4()[0], $event, toggleMixed4()[2]])">
-        XLarge
-      </button>
-      <button sm-button variant="tonal" size="medium" [toggle]="true"
-              [selected]="toggleMixed4()[2]"
-              (selectedChange)="toggleMixed4.set([toggleMixed4()[0], toggleMixed4()[1], $event])">
-        Medium
-      </button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">Group: large, Buttons: xsmall, large, medium</h3>
-    <sm-button-group size="large">
-      <button sm-button variant="tonal" size="xsmall" [toggle]="true"
-              [selected]="toggleMixed5()[0]"
-              (selectedChange)="toggleMixed5.set([$event, toggleMixed5()[1], toggleMixed5()[2]])">
-        XSmall
-      </button>
-      <button sm-button variant="tonal" size="large" [toggle]="true"
-              [selected]="toggleMixed5()[1]"
-              (selectedChange)="toggleMixed5.set([toggleMixed5()[0], $event, toggleMixed5()[2]])">
-        Large
-      </button>
-      <button sm-button variant="tonal" size="medium" [toggle]="true"
-              [selected]="toggleMixed5()[2]"
-              (selectedChange)="toggleMixed5.set([toggleMixed5()[0], toggleMixed5()[1], $event])">
-        Medium
-      </button>
-    </sm-button-group>
-  </div>
-</section>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: xlarge, Buttons: xsmall, xlarge, medium</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="xlarge" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton variant="tonal" size="xsmall" [togglable]="true"
+                [selected]="toggleMixed1()[0]"
+                (selectedChange)="toggleMixed1.set([$event, toggleMixed1()[1], toggleMixed1()[2]])">
+          XSmall
+        </button>
+        <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed1()[1]"
+                (selectedChange)="toggleMixed1.set([toggleMixed1()[0], $event, toggleMixed1()[2]])">
+          XLarge
+        </button>
+        <button simplyMatButton variant="tonal" size="medium" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed1()[2]"
+                (selectedChange)="toggleMixed1.set([toggleMixed1()[0], toggleMixed1()[1], $event])">
+          Medium
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: large, Buttons: xsmall, large, small</h3>
+        <simply-mat-button-group [type]="buttonGroupType()" size="large" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton variant="tonal" size="xsmall" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed2()[0]"
+                (selectedChange)="toggleMixed2.set([$event, toggleMixed2()[1], toggleMixed2()[2]])">
+          XSmall
+        </button>
+        <button simplyMatButton variant="tonal" size="large" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed2()[1]"
+                (selectedChange)="toggleMixed2.set([toggleMixed2()[0], $event, toggleMixed2()[2]])">
+          Large
+        </button>
+        <button simplyMatButton variant="tonal" size="small" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed2()[2]"
+                (selectedChange)="toggleMixed2.set([toggleMixed2()[0], toggleMixed2()[1], $event])">
+          Small
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: xlarge, Buttons: small, xlarge, large</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="xlarge" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton variant="tonal" size="small" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed3()[0]"
+                (selectedChange)="toggleMixed3.set([$event, toggleMixed3()[1], toggleMixed3()[2]])">
+          Small
+        </button>
+        <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed3()[1]"
+                (selectedChange)="toggleMixed3.set([toggleMixed3()[0], $event, toggleMixed3()[2]])">
+          XLarge
+        </button>
+        <button simplyMatButton variant="tonal" size="large" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed3()[2]"
+                (selectedChange)="toggleMixed3.set([toggleMixed3()[0], toggleMixed3()[1], $event])">
+          Large
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: xlarge, Buttons: xsmall, xlarge, medium</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="xlarge" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton variant="tonal" size="xsmall" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed4()[0]"
+                (selectedChange)="toggleMixed4.set([$event, toggleMixed4()[1], toggleMixed4()[2]])">
+          XSmall
+        </button>
+        <button simplyMatButton variant="tonal" size="xlarge" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed4()[1]"
+                (selectedChange)="toggleMixed4.set([toggleMixed4()[0], $event, toggleMixed4()[2]])">
+          XLarge
+        </button>
+        <button simplyMatButton variant="tonal" size="medium" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed4()[2]"
+                (selectedChange)="toggleMixed4.set([toggleMixed4()[0], toggleMixed4()[1], $event])">
+          Medium
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Group: large, Buttons: xsmall, large, medium</h3>
+        <simply-mat-button-group [type]="buttonGroupType()" size="large" [defaultButtonShape]="selectedShape()">
+        <button simplyMatButton variant="tonal" size="xsmall" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed5()[0]"
+                (selectedChange)="toggleMixed5.set([$event, toggleMixed5()[1], toggleMixed5()[2]])">
+          XSmall
+        </button>
+        <button simplyMatButton variant="tonal" size="large" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed5()[1]"
+                (selectedChange)="toggleMixed5.set([toggleMixed5()[0], $event, toggleMixed5()[2]])">
+          Large
+        </button>
+        <button simplyMatButton variant="tonal" size="medium" [shape]="selectedShape()" [togglable]="true"
+                [selected]="toggleMixed5()[2]"
+                (selectedChange)="toggleMixed5.set([toggleMixed5()[0], toggleMixed5()[1], $event])">
+          Medium
+        </button>
+      </simply-mat-button-group>
+    </div>
+  </section>
 
 <section class="section-card">
   <h2 class="section-title">Toggle Button Groups - Different Variants</h2>
   <div class="demo-item">
     <h3 class="demo-subtitle">filled</h3>
-    <sm-button-group>
-      <button sm-button variant="filled" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="filled" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantFilled()[0]"
               (selectedChange)="toggleVariantFilled.set([$event, toggleVariantFilled()[1], toggleVariantFilled()[2]])">
         Option 1
       </button>
-      <button sm-button variant="filled" [toggle]="true"
+      <button simplyMatButton variant="filled" [togglable]="true"
               [selected]="toggleVariantFilled()[1]"
               (selectedChange)="toggleVariantFilled.set([toggleVariantFilled()[0], $event, toggleVariantFilled()[2]])">
         Option 2
       </button>
-      <button sm-button variant="filled" [toggle]="true"
+      <button simplyMatButton variant="filled" [togglable]="true"
               [selected]="toggleVariantFilled()[2]"
               (selectedChange)="toggleVariantFilled.set([toggleVariantFilled()[0], toggleVariantFilled()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
+    </simply-mat-button-group>
   </div>
   <div class="demo-item">
     <h3 class="demo-subtitle">elevated</h3>
-    <sm-button-group>
-      <button sm-button variant="elevated" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="elevated" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantElevated()[0]"
               (selectedChange)="toggleVariantElevated.set([$event, toggleVariantElevated()[1], toggleVariantElevated()[2]])">
         Option 1
       </button>
-      <button sm-button variant="elevated" [toggle]="true"
+      <button simplyMatButton variant="elevated" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantElevated()[1]"
               (selectedChange)="toggleVariantElevated.set([toggleVariantElevated()[0], $event, toggleVariantElevated()[2]])">
         Option 2
       </button>
-      <button sm-button variant="elevated" [toggle]="true"
+      <button simplyMatButton variant="elevated" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantElevated()[2]"
               (selectedChange)="toggleVariantElevated.set([toggleVariantElevated()[0], toggleVariantElevated()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
+    </simply-mat-button-group>
   </div>
   <div class="demo-item">
     <h3 class="demo-subtitle">tonal</h3>
-    <sm-button-group>
-      <button sm-button variant="tonal" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="tonal" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantTonal()[0]"
               (selectedChange)="toggleVariantTonal.set([$event, toggleVariantTonal()[1], toggleVariantTonal()[2]])">
         Option 1
       </button>
-      <button sm-button variant="tonal" [toggle]="true"
+      <button simplyMatButton variant="tonal" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantTonal()[1]"
               (selectedChange)="toggleVariantTonal.set([toggleVariantTonal()[0], $event, toggleVariantTonal()[2]])">
         Option 2
       </button>
-      <button sm-button variant="tonal" [toggle]="true"
+      <button simplyMatButton variant="tonal" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantTonal()[2]"
               (selectedChange)="toggleVariantTonal.set([toggleVariantTonal()[0], toggleVariantTonal()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
+    </simply-mat-button-group>
   </div>
   <div class="demo-item">
     <h3 class="demo-subtitle">outlined</h3>
-    <sm-button-group>
-      <button sm-button variant="outlined" [toggle]="true"
+    <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+      <button simplyMatButton variant="outlined" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantOutlined()[0]"
               (selectedChange)="toggleVariantOutlined.set([$event, toggleVariantOutlined()[1], toggleVariantOutlined()[2]])">
         Option 1
       </button>
-      <button sm-button variant="outlined" [toggle]="true"
+      <button simplyMatButton variant="outlined" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantOutlined()[1]"
               (selectedChange)="toggleVariantOutlined.set([toggleVariantOutlined()[0], $event, toggleVariantOutlined()[2]])">
         Option 2
       </button>
-      <button sm-button variant="outlined" [toggle]="true"
+      <button simplyMatButton variant="outlined" [shape]="selectedShape()" [togglable]="true"
               [selected]="toggleVariantOutlined()[2]"
               (selectedChange)="toggleVariantOutlined.set([toggleVariantOutlined()[0], toggleVariantOutlined()[1], $event])">
         Option 3
       </button>
-    </sm-button-group>
-  </div>
-  <div class="demo-item">
-    <h3 class="demo-subtitle">text</h3>
-    <sm-button-group>
-      <button sm-button variant="text" [toggle]="true"
-              [selected]="toggleVariantText()[0]"
-              (selectedChange)="toggleVariantText.set([$event, toggleVariantText()[1], toggleVariantText()[2]])">
-        Option 1
-      </button>
-      <button sm-button variant="text" [toggle]="true"
-              [selected]="toggleVariantText()[1]"
-              (selectedChange)="toggleVariantText.set([toggleVariantText()[0], $event, toggleVariantText()[2]])">
-        Option 2
-      </button>
-      <button sm-button variant="text" [toggle]="true"
-              [selected]="toggleVariantText()[2]"
-              (selectedChange)="toggleVariantText.set([toggleVariantText()[0], toggleVariantText()[1], $event])">
-        Option 3
-      </button>
-    </sm-button-group>
+    </simply-mat-button-group>
   </div>
 </section>

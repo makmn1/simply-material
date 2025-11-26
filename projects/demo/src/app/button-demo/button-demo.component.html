@@ -16,7 +16,7 @@
     <h2 class="section-title">Sizes</h2>
     <div class="button-group">
       @for (size of sizes; track size) {
-        <button sm-button [size]="size" [shape]="selectedShape()">{{ size }}</button>
+        <button simplyMatButton [size]="size" [shape]="selectedShape()">{{ size }}</button>
       }
     </div>
   </section>
@@ -25,7 +25,7 @@
     <h2 class="section-title">Variants</h2>
     <div class="button-group">
       @for (variant of variants; track variant) {
-        <button sm-button [variant]="variant" [shape]="selectedShape()">{{ variant }}</button>
+        <button simplyMatButton [variant]="variant" [shape]="selectedShape()">{{ variant }}</button>
       }
     </div>
   </section>
@@ -34,7 +34,7 @@
     <h2 class="section-title">Disabled Variants</h2>
     <div class="button-group">
       @for (variant of variants; track variant) {
-        <button sm-button [disabled]="true" [variant]="variant" [shape]="selectedShape()">{{ variant }}</button>
+        <button simplyMatButton [disabled]="true" [variant]="variant" [shape]="selectedShape()">{{ variant }}</button>
       }
     </div>
   </section>
@@ -42,23 +42,23 @@
   <section class="section-card">
     <h2 class="section-title">With Icons</h2>
     <div class="button-group">
-      <button sm-button variant="filled" [shape]="selectedShape()">
+      <button simplyMatButton variant="filled" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>favorite</span>
         Favorite
       </button>
-      <button sm-button variant="elevated" [shape]="selectedShape()">
+      <button simplyMatButton variant="elevated" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>share</span>
         Share
       </button>
-      <button sm-button variant="tonal" [shape]="selectedShape()">
+      <button simplyMatButton variant="tonal" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>settings</span>
         Settings
       </button>
-      <button sm-button variant="outlined" [shape]="selectedShape()">
+      <button simplyMatButton variant="outlined" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>download</span>
         Download
       </button>
-      <button sm-button variant="text" [shape]="selectedShape()">
+      <button simplyMatButton variant="text" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>edit</span>
         Edit
       </button>
@@ -68,23 +68,23 @@
   <section class="section-card">
     <h2 class="section-title">Disabled With Icons</h2>
     <div class="button-group">
-      <button sm-button [disabled]="true" variant="filled" [shape]="selectedShape()">
+      <button simplyMatButton [disabled]="true" variant="filled" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>favorite</span>
         Favorite
       </button>
-      <button sm-button [disabled]="true" variant="elevated" [shape]="selectedShape()">
+      <button simplyMatButton [disabled]="true" variant="elevated" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>share</span>
         Share
       </button>
-      <button sm-button [disabled]="true" variant="tonal" [shape]="selectedShape()">
+      <button simplyMatButton [disabled]="true" variant="tonal" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>settings</span>
         Settings
       </button>
-      <button sm-button [disabled]="true" variant="outlined" [shape]="selectedShape()">
+      <button simplyMatButton [disabled]="true" variant="outlined" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>download</span>
         Download
       </button>
-      <button sm-button [disabled]="true" variant="text" [shape]="selectedShape()">
+      <button simplyMatButton [disabled]="true" variant="text" [shape]="selectedShape()">
         <span class="material-symbols-rounded" smButtonIcon>edit</span>
         Edit
       </button>
@@ -94,25 +94,25 @@
   <section class="section-card">
     <h2 class="section-title">Toggle</h2>
     <div class="button-group">
-      <button sm-button variant="filled" [toggle]="true"
+      <button simplyMatButton variant="filled" [togglable]="true"
               [selected]="filledSelected()"
               (selectedChange)="filledSelected.set($event)"
               [shape]="selectedShape()">
         Filled Toggle
       </button>
-      <button sm-button variant="elevated" [toggle]="true"
+      <button simplyMatButton variant="elevated" [togglable]="true"
               [selected]="elevatedSelected()"
               (selectedChange)="elevatedSelected.set($event)"
               [shape]="selectedShape()">
         Elevated Toggle
       </button>
-      <button sm-button variant="tonal" [toggle]="true"
+      <button simplyMatButton variant="tonal" [togglable]="true"
               [selected]="tonalSelected()"
               (selectedChange)="tonalSelected.set($event)"
               [shape]="selectedShape()">
         Tonal Toggle
       </button>
-      <button sm-button variant="outlined" [toggle]="true"
+      <button simplyMatButton variant="outlined" [togglable]="true"
               [selected]="outlinedSelected()"
               (selectedChange)="outlinedSelected.set($event)"
               [shape]="selectedShape()">
@@ -124,25 +124,25 @@
   <section class="section-card">
     <h2 class="section-title">Toggle Disabled (Unselected)</h2>
     <div class="button-group">
-      <button sm-button [disabled]="true" variant="filled" [toggle]="true"
+      <button simplyMatButton [disabled]="true" variant="filled" [togglable]="true"
               [selected]="false"
               (selectedChange)="filledSelected.set($event)"
               [shape]="selectedShape()">
         Filled Toggle
       </button>
-      <button sm-button [disabled]="true" variant="elevated" [toggle]="true"
+      <button simplyMatButton [disabled]="true" variant="elevated" [togglable]="true"
               [selected]="false"
               (selectedChange)="elevatedSelected.set($event)"
               [shape]="selectedShape()">
         Elevated Toggle
       </button>
-      <button sm-button [disabled]="true" variant="tonal" [toggle]="true"
+      <button simplyMatButton [disabled]="true" variant="tonal" [togglable]="true"
               [selected]="false"
               (selectedChange)="tonalSelected.set($event)"
               [shape]="selectedShape()">
         Tonal Toggle
       </button>
-      <button sm-button [disabled]="true" variant="outlined" [toggle]="true"
+      <button simplyMatButton [disabled]="true" variant="outlined" [togglable]="true"
               [selected]="false"
               (selectedChange)="outlinedSelected.set($event)"
               [shape]="selectedShape()">
@@ -154,25 +154,25 @@
   <section class="section-card">
     <h2 class="section-title">Toggle Disabled (Selected)</h2>
     <div class="button-group">
-      <button sm-button [disabled]="true" variant="filled" [toggle]="true"
+      <button simplyMatButton [disabled]="true" variant="filled" [togglable]="true"
               [selected]="true"
               (selectedChange)="filledSelected.set($event)"
               [shape]="selectedShape()">
         Filled Toggle
       </button>
-      <button sm-button [disabled]="true" variant="elevated" [toggle]="true"
+      <button simplyMatButton [disabled]="true" variant="elevated" [togglable]="true"
               [selected]="true"
               (selectedChange)="elevatedSelected.set($event)"
               [shape]="selectedShape()">
         Elevated Toggle
       </button>
-      <button sm-button [disabled]="true" variant="tonal" [toggle]="true"
+      <button simplyMatButton [disabled]="true" variant="tonal" [togglable]="true"
               [selected]="true"
               (selectedChange)="tonalSelected.set($event)"
               [shape]="selectedShape()">
         Tonal Toggle
       </button>
-      <button sm-button [disabled]="true" variant="outlined" [toggle]="true"
+      <button simplyMatButton [disabled]="true" variant="outlined" [togglable]="true"
               [selected]="true"
               (selectedChange)="outlinedSelected.set($event)"
               [shape]="selectedShape()">
@@ -184,11 +184,11 @@
   <section class="section-card">
     <h2 class="section-title">Links</h2>
     <div class="button-group">
-      <a href="javascript:void(0);" sm-button variant="filled" [shape]="selectedShape()">Filled Link</a>
-      <a href="javascript:void(0);" sm-button variant="elevated" [shape]="selectedShape()">Elevated Link</a>
-      <a href="javascript:void(0);" sm-button variant="tonal" [shape]="selectedShape()">Tonal Link</a>
-      <a href="javascript:void(0);" sm-button variant="outlined" [shape]="selectedShape()">Outlined Link</a>
-      <a href="javascript:void(0);" sm-button variant="text" [shape]="selectedShape()">Text Link</a>
+      <a href="javascript:void(0);" simplyMatButton variant="filled" [shape]="selectedShape()">Filled Link</a>
+      <a href="javascript:void(0);" simplyMatButton variant="elevated" [shape]="selectedShape()">Elevated Link</a>
+      <a href="javascript:void(0);" simplyMatButton variant="tonal" [shape]="selectedShape()">Tonal Link</a>
+      <a href="javascript:void(0);" simplyMatButton variant="outlined" [shape]="selectedShape()">Outlined Link</a>
+      <a href="javascript:void(0);" simplyMatButton variant="text" [shape]="selectedShape()">Text Link</a>
     </div>
   </section>
 </div>

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { IconButton, SmTooltipDirective, TooltipPosition, TooltipConfig, RichTooltipConfig, Button } from '@simply-material/components';
+import { SimplyMatIconButton, SmTooltipDirective, TooltipPosition, TooltipConfig, RichTooltipConfig, SimplyMatButton } from '@simply-material/components';
 
 @Component({
   selector: 'app-tooltip-demo',
-  imports: [IconButton, SmTooltipDirective, Button],
+  imports: [SimplyMatIconButton, SmTooltipDirective, SimplyMatButton],
   templateUrl: './tooltip-demo.component.html',
   styleUrls: ['./tooltip-demo.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

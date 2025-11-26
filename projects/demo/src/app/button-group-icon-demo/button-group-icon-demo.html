@@ -1,0 +1,461 @@
+<section class="section-card">
+  <h2 class="section-title">Controls</h2>
+  <div class="controls">
+    <div class="type-control">
+      <label for="type-select" class="type-label">Button Group Type:</label>
+      <select id="type-select" class="type-select" [value]="buttonGroupType()"
+              (change)="buttonGroupType.set($any($event.target).value)">
+        <option value="standard">Standard</option>
+        <option value="connected">Connected</option>
+      </select>
+    </div>
+    <div class="type-control">
+      <label for="shape-select" class="type-label">Button Shape:</label>
+      <select id="shape-select" class="type-select" [value]="selectedShape()"
+              (change)="selectedShape.set($any($event.target).value)">
+        <option value="round">Round</option>
+        <option value="square">Square</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+@if (buttonGroupType() === 'standard') {
+  <section class="section-card">
+    <h2 class="section-title">Icon Button Group - Standard</h2>
+    <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton size="xlarge">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton size="xlarge">
+          <span class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton size="xlarge">
+          <span class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title">Icon Button Groups - Different Widths</h2>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">All Three Widths (narrow, default, wide)</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton size="xlarge" [width]="'narrow'">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton size="xlarge" [width]="'default'">
+          <span class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton size="xlarge" [width]="'wide'">
+          <span class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Narrow + Default</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton size="xlarge" [width]="'narrow'">
+          <span class="material-symbols-rounded">search</span>
+        </button>
+        <button simplyMatIconButton size="xlarge" [width]="'default'">
+          <span class="material-symbols-rounded">share</span>
+        </button>
+        <button simplyMatIconButton size="xlarge">
+          <span class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Default + Wide</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton size="xlarge" [width]="'default'">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton size="xlarge" [width]="'wide'">
+          <span class="material-symbols-rounded">home</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Narrow + Wide</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton size="xlarge" [width]="'narrow'">
+          <span class="material-symbols-rounded">settings</span>
+        </button>
+        <button simplyMatIconButton size="xlarge" [width]="'wide'">
+          <span class="material-symbols-rounded">search</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    </section>
+}
+
+<section class="section-card">
+  <h2 class="section-title">Toggle Icon Button Groups - Different Widths</h2>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">All Three Widths (narrow, default, wide)</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="filled" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleAllWidths()[0]"
+                (selectedChange)="toggleAllWidths.set([$event, toggleAllWidths()[1], toggleAllWidths()[2]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="filled" [width]="'default'" [togglable]="true"
+                [selected]="toggleAllWidths()[1]"
+                (selectedChange)="toggleAllWidths.set([toggleAllWidths()[0], $event, toggleAllWidths()[2]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="filled" [width]="'wide'" [togglable]="true"
+                [selected]="toggleAllWidths()[2]"
+                (selectedChange)="toggleAllWidths.set([toggleAllWidths()[0], toggleAllWidths()[1], $event])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Narrow + Default</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="tonal" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleNarrowDefault()[0]"
+                (selectedChange)="toggleNarrowDefault.set([$event, toggleNarrowDefault()[1]])">
+          <span outlined class="material-symbols-outlined">search</span>
+          <span filled class="material-symbols-rounded">search</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" [width]="'default'" [togglable]="true"
+                [selected]="toggleNarrowDefault()[1]"
+                (selectedChange)="toggleNarrowDefault.set([toggleNarrowDefault()[0], $event])">
+          <span outlined class="material-symbols-outlined">share</span>
+          <span filled class="material-symbols-rounded">share</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Default + Wide</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="outlined" [width]="'default'" [togglable]="true"
+                [selected]="toggleDefaultWide()[0]"
+                (selectedChange)="toggleDefaultWide.set([$event, toggleDefaultWide()[1]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="outlined" [width]="'wide'" [togglable]="true"
+                [selected]="toggleDefaultWide()[1]"
+                (selectedChange)="toggleDefaultWide.set([toggleDefaultWide()[0], $event])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Narrow + Wide</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="standard" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleNarrowWide()[0]"
+                (selectedChange)="toggleNarrowWide.set([$event, toggleNarrowWide()[1]])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+        <button simplyMatIconButton variant="standard" [width]="'wide'" [togglable]="true"
+                [selected]="toggleNarrowWide()[1]"
+                (selectedChange)="toggleNarrowWide.set([toggleNarrowWide()[0], $event])">
+          <span outlined class="material-symbols-outlined">search</span>
+          <span filled class="material-symbols-rounded">search</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Mixed Widths - Narrow, Default, Wide</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="filled" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleStandard1()[0]"
+                (selectedChange)="toggleStandard1.set([$event, toggleStandard1()[1], toggleStandard1()[2]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="filled" [width]="'default'" [togglable]="true"
+                [selected]="toggleStandard1()[1]"
+                (selectedChange)="toggleStandard1.set([toggleStandard1()[0], $event, toggleStandard1()[2]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="filled" [width]="'wide'" [togglable]="true"
+                [selected]="toggleStandard1()[2]"
+                (selectedChange)="toggleStandard1.set([toggleStandard1()[0], toggleStandard1()[1], $event])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Mixed Widths - Default, Wide</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="tonal" [width]="'default'" [togglable]="true"
+                [selected]="toggleStandard2()[0]"
+                (selectedChange)="toggleStandard2.set([$event, toggleStandard2()[1]])">
+          <span outlined class="material-symbols-outlined">search</span>
+          <span filled class="material-symbols-rounded">search</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" [width]="'wide'" [togglable]="true"
+                [selected]="toggleStandard2()[1]"
+                (selectedChange)="toggleStandard2.set([toggleStandard2()[0], $event])">
+          <span outlined class="material-symbols-outlined">share</span>
+          <span filled class="material-symbols-rounded">share</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+  </section>
+
+@if (buttonGroupType() === 'standard') {
+  <section class="section-card">
+    <h2 class="section-title">Icon Button Group - Connected</h2>
+    <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="tonal">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="tonal">
+          <span class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="tonal">
+          <span class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </section>
+}
+
+<section class="section-card">
+  <h2 class="section-title">Icon Button Groups - Different Sizes</h2>
+    @for (size of sizes; track size) {
+      <div class="demo-item">
+        <h3 class="demo-subtitle">{{ size }}</h3>
+        <simply-mat-button-group [type]="buttonGroupType()" [size]="size" [defaultButtonShape]="selectedShape()">
+          <button simplyMatIconButton variant="tonal" [size]="size" [togglable]="true">
+            <span filled class="material-symbols-rounded">favorite</span>
+            <span outlined class="material-symbols-outlined">favorite</span>
+          </button>
+          <button simplyMatIconButton variant="tonal" [size]="size" [togglable]="true">
+            <span filled class="material-symbols-rounded">home</span>
+            <span outlined class="material-symbols-outlined">home</span>
+          </button>
+          <button simplyMatIconButton variant="tonal" [size]="size" [togglable]="true">
+            <span filled class="material-symbols-rounded">settings</span>
+            <span outlined class="material-symbols-outlined">settings</span>
+          </button>
+        </simply-mat-button-group>
+      </div>
+    }
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Toggle Icon Button Groups - Different Widths</h2>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">All Narrow (size: medium)</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="medium" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleConnectedNarrow()[0]"
+                (selectedChange)="toggleConnectedNarrow.set([$event, toggleConnectedNarrow()[1], toggleConnectedNarrow()[2]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleConnectedNarrow()[1]"
+                (selectedChange)="toggleConnectedNarrow.set([toggleConnectedNarrow()[0], $event, toggleConnectedNarrow()[2]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleConnectedNarrow()[2]"
+                (selectedChange)="toggleConnectedNarrow.set([toggleConnectedNarrow()[0], toggleConnectedNarrow()[1], $event])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">All Default (size: medium)</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="medium" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'default'" [togglable]="true"
+                [selected]="toggleConnectedDefault()[0]"
+                (selectedChange)="toggleConnectedDefault.set([$event, toggleConnectedDefault()[1], toggleConnectedDefault()[2]])">
+          <span outlined class="material-symbols-outlined">search</span>
+          <span filled class="material-symbols-rounded">search</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'default'" [togglable]="true"
+                [selected]="toggleConnectedDefault()[1]"
+                (selectedChange)="toggleConnectedDefault.set([toggleConnectedDefault()[0], $event, toggleConnectedDefault()[2]])">
+          <span outlined class="material-symbols-outlined">share</span>
+          <span filled class="material-symbols-rounded">share</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'default'" [togglable]="true"
+                [selected]="toggleConnectedDefault()[2]"
+                (selectedChange)="toggleConnectedDefault.set([toggleConnectedDefault()[0], toggleConnectedDefault()[1], $event])">
+          <span outlined class="material-symbols-outlined">more_vert</span>
+          <span filled class="material-symbols-rounded">more_vert</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">All Wide (size: medium)</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="medium" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'wide'" [togglable]="true"
+                [selected]="toggleConnectedWide()[0]"
+                (selectedChange)="toggleConnectedWide.set([$event, toggleConnectedWide()[1], toggleConnectedWide()[2]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'wide'" [togglable]="true"
+                [selected]="toggleConnectedWide()[1]"
+                (selectedChange)="toggleConnectedWide.set([toggleConnectedWide()[0], $event, toggleConnectedWide()[2]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'wide'" [togglable]="true"
+                [selected]="toggleConnectedWide()[2]"
+                (selectedChange)="toggleConnectedWide.set([toggleConnectedWide()[0], toggleConnectedWide()[1], $event])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">Mixed Widths (size: medium)</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" size="medium" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleConnectedMixed()[0]"
+                (selectedChange)="toggleConnectedMixed.set([$event, toggleConnectedMixed()[1], toggleConnectedMixed()[2], toggleConnectedMixed()[3], toggleConnectedMixed()[4], toggleConnectedMixed()[5]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'default'" [togglable]="true"
+                [selected]="toggleConnectedMixed()[1]"
+                (selectedChange)="toggleConnectedMixed.set([toggleConnectedMixed()[0], $event, toggleConnectedMixed()[2], toggleConnectedMixed()[3], toggleConnectedMixed()[4], toggleConnectedMixed()[5]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'wide'" [togglable]="true"
+                [selected]="toggleConnectedMixed()[2]"
+                (selectedChange)="toggleConnectedMixed.set([toggleConnectedMixed()[0], toggleConnectedMixed()[1], $event, toggleConnectedMixed()[3], toggleConnectedMixed()[4], toggleConnectedMixed()[5]])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'narrow'" [togglable]="true"
+                [selected]="toggleConnectedMixed()[3]"
+                (selectedChange)="toggleConnectedMixed.set([toggleConnectedMixed()[0], toggleConnectedMixed()[1], toggleConnectedMixed()[2], $event, toggleConnectedMixed()[4], toggleConnectedMixed()[5]])">
+          <span outlined class="material-symbols-outlined">search</span>
+          <span filled class="material-symbols-rounded">search</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'default'" [togglable]="true"
+                [selected]="toggleConnectedMixed()[4]"
+                (selectedChange)="toggleConnectedMixed.set([toggleConnectedMixed()[0], toggleConnectedMixed()[1], toggleConnectedMixed()[2], toggleConnectedMixed()[3], $event, toggleConnectedMixed()[5]])">
+          <span outlined class="material-symbols-outlined">share</span>
+          <span filled class="material-symbols-rounded">share</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" size="medium" [width]="'wide'" [togglable]="true"
+                [selected]="toggleConnectedMixed()[5]"
+                (selectedChange)="toggleConnectedMixed.set([toggleConnectedMixed()[0], toggleConnectedMixed()[1], toggleConnectedMixed()[2], toggleConnectedMixed()[3], toggleConnectedMixed()[4], $event])">
+          <span outlined class="material-symbols-outlined">more_vert</span>
+          <span filled class="material-symbols-rounded">more_vert</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Toggle Icon Button Groups - Different Variants</h2>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">filled</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="filled" [togglable]="true"
+                [selected]="toggleConnectedVariantFilled()[0]"
+                (selectedChange)="toggleConnectedVariantFilled.set([$event, toggleConnectedVariantFilled()[1], toggleConnectedVariantFilled()[2]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="filled" [togglable]="true"
+                [selected]="toggleConnectedVariantFilled()[1]"
+                (selectedChange)="toggleConnectedVariantFilled.set([toggleConnectedVariantFilled()[0], $event, toggleConnectedVariantFilled()[2]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="filled" [togglable]="true"
+                [selected]="toggleConnectedVariantFilled()[2]"
+                (selectedChange)="toggleConnectedVariantFilled.set([toggleConnectedVariantFilled()[0], toggleConnectedVariantFilled()[1], $event])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">tonal</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="tonal" [togglable]="true"
+                [selected]="toggleConnectedVariantTonal()[0]"
+                (selectedChange)="toggleConnectedVariantTonal.set([$event, toggleConnectedVariantTonal()[1], toggleConnectedVariantTonal()[2]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" [togglable]="true"
+                [selected]="toggleConnectedVariantTonal()[1]"
+                (selectedChange)="toggleConnectedVariantTonal.set([toggleConnectedVariantTonal()[0], $event, toggleConnectedVariantTonal()[2]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="tonal" [togglable]="true"
+                [selected]="toggleConnectedVariantTonal()[2]"
+                (selectedChange)="toggleConnectedVariantTonal.set([toggleConnectedVariantTonal()[0], toggleConnectedVariantTonal()[1], $event])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">outlined</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="outlined" [togglable]="true"
+                [selected]="toggleConnectedVariantOutlined()[0]"
+                (selectedChange)="toggleConnectedVariantOutlined.set([$event, toggleConnectedVariantOutlined()[1], toggleConnectedVariantOutlined()[2]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="outlined" [togglable]="true"
+                [selected]="toggleConnectedVariantOutlined()[1]"
+                (selectedChange)="toggleConnectedVariantOutlined.set([toggleConnectedVariantOutlined()[0], $event, toggleConnectedVariantOutlined()[2]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="outlined" [togglable]="true"
+                [selected]="toggleConnectedVariantOutlined()[2]"
+                (selectedChange)="toggleConnectedVariantOutlined.set([toggleConnectedVariantOutlined()[0], toggleConnectedVariantOutlined()[1], $event])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+    <div class="demo-item">
+      <h3 class="demo-subtitle">standard</h3>
+      <simply-mat-button-group [type]="buttonGroupType()" [defaultButtonShape]="selectedShape()">
+        <button simplyMatIconButton variant="standard" [togglable]="true"
+                [selected]="toggleConnectedVariantStandard()[0]"
+                (selectedChange)="toggleConnectedVariantStandard.set([$event, toggleConnectedVariantStandard()[1], toggleConnectedVariantStandard()[2]])">
+          <span outlined class="material-symbols-outlined">favorite</span>
+          <span filled class="material-symbols-rounded">favorite</span>
+        </button>
+        <button simplyMatIconButton variant="standard" [togglable]="true"
+                [selected]="toggleConnectedVariantStandard()[1]"
+                (selectedChange)="toggleConnectedVariantStandard.set([toggleConnectedVariantStandard()[0], $event, toggleConnectedVariantStandard()[2]])">
+          <span outlined class="material-symbols-outlined">home</span>
+          <span filled class="material-symbols-rounded">home</span>
+        </button>
+        <button simplyMatIconButton variant="standard" [togglable]="true"
+                [selected]="toggleConnectedVariantStandard()[2]"
+                (selectedChange)="toggleConnectedVariantStandard.set([toggleConnectedVariantStandard()[0], toggleConnectedVariantStandard()[1], $event])">
+          <span outlined class="material-symbols-outlined">settings</span>
+          <span filled class="material-symbols-rounded">settings</span>
+        </button>
+      </simply-mat-button-group>
+    </div>
+  </section>
+

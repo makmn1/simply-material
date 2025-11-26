@@ -3,7 +3,7 @@ import {
   Component,
   input, model, output,
 } from '@angular/core';
-import {Button} from '../../buttons/button/button';
+import {SimplyMatButton} from '../buttons/button/button';
 
 export interface TooltipButtonConfig {
   label: string;
@@ -21,10 +21,10 @@ export interface RichTooltipConfig {
   templateUrl: './tooltip-content.html',
   styleUrls: ['./tooltip.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Button],
+  imports: [SimplyMatButton],
   host: {
     'role': 'tooltip',
-    '[attr.data-type]': 'type()'
+    '[attr.data-sm-type]': 'type()'
   },
 })
 export class TooltipContentComponent {

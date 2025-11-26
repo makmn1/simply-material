@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {animate, AnimationPlaybackControlsWithThen} from 'motion';
+import { animate, AnimationPlaybackControlsWithThen } from 'motion';
 
 export interface SpringAnimateOptions {
   /** Required spring damping (dimensionless ζ). */
@@ -8,8 +8,12 @@ export interface SpringAnimateOptions {
   stiffness: number;
   /** Optional mass (m). Defaults to 1 internally. */
   mass?: number;
-  /** Optional "go back" target after reaching `to`. (Not used yet) */
-  back?: string;
+}
+
+export interface SpringAnimateProperty {
+  property: string;
+  from: string;
+  to: string;
 }
 
 function assertFiniteNumber(name: string, value: unknown): asserts value is number {
@@ -19,28 +23,42 @@ function assertFiniteNumber(name: string, value: unknown): asserts value is numb
 }
 
 /**
- * Spring animate a CSS property from -> to.
- * Assumes string CSS values (e.g., '20px', 'scale(0.95)', '0.5').
+ * Spring animate one or more CSS properties from -> to.
+ *
+ * Each property is provided as a { property, from, to } triple.
+ * All properties are animated in a single Motion `animate` call
+ * so they stay perfectly in sync and share the same spring physics.
+ *
+ * Note that by the end of the animation, the element will have the property with the `to` value set as an in-line style.
  */
 @Injectable({ providedIn: 'root' })
 export class SpringAnimate {
   animate(
     element: HTMLElement,
-    property: string,
-    from: string,
-    to: string,
+    properties: SpringAnimateProperty[],
     opts: SpringAnimateOptions,
   ): AnimationPlaybackControlsWithThen {
     assertFiniteNumber('stiffness', opts.stiffness);
     assertFiniteNumber('damping', opts.damping);
 
-    const mass = 1;
+    const mass = opts.mass ?? 1;
     const damping = 2 * opts.damping * Math.sqrt(opts.stiffness * mass);
+
+    const keyframes: Record<string, string[]> = {};
+    for (const { property, from, to } of properties) {
+      keyframes[property] = [from, to];
+      // console.log(property, from, to);
+    }
 
     return animate(
       element,
-      { [property]: [from, to] },
-      { type: 'spring', stiffness: opts.stiffness, damping, mass },
+      keyframes,
+      {
+        type: 'spring',
+        stiffness: opts.stiffness,
+        damping,
+        mass,
+      },
     );
   }
 }

@@ -1,0 +1,1042 @@
+/* Minimal, token-driven host styles. */
+
+/* Base reset */
+:host.simply-mat-icon-button {
+  --_container-color: transparent;
+  --_icon-color: currentColor;
+  --_outline-color: transparent;
+  --_state-layer-color: transparent;
+  --_state-layer-opacity: 0;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Sizing: height + paddings come from size tokens */
+  height: var(--md-comp-icon-button-container-height);
+  padding-inline-start: var(--md-comp-icon-button-default-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-default-trailing-space);
+
+  color: var(--_icon-color);
+  background-color: var(--_container-color);
+  border: none;
+  outline: none;
+  border-radius: var(--md-comp-icon-button-container-shape-round);
+
+  /* Make sure width stays fixed to its content and padding */
+  width: max-content;
+}
+
+/* Disabled styles */
+:host[disabled],
+:host[aria-disabled="true"] {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Focus ring using focus tokens */
+:host.simply-mat-icon-button:focus-visible {
+  outline: var(--md-comp-icon-button-focus-indicator-thickness) solid var(--md-comp-icon-button-focus-indicator-color);
+  outline-offset: var(--md-comp-icon-button-focus-indicator-offset);
+}
+
+/* --- SIZES -------------------------------------------------------------- */
+:host[data-sm-size="xsmall"] {
+  height: var(--md-comp-icon-button-xsmall-container-height);
+  border-radius: var(--md-comp-icon-button-xsmall-container-shape-round);
+}
+
+:host[data-sm-size="small"] {
+  height: var(--md-comp-icon-button-small-container-height);
+  border-radius: var(--md-comp-icon-button-small-container-shape-round);
+}
+
+:host[data-sm-size="medium"] {
+  height: var(--md-comp-icon-button-medium-container-height);
+  border-radius: var(--md-comp-icon-button-medium-container-shape-round);
+}
+
+:host[data-sm-size="large"] {
+  height: var(--md-comp-icon-button-large-container-height);
+  border-radius: var(--md-comp-icon-button-large-container-shape-round);
+}
+
+:host[data-sm-size="xlarge"] {
+  height: var(--md-comp-icon-button-xlarge-container-height);
+  border-radius: var(--md-comp-icon-button-xlarge-container-shape-round);
+}
+
+/* If resting shape is square */
+:host[data-sm-shape="square"][data-sm-size="xsmall"] {
+  border-radius: var(--md-comp-icon-button-xsmall-container-shape-square);
+}
+
+:host[data-sm-shape="square"][data-sm-size="small"] {
+  border-radius: var(--md-comp-icon-button-small-container-shape-square);
+}
+
+:host[data-sm-shape="square"][data-sm-size="medium"] {
+  border-radius: var(--md-comp-icon-button-medium-container-shape-square);
+}
+
+:host[data-sm-shape="square"][data-sm-size="large"] {
+  border-radius: var(--md-comp-icon-button-large-container-shape-square);
+}
+
+:host[data-sm-shape="square"][data-sm-size="xlarge"] {
+  border-radius: var(--md-comp-icon-button-xlarge-container-shape-square);
+}
+
+/* If round and selected */
+:host[data-sm-selected="true"][data-sm-shape="round"][data-sm-size="xsmall"] {
+  border-radius: var(--md-comp-icon-button-xsmall-selected-container-shape-round);
+}
+
+:host[data-sm-selected="true"][data-sm-shape="round"][data-sm-size="small"] {
+  border-radius: var(--md-comp-icon-button-small-selected-container-shape-round);
+}
+
+:host[data-sm-selected="true"][data-sm-shape="round"][data-sm-size="medium"] {
+  border-radius: var(--md-comp-icon-button-medium-selected-container-shape-round);
+}
+
+:host[data-sm-selected="true"][data-sm-shape="round"][data-sm-size="large"] {
+  border-radius: var(--md-comp-icon-button-large-selected-container-shape-round);
+}
+
+:host[data-sm-selected="true"][data-sm-shape="round"][data-sm-size="xlarge"] {
+  border-radius: var(--md-comp-icon-button-xlarge-selected-container-shape-round);
+}
+
+/* If square and selected */
+:host[data-sm-selected="true"][data-sm-shape="square"][data-sm-size="xsmall"] {
+  border-radius: var(--md-comp-icon-button-xsmall-selected-container-shape-square);
+}
+
+:host[data-sm-selected="true"][data-sm-shape="square"][data-sm-size="small"] {
+  border-radius: var(--md-comp-icon-button-small-selected-container-shape-square);
+}
+
+:host[data-sm-selected="true"][data-sm-shape="square"][data-sm-size="medium"] {
+  border-radius: var(--md-comp-icon-button-medium-selected-container-shape-square);
+}
+
+:host[data-sm-selected="true"][data-sm-shape="square"][data-sm-size="large"] {
+  border-radius: var(--md-comp-icon-button-large-selected-container-shape-square);
+}
+
+:host[data-sm-selected="true"][data-sm-shape="square"][data-sm-size="xlarge"] {
+  border-radius: var(--md-comp-icon-button-xlarge-selected-container-shape-square);
+}
+
+/* --- WIDTH VARIATIONS --------------------------------------------------- */
+/* Xsmall width variations */
+:host[data-sm-size="xsmall"][data-sm-width="narrow"] {
+  padding-inline-start: var(--md-comp-icon-button-xsmall-narrow-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-xsmall-narrow-trailing-space);
+}
+
+:host[data-sm-size="xsmall"][data-sm-width="default"] {
+  padding-inline-start: var(--md-comp-icon-button-xsmall-default-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-xsmall-default-trailing-space);
+}
+
+:host[data-sm-size="xsmall"][data-sm-width="wide"] {
+  padding-inline-start: var(--md-comp-icon-button-xsmall-wide-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-xsmall-wide-trailing-space);
+}
+
+/* Small width variations */
+:host[data-sm-size="small"][data-sm-width="narrow"] {
+  padding-inline-start: var(--md-comp-icon-button-small-narrow-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-small-narrow-trailing-space);
+}
+
+:host[data-sm-size="small"][data-sm-width="default"] {
+  padding-inline-start: var(--md-comp-icon-button-small-default-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-small-default-trailing-space);
+}
+
+:host[data-sm-size="small"][data-sm-width="wide"] {
+  padding-inline-start: var(--md-comp-icon-button-small-wide-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-small-wide-trailing-space);
+}
+
+/* Medium width variations */
+:host[data-sm-size="medium"][data-sm-width="narrow"] {
+  padding-inline-start: var(--md-comp-icon-button-medium-narrow-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-medium-narrow-trailing-space);
+}
+
+:host[data-sm-size="medium"][data-sm-width="default"] {
+  padding-inline-start: var(--md-comp-icon-button-medium-default-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-medium-default-trailing-space);
+}
+
+:host[data-sm-size="medium"][data-sm-width="wide"] {
+  padding-inline-start: var(--md-comp-icon-button-medium-wide-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-medium-wide-trailing-space);
+}
+
+/* Large width variations */
+:host[data-sm-size="large"][data-sm-width="narrow"] {
+  padding-inline-start: var(--md-comp-icon-button-large-narrow-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-large-narrow-trailing-space);
+}
+
+:host[data-sm-size="large"][data-sm-width="default"] {
+  padding-inline-start: var(--md-comp-icon-button-large-default-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-large-default-trailing-space);
+}
+
+:host[data-sm-size="large"][data-sm-width="wide"] {
+  padding-inline-start: var(--md-comp-icon-button-large-wide-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-large-wide-trailing-space);
+}
+
+/* Xlarge width variations */
+:host[data-sm-size="xlarge"][data-sm-width="narrow"] {
+  padding-inline-start: var(--md-comp-icon-button-xlarge-narrow-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-xlarge-narrow-trailing-space);
+}
+
+:host[data-sm-size="xlarge"][data-sm-width="default"] {
+  padding-inline-start: var(--md-comp-icon-button-xlarge-default-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-xlarge-default-trailing-space);
+}
+
+:host[data-sm-size="xlarge"][data-sm-width="wide"] {
+  padding-inline-start: var(--md-comp-icon-button-xlarge-wide-leading-space);
+  padding-inline-end: var(--md-comp-icon-button-xlarge-wide-trailing-space);
+}
+
+/* --- ICON SIZING -------------------------------------------------------- */
+:host[data-sm-size="xsmall"] ::ng-deep > * {
+  font-size: var(--md-comp-icon-button-xsmall-icon-size);
+  inline-size: var(--md-comp-icon-button-xsmall-icon-size);
+  block-size: var(--md-comp-icon-button-xsmall-icon-size);
+  color: var(--_icon-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host[data-sm-size="small"] ::ng-deep > * {
+  font-size: var(--md-comp-icon-button-small-icon-size);
+  inline-size: var(--md-comp-icon-button-small-icon-size);
+  block-size: var(--md-comp-icon-button-small-icon-size);
+  color: var(--_icon-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host[data-sm-size="medium"] ::ng-deep > * {
+  font-size: var(--md-comp-icon-button-medium-icon-size);
+  inline-size: var(--md-comp-icon-button-medium-icon-size);
+  block-size: var(--md-comp-icon-button-medium-icon-size);
+  color: var(--_icon-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host[data-sm-size="large"] ::ng-deep > * {
+  font-size: var(--md-comp-icon-button-large-icon-size);
+  inline-size: var(--md-comp-icon-button-large-icon-size);
+  block-size: var(--md-comp-icon-button-large-icon-size);
+  color: var(--_icon-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host[data-sm-size="xlarge"] ::ng-deep > * {
+  font-size: var(--md-comp-icon-button-xlarge-icon-size);
+  inline-size: var(--md-comp-icon-button-xlarge-icon-size);
+  block-size: var(--md-comp-icon-button-xlarge-icon-size);
+  color: var(--_icon-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- VARIANTS (enabled content) ---------------------------------------- */
+/* STANDARD */
+:host[data-sm-variant="standard"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: transparent;
+  --_icon-color: var(--md-comp-icon-button-icon-color);
+}
+
+:host[data-sm-variant="standard"][data-sm-toggle="true"][data-sm-selected="false"]:not([disabled]):not([aria-disabled="true"]) {
+  --_icon-color: var(--md-comp-icon-button-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="standard"][data-sm-toggle="true"][data-sm-selected="true"]:not([disabled]):not([aria-disabled="true"]) {
+  --_icon-color: var(--md-comp-icon-button-icon-color-toggle-selected);
+}
+
+/* STANDARD - Disabled */
+:host[data-sm-variant="standard"][disabled],
+:host[data-sm-variant="standard"][aria-disabled="true"] {
+  --_icon-color: var(--md-comp-icon-button-disabled-icon-color);
+}
+
+:host[data-sm-variant="standard"][disabled] ::ng-deep > *,
+:host[data-sm-variant="standard"][aria-disabled="true"] ::ng-deep > * {
+  opacity: var(--md-comp-icon-button-disabled-opacity);
+}
+
+/* FILLED */
+:host[data-sm-variant="filled"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: var(--md-comp-icon-button-filled-container-color);
+  --_icon-color: var(--md-comp-icon-button-filled-icon-color);
+}
+
+:host[data-sm-variant="filled"][data-sm-toggle="true"][data-sm-selected="false"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: var(--md-comp-icon-button-filled-container-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-filled-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="filled"][data-sm-toggle="true"][data-sm-selected="true"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: var(--md-comp-icon-button-filled-container-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-filled-icon-color-toggle-selected);
+}
+
+/* FILLED - Disabled */
+:host[data-sm-variant="filled"][disabled],
+:host[data-sm-variant="filled"][aria-disabled="true"] {
+  --_container-color: color-mix(in oklab, var(--md-comp-icon-button-filled-disabled-container-color) calc(var(--md-comp-icon-button-filled-disabled-container-opacity) * 100%), transparent);
+  --_icon-color: var(--md-comp-icon-button-filled-disabled-icon-color);
+  background-color: color-mix(in oklab, var(--md-comp-icon-button-filled-disabled-container-color) calc(var(--md-comp-icon-button-filled-disabled-container-opacity) * 100%), transparent);
+}
+
+:host[data-sm-variant="filled"][disabled] ::ng-deep > *,
+:host[data-sm-variant="filled"][aria-disabled="true"] ::ng-deep > * {
+  opacity: var(--md-comp-icon-button-filled-disabled-icon-opacity);
+}
+
+/* TONAL */
+:host[data-sm-variant="tonal"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: var(--md-comp-icon-button-tonal-container-color);
+  --_icon-color: var(--md-comp-icon-button-tonal-icon-color);
+}
+
+:host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="false"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: var(--md-comp-icon-button-tonal-container-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-tonal-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="true"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: var(--md-comp-icon-button-tonal-container-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-tonal-icon-color-toggle-selected);
+}
+
+/* TONAL - Disabled */
+:host[data-sm-variant="tonal"][disabled],
+:host[data-sm-variant="tonal"][aria-disabled="true"] {
+  --_container-color: color-mix(in oklab, var(--md-comp-icon-button-tonal-disabled-container-color) calc(var(--md-comp-icon-button-tonal-disabled-container-opacity) * 100%), transparent);
+  --_icon-color: var(--md-comp-icon-button-tonal-disabled-icon-color);
+  background-color: color-mix(in oklab, var(--md-comp-icon-button-tonal-disabled-container-color) calc(var(--md-comp-icon-button-tonal-disabled-container-opacity) * 100%), transparent);
+}
+
+:host[data-sm-variant="tonal"][disabled] ::ng-deep > *,
+:host[data-sm-variant="tonal"][aria-disabled="true"] ::ng-deep > * {
+  opacity: var(--md-comp-icon-button-tonal-disabled-icon-opacity);
+}
+
+/* OUTLINED */
+:host[data-sm-variant="outlined"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: transparent;
+  --_icon-color: var(--md-comp-icon-button-outlined-icon-color);
+  --_outline-color: var(--md-comp-icon-button-outlined-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="false"]:not([disabled]):not([aria-disabled="true"]) {
+  --_icon-color: var(--md-comp-icon-button-outlined-icon-color-toggle-unselected);
+  --_outline-color: var(--md-comp-icon-button-outlined-color-toggle-unselected);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="true"]:not([disabled]):not([aria-disabled="true"]) {
+  --_container-color: var(--md-comp-icon-button-outlined-container-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-outlined-icon-color-toggle-selected);
+}
+
+/* OUTLINED - Disabled */
+:host[data-sm-variant="outlined"][disabled],
+:host[data-sm-variant="outlined"][aria-disabled="true"] {
+  --_outline-color: var(--md-comp-icon-button-outlined-disabled-outline-color);
+  --_icon-color: var(--md-comp-icon-button-outlined-disabled-icon-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="true"][disabled],
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="true"][aria-disabled="true"] {
+  --_container-color: color-mix(in oklab, var(--md-comp-icon-button-outlined-disabled-container-color-selected) calc(var(--md-comp-icon-button-outlined-disabled-container-opacity-selected) * 100%), transparent);
+  background-color: color-mix(in oklab, var(--md-comp-icon-button-outlined-disabled-container-color-selected) calc(var(--md-comp-icon-button-outlined-disabled-container-opacity-selected) * 100%), transparent);
+}
+
+:host[data-sm-variant="outlined"][disabled] ::ng-deep > *,
+:host[data-sm-variant="outlined"][aria-disabled="true"] ::ng-deep > * {
+  opacity: var(--md-comp-icon-button-outlined-disabled-icon-opacity);
+}
+
+/* Outlined border width uses per-size tokens */
+:host[data-sm-variant="outlined"][data-sm-size="xsmall"] {
+  border: var(--md-comp-icon-button-xsmall-outline-width) solid var(--_outline-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-size="small"] {
+  border: var(--md-comp-icon-button-small-outline-width) solid var(--_outline-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-size="medium"] {
+  border: var(--md-comp-icon-button-medium-outline-width) solid var(--_outline-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-size="large"] {
+  border: var(--md-comp-icon-button-large-outline-width) solid var(--_outline-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-size="xlarge"] {
+  border: var(--md-comp-icon-button-xlarge-outline-width) solid var(--_outline-color);
+}
+
+/* --- STATE LAYER (hover/focus/press) ------------------------------------ */
+:host.simply-mat-icon-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--_state-layer-color);
+  opacity: var(--_state-layer-opacity, 0);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* STANDARD - Hovered */
+:host[data-sm-variant="standard"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-hovered-icon-color);
+}
+
+:host[data-sm-variant="standard"][data-sm-toggle="true"][data-sm-selected="false"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-hovered-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-hovered-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="standard"][data-sm-toggle="true"][data-sm-selected="true"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-hovered-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-hovered-icon-color-toggle-selected);
+}
+
+/* STANDARD - Focused */
+:host[data-sm-variant="standard"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-focused-icon-color);
+}
+
+:host[data-sm-variant="standard"][data-sm-toggle="true"][data-sm-selected="false"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-focused-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-focused-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="standard"][data-sm-toggle="true"][data-sm-selected="true"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-focused-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-focused-icon-color-toggle-selected);
+}
+
+/* STANDARD - Pressed */
+:host[data-sm-variant="standard"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-pressed-icon-color);
+}
+
+:host[data-sm-variant="standard"][data-sm-toggle="true"][data-sm-selected="false"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-pressed-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-pressed-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="standard"][data-sm-toggle="true"][data-sm-selected="true"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-pressed-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-pressed-icon-color-toggle-selected);
+}
+
+/* FILLED - Hovered */
+:host[data-sm-variant="filled"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-filled-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-filled-hovered-icon-color);
+}
+
+:host[data-sm-variant="filled"][data-sm-toggle="true"][data-sm-selected="false"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-hovered-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-filled-hovered-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="filled"][data-sm-toggle="true"][data-sm-selected="true"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-hovered-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-filled-hovered-icon-color-toggle-selected);
+}
+
+/* FILLED - Focused */
+:host[data-sm-variant="filled"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-filled-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-filled-focused-icon-color);
+}
+
+:host[data-sm-variant="filled"][data-sm-toggle="true"][data-sm-selected="false"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-focused-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-filled-focused-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="filled"][data-sm-toggle="true"][data-sm-selected="true"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-focused-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-filled-focused-icon-color-toggle-selected);
+}
+
+/* FILLED - Pressed */
+:host[data-sm-variant="filled"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-filled-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-filled-pressed-icon-color);
+}
+
+:host[data-sm-variant="filled"][data-sm-toggle="true"][data-sm-selected="false"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-pressed-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-filled-pressed-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="filled"][data-sm-toggle="true"][data-sm-selected="true"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-filled-pressed-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-filled-pressed-icon-color-toggle-selected);
+}
+
+/* TONAL - Hovered */
+:host[data-sm-variant="tonal"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-tonal-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-tonal-hovered-icon-color);
+}
+
+:host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="false"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-hovered-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-tonal-hovered-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="true"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-hovered-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-tonal-hovered-icon-color-toggle-selected);
+}
+
+/* TONAL - Focused */
+:host[data-sm-variant="tonal"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-tonal-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-tonal-focused-icon-color);
+}
+
+:host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="false"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-focused-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-tonal-focused-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="true"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-focused-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-tonal-focused-icon-color-toggle-selected);
+}
+
+/* TONAL - Pressed */
+:host[data-sm-variant="tonal"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-tonal-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-tonal-pressed-icon-color);
+}
+
+:host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="false"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-pressed-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-tonal-pressed-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="true"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-tonal-pressed-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-tonal-pressed-icon-color-toggle-selected);
+}
+
+/* OUTLINED - Hovered */
+:host[data-sm-variant="outlined"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-outlined-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-outlined-hovered-icon-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="false"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-hovered-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-outlined-hovered-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="true"]:hover:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-hovered-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-outlined-hovered-icon-color-toggle-selected);
+}
+
+/* OUTLINED - Focused */
+:host[data-sm-variant="outlined"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-outlined-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-outlined-focused-icon-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="false"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-focused-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-outlined-focused-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="true"]:focus-visible:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-focused-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-outlined-focused-icon-color-toggle-selected);
+}
+
+/* OUTLINED - Pressed */
+:host[data-sm-variant="outlined"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-icon-button-outlined-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-icon-button-outlined-pressed-icon-color);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="false"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-pressed-state-layer-color-toggle-unselected);
+  --_icon-color: var(--md-comp-icon-button-outlined-pressed-icon-color-toggle-unselected);
+}
+
+:host[data-sm-variant="outlined"][data-sm-toggle="true"][data-sm-selected="true"]:active:not([disabled]):not([aria-disabled="true"]) {
+  --_state-layer-color: var(--md-comp-icon-button-outlined-pressed-state-layer-color-toggle-selected);
+  --_icon-color: var(--md-comp-icon-button-outlined-pressed-icon-color-toggle-selected);
+}
+
+/* --- STANDARD BUTTON GROUP: motion + width for icon buttons ------------- */
+
+/* XSmall */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="standard"][data-sm-size="xsmall"]).simply-mat-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-xsmall-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-xsmall-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-xsmall-pressed-motion-spring-stiffness);
+}
+
+/* Small */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="standard"][data-sm-size="small"]).simply-mat-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-small-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-small-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-small-pressed-motion-spring-stiffness);
+}
+
+/* Medium */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="standard"][data-sm-size="medium"]).simply-mat-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-medium-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-medium-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-medium-pressed-motion-spring-stiffness);
+}
+
+/* Large */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="standard"][data-sm-size="large"]).simply-mat-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-large-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-large-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-large-pressed-motion-spring-stiffness);
+}
+
+/* XLarge */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="standard"][data-sm-size="xlarge"]).simply-mat-icon-button {
+  --sm-button-group-pressed-width-multiplier: var(--md-comp-button-group-xlarge-pressed-width-multiplier);
+  --sm-button-group-pressed-spring-damping: var(--md-comp-button-group-xlarge-pressed-motion-spring-dampening);
+  --sm-button-group-pressed-spring-stiffness: var(--md-comp-button-group-xlarge-pressed-motion-spring-stiffness);
+}
+
+/* --- CONNECTED BUTTON GROUP: shape overrides ------------------------------ */
+/* First Child */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)).simply-mat-icon-button:first-child {
+  /* XSmall */
+  --sm-comp-icon-button-connected-xsmall-shape-round:
+    var(--md-comp-icon-button-xsmall-container-shape-round)
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size)
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size)
+    var(--md-comp-icon-button-xsmall-container-shape-round);
+  --sm-comp-icon-button-connected-xsmall-shape-square:
+    var(--md-comp-icon-button-xsmall-container-shape-square)
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size)
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size)
+    var(--md-comp-icon-button-xsmall-container-shape-square);
+  --sm-comp-icon-button-connected-xsmall-shape-pressed-morph:
+    var(--md-comp-icon-button-xsmall-shape-pressed-morph)
+    var(--md-comp-button-group-connected-xsmall-pressed-inner-corner-size)
+    var(--md-comp-button-group-connected-xsmall-pressed-inner-corner-size)
+    var(--md-comp-icon-button-xsmall-shape-pressed-morph);
+  --sm-comp-icon-button-connected-xsmall-selected-container-shape-round:
+    var(--md-comp-button-group-connected-xsmall-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-selected-container-shape-square:
+    var(--md-comp-button-group-connected-xsmall-selected-inner-corner-size);
+
+  /* Small */
+  --sm-comp-icon-button-connected-small-shape-round:
+    var(--md-comp-icon-button-small-container-shape-round)
+    var(--md-comp-button-group-connected-small-inner-corner-size)
+    var(--md-comp-button-group-connected-small-inner-corner-size)
+    var(--md-comp-icon-button-small-container-shape-round);
+  --sm-comp-icon-button-connected-small-shape-square:
+    var(--md-comp-icon-button-small-container-shape-square)
+    var(--md-comp-button-group-connected-small-inner-corner-size)
+    var(--md-comp-button-group-connected-small-inner-corner-size)
+    var(--md-comp-icon-button-small-container-shape-square);
+  --sm-comp-icon-button-connected-small-shape-pressed-morph:
+    var(--md-comp-icon-button-small-shape-pressed-morph)
+    var(--md-comp-button-group-connected-small-pressed-inner-corner-size)
+    var(--md-comp-button-group-connected-small-pressed-inner-corner-size)
+    var(--md-comp-icon-button-small-shape-pressed-morph);
+  --sm-comp-icon-button-connected-small-selected-container-shape-round:
+    var(--md-comp-button-group-connected-small-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-small-selected-container-shape-square:
+    var(--md-comp-button-group-connected-small-selected-inner-corner-size);
+
+  /* Medium */
+  --sm-comp-icon-button-connected-medium-shape-round:
+    var(--md-comp-icon-button-medium-container-shape-round)
+    var(--md-comp-button-group-connected-medium-inner-corner-size)
+    var(--md-comp-button-group-connected-medium-inner-corner-size)
+    var(--md-comp-icon-button-medium-container-shape-round);
+  --sm-comp-icon-button-connected-medium-shape-square:
+    var(--md-comp-icon-button-medium-container-shape-square)
+    var(--md-comp-button-group-connected-medium-inner-corner-size)
+    var(--md-comp-button-group-connected-medium-inner-corner-size)
+    var(--md-comp-icon-button-medium-container-shape-square);
+  --sm-comp-icon-button-connected-medium-shape-pressed-morph:
+    var(--md-comp-icon-button-medium-shape-pressed-morph)
+    var(--md-comp-button-group-connected-medium-pressed-inner-corner-size)
+    var(--md-comp-button-group-connected-medium-pressed-inner-corner-size)
+    var(--md-comp-icon-button-medium-shape-pressed-morph);
+  --sm-comp-icon-button-connected-medium-selected-container-shape-round:
+    var(--md-comp-button-group-connected-medium-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-selected-container-shape-square:
+    var(--md-comp-button-group-connected-medium-selected-inner-corner-size);
+
+  /* Large */
+  --sm-comp-icon-button-connected-large-shape-round:
+    var(--md-comp-icon-button-large-container-shape-round)
+    var(--md-comp-button-group-connected-large-inner-corner-size)
+    var(--md-comp-button-group-connected-large-inner-corner-size)
+    var(--md-comp-icon-button-large-container-shape-round);
+  --sm-comp-icon-button-connected-large-shape-square:
+    var(--md-comp-icon-button-large-container-shape-square)
+    var(--md-comp-button-group-connected-large-inner-corner-size)
+    var(--md-comp-button-group-connected-large-inner-corner-size)
+    var(--md-comp-icon-button-large-container-shape-square);
+  --sm-comp-icon-button-connected-large-shape-pressed-morph:
+    var(--md-comp-icon-button-large-shape-pressed-morph)
+    var(--md-comp-button-group-connected-large-pressed-inner-corner-size)
+    var(--md-comp-button-group-connected-large-pressed-inner-corner-size)
+    var(--md-comp-icon-button-large-shape-pressed-morph);
+  --sm-comp-icon-button-connected-large-selected-container-shape-round:
+    var(--md-comp-button-group-connected-large-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-large-selected-container-shape-square:
+    var(--md-comp-button-group-connected-large-selected-inner-corner-size);
+
+  /* XLarge */
+  --sm-comp-icon-button-connected-xlarge-shape-round:
+    var(--md-comp-icon-button-xlarge-container-shape-round)
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size)
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size)
+    var(--md-comp-icon-button-xlarge-container-shape-round);
+  --sm-comp-icon-button-connected-xlarge-shape-square:
+    var(--md-comp-icon-button-xlarge-container-shape-square)
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size)
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size)
+    var(--md-comp-icon-button-xlarge-container-shape-square);
+  --sm-comp-icon-button-connected-xlarge-shape-pressed-morph:
+    var(--md-comp-icon-button-xlarge-shape-pressed-morph)
+    var(--md-comp-button-group-connected-xlarge-pressed-inner-corner-size)
+    var(--md-comp-button-group-connected-xlarge-pressed-inner-corner-size)
+    var(--md-comp-icon-button-xlarge-shape-pressed-morph);
+  --sm-comp-icon-button-connected-xlarge-selected-container-shape-round:
+    var(--md-comp-button-group-connected-xlarge-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-selected-container-shape-square:
+    var(--md-comp-button-group-connected-xlarge-selected-inner-corner-size);
+}
+
+/* Middle Buttons */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)).simply-mat-icon-button:not(:first-child):not(:last-child) {
+  /* XSmall */
+  --sm-comp-icon-button-connected-xsmall-shape-round:
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-shape-square:
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-shape-pressed-morph:
+    var(--md-comp-button-group-connected-xsmall-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-selected-container-shape-round:
+    var(--md-comp-button-group-connected-xsmall-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-selected-container-shape-square:
+    var(--md-comp-button-group-connected-xsmall-selected-inner-corner-size);
+
+  /* Small */
+  --sm-comp-icon-button-connected-small-shape-round:
+    var(--md-comp-button-group-connected-small-inner-corner-size);
+  --sm-comp-icon-button-connected-small-shape-square:
+    var(--md-comp-button-group-connected-small-inner-corner-size);
+  --sm-comp-icon-button-connected-small-shape-pressed-morph:
+    var(--md-comp-button-group-connected-small-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-small-selected-container-shape-round:
+    var(--md-comp-button-group-connected-small-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-small-selected-container-shape-square:
+    var(--md-comp-button-group-connected-small-selected-inner-corner-size);
+
+  /* Medium */
+  --sm-comp-icon-button-connected-medium-shape-round:
+    var(--md-comp-button-group-connected-medium-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-shape-square:
+    var(--md-comp-button-group-connected-medium-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-shape-pressed-morph:
+    var(--md-comp-button-group-connected-medium-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-selected-container-shape-round:
+    var(--md-comp-button-group-connected-medium-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-selected-container-shape-square:
+    var(--md-comp-button-group-connected-medium-selected-inner-corner-size);
+
+  /* Large */
+  --sm-comp-icon-button-connected-large-shape-round:
+    var(--md-comp-button-group-connected-large-inner-corner-size);
+  --sm-comp-icon-button-connected-large-shape-square:
+    var(--md-comp-button-group-connected-large-inner-corner-size);
+  --sm-comp-icon-button-connected-large-shape-pressed-morph:
+    var(--md-comp-button-group-connected-large-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-large-selected-container-shape-round:
+    var(--md-comp-button-group-connected-large-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-large-selected-container-shape-square:
+    var(--md-comp-button-group-connected-large-selected-inner-corner-size);
+
+  /* XLarge */
+  --sm-comp-icon-button-connected-xlarge-shape-round:
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-shape-square:
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-shape-pressed-morph:
+    var(--md-comp-button-group-connected-xlarge-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-selected-container-shape-round:
+    var(--md-comp-button-group-connected-xlarge-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-selected-container-shape-square:
+    var(--md-comp-button-group-connected-xlarge-selected-inner-corner-size);
+}
+
+/* Last Child */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)).simply-mat-icon-button:last-child {
+  /* XSmall */
+  --sm-comp-icon-button-connected-xsmall-shape-round:
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size)
+    var(--md-comp-icon-button-xsmall-container-shape-round)
+    var(--md-comp-icon-button-xsmall-container-shape-round)
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-shape-square:
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size)
+    var(--md-comp-icon-button-xsmall-container-shape-square)
+    var(--md-comp-icon-button-xsmall-container-shape-square)
+    var(--md-comp-button-group-connected-xsmall-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-shape-pressed-morph:
+    var(--md-comp-button-group-connected-xsmall-pressed-inner-corner-size)
+    var(--md-comp-icon-button-xsmall-shape-pressed-morph)
+    var(--md-comp-icon-button-xsmall-shape-pressed-morph)
+    var(--md-comp-button-group-connected-xsmall-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-selected-container-shape-round:
+    var(--md-comp-button-group-connected-xsmall-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-selected-container-shape-square:
+    var(--md-comp-button-group-connected-xsmall-selected-inner-corner-size);
+
+  /* Small */
+  --sm-comp-icon-button-connected-small-shape-round:
+    var(--md-comp-button-group-connected-small-inner-corner-size)
+    var(--md-comp-icon-button-small-container-shape-round)
+    var(--md-comp-icon-button-small-container-shape-round)
+    var(--md-comp-button-group-connected-small-inner-corner-size);
+  --sm-comp-icon-button-connected-small-shape-square:
+    var(--md-comp-button-group-connected-small-inner-corner-size)
+    var(--md-comp-icon-button-small-container-shape-square)
+    var(--md-comp-icon-button-small-container-shape-square)
+    var(--md-comp-button-group-connected-small-inner-corner-size);
+  --sm-comp-icon-button-connected-small-shape-pressed-morph:
+    var(--md-comp-button-group-connected-small-pressed-inner-corner-size)
+    var(--md-comp-icon-button-small-shape-pressed-morph)
+    var(--md-comp-icon-button-small-shape-pressed-morph)
+    var(--md-comp-button-group-connected-small-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-small-selected-container-shape-round:
+    var(--md-comp-button-group-connected-small-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-small-selected-container-shape-square:
+    var(--md-comp-button-group-connected-small-selected-inner-corner-size);
+
+  /* Medium */
+  --sm-comp-icon-button-connected-medium-shape-round:
+    var(--md-comp-button-group-connected-medium-inner-corner-size)
+    var(--md-comp-icon-button-medium-container-shape-round)
+    var(--md-comp-icon-button-medium-container-shape-round)
+    var(--md-comp-button-group-connected-medium-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-shape-square:
+    var(--md-comp-button-group-connected-medium-inner-corner-size)
+    var(--md-comp-icon-button-medium-container-shape-square)
+    var(--md-comp-icon-button-medium-container-shape-square)
+    var(--md-comp-button-group-connected-medium-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-shape-pressed-morph:
+    var(--md-comp-button-group-connected-medium-pressed-inner-corner-size)
+    var(--md-comp-icon-button-medium-shape-pressed-morph)
+    var(--md-comp-icon-button-medium-shape-pressed-morph)
+    var(--md-comp-button-group-connected-medium-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-selected-container-shape-round:
+    var(--md-comp-button-group-connected-medium-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-selected-container-shape-square:
+    var(--md-comp-button-group-connected-medium-selected-inner-corner-size);
+
+  /* Large */
+  --sm-comp-icon-button-connected-large-shape-round:
+    var(--md-comp-button-group-connected-large-inner-corner-size)
+    var(--md-comp-icon-button-large-container-shape-round)
+    var(--md-comp-icon-button-large-container-shape-round)
+    var(--md-comp-button-group-connected-large-inner-corner-size);
+  --sm-comp-icon-button-connected-large-shape-square:
+    var(--md-comp-button-group-connected-large-inner-corner-size)
+    var(--md-comp-icon-button-large-container-shape-square)
+    var(--md-comp-icon-button-large-container-shape-square)
+    var(--md-comp-button-group-connected-large-inner-corner-size);
+  --sm-comp-icon-button-connected-large-shape-pressed-morph:
+    var(--md-comp-button-group-connected-large-pressed-inner-corner-size)
+    var(--md-comp-icon-button-large-shape-pressed-morph)
+    var(--md-comp-icon-button-large-shape-pressed-morph)
+    var(--md-comp-button-group-connected-large-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-large-selected-container-shape-round:
+    var(--md-comp-button-group-connected-large-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-large-selected-container-shape-square:
+    var(--md-comp-button-group-connected-large-selected-inner-corner-size);
+
+  /* XLarge */
+  --sm-comp-icon-button-connected-xlarge-shape-round:
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size)
+    var(--md-comp-icon-button-xlarge-container-shape-round)
+    var(--md-comp-icon-button-xlarge-container-shape-round)
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-shape-square:
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size)
+    var(--md-comp-icon-button-xlarge-container-shape-square)
+    var(--md-comp-icon-button-xlarge-container-shape-square)
+    var(--md-comp-button-group-connected-xlarge-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-shape-pressed-morph:
+    var(--md-comp-button-group-connected-xlarge-pressed-inner-corner-size)
+    var(--md-comp-icon-button-xlarge-shape-pressed-morph)
+    var(--md-comp-icon-button-xlarge-shape-pressed-morph)
+    var(--md-comp-button-group-connected-xlarge-pressed-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-selected-container-shape-round:
+    var(--md-comp-button-group-connected-xlarge-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-selected-container-shape-square:
+    var(--md-comp-button-group-connected-xlarge-selected-inner-corner-size);
+}
+
+/* Only Child */
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)).simply-mat-icon-button:only-child {
+  /* XSmall */
+  --sm-comp-icon-button-connected-xsmall-shape-round:
+    var(--md-comp-icon-button-xsmall-container-shape-round);
+  --sm-comp-icon-button-connected-xsmall-shape-square:
+    var(--md-comp-icon-button-xsmall-container-shape-square);
+  --sm-comp-icon-button-connected-xsmall-shape-pressed-morph:
+    var(--md-comp-icon-button-xsmall-shape-pressed-morph);
+  --sm-comp-icon-button-connected-xsmall-selected-container-shape-round:
+    var(--md-comp-button-group-connected-xsmall-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-xsmall-selected-container-shape-square:
+    var(--md-comp-button-group-connected-xsmall-selected-inner-corner-size);
+
+  /* Small */
+  --sm-comp-icon-button-connected-small-shape-round:
+    var(--md-comp-icon-button-small-container-shape-round);
+  --sm-comp-icon-button-connected-small-shape-square:
+    var(--md-comp-icon-button-small-container-shape-square);
+  --sm-comp-icon-button-connected-small-shape-pressed-morph:
+    var(--md-comp-icon-button-small-shape-pressed-morph);
+  --sm-comp-icon-button-connected-small-selected-container-shape-round:
+    var(--md-comp-button-group-connected-small-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-small-selected-container-shape-square:
+    var(--md-comp-button-group-connected-small-selected-inner-corner-size);
+
+  /* Medium */
+  --sm-comp-icon-button-connected-medium-shape-round:
+    var(--md-comp-icon-button-medium-container-shape-round);
+  --sm-comp-icon-button-connected-medium-shape-square:
+    var(--md-comp-icon-button-medium-container-shape-square);
+  --sm-comp-icon-button-connected-medium-shape-pressed-morph:
+    var(--md-comp-icon-button-medium-shape-pressed-morph);
+  --sm-comp-icon-button-connected-medium-selected-container-shape-round:
+    var(--md-comp-button-group-connected-medium-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-medium-selected-container-shape-square:
+    var(--md-comp-button-group-connected-medium-selected-inner-corner-size);
+
+  /* Large */
+  --sm-comp-icon-button-connected-large-shape-round:
+    var(--md-comp-icon-button-large-container-shape-round);
+  --sm-comp-icon-button-connected-large-shape-square:
+    var(--md-comp-icon-button-large-container-shape-square);
+  --sm-comp-icon-button-connected-large-shape-pressed-morph:
+    var(--md-comp-icon-button-large-shape-pressed-morph);
+  --sm-comp-icon-button-connected-large-selected-container-shape-round:
+    var(--md-comp-button-group-connected-large-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-large-selected-container-shape-square:
+    var(--md-comp-button-group-connected-large-selected-inner-corner-size);
+
+  /* XLarge */
+  --sm-comp-icon-button-connected-xlarge-shape-round:
+    var(--md-comp-icon-button-xlarge-container-shape-round);
+  --sm-comp-icon-button-connected-xlarge-shape-square:
+    var(--md-comp-icon-button-xlarge-container-shape-square);
+  --sm-comp-icon-button-connected-xlarge-shape-pressed-morph:
+    var(--md-comp-icon-button-xlarge-shape-pressed-morph);
+  --sm-comp-icon-button-connected-xlarge-selected-container-shape-round:
+    var(--md-comp-button-group-connected-xlarge-selected-inner-corner-size);
+  --sm-comp-icon-button-connected-xlarge-selected-container-shape-square:
+    var(--md-comp-button-group-connected-xlarge-selected-inner-corner-size);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="xsmall"]) .simply-mat-icon-button[data-sm-shape="round"] {
+  border-radius: var(--sm-comp-icon-button-connected-xsmall-shape-round);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="xsmall"]) .simply-mat-icon-button[data-sm-shape="square"] {
+  border-radius: var(--sm-comp-icon-button-connected-xsmall-shape-square);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="small"]) .simply-mat-icon-button[data-sm-shape="round"] {
+  border-radius: var(--sm-comp-icon-button-connected-small-shape-round);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="small"]) .simply-mat-icon-button[data-sm-shape="square"] {
+  border-radius: var(--sm-comp-icon-button-connected-small-shape-square);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="medium"]) .simply-mat-icon-button[data-sm-shape="round"] {
+  border-radius: var(--sm-comp-icon-button-connected-medium-shape-round);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="medium"]) .simply-mat-icon-button[data-sm-shape="square"] {
+  border-radius: var(--sm-comp-icon-button-connected-medium-shape-square);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="large"]) .simply-mat-icon-button[data-sm-shape="round"] {
+  border-radius: var(--sm-comp-icon-button-connected-large-shape-round);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="large"]) .simply-mat-icon-button[data-sm-shape="square"] {
+  border-radius: var(--sm-comp-icon-button-connected-large-shape-square);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="xlarge"]) .simply-mat-icon-button[data-sm-shape="round"] {
+  border-radius: var(--sm-comp-icon-button-connected-xlarge-shape-round);
+}
+
+:host-context(:is(simply-mat-button-group, simply-mat-button-group-selection)[data-sm-type="connected"][data-sm-size="xlarge"]) .simply-mat-icon-button[data-sm-shape="square"] {
+  border-radius: var(--sm-comp-icon-button-connected-xlarge-shape-square);
+}

@@ -23,7 +23,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/aria": "^21.0.0",
+    "@angular/aria": "^21.0.1",
     "@angular/cdk": "^21.0.0",
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
@@ -41,12 +41,14 @@
     "@angular/cli": "^21.0.0",
     "@angular/compiler-cli": "^21.0.0",
     "@types/jasmine": "~5.1.0",
+    "@vitest/browser-playwright": "^4.0.13",
     "@vitest/ui": "^4.0.13",
     "angular-eslint": "20.5.1",
     "eslint": "^9.38.0",
     "jasmine-core": "~5.9.0",
     "jsdom": "^27.1.0",
     "ng-packagr": "^21.0.0",
+    "playwright": "^1.56.1",
     "typescript": "~5.9.2",
     "typescript-eslint": "8.46.2",
     "vitest": "^4.0.13"

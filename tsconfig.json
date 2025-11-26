@@ -3,11 +3,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "paths": {
-      "@simply-material/components": [
-        "./projects/components/src/public-api.ts"
-      ]
-    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -28,9 +23,9 @@
     "strictTemplates": true
   },
   "files": [],
-  "references": [
-    {
-      "path": "./projects/demo/tsconfig.json"
-    }
-  ]
+//  "references": [
+//    {
+//      "path": "./projects/demo/tsconfig.json"
+//    }
+//  ]
 }
