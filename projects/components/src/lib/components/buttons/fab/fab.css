@@ -1,0 +1,287 @@
+/* Minimal, token-driven host styles. */
+
+/* Base reset */
+:host.simply-mat-fab {
+  --_container-color: transparent;
+  --_icon-color: currentColor;
+  --_state-layer-color: transparent;
+  --_state-layer-opacity: 0;
+  --_elevation-level: 0;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Sizing: height and width come from size tokens */
+  height: var(--md-comp-fab-container-height);
+  width: var(--md-comp-fab-container-width);
+
+  color: var(--_icon-color);
+  background-color: var(--_container-color);
+  border: none;
+  outline: none;
+  border-radius: var(--md-comp-fab-container-shape);
+
+  /* Elevation */
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-primary-container-shadow-color);
+}
+
+/* Focus ring */
+:host.simply-mat-fab:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+/* --- SIZES -------------------------------------------------------------- */
+:host[data-sm-size="small"] {
+  height: var(--md-comp-fab-container-height);
+  width: var(--md-comp-fab-container-width);
+  border-radius: var(--md-comp-fab-container-shape);
+
+  --sm-icon-size: var(--md-comp-fab-icon-size);
+}
+
+:host[data-sm-size="medium"] {
+  height: var(--md-comp-fab-medium-container-height);
+  width: var(--md-comp-fab-medium-container-width);
+  border-radius: var(--md-comp-fab-medium-container-shape);
+
+  --sm-icon-size: var(--md-comp-fab-medium-icon-size);
+}
+
+:host[data-sm-size="large"] {
+  height: var(--md-comp-fab-large-container-height);
+  width: var(--md-comp-fab-large-container-width);
+  border-radius: var(--md-comp-fab-large-container-shape);
+
+  --sm-icon-size: var(--md-comp-fab-large-icon-size);
+}
+
+/* --- COLOR VARIANTS (enabled content) ------------------------------------ */
+/* PRIMARY */
+:host[data-sm-color="primary"] {
+  --_container-color: var(--md-comp-fab-primary-container-color);
+  --_icon-color: var(--md-comp-fab-primary-icon-color);
+  --_elevation-level: var(--md-comp-fab-primary-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-primary-container-shadow-color);
+}
+
+/* SECONDARY */
+:host[data-sm-color="secondary"] {
+  --_container-color: var(--md-comp-fab-secondary-container-color);
+  --_icon-color: var(--md-comp-fab-secondary-icon-color);
+  --_elevation-level: var(--md-comp-fab-secondary-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-secondary-container-shadow-color);
+}
+
+/* TERTIARY */
+:host[data-sm-color="tertiary"] {
+  --_container-color: var(--md-comp-fab-tertiary-container-color);
+  --_icon-color: var(--md-comp-fab-tertiary-icon-color);
+  --_elevation-level: var(--md-comp-fab-tertiary-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tertiary-container-shadow-color);
+}
+
+/* --- STATE LAYER (hover/focus/press) ------------------------------------ */
+:host.simply-mat-fab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--_state-layer-color);
+  opacity: var(--_state-layer-opacity, 0);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* PRIMARY - Hovered */
+:host[data-sm-color="primary"]:hover {
+  --_state-layer-color: var(--md-comp-fab-primary-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-primary-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-primary-hovered-icon-color);
+  --_elevation-level: var(--md-comp-fab-primary-hovered-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-primary-container-shadow-color);
+}
+
+/* PRIMARY - Focused */
+:host[data-sm-color="primary"]:focus-visible {
+  --_state-layer-color: var(--md-comp-fab-primary-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-primary-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-primary-focused-icon-color);
+  --_elevation-level: var(--md-comp-fab-primary-focused-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-primary-container-shadow-color);
+}
+
+/* PRIMARY - Pressed */
+:host[data-sm-color="primary"]:active {
+  --_state-layer-color: var(--md-comp-fab-primary-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-primary-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-primary-pressed-icon-color);
+  --_elevation-level: var(--md-comp-fab-primary-pressed-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-primary-container-shadow-color);
+}
+
+/* SECONDARY - Hovered */
+:host[data-sm-color="secondary"]:hover {
+  --_state-layer-color: var(--md-comp-fab-secondary-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-secondary-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-secondary-hovered-icon-color);
+  --_elevation-level: var(--md-comp-fab-secondary-hovered-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-secondary-container-shadow-color);
+}
+
+/* SECONDARY - Focused */
+:host[data-sm-color="secondary"]:focus-visible {
+  --_state-layer-color: var(--md-comp-fab-secondary-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-secondary-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-secondary-focused-icon-color);
+  --_elevation-level: var(--md-comp-fab-secondary-focused-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-secondary-container-shadow-color);
+}
+
+/* SECONDARY - Pressed */
+:host[data-sm-color="secondary"]:active {
+  --_state-layer-color: var(--md-comp-fab-secondary-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-secondary-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-secondary-pressed-icon-color);
+  --_elevation-level: var(--md-comp-fab-secondary-pressed-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-secondary-container-shadow-color);
+}
+
+/* TERTIARY - Hovered */
+:host[data-sm-color="tertiary"]:hover {
+  --_state-layer-color: var(--md-comp-fab-tertiary-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tertiary-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tertiary-hovered-icon-color);
+  --_elevation-level: var(--md-comp-fab-tertiary-hovered-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tertiary-container-shadow-color);
+}
+
+/* TERTIARY - Focused */
+:host[data-sm-color="tertiary"]:focus-visible {
+  --_state-layer-color: var(--md-comp-fab-tertiary-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tertiary-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tertiary-focused-icon-color);
+  --_elevation-level: var(--md-comp-fab-tertiary-focused-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tertiary-container-shadow-color);
+}
+
+/* TERTIARY - Pressed */
+:host[data-sm-color="tertiary"]:active {
+  --_state-layer-color: var(--md-comp-fab-tertiary-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tertiary-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tertiary-pressed-icon-color);
+  --_elevation-level: var(--md-comp-fab-tertiary-pressed-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tertiary-container-shadow-color);
+}
+
+/* --- TONAL COLOR VARIANTS (enabled content) -------------------------------- */
+/* TONAL PRIMARY */
+:host[data-sm-color="primary"][data-sm-tonal] {
+  --_container-color: var(--md-comp-fab-tonal-primary-container-color);
+  --_icon-color: var(--md-comp-fab-tonal-primary-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-primary-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-primary-container-shadow-color);
+}
+
+/* TONAL SECONDARY */
+:host[data-sm-color="secondary"][data-sm-tonal] {
+  --_container-color: var(--md-comp-fab-tonal-secondary-container-color);
+  --_icon-color: var(--md-comp-fab-tonal-secondary-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-secondary-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-secondary-container-shadow-color);
+}
+
+/* TONAL TERTIARY */
+:host[data-sm-color="tertiary"][data-sm-tonal] {
+  --_container-color: var(--md-comp-fab-tonal-tertiary-container-color);
+  --_icon-color: var(--md-comp-fab-tonal-tertiary-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-tertiary-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-tertiary-container-shadow-color);
+}
+
+/* --- TONAL STATE LAYER (hover/focus/press) ---------------------------------- */
+/* TONAL PRIMARY - Hovered */
+:host[data-sm-color="primary"][data-sm-tonal]:hover {
+  --_state-layer-color: var(--md-comp-fab-tonal-primary-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-primary-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-primary-hovered-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-primary-hovered-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-primary-container-shadow-color);
+}
+
+/* TONAL PRIMARY - Focused */
+:host[data-sm-color="primary"][data-sm-tonal]:focus-visible {
+  --_state-layer-color: var(--md-comp-fab-tonal-primary-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-primary-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-primary-focused-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-primary-focused-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-primary-container-shadow-color);
+}
+
+/* TONAL PRIMARY - Pressed */
+:host[data-sm-color="primary"][data-sm-tonal]:active {
+  --_state-layer-color: var(--md-comp-fab-tonal-primary-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-primary-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-primary-pressed-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-primary-pressed-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-primary-container-shadow-color);
+}
+
+/* TONAL SECONDARY - Hovered */
+:host[data-sm-color="secondary"][data-sm-tonal]:hover {
+  --_state-layer-color: var(--md-comp-fab-tonal-secondary-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-secondary-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-secondary-hovered-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-secondary-hovered-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-secondary-container-shadow-color);
+}
+
+/* TONAL SECONDARY - Focused */
+:host[data-sm-color="secondary"][data-sm-tonal]:focus-visible {
+  --_state-layer-color: var(--md-comp-fab-tonal-secondary-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-secondary-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-secondary-focused-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-secondary-focused-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-secondary-container-shadow-color);
+}
+
+/* TONAL SECONDARY - Pressed */
+:host[data-sm-color="secondary"][data-sm-tonal]:active {
+  --_state-layer-color: var(--md-comp-fab-tonal-secondary-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-secondary-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-secondary-pressed-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-secondary-pressed-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-secondary-container-shadow-color);
+}
+
+/* TONAL TERTIARY - Hovered */
+:host[data-sm-color="tertiary"][data-sm-tonal]:hover {
+  --_state-layer-color: var(--md-comp-fab-tonal-tertiary-hovered-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-tertiary-hovered-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-tertiary-hovered-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-tertiary-hovered-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-tertiary-container-shadow-color);
+}
+
+/* TONAL TERTIARY - Focused */
+:host[data-sm-color="tertiary"][data-sm-tonal]:focus-visible {
+  --_state-layer-color: var(--md-comp-fab-tonal-tertiary-focused-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-tertiary-focused-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-tertiary-focused-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-tertiary-focused-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-tertiary-container-shadow-color);
+}
+
+/* TONAL TERTIARY - Pressed */
+:host[data-sm-color="tertiary"][data-sm-tonal]:active {
+  --_state-layer-color: var(--md-comp-fab-tonal-tertiary-pressed-state-layer-color);
+  --_state-layer-opacity: var(--md-comp-fab-tonal-tertiary-pressed-state-layer-opacity);
+  --_icon-color: var(--md-comp-fab-tonal-tertiary-pressed-icon-color);
+  --_elevation-level: var(--md-comp-fab-tonal-tertiary-pressed-container-elevation);
+  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-fab-tonal-tertiary-container-shadow-color);
+}
+

@@ -30,6 +30,18 @@
     --md-comp-fab-tonal-primary-icon-color: var(
       --md-sys-color-on-primary-container
     );
+    --md-comp-fab-tonal-primary-hovered-container-elevation: var(
+      --md-sys-elevation-level4
+    );
+    --md-comp-fab-tonal-primary-hovered-state-layer-color: var(
+      --md-sys-color-on-primary-container
+    );
+    --md-comp-fab-tonal-primary-hovered-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-fab-tonal-primary-hovered-icon-color: var(
+      --md-sys-color-on-primary-container
+    );
     --md-comp-fab-tonal-primary-focused-container-elevation: var(
       --md-sys-elevation-level3
     );
@@ -64,6 +76,18 @@
       --md-sys-elevation-level3
     );
     --md-comp-fab-tonal-secondary-icon-color: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-fab-tonal-secondary-hovered-container-elevation: var(
+      --md-sys-elevation-level4
+    );
+    --md-comp-fab-tonal-secondary-hovered-state-layer-color: var(
+      --md-sys-color-on-secondary-container
+    );
+    --md-comp-fab-tonal-secondary-hovered-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-fab-tonal-secondary-hovered-icon-color: var(
       --md-sys-color-on-secondary-container
     );
     --md-comp-fab-tonal-secondary-focused-container-elevation: var(
@@ -102,6 +126,18 @@
     --md-comp-fab-tonal-tertiary-icon-color: var(
       --md-sys-color-on-tertiary-container
     );
+    --md-comp-fab-tonal-tertiary-hovered-container-elevation: var(
+      --md-sys-elevation-level4
+    );
+    --md-comp-fab-tonal-tertiary-hovered-state-layer-color: var(
+      --md-sys-color-on-tertiary-container
+    );
+    --md-comp-fab-tonal-tertiary-hovered-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-fab-tonal-tertiary-hovered-icon-color: var(
+      --md-sys-color-on-tertiary-container
+    );
     --md-comp-fab-tonal-tertiary-focused-container-elevation: var(
       --md-sys-elevation-level3
     );
@@ -130,6 +166,16 @@
     --md-comp-fab-primary-container-shadow-color: var(--md-sys-color-shadow);
     --md-comp-fab-primary-container-elevation: var(--md-sys-elevation-level3);
     --md-comp-fab-primary-icon-color: var(--md-sys-color-on-primary);
+    --md-comp-fab-primary-hovered-container-elevation: var(
+      --md-sys-elevation-level4
+    );
+    --md-comp-fab-primary-hovered-state-layer-color: var(
+      --md-sys-color-on-primary
+    );
+    --md-comp-fab-primary-hovered-state-layer-opacity: var(
+      --md-sys-state-hover-state-layer-opacity
+    );
+    --md-comp-fab-primary-hovered-icon-color: var(--md-sys-color-on-primary);
     --md-comp-fab-primary-focused-container-elevation: var(
       --md-sys-elevation-level3
     );

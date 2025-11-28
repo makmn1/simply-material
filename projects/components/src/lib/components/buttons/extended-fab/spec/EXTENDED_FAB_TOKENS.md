@@ -131,13 +131,13 @@
 | Extended FAB tonal tertiary container icon color   | `md.sys.color.on-tertiary-container` |
 
 ### Hovered
-| Name                                               | Value                                |
-|----------------------------------------------------|--------------------------------------|
-| Extended FAB tonal tertiary container color        | `md.sys.color.tertiary-container`    |
-| Extended FAB tonal tertiary container elevation    | `md.sys.elevation.level3`            |
-| Extended FAB tonal tertiary container shadow color | `md.sys.color.shadow`                |
-| Extended FAB tonal tertiary label text color       | `md.sys.color.on-tertiary-container` |
-| Extended FAB tonal tertiary container icon color   | `md.sys.color.on-tertiary-container` |
+| Name                                                    | Value                                    |
+|---------------------------------------------------------|------------------------------------------|
+| Extended FAB tonal tertiary hovered container elevation | `md.sys.elevation.level4`                |
+| Extended FAB tonal tertiary hovered state layer color   | `md.sys.color.on-tertiary-container`     |
+| Extended FAB tonal tertiary hovered state layer opacity | `md.sys.state.hover.state-layer-opacity` |
+| Extended FAB tonal tertiary hovered label text color    | `md.sys.color.on-tertiary-container`     |
+| Extended FAB tonal tertiary hovered icon color          | `md.sys.color.on-tertiary-container`     |
 
 ### Focused
 | Name                                                    | Value                                    |

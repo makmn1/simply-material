@@ -12,7 +12,7 @@
     --md-comp-split-button-xsmall-inner-corner-size: var(
       --md-sys-shape-corner-value-extra-small
     );
-    --md-comp-split-button-xsmall-outer-corner-size: 50%;
+    --md-comp-split-button-xsmall-outer-corner-size: 9999rem;
     --md-comp-split-button-xsmall-leading-button-leading-space: 0.75rem;
     --md-comp-split-button-xsmall-leading-button-trailing-space: 0.625rem;
     --md-comp-split-button-xsmall-trailing-button-icon-size: 1.375rem;
@@ -24,7 +24,7 @@
     --md-comp-split-button-xsmall-inner-corner-pressed-size: var(
       --md-sys-shape-corner-value-small
     );
-    --md-comp-split-button-xsmall-trailing-button-inner-corner-selected-size: 50%;
+    --md-comp-split-button-xsmall-trailing-button-inner-corner-selected-size: 9999rem;
     --md-comp-split-button-small-container-height: 2.5rem;
     --md-comp-split-button-small-between-space: 0.125rem;
     --md-comp-split-button-small-container-shape: var(
@@ -44,7 +44,7 @@
     --md-comp-split-button-small-inner-corner-pressed-size: var(
       --md-sys-shape-corner-value-medium
     );
-    --md-comp-split-button-small-trailing-button-inner-corner-selected-size: 50%;
+    --md-comp-split-button-small-trailing-button-inner-corner-selected-size: 9999rem;
     --md-comp-split-button-medium-container-height: 3.5rem;
     --md-comp-split-button-medium-between-space: 0.125rem;
     --md-comp-split-button-medium-container-shape: var(
@@ -64,7 +64,7 @@
     --md-comp-split-button-medium-inner-corner-pressed-size: var(
       --md-sys-shape-corner-value-medium
     );
-    --md-comp-split-button-medium-trailing-button-inner-corner-selected-size: 50%;
+    --md-comp-split-button-medium-trailing-button-inner-corner-selected-size: 9999rem;
     --md-comp-split-button-large-container-height: 6rem;
     --md-comp-split-button-large-between-space: 0.125rem;
     --md-comp-split-button-large-container-shape: var(
@@ -84,7 +84,7 @@
     --md-comp-split-button-large-inner-corner-pressed-size: var(
       --md-sys-shape-corner-value-large-increased
     );
-    --md-comp-split-button-large-trailing-button-inner-corner-selected-size: 50%;
+    --md-comp-split-button-large-trailing-button-inner-corner-selected-size: 9999rem;
     --md-comp-split-button-xlarge-container-height: 8.5rem;
     --md-comp-split-button-xlarge-between-space: 0.125rem;
     --md-comp-split-button-xlarge-container-shape: var(
@@ -104,6 +104,6 @@
     --md-comp-split-button-xlarge-inner-corner-pressed-size: var(
       --md-sys-shape-corner-value-large-increased
     );
-    --md-comp-split-button-xlarge-trailing-button-inner-corner-selected-size: 50%;
+    --md-comp-split-button-xlarge-trailing-button-inner-corner-selected-size: 9999rem;
   }
 }

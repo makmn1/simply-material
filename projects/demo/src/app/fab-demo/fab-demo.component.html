@@ -1,0 +1,114 @@
+<div class="demo-root">
+  <h1 class="demo-title">Material Design FAB and Extended FAB — Component Demo</h1>
+
+  <section class="section-card">
+    <h2 class="section-title">Color Control</h2>
+    <div class="color-control">
+      <label for="color-select" class="color-label">FAB Color:</label>
+      <select id="color-select" class="color-select" [value]="selectedColor()" (change)="selectedColor.set($any($event.target).value)">
+        @for (color of colors; track color) {
+          <option [value]="color">{{ color }}</option>
+        }
+      </select>
+    </div>
+    <div class="color-control">
+      <label for="tonal-checkbox" class="color-label">Tonal:</label>
+      <input type="checkbox" id="tonal-checkbox" [checked]="selectedTonal()" (change)="selectedTonal.set($any($event.target).checked)" />
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">FAB Sizes</h2>
+    <div class="fab-group">
+      @for (size of fabSizes; track size) {
+        <button simplyMatFab [size]="size" [color]="selectedColor()" [tonal]="selectedTonal()">
+          <simply-mat-icon>
+            <span class="material-symbols-rounded">add_2</span>
+          </simply-mat-icon>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Extended FAB Sizes</h2>
+    <div class="fab-group">
+      @for (size of extendedFabSizes; track size) {
+        <button simplyMatExtendedFab [size]="size" [color]="selectedColor()" [tonal]="selectedTonal()">
+          <simply-mat-icon>
+            <span class="material-symbols-rounded">add_2</span>
+          </simply-mat-icon>
+          <span>Create</span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">FAB with Different Icons</h2>
+    <div class="fab-group">
+      <button simplyMatFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">add_2</span>
+        </simply-mat-icon>
+      </button>
+      <button simplyMatFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">edit</span>
+        </simply-mat-icon>
+      </button>
+      <button simplyMatFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">favorite</span>
+        </simply-mat-icon>
+      </button>
+      <button simplyMatFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">share</span>
+        </simply-mat-icon>
+      </button>
+      <button simplyMatFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">settings</span>
+        </simply-mat-icon>
+      </button>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Extended FAB with Different Icons</h2>
+    <div class="fab-group">
+      <button simplyMatExtendedFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">add_2</span>
+        </simply-mat-icon>
+        <span>Create</span>
+      </button>
+      <button simplyMatExtendedFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">edit</span>
+        </simply-mat-icon>
+        <span>Edit</span>
+      </button>
+      <button simplyMatExtendedFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">favorite</span>
+        </simply-mat-icon>
+        <span>Favorite</span>
+      </button>
+      <button simplyMatExtendedFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">share</span>
+        </simply-mat-icon>
+        <span>Share</span>
+      </button>
+      <button simplyMatExtendedFab [color]="selectedColor()" [tonal]="selectedTonal()">
+        <simply-mat-icon>
+          <span class="material-symbols-rounded">settings</span>
+        </simply-mat-icon>
+        <span>Settings</span>
+      </button>
+    </div>
+  </section>
+</div>
+

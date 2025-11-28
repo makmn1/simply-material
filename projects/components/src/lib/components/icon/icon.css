@@ -1,0 +1,18 @@
+simply-mat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  color: var(--_icon-color, currentColor);
+  font-size: var(--sm-icon-size, 1.5rem);
+  inline-size: var(--sm-icon-size, 1.5rem);
+  block-size: var(--sm-icon-size, 1.5rem);
+}
+
+simply-mat-icon .material-symbols-rounded,
+simply-mat-icon .material-symbols-outlined,
+simply-mat-icon .material-symbols-sharp {
+  font-size: inherit;
+  line-height: 1;
+}
