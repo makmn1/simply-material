@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { describe, test, expect, beforeEach, afterEach } from 'vitest';
+import { describe, test, expect, beforeEach } from 'vitest';
 import { page } from 'vitest/browser';
 import { SimplyMatButton, ButtonVariant, ButtonSize, ButtonShape } from './button';
 import { ButtonBase } from '../core/button-base/button-base';
@@ -9,11 +9,24 @@ import { BUTTON_BASE_CONFIG } from '../core/button-base/button-base.token';
 
 @Component({
   template: `
+    <!-- Icon templates -->
+    <ng-template #iconTemplate>
+      <span class="material-symbols-rounded">add</span>
+    </ng-template>
+
     <!-- Basic button with default values -->
     <button
       data-testid="default-btn"
       simplyMatButton>
       Default Button
+    </button>
+
+    <!-- Button with icon template -->
+    <button
+      data-testid="button-with-icon"
+      simplyMatButton
+      [icon]="iconTemplate">
+      Button With Icon
     </button>
 
     <!-- Button with all variant types -->
@@ -226,6 +239,16 @@ export class ButtonPage {
   hasAttribute(testId: string, attr: string): boolean {
     const element = this.getElement(testId);
     return element ? element.hasAttribute(attr) : false;
+  }
+
+  getIconElement(testId: string): HTMLElement | null {
+    const buttonElement = this.getElement(testId);
+    if (!buttonElement) return null;
+    return buttonElement.querySelector('simply-mat-icon') as HTMLElement | null;
+  }
+
+  hasIconElement(testId: string): boolean {
+    return this.getIconElement(testId) !== null;
   }
 }
 
@@ -831,6 +854,27 @@ describe('SimplyMatButton', () => {
       await fixture.whenStable();
 
       expect(testPage.getAttribute('dynamic-btn', 'aria-pressed')).toBe('true');
+    });
+  });
+
+  describe('Icon Template Projection', () => {
+    test('should render simply-mat-icon element when icon template is provided', async () => {
+      await fixture.whenStable();
+      expect(testPage.hasIconElement('button-with-icon')).toBe(true);
+    });
+
+    test('should render icon template content inside simply-mat-icon element', async () => {
+      await fixture.whenStable();
+      const iconElement = testPage.getIconElement('button-with-icon');
+      expect(iconElement).toBeTruthy();
+
+      const materialSymbol = iconElement?.querySelector('.material-symbols-rounded');
+      expect(materialSymbol).toBeTruthy();
+      expect(materialSymbol?.textContent?.trim()).toBe('add');
+    });
+
+    test('should not render simply-mat-icon element when no icon template is provided', () => {
+      expect(testPage.hasIconElement('default-btn')).toBe(false);
     });
   });
 });

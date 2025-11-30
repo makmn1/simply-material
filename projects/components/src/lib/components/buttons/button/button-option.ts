@@ -7,10 +7,12 @@ import {
   BaseConfig, BUTTON_BASE_CONFIG,
 } from "../core/button-base/button-base.token";
 import {SimplyMatButton, ButtonShape} from './button';
+import {SimplyMatIcon} from '../../icon/icon';
+import {NgTemplateOutlet} from '@angular/common';
 
 @Component({
   selector: 'button[simplyMatButton][ngOption]',
-  template: `<ng-content/>`,
+  templateUrl: './button.html',
   styleUrls: ['./button.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
@@ -19,6 +21,7 @@ import {SimplyMatButton, ButtonShape} from './button';
   host: {
     'class': 'simply-mat-button',
   },
+  imports: [SimplyMatIcon, NgTemplateOutlet]
 })
 export class SimplyMatButtonOption extends SimplyMatButton {
   public override isSelected: WritableSignal<boolean> = signal<boolean>(false);

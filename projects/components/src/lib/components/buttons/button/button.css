@@ -70,6 +70,12 @@
   letter-spacing: var(--md-comp-button-xsmall-label-size-font-tracking);
 }
 
+:host[data-sm-size="xsmall"] simply-mat-icon {
+  font-size: var(--md-comp-button-xsmall-icon-size);
+  inline-size: var(--md-comp-button-xsmall-icon-size);
+  block-size: var(--md-comp-button-xsmall-icon-size);
+}
+
 :host[data-sm-size="small"] {
   height: var(--md-comp-button-small-container-height);
   padding-inline-start: var(--md-comp-button-small-leading-space);
@@ -81,6 +87,12 @@
   font-size: var(--md-comp-button-small-label-size-font-size);
   line-height: var(--md-comp-button-small-label-size-line-height);
   letter-spacing: var(--md-comp-button-small-label-size-font-tracking);
+}
+
+:host[data-sm-size="small"] simply-mat-icon {
+  font-size: var(--md-comp-button-small-icon-size);
+  inline-size: var(--md-comp-button-small-icon-size);
+  block-size: var(--md-comp-button-small-icon-size);
 }
 
 :host[data-sm-size="medium"] {
@@ -96,6 +108,12 @@
   letter-spacing: var(--md-comp-button-medium-label-size-font-tracking);
 }
 
+:host[data-sm-size="medium"] simply-mat-icon {
+  font-size: var(--md-comp-button-medium-icon-size);
+  inline-size: var(--md-comp-button-medium-icon-size);
+  block-size: var(--md-comp-button-medium-icon-size);
+}
+
 :host[data-sm-size="large"] {
   height: var(--md-comp-button-large-container-height);
   padding-inline-start: var(--md-comp-button-large-leading-space);
@@ -109,6 +127,12 @@
   letter-spacing: var(--md-comp-button-large-label-size-font-tracking);
 }
 
+:host[data-sm-size="large"] simply-mat-icon {
+  font-size: var(--md-comp-button-large-icon-size);
+  inline-size: var(--md-comp-button-large-icon-size);
+  block-size: var(--md-comp-button-large-icon-size);
+}
+
 :host[data-sm-size="xlarge"] {
   height: var(--md-comp-button-xlarge-container-height);
   padding-inline-start: var(--md-comp-button-xlarge-leading-space);
@@ -120,6 +144,12 @@
   font-size: var(--md-comp-button-xlarge-label-size-font-size);
   line-height: var(--md-comp-button-xlarge-label-size-line-height);
   letter-spacing: var(--md-comp-button-xlarge-label-size-font-tracking);
+}
+
+:host[data-sm-size="xlarge"] simply-mat-icon {
+  font-size: var(--md-comp-button-xlarge-icon-size);
+  inline-size: var(--md-comp-button-xlarge-icon-size);
+  block-size: var(--md-comp-button-xlarge-icon-size);
 }
 
 /* If resting shape is square */
@@ -215,10 +245,8 @@
   background-color: color-mix(in oklab, var(--md-comp-button-filled-disabled-container-color) calc(var(--md-comp-button-filled-disabled-container-opacity) * 100%), transparent);
 }
 
-:host[data-sm-variant="filled"][disabled] .sm-button__icon,
-:host[data-sm-variant="filled"][aria-disabled="true"] .sm-button__icon,
-:host[data-sm-variant="filled"][disabled] [smButtonIcon],
-:host[data-sm-variant="filled"][aria-disabled="true"] [smButtonIcon] {
+:host[data-sm-variant="filled"][disabled] simply-mat-icon,
+:host[data-sm-variant="filled"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-button-filled-disabled-icon-opacity);
 }
 
@@ -251,10 +279,8 @@
   background-color: color-mix(in oklab, var(--md-comp-button-elevated-disabled-container-color) calc(var(--md-comp-button-elevated-disabled-container-opacity) * 100%), transparent);
 }
 
-:host[data-sm-variant="elevated"][disabled] .sm-button__icon,
-:host[data-sm-variant="elevated"][aria-disabled="true"] .sm-button__icon,
-:host[data-sm-variant="elevated"][disabled] [smButtonIcon],
-:host[data-sm-variant="elevated"][aria-disabled="true"] [smButtonIcon] {
+:host[data-sm-variant="elevated"][disabled] simply-mat-icon,
+:host[data-sm-variant="elevated"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-button-elevated-disabled-icon-opacity);
 }
 
@@ -286,10 +312,8 @@
   background-color: color-mix(in oklab, var(--md-comp-button-tonal-disabled-container-color) calc(var(--md-comp-button-tonal-disabled-container-opacity) * 100%), transparent);
 }
 
-:host[data-sm-variant="tonal"][disabled] .sm-button__icon,
-:host[data-sm-variant="tonal"][aria-disabled="true"] .sm-button__icon,
-:host[data-sm-variant="tonal"][disabled] [smButtonIcon],
-:host[data-sm-variant="tonal"][aria-disabled="true"] [smButtonIcon] {
+:host[data-sm-variant="tonal"][disabled] simply-mat-icon,
+:host[data-sm-variant="tonal"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-button-tonal-disabled-icon-opacity);
 }
 
@@ -326,10 +350,8 @@
   background-color: color-mix(in oklab, var(--md-comp-button-outlined-disabled-container-color-selected) calc(var(--md-comp-button-outlined-disabled-container-opacity) * 100%), transparent);
 }
 
-:host[data-sm-variant="outlined"][disabled] .sm-button__icon,
-:host[data-sm-variant="outlined"][aria-disabled="true"] .sm-button__icon,
-:host[data-sm-variant="outlined"][disabled] [smButtonIcon],
-:host[data-sm-variant="outlined"][aria-disabled="true"] [smButtonIcon] {
+:host[data-sm-variant="outlined"][disabled] simply-mat-icon,
+:host[data-sm-variant="outlined"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-button-outlined-disabled-icon-opacity);
 }
 
@@ -347,10 +369,8 @@
   --_icon-color: var(--md-comp-button-text-disabled-icon-color);
 }
 
-:host[data-sm-variant="text"][disabled] .sm-button__icon,
-:host[data-sm-variant="text"][aria-disabled="true"] .sm-button__icon,
-:host[data-sm-variant="text"][disabled] [smButtonIcon],
-:host[data-sm-variant="text"][aria-disabled="true"] [smButtonIcon] {
+:host[data-sm-variant="text"][disabled] simply-mat-icon,
+:host[data-sm-variant="text"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-button-text-disabled-icon-opacity);
 }
 
@@ -552,12 +572,8 @@
   --_state-layer-opacity: var(--md-comp-button-text-pressed-state-layer-opacity);
 }
 
-/* --- ICON LEADING -------------------------------------------------------- */
-:host.simply-mat-button .sm-button__icon,
-:host.simply-mat-button [smButtonIcon] {
-  font-size: var(--md-comp-button-icon-size);
-  inline-size: var(--md-comp-button-icon-size);
-  block-size: var(--md-comp-button-icon-size);
+/* --- ICON LEADING DEFAULTS -------------------------------------------------------- */
+:host.simply-mat-button simply-mat-icon {
   color: var(--_icon-color);
 }
 

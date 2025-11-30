@@ -42,24 +42,34 @@
   <section class="section-card">
     <h2 class="section-title">With Icons</h2>
     <div class="button-group">
-      <button simplyMatButton variant="filled" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>favorite</span>
+      <button simplyMatButton variant="filled" [shape]="selectedShape()" [icon]="favoriteIcon">
+        <ng-template #favoriteIcon>
+          <span class="material-symbols-rounded simply-mat-icon">favorite</span>
+        </ng-template>
         Favorite
       </button>
-      <button simplyMatButton variant="elevated" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>share</span>
+      <button simplyMatButton variant="elevated" [shape]="selectedShape()" [icon]="shareIcon">
+        <ng-template #shareIcon>
+          <span class="material-symbols-rounded simply-mat-icon">share</span>
+        </ng-template>
         Share
       </button>
-      <button simplyMatButton variant="tonal" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>settings</span>
+      <button simplyMatButton variant="tonal" [shape]="selectedShape()" [icon]="settingsIcon">
+        <ng-template #settingsIcon>
+          <span class="material-symbols-rounded simply-mat-icon">settings</span>
+        </ng-template>
         Settings
       </button>
-      <button simplyMatButton variant="outlined" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>download</span>
+      <button simplyMatButton variant="outlined" [shape]="selectedShape()" [icon]="downloadIcon1">
+        <ng-template #downloadIcon1>
+          <span class="material-symbols-rounded simply-mat-icon">download</span>
+        </ng-template>
         Download
       </button>
-      <button simplyMatButton variant="text" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>edit</span>
+      <button simplyMatButton variant="text" [shape]="selectedShape()" [icon]="editIcon1">
+        <ng-template #editIcon1>
+          <span class="material-symbols-rounded simply-mat-icon">edit</span>
+        </ng-template>
         Edit
       </button>
     </div>
@@ -68,24 +78,70 @@
   <section class="section-card">
     <h2 class="section-title">Disabled With Icons</h2>
     <div class="button-group">
-      <button simplyMatButton [disabled]="true" variant="filled" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>favorite</span>
+      <button simplyMatButton [disabled]="true" variant="filled" [shape]="selectedShape()" [icon]="favoriteIconDisabled">
+        <ng-template #favoriteIconDisabled>
+          <span class="material-symbols-rounded simply-mat-icon">favorite</span>
+        </ng-template>
         Favorite
       </button>
-      <button simplyMatButton [disabled]="true" variant="elevated" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>share</span>
+      <button simplyMatButton [disabled]="true" variant="elevated" [shape]="selectedShape()" [icon]="shareIconDisabled">
+        <ng-template #shareIconDisabled>
+          <span class="material-symbols-rounded simply-mat-icon">share</span>
+        </ng-template>
         Share
       </button>
-      <button simplyMatButton [disabled]="true" variant="tonal" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>settings</span>
+      <button simplyMatButton [disabled]="true" variant="tonal" [shape]="selectedShape()" [icon]="settingsIconDisabled">
+        <ng-template #settingsIconDisabled>
+          <span class="material-symbols-rounded simply-mat-icon">settings</span>
+        </ng-template>
         Settings
       </button>
-      <button simplyMatButton [disabled]="true" variant="outlined" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>download</span>
+      <button simplyMatButton [disabled]="true" variant="outlined" [shape]="selectedShape()" [icon]="downloadIconDisabled">
+        <ng-template #downloadIconDisabled>
+          <span class="material-symbols-rounded simply-mat-icon">download</span>
+        </ng-template>
         Download
       </button>
-      <button simplyMatButton [disabled]="true" variant="text" [shape]="selectedShape()">
-        <span class="material-symbols-rounded" smButtonIcon>edit</span>
+      <button simplyMatButton [disabled]="true" variant="text" [shape]="selectedShape()" [icon]="editIconDisabled">
+        <ng-template #editIconDisabled>
+          <span class="material-symbols-rounded simply-mat-icon">edit</span>
+        </ng-template>
+        Edit
+      </button>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Sizes With Icons</h2>
+    <div class="button-group">
+      <button simplyMatButton variant="filled" size="xsmall" [shape]="selectedShape()" [icon]="favoriteIconXsmall">
+        <ng-template #favoriteIconXsmall>
+          <span class="material-symbols-rounded simply-mat-icon">favorite</span>
+        </ng-template>
+        Favorite
+      </button>
+      <button simplyMatButton variant="elevated" size="small" [shape]="selectedShape()" [icon]="shareIconSmall">
+        <ng-template #shareIconSmall>
+          <span class="material-symbols-rounded simply-mat-icon">share</span>
+        </ng-template>
+        Share
+      </button>
+      <button simplyMatButton variant="tonal" size="medium" [shape]="selectedShape()" [icon]="settingsIconMedium">
+        <ng-template #settingsIconMedium>
+          <span class="material-symbols-rounded simply-mat-icon">settings</span>
+        </ng-template>
+        Settings
+      </button>
+      <button simplyMatButton variant="outlined" size="large" [shape]="selectedShape()" [icon]="downloadIcon">
+        <ng-template #downloadIcon>
+          <span class="material-symbols-rounded simply-mat-icon">download</span>
+        </ng-template>
+        Download
+      </button>
+      <button simplyMatButton variant="text" size="xlarge" [shape]="selectedShape()" [icon]="editIcon">
+        <ng-template #editIcon>
+          <span class="material-symbols-rounded simply-mat-icon">edit</span>
+        </ng-template>
         Edit
       </button>
     </div>
