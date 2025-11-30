@@ -216,7 +216,7 @@
 }
 
 /* --- ICON SIZING -------------------------------------------------------- */
-:host[data-sm-size="xsmall"] ::ng-deep > * {
+:host[data-sm-size="xsmall"] simply-mat-icon {
   font-size: var(--md-comp-icon-button-xsmall-icon-size);
   inline-size: var(--md-comp-icon-button-xsmall-icon-size);
   block-size: var(--md-comp-icon-button-xsmall-icon-size);
@@ -226,7 +226,7 @@
   justify-content: center;
 }
 
-:host[data-sm-size="small"] ::ng-deep > * {
+:host[data-sm-size="small"] simply-mat-icon {
   font-size: var(--md-comp-icon-button-small-icon-size);
   inline-size: var(--md-comp-icon-button-small-icon-size);
   block-size: var(--md-comp-icon-button-small-icon-size);
@@ -236,7 +236,7 @@
   justify-content: center;
 }
 
-:host[data-sm-size="medium"] ::ng-deep > * {
+:host[data-sm-size="medium"] simply-mat-icon {
   font-size: var(--md-comp-icon-button-medium-icon-size);
   inline-size: var(--md-comp-icon-button-medium-icon-size);
   block-size: var(--md-comp-icon-button-medium-icon-size);
@@ -246,7 +246,7 @@
   justify-content: center;
 }
 
-:host[data-sm-size="large"] ::ng-deep > * {
+:host[data-sm-size="large"] simply-mat-icon {
   font-size: var(--md-comp-icon-button-large-icon-size);
   inline-size: var(--md-comp-icon-button-large-icon-size);
   block-size: var(--md-comp-icon-button-large-icon-size);
@@ -256,7 +256,7 @@
   justify-content: center;
 }
 
-:host[data-sm-size="xlarge"] ::ng-deep > * {
+:host[data-sm-size="xlarge"] simply-mat-icon {
   font-size: var(--md-comp-icon-button-xlarge-icon-size);
   inline-size: var(--md-comp-icon-button-xlarge-icon-size);
   block-size: var(--md-comp-icon-button-xlarge-icon-size);
@@ -287,8 +287,8 @@
   --_icon-color: var(--md-comp-icon-button-disabled-icon-color);
 }
 
-:host[data-sm-variant="standard"][disabled] ::ng-deep > *,
-:host[data-sm-variant="standard"][aria-disabled="true"] ::ng-deep > * {
+:host[data-sm-variant="standard"][disabled] simply-mat-icon,
+:host[data-sm-variant="standard"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-icon-button-disabled-opacity);
 }
 
@@ -316,8 +316,8 @@
   background-color: color-mix(in oklab, var(--md-comp-icon-button-filled-disabled-container-color) calc(var(--md-comp-icon-button-filled-disabled-container-opacity) * 100%), transparent);
 }
 
-:host[data-sm-variant="filled"][disabled] ::ng-deep > *,
-:host[data-sm-variant="filled"][aria-disabled="true"] ::ng-deep > * {
+:host[data-sm-variant="filled"][disabled] simply-mat-icon,
+:host[data-sm-variant="filled"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-icon-button-filled-disabled-icon-opacity);
 }
 
@@ -345,8 +345,8 @@
   background-color: color-mix(in oklab, var(--md-comp-icon-button-tonal-disabled-container-color) calc(var(--md-comp-icon-button-tonal-disabled-container-opacity) * 100%), transparent);
 }
 
-:host[data-sm-variant="tonal"][disabled] ::ng-deep > *,
-:host[data-sm-variant="tonal"][aria-disabled="true"] ::ng-deep > * {
+:host[data-sm-variant="tonal"][disabled] simply-mat-icon,
+:host[data-sm-variant="tonal"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-icon-button-tonal-disabled-icon-opacity);
 }
 
@@ -380,8 +380,8 @@
   background-color: color-mix(in oklab, var(--md-comp-icon-button-outlined-disabled-container-color-selected) calc(var(--md-comp-icon-button-outlined-disabled-container-opacity-selected) * 100%), transparent);
 }
 
-:host[data-sm-variant="outlined"][disabled] ::ng-deep > *,
-:host[data-sm-variant="outlined"][aria-disabled="true"] ::ng-deep > * {
+:host[data-sm-variant="outlined"][disabled] simply-mat-icon,
+:host[data-sm-variant="outlined"][aria-disabled="true"] simply-mat-icon {
   opacity: var(--md-comp-icon-button-outlined-disabled-icon-opacity);
 }
 

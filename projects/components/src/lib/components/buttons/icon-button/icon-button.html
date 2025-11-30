@@ -1,11 +1,13 @@
-@if (togglable()) {
-  @if (!isSelected()) {
-    <ng-content select="[outlined]" />
-  } @else if (isSelected()) {
-    <ng-content select="[filled]" />
+<simply-mat-icon>
+  @if (togglable()) {
+    @if (!isSelected()) {
+      <ng-content select="[outlined]" />
+    } @else if (isSelected()) {
+      <ng-content select="[filled]" />
+    } @else {
+      <ng-content />
+    }
   } @else {
     <ng-content />
   }
-} @else {
-  <ng-content />
-}
+</simply-mat-icon>

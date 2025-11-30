@@ -6,6 +6,7 @@ import {
 import {SimplyMatRippleDirective} from '../../core/ripple/ripple';
 import {BaseConfig, BUTTON_BASE_CONFIG, ButtonBaseConfig} from '../core/button-base/button-base.token';
 import {ButtonBase} from '../core/button-base/button-base';
+import {SimplyMatIcon} from '../../icon/icon';
 
 export type IconButtonVariant = 'filled' | 'tonal' | 'outlined' | 'standard';
 export type IconButtonSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
@@ -39,6 +40,9 @@ export type IconButtonWidth = 'narrow' | 'default' | 'wide';
     'class': 'simply-mat-icon-button',
     '[attr.data-sm-width]': 'width()'
   },
+  imports: [
+    SimplyMatIcon
+  ]
 })
 export class SimplyMatIconButton implements ButtonBaseConfig {
   public variant = input<IconButtonVariant>('filled');

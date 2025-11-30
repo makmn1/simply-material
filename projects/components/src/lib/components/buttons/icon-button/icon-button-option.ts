@@ -7,6 +7,7 @@ import {
   BaseConfig, BUTTON_BASE_CONFIG,
 } from "../core/button-base/button-base.token";
 import {SimplyMatIconButton, IconButtonShape} from './icon-button';
+import {SimplyMatIcon} from '../../icon/icon';
 
 @Component({
   selector: 'button[simplyMatIconButton][ngOption]',
@@ -20,6 +21,9 @@ import {SimplyMatIconButton, IconButtonShape} from './icon-button';
     'class': 'simply-mat-icon-button',
     '[attr.data-sm-width]': 'width()'
   },
+  imports: [
+    SimplyMatIcon
+  ]
 })
 export class SimplyMatIconButtonOption extends SimplyMatIconButton {
   public override isSelected: WritableSignal<boolean> = signal<boolean>(false);
