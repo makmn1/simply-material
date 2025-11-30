@@ -722,7 +722,7 @@ describe('SimplyMatTooltip (browser interaction)', () => {
       data-testid="position-left-tooltip"
       sm-tooltip
       [tooltip]="positionLeftTemplate"
-      [config]="{ position: 'left' }"
+      [config]="{ position: 'start' }"
     >
       Position Left Tooltip
     </button>

@@ -19,7 +19,7 @@ import {
 import {ComponentPortal} from '@angular/cdk/portal';
 import {TooltipContainerComponent} from './tooltip-container';
 
-export type TooltipPosition = 'above' | 'below' | 'left' | 'right';
+export type TooltipPosition = 'above' | 'below' | 'start' | 'end';
 
 export interface TooltipConfig {
   position?: TooltipPosition | null;
@@ -447,7 +447,7 @@ export class SimplyMatTooltip implements OnDestroy {
             -offset,
           ),
         ];
-      case 'left':
+      case 'start':
         return [
           new ConnectionPositionPair(
             {originX: 'start', originY: 'center'},
@@ -462,7 +462,7 @@ export class SimplyMatTooltip implements OnDestroy {
             0,
           ),
         ];
-      case 'right':
+      case 'end':
         return [
           new ConnectionPositionPair(
             {originX: 'end', originY: 'center'},

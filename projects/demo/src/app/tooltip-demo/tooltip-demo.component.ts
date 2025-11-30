@@ -21,7 +21,7 @@ type RichTooltipDemoConfig = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TooltipDemoComponent {
-  readonly tooltipPositions: TooltipPosition[] = ['above', 'below', 'left', 'right'];
+  readonly tooltipPositions: TooltipPosition[] = ['above', 'below', 'start', 'end'];
   selectedPosition = signal<TooltipPosition>('above');
 
   readonly baseTooltipConfig: TooltipConfig = {
