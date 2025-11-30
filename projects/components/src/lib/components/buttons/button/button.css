@@ -63,6 +63,11 @@
   padding-inline-end: var(--md-comp-button-xsmall-trailing-space);
   gap: var(--md-comp-button-xsmall-between-icon-label-space);
   border-radius: var(--md-comp-button-xsmall-shape-round);
+  font-family: var(--md-comp-button-xsmall-label-size-font-name), sans-serif;
+  font-weight: var(--md-comp-button-xsmall-label-size-font-weight);
+  font-size: var(--md-comp-button-xsmall-label-size-font-size);
+  line-height: var(--md-comp-button-xsmall-label-size-line-height);
+  letter-spacing: var(--md-comp-button-xsmall-label-size-font-tracking);
 }
 
 :host[data-sm-size="small"] {
@@ -71,6 +76,11 @@
   padding-inline-end: var(--md-comp-button-small-trailing-space);
   gap: var(--md-comp-button-small-between-icon-label-space);
   border-radius: var(--md-comp-button-small-shape-round);
+  font-family: var(--md-comp-button-small-label-size-font-name), sans-serif;
+  font-weight: var(--md-comp-button-small-label-size-font-weight);
+  font-size: var(--md-comp-button-small-label-size-font-size);
+  line-height: var(--md-comp-button-small-label-size-line-height);
+  letter-spacing: var(--md-comp-button-small-label-size-font-tracking);
 }
 
 :host[data-sm-size="medium"] {
@@ -79,6 +89,11 @@
   padding-inline-end: var(--md-comp-button-medium-trailing-space);
   gap: var(--md-comp-button-medium-between-icon-label-space);
   border-radius: var(--md-comp-button-medium-shape-round);
+  font-family: var(--md-comp-button-medium-label-size-font-name), sans-serif;
+  font-weight: var(--md-comp-button-medium-label-size-font-weight);
+  font-size: var(--md-comp-button-medium-label-size-font-size);
+  line-height: var(--md-comp-button-medium-label-size-line-height);
+  letter-spacing: var(--md-comp-button-medium-label-size-font-tracking);
 }
 
 :host[data-sm-size="large"] {
@@ -87,6 +102,11 @@
   padding-inline-end: var(--md-comp-button-large-trailing-space);
   gap: var(--md-comp-button-large-between-icon-label-space);
   border-radius: var(--md-comp-button-large-shape-round);
+  font-family: var(--md-comp-button-large-label-size-font-name), sans-serif;
+  font-weight: var(--md-comp-button-large-label-size-font-weight);
+  font-size: var(--md-comp-button-large-label-size-font-size);
+  line-height: var(--md-comp-button-large-label-size-line-height);
+  letter-spacing: var(--md-comp-button-large-label-size-font-tracking);
 }
 
 :host[data-sm-size="xlarge"] {
@@ -95,6 +115,11 @@
   padding-inline-end: var(--md-comp-button-xlarge-trailing-space);
   gap: var(--md-comp-button-xlarge-between-icon-label-space);
   border-radius: var(--md-comp-button-xlarge-shape-round);
+  font-family: var(--md-comp-button-xlarge-label-size-font-name), sans-serif;
+  font-weight: var(--md-comp-button-xlarge-label-size-font-weight);
+  font-size: var(--md-comp-button-xlarge-label-size-font-size);
+  line-height: var(--md-comp-button-xlarge-label-size-line-height);
+  letter-spacing: var(--md-comp-button-xlarge-label-size-font-tracking);
 }
 
 /* If resting shape is square */
