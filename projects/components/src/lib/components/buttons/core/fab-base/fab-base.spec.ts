@@ -5,7 +5,7 @@ import { describe, test, expect, beforeEach } from 'vitest';
 import { page } from 'vitest/browser';
 import { FabBase } from './fab-base';
 import { FabColor, FabSize } from './fab-base.types';
-import { SimplyMatRippleDirective } from '../../../../../miscellaneous/ripple/ripple';
+import { SimplyMatRippleDirective } from '../../../core/ripple/ripple';
 
 @Component({
   template: `

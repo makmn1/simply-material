@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {SimplyMatIconButton, SmTooltipDirective} from '@simply-material/components';
+import {SimplyMatIconButton, SimplyMatTooltip} from '@simply-material/components';
 
 @Component({
   selector: 'app-icon-button-demo',

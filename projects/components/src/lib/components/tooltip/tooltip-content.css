@@ -1,0 +1,28 @@
+:host(.sm-tooltip-content) {
+  display: block;
+}
+
+/* Plain tooltip */
+:host(.sm-tooltip-content)[data-sm-type="plain"] {
+  padding: 0.25rem 0.5rem;
+  background-color: var(--md-comp-tooltip-plain-container-color);
+  border-radius: var(--md-comp-tooltip-plain-container-shape);
+  max-width: var(--md-comp-tooltip-plain-container-width);
+
+  font-family: var(--md-comp-tooltip-plain-supporting-text-font), sans-serif;
+  font-size: var(--md-comp-tooltip-plain-supporting-text-size);
+  font-weight: var(--md-comp-tooltip-plain-supporting-text-weight);
+  line-height: var(--md-comp-tooltip-plain-supporting-text-line-height);
+  letter-spacing: var(--md-comp-tooltip-plain-supporting-text-tracking);
+  color: var(--md-comp-tooltip-plain-supporting-text-color);
+}
+
+/* Rich tooltip */
+:host(.sm-tooltip-content)[data-sm-type="rich"] {
+  background-color: var(--md-comp-tooltip-rich-container-color);
+  border-radius: var(--md-comp-tooltip-rich-container-shape);
+  max-width: var(--md-comp-tooltip-rich-container-width);
+  padding: 0.75rem 1rem 0.5rem;
+
+  box-shadow: var(--sm-sys-elevation-box-shadow-level2);
+}

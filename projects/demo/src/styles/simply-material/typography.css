@@ -14,9 +14,9 @@
     --md-sys-typescale-display-large-weight: var(
       --md-ref-typeface-weight-regular
     );
-    --md-sys-typescale-display-large-size: 4.75rem;
+    --md-sys-typescale-display-large-size: 3.5625rem;
     --md-sys-typescale-display-large-tracking: -0.0044em;
-    --md-sys-typescale-display-large-line-height: 5.3333rem;
+    --md-sys-typescale-display-large-line-height: 4rem;
     --md-sys-typescale-display-large-wght: 400;
     --md-sys-typescale-display-large-grad: 0;
     --md-sys-typescale-display-large-wdth: 100;
@@ -31,9 +31,9 @@
     --md-sys-typescale-display-medium-weight: var(
       --md-ref-typeface-weight-regular
     );
-    --md-sys-typescale-display-medium-size: 3.75rem;
+    --md-sys-typescale-display-medium-size: 2.8125rem;
     --md-sys-typescale-display-medium-tracking: 0em;
-    --md-sys-typescale-display-medium-line-height: 4.3333rem;
+    --md-sys-typescale-display-medium-line-height: 3.25rem;
     --md-sys-typescale-display-medium-wght: 400;
     --md-sys-typescale-display-medium-grad: 0;
     --md-sys-typescale-display-medium-wdth: 100;
@@ -48,9 +48,9 @@
     --md-sys-typescale-display-small-weight: var(
       --md-ref-typeface-weight-regular
     );
-    --md-sys-typescale-display-small-size: 3rem;
+    --md-sys-typescale-display-small-size: 2.25rem;
     --md-sys-typescale-display-small-tracking: 0em;
-    --md-sys-typescale-display-small-line-height: 3.6667rem;
+    --md-sys-typescale-display-small-line-height: 2.75rem;
     --md-sys-typescale-display-small-wght: 400;
     --md-sys-typescale-display-small-grad: 0;
     --md-sys-typescale-display-small-wdth: 100;
@@ -65,9 +65,9 @@
     --md-sys-typescale-headline-large-weight: var(
       --md-ref-typeface-weight-regular
     );
-    --md-sys-typescale-headline-large-size: 2.6667rem;
+    --md-sys-typescale-headline-large-size: 2rem;
     --md-sys-typescale-headline-large-tracking: 0em;
-    --md-sys-typescale-headline-large-line-height: 3.3333rem;
+    --md-sys-typescale-headline-large-line-height: 2.5rem;
     --md-sys-typescale-headline-large-wght: 400;
     --md-sys-typescale-headline-large-grad: 0;
     --md-sys-typescale-headline-large-wdth: 100;
@@ -82,9 +82,9 @@
     --md-sys-typescale-headline-medium-weight: var(
       --md-ref-typeface-weight-regular
     );
-    --md-sys-typescale-headline-medium-size: 2.3333rem;
+    --md-sys-typescale-headline-medium-size: 1.75rem;
     --md-sys-typescale-headline-medium-tracking: 0em;
-    --md-sys-typescale-headline-medium-line-height: 3rem;
+    --md-sys-typescale-headline-medium-line-height: 2.25rem;
     --md-sys-typescale-headline-medium-wght: 400;
     --md-sys-typescale-headline-medium-grad: 0;
     --md-sys-typescale-headline-medium-wdth: 100;
@@ -99,9 +99,9 @@
     --md-sys-typescale-headline-small-weight: var(
       --md-ref-typeface-weight-regular
     );
-    --md-sys-typescale-headline-small-size: 2rem;
+    --md-sys-typescale-headline-small-size: 1.5rem;
     --md-sys-typescale-headline-small-tracking: 0em;
-    --md-sys-typescale-headline-small-line-height: 2.6667rem;
+    --md-sys-typescale-headline-small-line-height: 2rem;
     --md-sys-typescale-headline-small-wght: 400;
     --md-sys-typescale-headline-small-grad: 0;
     --md-sys-typescale-headline-small-wdth: 100;
@@ -116,9 +116,9 @@
     --md-sys-typescale-title-large-weight: var(
       --md-ref-typeface-weight-regular
     );
-    --md-sys-typescale-title-large-size: 1.8333rem;
+    --md-sys-typescale-title-large-size: 1.375rem;
     --md-sys-typescale-title-large-tracking: 0em;
-    --md-sys-typescale-title-large-line-height: 2.3333rem;
+    --md-sys-typescale-title-large-line-height: 1.75rem;
     --md-sys-typescale-title-large-wght: 400;
     --md-sys-typescale-title-large-grad: 0;
     --md-sys-typescale-title-large-wdth: 100;
@@ -133,9 +133,9 @@
     --md-sys-typescale-title-medium-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-title-medium-size: 1.3333rem;
+    --md-sys-typescale-title-medium-size: 1rem;
     --md-sys-typescale-title-medium-tracking: 0.0094em;
-    --md-sys-typescale-title-medium-line-height: 2rem;
+    --md-sys-typescale-title-medium-line-height: 1.5rem;
     --md-sys-typescale-title-medium-wght: 500;
     --md-sys-typescale-title-medium-grad: 0;
     --md-sys-typescale-title-medium-wdth: 100;
@@ -148,9 +148,9 @@
     --md-sys-typescale-title-small: "Title Small";
     --md-sys-typescale-title-small-font: var(--md-ref-typeface-brand);
     --md-sys-typescale-title-small-weight: var(--md-ref-typeface-weight-medium);
-    --md-sys-typescale-title-small-size: 1.1667rem;
+    --md-sys-typescale-title-small-size: 0.875rem;
     --md-sys-typescale-title-small-tracking: 0.0071em;
-    --md-sys-typescale-title-small-line-height: 1.6667rem;
+    --md-sys-typescale-title-small-line-height: 1.25rem;
     --md-sys-typescale-title-small-wght: 500;
     --md-sys-typescale-title-small-grad: 0;
     --md-sys-typescale-title-small-wdth: 100;
@@ -163,9 +163,9 @@
     --md-sys-typescale-body-large: "Body Large";
     --md-sys-typescale-body-large-font: var(--md-ref-typeface-plain);
     --md-sys-typescale-body-large-weight: var(--md-ref-typeface-weight-regular);
-    --md-sys-typescale-body-large-size: 1.3333rem;
+    --md-sys-typescale-body-large-size: 1rem;
     --md-sys-typescale-body-large-tracking: 0.0313em;
-    --md-sys-typescale-body-large-line-height: 2rem;
+    --md-sys-typescale-body-large-line-height: 1.5rem;
     --md-sys-typescale-body-large-wght: 400;
     --md-sys-typescale-body-large-grad: 0;
     --md-sys-typescale-body-large-wdth: 100;
@@ -180,9 +180,9 @@
     --md-sys-typescale-body-medium-weight: var(
       --md-ref-typeface-weight-regular
     );
-    --md-sys-typescale-body-medium-size: 1.1667rem;
+    --md-sys-typescale-body-medium-size: 0.875rem;
     --md-sys-typescale-body-medium-tracking: 0.0179em;
-    --md-sys-typescale-body-medium-line-height: 1.6667rem;
+    --md-sys-typescale-body-medium-line-height: 1.25rem;
     --md-sys-typescale-body-medium-wght: 400;
     --md-sys-typescale-body-medium-grad: 0;
     --md-sys-typescale-body-medium-wdth: 100;
@@ -195,9 +195,9 @@
     --md-sys-typescale-body-small: "Body Small";
     --md-sys-typescale-body-small-font: var(--md-ref-typeface-plain);
     --md-sys-typescale-body-small-weight: var(--md-ref-typeface-weight-regular);
-    --md-sys-typescale-body-small-size: 1rem;
+    --md-sys-typescale-body-small-size: 0.75rem;
     --md-sys-typescale-body-small-tracking: 0.0333em;
-    --md-sys-typescale-body-small-line-height: 1.3333rem;
+    --md-sys-typescale-body-small-line-height: 1rem;
     --md-sys-typescale-body-small-wght: 400;
     --md-sys-typescale-body-small-grad: 0;
     --md-sys-typescale-body-small-wdth: 100;
@@ -210,9 +210,9 @@
     --md-sys-typescale-label-large: "Label Large";
     --md-sys-typescale-label-large-font: var(--md-ref-typeface-plain);
     --md-sys-typescale-label-large-weight: var(--md-ref-typeface-weight-medium);
-    --md-sys-typescale-label-large-size: 1.1667rem;
+    --md-sys-typescale-label-large-size: 0.875rem;
     --md-sys-typescale-label-large-tracking: 0.0071em;
-    --md-sys-typescale-label-large-line-height: 1.6667rem;
+    --md-sys-typescale-label-large-line-height: 1.25rem;
     --md-sys-typescale-label-large-wght: 500;
     --md-sys-typescale-label-large-grad: 0;
     --md-sys-typescale-label-large-wdth: 100;
@@ -227,9 +227,9 @@
     --md-sys-typescale-label-medium-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-label-medium-size: 1rem;
+    --md-sys-typescale-label-medium-size: 0.75rem;
     --md-sys-typescale-label-medium-tracking: 0.0417em;
-    --md-sys-typescale-label-medium-line-height: 1.3333rem;
+    --md-sys-typescale-label-medium-line-height: 1rem;
     --md-sys-typescale-label-medium-wght: 500;
     --md-sys-typescale-label-medium-grad: 0;
     --md-sys-typescale-label-medium-wdth: 100;
@@ -242,9 +242,9 @@
     --md-sys-typescale-label-small: "Label Small";
     --md-sys-typescale-label-small-font: var(--md-ref-typeface-plain);
     --md-sys-typescale-label-small-weight: var(--md-ref-typeface-weight-medium);
-    --md-sys-typescale-label-small-size: 0.9167rem;
+    --md-sys-typescale-label-small-size: 0.6875rem;
     --md-sys-typescale-label-small-tracking: 0.0455em;
-    --md-sys-typescale-label-small-line-height: 1.3333rem;
+    --md-sys-typescale-label-small-line-height: 1rem;
     --md-sys-typescale-label-small-wght: 500;
     --md-sys-typescale-label-small-grad: 0;
     --md-sys-typescale-label-small-wdth: 100;
@@ -261,9 +261,9 @@
     --md-sys-typescale-emphasized-display-large-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-display-large-size: 4.75rem;
+    --md-sys-typescale-emphasized-display-large-size: 3.5625rem;
     --md-sys-typescale-emphasized-display-large-tracking: -0.0044em;
-    --md-sys-typescale-emphasized-display-large-line-height: 5.3333rem;
+    --md-sys-typescale-emphasized-display-large-line-height: 4rem;
     --md-sys-typescale-emphasized-display-large-wght: 500;
     --md-sys-typescale-emphasized-display-large-grad: 0;
     --md-sys-typescale-emphasized-display-large-wdth: 100;
@@ -280,9 +280,9 @@
     --md-sys-typescale-emphasized-display-medium-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-display-medium-size: 3.75rem;
+    --md-sys-typescale-emphasized-display-medium-size: 2.8125rem;
     --md-sys-typescale-emphasized-display-medium-tracking: 0em;
-    --md-sys-typescale-emphasized-display-medium-line-height: 4.3333rem;
+    --md-sys-typescale-emphasized-display-medium-line-height: 3.25rem;
     --md-sys-typescale-emphasized-display-medium-wght: 500;
     --md-sys-typescale-emphasized-display-medium-grad: 0;
     --md-sys-typescale-emphasized-display-medium-wdth: 100;
@@ -299,9 +299,9 @@
     --md-sys-typescale-emphasized-display-small-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-display-small-size: 3rem;
+    --md-sys-typescale-emphasized-display-small-size: 2.25rem;
     --md-sys-typescale-emphasized-display-small-tracking: 0em;
-    --md-sys-typescale-emphasized-display-small-line-height: 3.6667rem;
+    --md-sys-typescale-emphasized-display-small-line-height: 2.75rem;
     --md-sys-typescale-emphasized-display-small-wght: 500;
     --md-sys-typescale-emphasized-display-small-grad: 0;
     --md-sys-typescale-emphasized-display-small-wdth: 100;
@@ -318,9 +318,9 @@
     --md-sys-typescale-emphasized-headline-large-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-headline-large-size: 2.6667rem;
+    --md-sys-typescale-emphasized-headline-large-size: 2rem;
     --md-sys-typescale-emphasized-headline-large-tracking: 0em;
-    --md-sys-typescale-emphasized-headline-large-line-height: 3.3333rem;
+    --md-sys-typescale-emphasized-headline-large-line-height: 2.5rem;
     --md-sys-typescale-emphasized-headline-large-wght: 500;
     --md-sys-typescale-emphasized-headline-large-grad: 0;
     --md-sys-typescale-emphasized-headline-large-wdth: 100;
@@ -337,9 +337,9 @@
     --md-sys-typescale-emphasized-headline-medium-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-headline-medium-size: 2.3333rem;
+    --md-sys-typescale-emphasized-headline-medium-size: 1.75rem;
     --md-sys-typescale-emphasized-headline-medium-tracking: 0em;
-    --md-sys-typescale-emphasized-headline-medium-line-height: 3rem;
+    --md-sys-typescale-emphasized-headline-medium-line-height: 2.25rem;
     --md-sys-typescale-emphasized-headline-medium-wght: 500;
     --md-sys-typescale-emphasized-headline-medium-grad: 0;
     --md-sys-typescale-emphasized-headline-medium-wdth: 100;
@@ -356,9 +356,9 @@
     --md-sys-typescale-emphasized-headline-small-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-headline-small-size: 2rem;
+    --md-sys-typescale-emphasized-headline-small-size: 1.5rem;
     --md-sys-typescale-emphasized-headline-small-tracking: 0em;
-    --md-sys-typescale-emphasized-headline-small-line-height: 2.6667rem;
+    --md-sys-typescale-emphasized-headline-small-line-height: 2rem;
     --md-sys-typescale-emphasized-headline-small-wght: 500;
     --md-sys-typescale-emphasized-headline-small-grad: 0;
     --md-sys-typescale-emphasized-headline-small-wdth: 100;
@@ -375,9 +375,9 @@
     --md-sys-typescale-emphasized-title-large-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-title-large-size: 1.8333rem;
+    --md-sys-typescale-emphasized-title-large-size: 1.375rem;
     --md-sys-typescale-emphasized-title-large-tracking: 0em;
-    --md-sys-typescale-emphasized-title-large-line-height: 2.3333rem;
+    --md-sys-typescale-emphasized-title-large-line-height: 1.75rem;
     --md-sys-typescale-emphasized-title-large-wght: 500;
     --md-sys-typescale-emphasized-title-large-grad: 0;
     --md-sys-typescale-emphasized-title-large-wdth: 100;
@@ -394,9 +394,9 @@
     --md-sys-typescale-emphasized-title-medium-weight: var(
       --md-ref-typeface-weight-bold
     );
-    --md-sys-typescale-emphasized-title-medium-size: 1.3333rem;
+    --md-sys-typescale-emphasized-title-medium-size: 1rem;
     --md-sys-typescale-emphasized-title-medium-tracking: 0.0094em;
-    --md-sys-typescale-emphasized-title-medium-line-height: 2rem;
+    --md-sys-typescale-emphasized-title-medium-line-height: 1.5rem;
     --md-sys-typescale-emphasized-title-medium-wght: 700;
     --md-sys-typescale-emphasized-title-medium-grad: 0;
     --md-sys-typescale-emphasized-title-medium-wdth: 100;
@@ -413,9 +413,9 @@
     --md-sys-typescale-emphasized-title-small-weight: var(
       --md-ref-typeface-weight-bold
     );
-    --md-sys-typescale-emphasized-title-small-size: 1.1667rem;
+    --md-sys-typescale-emphasized-title-small-size: 0.875rem;
     --md-sys-typescale-emphasized-title-small-tracking: 0.0071em;
-    --md-sys-typescale-emphasized-title-small-line-height: 1.6667rem;
+    --md-sys-typescale-emphasized-title-small-line-height: 1.25rem;
     --md-sys-typescale-emphasized-title-small-wght: 700;
     --md-sys-typescale-emphasized-title-small-grad: 0;
     --md-sys-typescale-emphasized-title-small-wdth: 100;
@@ -430,9 +430,9 @@
     --md-sys-typescale-emphasized-body-large-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-body-large-size: 1.3333rem;
+    --md-sys-typescale-emphasized-body-large-size: 1rem;
     --md-sys-typescale-emphasized-body-large-tracking: 0.0313em;
-    --md-sys-typescale-emphasized-body-large-line-height: 2rem;
+    --md-sys-typescale-emphasized-body-large-line-height: 1.5rem;
     --md-sys-typescale-emphasized-body-large-wght: 500;
     --md-sys-typescale-emphasized-body-large-grad: 0;
     --md-sys-typescale-emphasized-body-large-wdth: 100;
@@ -449,9 +449,9 @@
     --md-sys-typescale-emphasized-body-medium-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-body-medium-size: 1.1667rem;
+    --md-sys-typescale-emphasized-body-medium-size: 0.875rem;
     --md-sys-typescale-emphasized-body-medium-tracking: 0.0179em;
-    --md-sys-typescale-emphasized-body-medium-line-height: 1.6667rem;
+    --md-sys-typescale-emphasized-body-medium-line-height: 1.25rem;
     --md-sys-typescale-emphasized-body-medium-wght: 500;
     --md-sys-typescale-emphasized-body-medium-grad: 0;
     --md-sys-typescale-emphasized-body-medium-wdth: 100;
@@ -466,9 +466,9 @@
     --md-sys-typescale-emphasized-body-small-weight: var(
       --md-ref-typeface-weight-medium
     );
-    --md-sys-typescale-emphasized-body-small-size: 1rem;
+    --md-sys-typescale-emphasized-body-small-size: 0.75rem;
     --md-sys-typescale-emphasized-body-small-tracking: 0.0333em;
-    --md-sys-typescale-emphasized-body-small-line-height: 1.3333rem;
+    --md-sys-typescale-emphasized-body-small-line-height: 1rem;
     --md-sys-typescale-emphasized-body-small-wght: 500;
     --md-sys-typescale-emphasized-body-small-grad: 0;
     --md-sys-typescale-emphasized-body-small-wdth: 100;
@@ -485,9 +485,9 @@
     --md-sys-typescale-emphasized-label-large-weight: var(
       --md-ref-typeface-weight-bold
     );
-    --md-sys-typescale-emphasized-label-large-size: 1.1667rem;
+    --md-sys-typescale-emphasized-label-large-size: 0.875rem;
     --md-sys-typescale-emphasized-label-large-tracking: 0.0071em;
-    --md-sys-typescale-emphasized-label-large-line-height: 1.6667rem;
+    --md-sys-typescale-emphasized-label-large-line-height: 1.25rem;
     --md-sys-typescale-emphasized-label-large-wght: 700;
     --md-sys-typescale-emphasized-label-large-grad: 0;
     --md-sys-typescale-emphasized-label-large-wdth: 100;
@@ -504,9 +504,9 @@
     --md-sys-typescale-emphasized-label-medium-weight: var(
       --md-ref-typeface-weight-bold
     );
-    --md-sys-typescale-emphasized-label-medium-size: 1rem;
+    --md-sys-typescale-emphasized-label-medium-size: 0.75rem;
     --md-sys-typescale-emphasized-label-medium-tracking: 0.0417em;
-    --md-sys-typescale-emphasized-label-medium-line-height: 1.3333rem;
+    --md-sys-typescale-emphasized-label-medium-line-height: 1rem;
     --md-sys-typescale-emphasized-label-medium-wght: 700;
     --md-sys-typescale-emphasized-label-medium-grad: 0;
     --md-sys-typescale-emphasized-label-medium-wdth: 100;
@@ -523,9 +523,9 @@
     --md-sys-typescale-emphasized-label-small-weight: var(
       --md-ref-typeface-weight-bold
     );
-    --md-sys-typescale-emphasized-label-small-size: 0.9167rem;
+    --md-sys-typescale-emphasized-label-small-size: 0.6875rem;
     --md-sys-typescale-emphasized-label-small-tracking: 0.0455em;
-    --md-sys-typescale-emphasized-label-small-line-height: 1.3333rem;
+    --md-sys-typescale-emphasized-label-small-line-height: 1rem;
     --md-sys-typescale-emphasized-label-small-wght: 700;
     --md-sys-typescale-emphasized-label-small-grad: 0;
     --md-sys-typescale-emphasized-label-small-wdth: 100;

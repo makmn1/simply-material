@@ -25,7 +25,7 @@ This includes avoiding the use of fakeAsync and waitForAsync, as those only work
 - Import other testing utilities from vitest as needed, for example: `import { expect, test } from 'vitest';`
 - Do not use Jasmine related utilities such as `beforeEach` and `afterEach`, `it`, `describe`, etc. Always import the corresponding utilities from vitest.
 - Vitest uses `test`, not `it`, for defining tests
-- Do not use the `detectChanges()` function of the `ComponentFixture` class to trigger change detection.
+- Do not use the `detectChanges()` function of the `ComponentFixture` class to trigger change detection EXCEPT after creating the component.
 Change detection is triggered automatically with signals, rely on that. If you need to wait for change detection to complete, use `whenStable()` or `whenRenderingDone()`
 - Change detection may not happen immediately. Use `whenStable()` or `whenRenderingDone()` to wait for any pending change detections to complete
 - Do not call `compileComponents()` on the TestBed. Angular compiles the application before running tests when using `ng test`

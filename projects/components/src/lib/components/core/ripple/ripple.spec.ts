@@ -294,13 +294,13 @@ describe('SimplyMatRippleDirective', () => {
       expect(wave.style.animationName).toBe('sm-ripple-wave');
     });
 
-    test('should append wave element to host', async () => {
+    test('should not append wave element to host (so that it does not interfere with host overflow layout)', async () => {
       const element = testPage.getElement('default-btn')!;
       const childrenBefore = element.children.length;
 
       await testPage.click('default-btn', 50, 50);
 
-      expect(element.children.length).toBe(childrenBefore + 1);
+      expect(element.children.length).toBe(childrenBefore);
       expect(testPage.getWaves('default-btn').length).toBe(1);
     });
 

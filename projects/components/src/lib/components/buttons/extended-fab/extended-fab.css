@@ -7,7 +7,6 @@
   --_icon-color: currentColor;
   --_state-layer-color: transparent;
   --_state-layer-opacity: 0;
-  --_elevation-level: 0;
 
   position: relative;
   display: inline-flex;
@@ -34,9 +33,6 @@
   border: none;
   outline: none;
   border-radius: var(--md-comp-extended-fab-small-container-shape);
-
-  /* Elevation */
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-primary-container-shadow-color);
 
   /* Make sure width stays fixed to its content and padding */
   width: max-content;
@@ -102,8 +98,6 @@
   --_container-color: var(--md-comp-extended-fab-primary-container-color);
   --_label-color: var(--md-comp-extended-fab-primary-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-primary-container-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-primary-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-primary-container-shadow-color);
 }
 
 /* SECONDARY */
@@ -111,8 +105,6 @@
   --_container-color: var(--md-comp-extended-fab-secondary-container-color);
   --_label-color: var(--md-comp-extended-fab-secondary-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-secondary-container-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-secondary-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-secondary-container-shadow-color);
 }
 
 /* TERTIARY */
@@ -120,8 +112,6 @@
   --_container-color: var(--md-comp-extended-fab-tertiary-container-color);
   --_label-color: var(--md-comp-extended-fab-tertiary-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tertiary-container-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tertiary-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tertiary-container-shadow-color);
 }
 
 /* --- STATE LAYER (hover/focus/press) ------------------------------------ */
@@ -141,8 +131,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-primary-hovered-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-primary-hovered-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-primary-hovered-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-primary-hovered-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-primary-container-shadow-color);
 }
 
 /* PRIMARY - Focused */
@@ -151,8 +139,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-primary-focused-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-primary-focused-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-primary-focused-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-primary-focused-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-primary-container-shadow-color);
 }
 
 /* PRIMARY - Pressed */
@@ -161,8 +147,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-primary-pressed-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-primary-pressed-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-primary-pressed-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-primary-pressed-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-primary-container-shadow-color);
 }
 
 /* SECONDARY - Hovered */
@@ -171,8 +155,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-secondary-hovered-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-secondary-hovered-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-secondary-hovered-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-secondary-hovered-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-secondary-container-shadow-color);
 }
 
 /* SECONDARY - Focused */
@@ -181,8 +163,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-secondary-focused-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-secondary-focused-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-secondary-focused-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-secondary-focused-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-secondary-container-shadow-color);
 }
 
 /* SECONDARY - Pressed */
@@ -191,8 +171,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-secondary-pressed-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-secondary-pressed-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-secondary-pressed-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-secondary-pressed-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-secondary-container-shadow-color);
 }
 
 /* TERTIARY - Hovered */
@@ -201,8 +179,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tertiary-hovered-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tertiary-hovered-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tertiary-hovered-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tertiary-hovered-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tertiary-container-shadow-color);
 }
 
 /* TERTIARY - Focused */
@@ -211,8 +187,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tertiary-focused-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tertiary-focused-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tertiary-focused-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tertiary-focused-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tertiary-container-shadow-color);
 }
 
 /* TERTIARY - Pressed */
@@ -221,8 +195,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tertiary-pressed-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tertiary-pressed-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tertiary-pressed-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tertiary-pressed-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tertiary-container-shadow-color);
 }
 
 /* --- TONAL COLOR VARIANTS (enabled content) -------------------------------- */
@@ -231,8 +203,6 @@
   --_container-color: var(--md-comp-extended-fab-tonal-primary-container-color);
   --_label-color: var(--md-comp-extended-fab-tonal-primary-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-primary-container-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-primary-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-primary-container-shadow-color);
 }
 
 /* TONAL SECONDARY */
@@ -240,8 +210,6 @@
   --_container-color: var(--md-comp-extended-fab-tonal-secondary-container-color);
   --_label-color: var(--md-comp-extended-fab-tonal-secondary-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-secondary-container-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-secondary-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-secondary-container-shadow-color);
 }
 
 /* TONAL TERTIARY */
@@ -249,8 +217,6 @@
   --_container-color: var(--md-comp-extended-fab-tonal-tertiary-container-color);
   --_label-color: var(--md-comp-extended-fab-tonal-tertiary-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-tertiary-container-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-tertiary-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-tertiary-container-shadow-color);
 }
 
 /* --- TONAL STATE LAYER (hover/focus/press) ---------------------------------- */
@@ -260,8 +226,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-primary-hovered-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-primary-hovered-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-primary-hovered-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-primary-hovered-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-primary-container-shadow-color);
 }
 
 /* TONAL PRIMARY - Focused */
@@ -270,8 +234,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-primary-focused-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-primary-focused-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-primary-focused-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-primary-focused-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-primary-container-shadow-color);
 }
 
 /* TONAL PRIMARY - Pressed */
@@ -280,8 +242,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-primary-pressed-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-primary-pressed-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-primary-pressed-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-primary-pressed-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-primary-container-shadow-color);
 }
 
 /* TONAL SECONDARY - Hovered */
@@ -290,8 +250,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-secondary-hovered-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-secondary-hovered-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-secondary-hovered-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-secondary-hovered-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-secondary-container-shadow-color);
 }
 
 /* TONAL SECONDARY - Focused */
@@ -300,8 +258,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-secondary-focused-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-secondary-focused-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-secondary-focused-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-secondary-focused-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-secondary-container-shadow-color);
 }
 
 /* TONAL SECONDARY - Pressed */
@@ -310,8 +266,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-secondary-pressed-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-secondary-pressed-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-secondary-pressed-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-secondary-pressed-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-secondary-container-shadow-color);
 }
 
 /* TONAL TERTIARY - Hovered */
@@ -320,8 +274,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-tertiary-hovered-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-tertiary-hovered-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-tertiary-hovered-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-tertiary-hovered-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-tertiary-container-shadow-color);
 }
 
 /* TONAL TERTIARY - Focused */
@@ -330,8 +282,6 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-tertiary-focused-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-tertiary-focused-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-tertiary-focused-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-tertiary-focused-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-tertiary-container-shadow-color);
 }
 
 /* TONAL TERTIARY - Pressed */
@@ -340,7 +290,5 @@
   --_state-layer-opacity: var(--md-comp-extended-fab-tonal-tertiary-pressed-state-layer-opacity);
   --_label-color: var(--md-comp-extended-fab-tonal-tertiary-pressed-label-text-color);
   --_icon-color: var(--md-comp-extended-fab-tonal-tertiary-pressed-icon-color);
-  --_elevation-level: var(--md-comp-extended-fab-tonal-tertiary-pressed-container-elevation);
-  box-shadow: 0 0 var(--_elevation-level) var(--md-comp-extended-fab-tonal-tertiary-container-shadow-color);
 }
 

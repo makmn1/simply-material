@@ -1,9 +1,21 @@
-import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { SimplyMatIconButton, SmTooltipDirective, TooltipPosition, TooltipConfig, RichTooltipConfig, SimplyMatButton } from '@simply-material/components';
+import {ChangeDetectionStrategy, Component, signal, viewChild} from '@angular/core';
+import {
+  SimplyMatIconButton,
+  SimplyMatTooltip,
+  TooltipPosition,
+  TooltipConfig,
+  SimplyMatButton, SimplyMatTooltipContentComponent,
+} from '@simply-material/components';
+
+type RichTooltipDemoConfig = {
+  subhead?: string;
+  supportingText: string;
+  buttons?: {label: string; action: () => void}[];
+};
 
 @Component({
   selector: 'app-tooltip-demo',
-  imports: [SimplyMatIconButton, SmTooltipDirective, SimplyMatButton],
+  imports: [SimplyMatIconButton, SimplyMatTooltip, SimplyMatButton, SimplyMatTooltipContentComponent],
   templateUrl: './tooltip-demo.component.html',
   styleUrls: ['./tooltip-demo.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,7 +24,6 @@ export class TooltipDemoComponent {
   readonly tooltipPositions: TooltipPosition[] = ['above', 'below', 'left', 'right'];
   selectedPosition = signal<TooltipPosition>('above');
 
-  // Base tooltip configuration
   readonly baseTooltipConfig: TooltipConfig = {
     position: null,
     showDelay: 0,
@@ -23,7 +34,6 @@ export class TooltipDemoComponent {
     positionOffset: null,
   };
 
-  // Get tooltip config with selected position
   getTooltipConfig(): TooltipConfig {
     return {
       ...this.baseTooltipConfig,
@@ -31,7 +41,6 @@ export class TooltipDemoComponent {
     };
   }
 
-  // Get tooltip config with manual trigger
   getManualTriggerConfig(): TooltipConfig {
     return {
       ...this.baseTooltipConfig,
@@ -40,7 +49,6 @@ export class TooltipDemoComponent {
     };
   }
 
-  // Get tooltip config with default trigger
   getDefaultTriggerConfig(): TooltipConfig {
     return {
       ...this.baseTooltipConfig,
@@ -50,9 +58,9 @@ export class TooltipDemoComponent {
   }
 
   // Template references for programmatic tooltips
-  programmaticTooltipManual = viewChild<SmTooltipDirective>('programmaticTooltipManual');
-  programmaticTooltipDefault = viewChild<SmTooltipDirective>('programmaticTooltipDefault');
-  disabledProgrammaticTooltip = viewChild<SmTooltipDirective>('disabledProgrammaticTooltip');
+  programmaticTooltipManual = viewChild<SimplyMatTooltip>('programmaticTooltipManual');
+  programmaticTooltipDefault = viewChild<SimplyMatTooltip>('programmaticTooltipDefault');
+  disabledProgrammaticTooltip = viewChild<SimplyMatTooltip>('disabledProgrammaticTooltip');
 
   readonly plainTooltips = [
     'Add to favorites',
@@ -62,35 +70,27 @@ export class TooltipDemoComponent {
     'More options',
   ];
 
-  readonly richTooltipExample: RichTooltipConfig = {
-    subhead: 'Rich Tooltip',
-    supportingText: 'This is a rich tooltip demonstrating the position.',
-    buttons: [
-      { label: 'Action', action: () => console.log('Action clicked') },
-    ],
-  };
-
-  readonly richTooltips: RichTooltipConfig[] = [
+  readonly richTooltips: RichTooltipDemoConfig[] = [
     {
       subhead: 'Rich Tooltip Example',
-      supportingText: 'This is a rich tooltip with a subhead and supporting text. It can also include action buttons.',
+      supportingText:
+        'This is a rich tooltip with a subhead and supporting text. It can also include action buttons.',
       buttons: [
-        { label: 'Action 1', action: () => console.log('Action 1 clicked') },
-        { label: 'Action 2', action: () => console.log('Action 2 clicked') },
+        {label: 'Action 1', action: () => console.log('Action 1 clicked')},
+        {label: 'Action 2', action: () => console.log('Action 2 clicked')},
       ],
     },
     {
       subhead: 'Feature Description',
-      supportingText: 'This tooltip provides additional context about a feature. You can include up to two action buttons.',
-      buttons: [
-        { label: 'Learn More', action: () => console.log('Learn more clicked') },
-      ],
+      supportingText:
+        'This tooltip provides additional context about a feature. You can include up to two action buttons.',
+      buttons: [{label: 'Learn More', action: () => console.log('Learn more clicked')}],
     },
     {
       supportingText: 'This rich tooltip only has supporting text without a subhead.',
       buttons: [
-        { label: 'Primary Action', action: () => console.log('Primary action clicked') },
-        { label: 'Secondary', action: () => console.log('Secondary action clicked') },
+        {label: 'Primary Action', action: () => console.log('Primary action clicked')},
+        {label: 'Secondary', action: () => console.log('Secondary action clicked')},
       ],
     },
     {
@@ -123,4 +123,3 @@ export class TooltipDemoComponent {
     this.disabledProgrammaticTooltip()?.close();
   }
 }
-

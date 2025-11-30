@@ -3,7 +3,7 @@ import {
   Component, forwardRef,
   input, linkedSignal, output, WritableSignal,
 } from '@angular/core';
-import {SimplyMatRippleDirective} from '../../../../miscellaneous/ripple/ripple';
+import {SimplyMatRippleDirective} from '../../core/ripple/ripple';
 import {BaseConfig, BUTTON_BASE_CONFIG, ButtonBaseConfig} from '../core/button-base/button-base.token';
 import {ButtonBase} from '../core/button-base/button-base';
 

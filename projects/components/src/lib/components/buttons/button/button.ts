@@ -8,7 +8,7 @@ import {
   BaseConfig, BUTTON_BASE_CONFIG,
 } from "../core/button-base/button-base.token";
 import {ButtonBase} from "../core/button-base/button-base";
-import {SimplyMatRippleDirective} from '../../../../miscellaneous/ripple/ripple';
+import {SimplyMatRippleDirective} from '../../core/ripple/ripple';
 
 export type ButtonVariant = 'filled' | 'elevated' | 'tonal' | 'outlined' | 'text';
 export type ButtonSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';

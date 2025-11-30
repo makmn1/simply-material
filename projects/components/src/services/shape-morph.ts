@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import type { AnimationPlaybackControlsWithThen } from 'motion';
 
 import { BorderRadius } from './border-radius';
-import { SpringAnimate, SpringAnimateProperty } from '../utils/spring-animate';
+import { SpringAnimate, SpringAnimateProperty } from './spring-animate';
 
 @Injectable({
   providedIn: 'root',

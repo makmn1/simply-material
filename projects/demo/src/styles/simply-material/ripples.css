@@ -4,10 +4,18 @@
  */
 .simply-mat-ripple {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   -webkit-tap-highlight-color: transparent;
   --sm-ripple-origin-x: 0.5;
   --sm-ripple-origin-y: 0.5;
+}
+
+.simply-mat-ripple__surface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .sm-ripple__wave {

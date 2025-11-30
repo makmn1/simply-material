@@ -1,5 +1,5 @@
 import {Directive, input} from '@angular/core';
-import {SimplyMatRippleDirective} from '../../../../../miscellaneous/ripple/ripple';
+import {SimplyMatRippleDirective} from '../../../core/ripple/ripple';
 import {FabColor, FabSize} from './fab-base.types';
 
 @Directive({

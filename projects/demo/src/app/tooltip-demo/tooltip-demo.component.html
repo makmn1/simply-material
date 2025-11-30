@@ -11,7 +11,9 @@
         [value]="selectedPosition()"
         (change)="selectedPosition.set($any($event.target).value)">
         @for (position of tooltipPositions; track position) {
-          <option [value]="position">{{ position.charAt(0).toUpperCase() + position.slice(1) }}</option>
+          <option [value]="position">
+            {{ position.charAt(0).toUpperCase() + position.slice(1) }}
+          </option>
         }
       </select>
     </div>
@@ -19,7 +21,10 @@
 
   <section class="section-card">
     <h2 class="section-title">Default Positions</h2>
-    <p class="section-description">These tooltips use default settings (no optional properties specified) and are not affected by the position selector above.</p>
+    <p class="section-description">
+      These tooltips use default settings (no optional properties specified) and are not affected
+      by the position selector above.
+    </p>
 
     <div class="position-demo">
       <div class="position-demo-item">
@@ -27,64 +32,126 @@
         <button
           simplyMatIconButton
           sm-tooltip
-          [tooltip]="'Plain tooltip with default settings'"
+          [tooltip]="plainDefaultTooltip"
+          tooltipType="plain"
           [config]="baseTooltipConfig">
           <span class="material-symbols-rounded">info</span>
         </button>
+        <ng-template #plainDefaultTooltip>
+          <sm-tooltip-content>
+            <span class="plain-tooltip">Plain tooltip</span>
+          </sm-tooltip-content>
+        </ng-template>
       </div>
+
       <div class="position-demo-item">
         <span class="position-label-text">Rich Tooltip (Default)</span>
         <button
           simplyMatIconButton
           sm-tooltip
-          [tooltip]="richTooltipExample"
+          [tooltip]="richDefaultTooltip"
+          tooltipType="rich"
           [config]="baseTooltipConfig">
           <span class="material-symbols-rounded">info</span>
         </button>
+        <ng-template #richDefaultTooltip>
+          <sm-tooltip-content class="demo-rich-tooltip">
+            <div class="demo-rich-tooltip__heading">
+              Rich Tooltip
+            </div>
+            <div class="demo-rich-tooltip__subheading">
+              This is a rich tooltip demonstrating the position.
+            </div>
+            <div class="demo-rich-tooltip__actions">
+              <button simplyMatButton variant="filled">Action</button>
+            </div>
+          </sm-tooltip-content>
+        </ng-template>
       </div>
     </div>
   </section>
 
   <section class="section-card">
     <h2 class="section-title">Plain Tooltips</h2>
-    <p class="section-description">Plain tooltips provide simple text descriptions for icon buttons.</p>
+    <p class="section-description">
+      Plain tooltips provide simple text descriptions for icon buttons.
+    </p>
     <div class="button-group">
       @for (tooltip of plainTooltips; track tooltip) {
         <button
           simplyMatIconButton
           sm-tooltip
-          [tooltip]="tooltip"
+          [tooltip]="plainTooltipTpl"
+          tooltipType="plain"
           [config]="getTooltipConfig()">
           <span class="material-symbols-rounded">favorite</span>
         </button>
+        <ng-template #plainTooltipTpl>
+          <sm-tooltip-content>
+            <span class="plain-tooltip">{{ tooltip }}</span>
+          </sm-tooltip-content>
+        </ng-template>
       }
     </div>
   </section>
 
   <section class="section-card">
     <h2 class="section-title">Rich Tooltips</h2>
-    <p class="section-description">Rich tooltips can include a subhead, supporting text, and up to two action buttons.</p>
+    <p class="section-description">
+      Rich tooltips can include a subhead, supporting text, and up to two action buttons.
+    </p>
     <div class="button-group">
       @for (tooltip of richTooltips; track tooltip.supportingText) {
         <button
           simplyMatIconButton
           sm-tooltip
-          [tooltip]="tooltip"
+          [tooltip]="richTooltipTpl"
+          tooltipType="rich"
           [config]="getTooltipConfig()">
           <span class="material-symbols-rounded">info</span>
         </button>
+        <ng-template #richTooltipTpl>
+          <sm-tooltip-content class="demo-rich-tooltip">
+            @if (tooltip.subhead) {
+              <div class="demo-rich-tooltip__heading">
+                {{ tooltip.subhead }}
+              </div>
+            }
+            <div class="demo-rich-tooltip__subheading">
+              {{ tooltip.supportingText }}
+            </div>
+            @if (tooltip.buttons?.length) {
+              <div class="demo-rich-tooltip__actions">
+                @for (btn of tooltip.buttons; track btn.label) {
+                  <button
+                    simplyMatButton
+                    variant="text"
+                    (click)="btn.action()">
+                    {{ btn.label }}
+                  </button>
+                }
+              </div>
+            }
+          </sm-tooltip-content>
+        </ng-template>
       }
     </div>
   </section>
 
   <section class="section-card">
     <h2 class="section-title">Programmatic Tooltip Control</h2>
-    <p class="section-description">Tooltips can be controlled programmatically using the open() and close() methods. When programmatically opened, the tooltip ignores hover and focus events until explicitly closed.</p>
+    <p class="section-description">
+      Tooltips can be controlled programmatically using the open() and close() methods. When
+      programmatically opened, the tooltip ignores hover and focus events until explicitly closed.
+    </p>
 
     <div class="programmatic-examples">
       <div class="programmatic-example">
         <h3 class="example-title">Manual Trigger Mode</h3>
-        <p class="example-description">This tooltip can only be opened programmatically. Hovering over the button will not trigger the tooltip.</p>
+        <p class="example-description">
+          This tooltip can only be opened programmatically. Hovering over the button will not trigger
+          the tooltip.
+        </p>
         <div class="programmatic-control">
           <div class="programmatic-buttons">
             <button
@@ -105,17 +172,26 @@
               #programmaticTooltipManual="smTooltip"
               simplyMatIconButton
               sm-tooltip
-              [tooltip]="'This tooltip uses manual trigger mode. Hovering will not open it.'"
+              [tooltip]="programmaticManualTooltipTpl"
+              tooltipType="plain"
               [config]="getManualTriggerConfig()">
               <span class="material-symbols-rounded">help</span>
             </button>
+            <ng-template #programmaticManualTooltipTpl>
+              <sm-tooltip-content>
+                <span class="plain-tooltip">This tooltip uses manual trigger mode. Hovering will not open it.</span>
+              </sm-tooltip-content>
+            </ng-template>
           </div>
         </div>
       </div>
 
       <div class="programmatic-example">
         <h3 class="example-title">Default Trigger Mode</h3>
-        <p class="example-description">This tooltip can be opened both on hover and programmatically. When opened programmatically, hover events are ignored until closed.</p>
+        <p class="example-description">
+          This tooltip can be opened both on hover and programmatically. When opened programmatically,
+          hover events are ignored until closed.
+        </p>
         <div class="programmatic-control">
           <div class="programmatic-buttons">
             <button
@@ -136,10 +212,16 @@
               #programmaticTooltipDefault="smTooltip"
               simplyMatIconButton
               sm-tooltip
-              [tooltip]="'This tooltip uses default trigger mode. You can hover or use the buttons.'"
+              [tooltip]="programmaticDefaultTooltipTpl"
+              tooltipType="plain"
               [config]="getDefaultTriggerConfig()">
               <span class="material-symbols-rounded">info</span>
             </button>
+            <ng-template #programmaticDefaultTooltipTpl>
+              <sm-tooltip-content>
+                <span class="plain-tooltip">This tooltip uses default trigger mode. You can hover or use the buttons.</span>
+              </sm-tooltip-content>
+            </ng-template>
           </div>
         </div>
       </div>
@@ -148,25 +230,41 @@
 
   <section class="section-card">
     <h2 class="section-title">Disabled Tooltips</h2>
-    <p class="section-description">Tooltips on disabled elements do not show on hover, focus, or click. However, they can still be opened programmatically using the open() method.</p>
+    <p class="section-description">
+      Tooltips on disabled elements do not show on hover, focus, or click. However, they can still be
+      opened programmatically using the open() method.
+    </p>
     <div class="button-group">
       <button
         simplyMatIconButton
         sm-tooltip
-        [tooltip]="'This button is disabled'"
+        [tooltip]="disabledTooltipTpl"
+        tooltipType="plain"
         [config]="getTooltipConfig()"
         [disabled]="true">
         <span class="material-symbols-rounded">block</span>
       </button>
+      <ng-template #disabledTooltipTpl>
+        <sm-tooltip-content>
+          <span class="plain-tooltip">This button is disabled</span>
+        </sm-tooltip-content>
+      </ng-template>
+
       <button
         #disabledProgrammaticTooltip="smTooltip"
         simplyMatIconButton
         sm-tooltip
-        [tooltip]="'This disabled tooltip can be opened programmatically'"
+        [tooltip]="disabledProgrammaticTooltipTpl"
+        tooltipType="plain"
         [config]="getTooltipConfig()"
         [disabled]="true">
         <span class="material-symbols-rounded">info</span>
       </button>
+      <ng-template #disabledProgrammaticTooltipTpl>
+        <sm-tooltip-content>
+          <span class="plain-tooltip">This disabled tooltip can be opened programmatically</span>
+        </sm-tooltip-content>
+      </ng-template>
     </div>
     <div class="programmatic-control" style="margin-top: 1rem;">
       <div class="programmatic-buttons">
@@ -194,10 +292,16 @@
     <button
       simplyMatIconButton
       sm-tooltip
-      [tooltip]="'Left edge tooltip'"
+      [tooltip]="leftEdgeTooltipTpl"
+      tooltipType="plain"
       [config]="getTooltipConfig()">
       <span class="material-symbols-rounded">arrow_back</span>
     </button>
+    <ng-template #leftEdgeTooltipTpl>
+      <sm-tooltip-content>
+        <span class="plain-tooltip">Left edge tooltip</span>
+      </sm-tooltip-content>
+    </ng-template>
   </div>
 
   <!-- Right edge -->
@@ -205,10 +309,16 @@
     <button
       simplyMatIconButton
       sm-tooltip
-      [tooltip]="'Right edge tooltip'"
+      [tooltip]="rightEdgeTooltipTpl"
+      tooltipType="plain"
       [config]="getTooltipConfig()">
       <span class="material-symbols-rounded">arrow_forward</span>
     </button>
+    <ng-template #rightEdgeTooltipTpl>
+      <sm-tooltip-content>
+        <span class="plain-tooltip">Right edge tooltip</span>
+      </sm-tooltip-content>
+    </ng-template>
   </div>
 
   <!-- Bottom edge -->
@@ -216,10 +326,15 @@
     <button
       simplyMatIconButton
       sm-tooltip
-      [tooltip]="'Bottom edge tooltip'"
+      [tooltip]="bottomEdgeTooltipTpl"
+      tooltipType="plain"
       [config]="getTooltipConfig()">
       <span class="material-symbols-rounded">arrow_downward</span>
     </button>
+    <ng-template #bottomEdgeTooltipTpl>
+      <sm-tooltip-content>
+        <span class="plain-tooltip">Bottom edge tooltip</span>
+      </sm-tooltip-content>
+    </ng-template>
   </div>
 </div>
-

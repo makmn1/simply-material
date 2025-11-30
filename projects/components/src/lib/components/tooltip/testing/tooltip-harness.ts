@@ -9,7 +9,7 @@ import {TooltipHarnessFilters} from './tooltip-harness-filters';
 export class SmTooltipHarness extends ComponentHarness {
   static hostSelector = '[sm-tooltip]';
 
-  private _optionalPanel = this.documentRootLocatorFactory().locatorForOptional('[role="tooltip"]');
+  private _optionalContent = this.documentRootLocatorFactory().locatorForOptional('sm-tooltip-content');
 
   /**
    * Gets a `HarnessPredicate` that can be used to search for a tooltip trigger with specific
@@ -54,8 +54,8 @@ export class SmTooltipHarness extends ComponentHarness {
 
   /** Gets whether the tooltip is open. */
   async isOpen(): Promise<boolean> {
-    const panel = await this._optionalPanel();
-    return !!panel;
+    const content = await this._optionalContent();
+    return !!content;
   }
 
   /** Gets whether the tooltip is disabled. */
@@ -66,107 +66,27 @@ export class SmTooltipHarness extends ComponentHarness {
 
   /** Gets the type of the tooltip (plain or rich). */
   async getType(): Promise<'plain' | 'rich'> {
-    const panel = await this._optionalPanel();
-    if (!panel) {
+    const content = await this._optionalContent();
+    if (!content) {
       throw new Error('Cannot get tooltip type when tooltip is closed');
     }
-    const type = await panel.getAttribute('data-sm-type');
+    const type = await content.getAttribute('data-sm-type');
     return (type as 'plain' | 'rich') || 'plain';
   }
 
-  /** Gets the text content of a plain tooltip. Returns empty string if tooltip is closed. */
+  /** Gets the text content of a plain tooltip. Returns an empty string if the tooltip is closed. */
   async getTooltipText(): Promise<string> {
-    const panel = await this._optionalPanel();
-    if (!panel) {
+    const content = await this._optionalContent();
+    if (!content) {
       return '';
     }
-    
+
     const type = await this.getType();
     if (type === 'plain') {
-      const textElement = await this.documentRootLocatorFactory()
-        .locatorForOptional('.sm-tooltip-content__plain-text')();
-      return textElement ? await textElement.text() : '';
+      return (await content.text()).trim();
     }
-    
+
     return '';
-  }
-
-  /** Gets the subhead text of a rich tooltip. Returns null if no subhead exists. */
-  async getSubhead(): Promise<string | null> {
-    const panel = await this._optionalPanel();
-    if (!panel) {
-      throw new Error('Cannot get subhead when tooltip is closed');
-    }
-    
-    const subheadElement = await this.documentRootLocatorFactory()
-      .locatorForOptional('.sm-tooltip-content__rich-subhead')();
-    
-    return subheadElement ? await subheadElement.text() : null;
-  }
-
-  /** Gets the supporting text of a rich tooltip. */
-  async getSupportingText(): Promise<string> {
-    const panel = await this._optionalPanel();
-    if (!panel) {
-      throw new Error('Cannot get supporting text when tooltip is closed');
-    }
-    
-    const textElement = await this.documentRootLocatorFactory()
-      .locatorFor('.sm-tooltip-content__rich-supporting-text')();
-    
-    return await textElement.text();
-  }
-
-  /** Gets an array of button labels from a rich tooltip. */
-  async getButtons(): Promise<string[]> {
-    const panel = await this._optionalPanel();
-    if (!panel) {
-      return [];
-    }
-    
-    const buttonElements = await this.documentRootLocatorFactory()
-      .locatorForAll('.sm-tooltip-content__rich-action-button')();
-    
-    const labels: string[] = [];
-    for (const button of buttonElements) {
-      labels.push(await button.text());
-    }
-    
-    return labels;
-  }
-
-  /**
-   * Clicks a button in a rich tooltip.
-   * @param indexOrLabel The index or label text of the button to click.
-   */
-  async clickButton(indexOrLabel: number | string): Promise<void> {
-    const panel = await this._optionalPanel();
-    if (!panel) {
-      throw new Error('Cannot click button when tooltip is closed');
-    }
-    
-    const buttonElements = await this.documentRootLocatorFactory()
-      .locatorForAll('.sm-tooltip-content__rich-action-button')();
-    
-    if (typeof indexOrLabel === 'number') {
-      if (indexOrLabel < 0 || indexOrLabel >= buttonElements.length) {
-        throw new Error(`Button index ${indexOrLabel} is out of bounds`);
-      }
-      await buttonElements[indexOrLabel].click();
-    } else {
-      let found = false;
-      for (const button of buttonElements) {
-        const text = await button.text();
-        if (text === indexOrLabel) {
-          await button.click();
-          found = true;
-          break;
-        }
-      }
-      if (!found) {
-        throw new Error(`Button with label "${indexOrLabel}" not found`);
-      }
-    }
   }
 }
 

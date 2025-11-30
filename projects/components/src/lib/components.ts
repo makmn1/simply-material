@@ -3,7 +3,7 @@ export * from './components/buttons/button/button-option';
 export * from './components/buttons/icon-button/icon-button';
 export * from './components/buttons/fab/fab';
 export * from './components/buttons/extended-fab/extended-fab';
-export * from '../miscellaneous/ripple/ripple';
+export * from './components/core/ripple/ripple';
 export * from './components/tooltip/tooltip';
 export * from './components/tooltip/tooltip-content.component';
 export * from './components/buttons/button-group/button-group-base'

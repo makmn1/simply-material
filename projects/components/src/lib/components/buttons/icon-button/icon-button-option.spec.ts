@@ -8,7 +8,7 @@ import { SimplyMatIconButton, IconButtonVariant, IconButtonSize, IconButtonShape
 import { ButtonBase } from '../core/button-base/button-base';
 import { BUTTON_BASE_CONFIG } from '../core/button-base/button-base.token';
 import { IconButtonPage } from './icon-button.spec';
-import {SimplyMatRippleDirective} from '../../../../miscellaneous/ripple/ripple';
+import {SimplyMatRippleDirective} from '../../core/ripple/ripple';
 
 class IconButtonOptionPage extends IconButtonPage {
   override getComponent(testId: string): SimplyMatIconButtonOption | null {

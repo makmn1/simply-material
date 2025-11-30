@@ -8,7 +8,7 @@ import { SimplyMatButton, ButtonVariant, ButtonSize, ButtonShape } from './butto
 import { ButtonBase } from '../core/button-base/button-base';
 import { BUTTON_BASE_CONFIG } from '../core/button-base/button-base.token';
 import { ButtonPage } from './button.spec';
-import {SimplyMatRippleDirective} from '../../../../miscellaneous/ripple/ripple';
+import {SimplyMatRippleDirective} from '../../core/ripple/ripple';
 
 class ButtonOptionPage extends ButtonPage {
   override getComponent(testId: string): SimplyMatButtonOption | null {

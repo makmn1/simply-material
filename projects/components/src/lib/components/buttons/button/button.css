@@ -6,7 +6,6 @@
   --_label-color: currentColor;
   --_icon-color: currentColor;
   --_outline-color: transparent;
-  --_elevation-level: 0;
   --_state-layer-color: transparent;
   --_state-layer-opacity: 0;
 
@@ -37,7 +36,7 @@
   outline: none;
   border-radius: var(--md-comp-button-small-shape-round);
   /* very light elevation consumption; level var is rem */
-  box-shadow: 0 0 calc(var(--_elevation-level)) var(--md-comp-button-shadow-color);
+  box-shadow: var(--sm-sys-elevation-box-shadow-level0);
 
   /* Make sure width stays fixed to its content and padding */
   width: max-content;
@@ -167,7 +166,6 @@
   --_container-color: var(--md-comp-button-filled-container-color);
   --_label-color: var(--md-comp-button-filled-label-color);
   --_icon-color: var(--md-comp-button-filled-icon-color);
-  --_elevation-level: var(--md-comp-button-filled-elevation);
 }
 
 /* Toggle unselected vs selected for FILLED */
@@ -204,7 +202,7 @@
   --_container-color: var(--md-comp-button-elevated-container-color);
   --_label-color: var(--md-comp-button-elevated-label-color);
   --_icon-color: var(--md-comp-button-elevated-icon-color);
-  --_elevation-level: var(--md-comp-button-elevated-elevation);
+  box-shadow: var(--sm-sys-elevation-box-shadow-level1);
 }
 
 :host[data-sm-variant="elevated"][data-sm-toggle="true"][data-sm-selected="false"]:not([disabled]):not([aria-disabled="true"]) {
@@ -240,7 +238,6 @@
   --_container-color: var(--md-comp-button-tonal-container-color);
   --_label-color: var(--md-comp-button-tonal-label-color);
   --_icon-color: var(--md-comp-button-tonal-icon-color);
-  --_elevation-level: var(--md-comp-button-tonal-elevation);
 }
 
 :host[data-sm-variant="tonal"][data-sm-toggle="true"][data-sm-selected="false"]:not([disabled]):not([aria-disabled="true"]) {

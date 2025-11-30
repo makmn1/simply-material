@@ -1,4 +1,5 @@
-:host, .demo-root {
+:host,
+.demo-root {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -205,3 +206,53 @@
   text-transform: capitalize;
 }
 
+/* --- Rich tooltip internal layout */
+
+.demo-rich-tooltip[data-sm-type="rich"] {
+  border-radius: var(--md-sys-shape-corner-medium);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  text-align: start;
+}
+
+.demo-rich-tooltip__heading {
+  font-family: var(--md-sys-typescale-title-small-font), sans-serif;
+  font-size: var(--md-sys-typescale-title-small-size);
+  font-weight: var(--md-sys-typescale-title-small-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+  color: var(--md-sys-color-on-surface);
+}
+
+.demo-rich-tooltip__subheading {
+  font-family: var(--md-sys-typescale-body-small-font), sans-serif;
+  font-size: var(--md-sys-typescale-body-small-size);
+  font-weight: var(--md-sys-typescale-body-small-weight);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  letter-spacing: var(--md-sys-typescale-body-small-tracking);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.demo-rich-tooltip__actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .plain-tooltip {
+    color: black;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .plain-tooltip {
+    color: white;
+  }
+}

@@ -1,0 +1,12 @@
+@if (open()) {
+  <div
+    class="tooltip-container"
+    animate.enter="enter-animation"
+    animate.leave="leave-animation"
+    (animationend)="onAnimationEnd()"
+  >
+    <ng-container
+      *ngTemplateOutlet="contentTemplate(); injector: contentInjector"
+    />
+  </div>
+}
